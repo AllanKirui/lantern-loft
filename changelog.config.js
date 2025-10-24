@@ -13,11 +13,10 @@ module.exports = {
         const dateRaw = execSync(`git show -s --format=%ai ${commitHash}`)
           .toString()
           .trim()
-        // ✅ Example output: "2025-10-24 01:02:26 +0300"
         formattedDate = format(
           new Date(dateRaw),
           "EEE, MMM dd, yyyy • hh:mm:ss a XXX"
-        ) // e.g. Fri, Oct 24, 2025 • 01:02:26 AM +03:00
+        )
       } catch {
         formattedDate = "Unknown Date"
       }
@@ -43,7 +42,23 @@ module.exports = {
 
     groupBy: "section",
     commitGroupsSort: "title",
-    commitsSort: ["scope", "subject"],
+
+    // ✅ Sort commits by date instead of alphabetically
+    commitsSort: (a, b) => {
+      const parseDate = (c) => {
+        const s = c.committerDate || c.authorDate || c.date || ""
+        const t = Date.parse(s)
+        return Number.isFinite(t) ? t : 0
+      }
+      const da = parseDate(a)
+      const db = parseDate(b)
+      if (da !== db) return da - db // oldest first
+      const subjectA = (a.subject || "").toString()
+      const subjectB = (b.subject || "").toString()
+      const cmp = subjectA.localeCompare(subjectB)
+      if (cmp !== 0) return cmp
+      return (a.hash || "").toString().localeCompare((b.hash || "").toString())
+    },
 
     mainTemplate: readFileSync(
       resolve(__dirname, "changelog-template.hbs"),
