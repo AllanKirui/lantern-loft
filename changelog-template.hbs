@@ -1,0 +1,12 @@
+# Changelog
+
+{{#each commitGroups}}
+## {{title}}
+
+{{#each commits}}
+- {{subject}}
+  ([{{shortHash}}](/{{hash}}))
+  <br/>_{{formattedDate}}_
+{{/each}}
+
+{{/each}}

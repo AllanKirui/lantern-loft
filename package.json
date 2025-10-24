@@ -8,7 +8,7 @@
     "prepare": "husky",
     "commit": "cz",
     "lint:commits": "commitlint --from=HEAD~1",
-    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s -r 0"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,10 @@
     "@commitlint/config-conventional": "^20.0.0",
     "commitizen": "^4.3.1",
     "conventional-changelog-cli": "^5.0.0",
+    "conventional-changelog-custom-config": "^0.3.1",
+    "conventional-changelog-writer": "^8.2.0",
     "cz-conventional-changelog": "^3.3.0",
+    "date-fns": "^4.1.0",
     "husky": "^9.1.7"
   }
 }
