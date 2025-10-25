@@ -23,7 +23,13 @@
 
     /* Vue-specific */
     "types": ["vite/client"],
-    "jsx": "preserve"
+    "jsx": "preserve",
+
+    // Fix for '@' alias for the src/ directory not being recognized by TypeScipt
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["node_modules"]
