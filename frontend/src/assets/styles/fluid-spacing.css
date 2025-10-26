@@ -1,0 +1,10 @@
+:root {
+  /* Fluid spacing for screens between 320px (min) and 1280px (max) */
+  /* 12-16px */
+  --space-12-16: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+}
+
+/* Storefront Header Styles */
+.px-fluid-xs {
+  padding: 0 var(--space-12-16);
+}
