@@ -1,0 +1,22 @@
+:root {
+  /* Nav on large screens (768px-1280px, 16-17px) */
+  --fs-nav-lg: clamp(1rem, 0.9063rem + 0.1953vw, 1.0625rem);
+
+  /* Fluid font sizes for screens between 320px (min) and 1280px (max) */
+  /* 12-14px */
+  --fs-12-14: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
+
+  /* 16-18px */
+  --fs-16-18: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem);
+}
+
+/* Storefront Header Styles */
+.fs-logo-fallback {
+  font-size: var(--fs-16-18);
+}
+.fs-nav-lg {
+  font-size: var(--fs-nav-lg);
+}
+.fs-nav-cart-count {
+  font-size: var(--fs-12-14);
+}
