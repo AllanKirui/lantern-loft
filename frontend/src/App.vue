@@ -1,3 +1,3 @@
 <template>
-  <div>Lantern Loft</div>
+  <RouterView />
 </template>
