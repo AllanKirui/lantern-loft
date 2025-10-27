@@ -5,6 +5,11 @@
 @tailwind utilities;
 
 @layer base {
+  svg,
+  svg path {
+    stroke-width: var(--icon-stroke-width);
+  }
+
   body {
     @apply font-sans;
     line-height: 1.4;
