@@ -58,23 +58,70 @@ import Logo from "../common/Logo.vue"
     <span class="block w-full h-[1px] bg-jet" />
 
     <!-- Bottom navigation for desktop -->
-    <!-- TODO add icons and dropdowns -->
     <div class="wrapper hidden md:flex justify-end gap-8 py-2 px-4">
-      <div>
-        <a href="/account">Account</a>
+      <div class="group relative">
+        <a
+          href="/account"
+          class="flex items-center gap-2 group-hover:text-bone"
+        >
+          <BaseIcon
+            name="avatar"
+            class="w-[22px] h-[22px]"
+            :stroke-width="3.5"
+          />
+          <span>Account</span>
+          <BaseIcon
+            name="chevron"
+            class="w-3 h-[7.5px] text-bone"
+            :stroke-width="5"
+          />
+        </a>
       </div>
 
-      <div>
-        <a href="/wishlist">Recent Items</a>
+      <div class="group relative">
+        <a
+          href="/recent-items"
+          class="flex items-center gap-2 group-hover:text-bone"
+        >
+          <BaseIcon
+            name="history"
+            class="w-[22px] h-[22px]"
+            :stroke-width="3.5"
+          />
+          <span>Recently Viewed</span>
+          <BaseIcon
+            name="chevron"
+            class="w-3 h-[7.5px] text-bone"
+            :stroke-width="5"
+          />
+        </a>
       </div>
 
-      <div>
-        <a href="/wishlist">Wishlist</a>
+      <div class="group relative">
+        <a
+          href="/wishlist"
+          class="flex items-center gap-2 group-hover:text-bone"
+        >
+          <BaseIcon
+            name="wishlist"
+            class="w-[22px] h-[22px]"
+            :stroke-width="3.5"
+          />
+          <span>Wishlist</span>
+          <BaseIcon
+            name="chevron"
+            class="w-3 h-[7.5px] text-bone"
+            :stroke-width="5"
+          />
+        </a>
       </div>
 
       <div>
         <!-- TODO add link to admin login -->
-        <a href="#">The Workshop</a>
+        <a href="#" class="flex items-center gap-2 hover:text-bone">
+          <BaseIcon name="bulb-off" class="w-6 h-6" />
+          <span>The Workshop</span>
+        </a>
       </div>
     </div>
 
