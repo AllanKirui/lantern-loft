@@ -47,7 +47,8 @@ import Logo from "../common/Logo.vue"
         >
           <BaseIcon
             name="search"
-            class="w-[26px] h-[26px] group-hover:text-cosmic-latte"
+            class="w-6 h-6 group-hover:text-cosmic-latte"
+            :stroke-width="4"
           />
           <span class="sr-only">Search</span>
         </button>
