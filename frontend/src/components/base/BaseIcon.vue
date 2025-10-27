@@ -1,11 +1,16 @@
 <script setup lang="ts">
-defineProps<{
-  name: string
-}>()
+defineProps({
+  name: { type: String, required: true },
+  strokeWidth: { type: [Number, String], default: 1.5 }
+})
 </script>
 
 <template>
-  <svg class="w-5 h-5" aria-hidden="true">
-    <use :href="`/src/assets/icons/ui/${name}.svg`"></use>
+  <svg
+    class="inline-block"
+    aria-hidden="true"
+    :style="{ '--icon-stroke-width': strokeWidth }"
+  >
+    <use :href="`/src/assets/icons/ui/${name}.svg`" />
   </svg>
 </template>
