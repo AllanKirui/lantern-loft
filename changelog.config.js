@@ -7,20 +7,24 @@ module.exports = {
   writerOpts: {
     transform(commit) {
       const commitHash = commit.hash?.substring(0, 7)
-
       let formattedDate = ""
+      let sortableDate = 0
+
       try {
+        // Get the author date for this commit
         const dateRaw = execSync(`git show -s --format=%ai ${commitHash}`)
           .toString()
           .trim()
-        formattedDate = format(
-          new Date(dateRaw),
-          "EEE, MMM dd, yyyy • hh:mm:ss a XXX"
-        )
+
+        // Example: "2025-10-24 01:02:26 +0300"
+        const dateObj = new Date(dateRaw)
+        sortableDate = dateObj.getTime()
+        formattedDate = format(dateObj, "EEE, MMM dd, yyyy • hh:mm:ss a XXX")
       } catch {
         formattedDate = "Unknown Date"
       }
 
+      // Map commit types to emoji sections
       const typeMap = {
         feat: "✨ Features",
         fix: "🐛 Bug Fixes",
@@ -36,23 +40,21 @@ module.exports = {
         ...commit,
         section,
         shortHash: commitHash,
-        formattedDate
+        formattedDate,
+        sortableDate // used for proper chronological sorting
       }
     },
 
     groupBy: "section",
     commitGroupsSort: "title",
 
-    // ✅ Sort commits by date instead of alphabetically
+    // Sort commits from oldest → newest by sortableDate
     commitsSort: (a, b) => {
-      const parseDate = (c) => {
-        const s = c.committerDate || c.authorDate || c.date || ""
-        const t = Date.parse(s)
-        return Number.isFinite(t) ? t : 0
-      }
-      const da = parseDate(a)
-      const db = parseDate(b)
+      const da = a.sortableDate || 0
+      const db = b.sortableDate || 0
       if (da !== db) return da - db // oldest first
+
+      // Fallback sorting if dates match
       const subjectA = (a.subject || "").toString()
       const subjectB = (b.subject || "").toString()
       const cmp = subjectA.localeCompare(subjectB)
@@ -60,6 +62,7 @@ module.exports = {
       return (a.hash || "").toString().localeCompare((b.hash || "").toString())
     },
 
+    // Templates
     mainTemplate: readFileSync(
       resolve(__dirname, "changelog-template.hbs"),
       "utf-8"
