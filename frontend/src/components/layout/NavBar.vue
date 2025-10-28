@@ -59,17 +59,13 @@ import Logo from "../common/Logo.vue"
     <span class="block w-full h-[1px] bg-jet" />
 
     <!-- Bottom navigation for desktop -->
-    <div class="wrapper hidden md:flex justify-end gap-8 py-2 px-4">
+    <div class="wrapper hidden md:flex justify-end gap-8 py-2 px-4 text-[15px]">
       <div class="group relative">
         <a
           href="/account"
           class="flex items-center gap-2 group-hover:text-bone"
         >
-          <BaseIcon
-            name="avatar"
-            class="w-[22px] h-[22px]"
-            :stroke-width="3.5"
-          />
+          <BaseIcon name="avatar" class="w-5 h-5" :stroke-width="3.5" />
           <span>Account</span>
           <BaseIcon
             name="chevron"
@@ -84,11 +80,7 @@ import Logo from "../common/Logo.vue"
           href="/recent-items"
           class="flex items-center gap-2 group-hover:text-bone"
         >
-          <BaseIcon
-            name="history"
-            class="w-[22px] h-[22px]"
-            :stroke-width="3.5"
-          />
+          <BaseIcon name="history" class="w-5 h-5" :stroke-width="3.5" />
           <span>Recently Viewed</span>
           <BaseIcon
             name="chevron"
@@ -103,11 +95,7 @@ import Logo from "../common/Logo.vue"
           href="/wishlist"
           class="flex items-center gap-2 group-hover:text-bone"
         >
-          <BaseIcon
-            name="wishlist"
-            class="w-[22px] h-[22px]"
-            :stroke-width="3.5"
-          />
+          <BaseIcon name="wishlist" class="w-5 h-5" :stroke-width="3.5" />
           <span>Wishlist</span>
           <BaseIcon
             name="chevron"
@@ -120,7 +108,7 @@ import Logo from "../common/Logo.vue"
       <div>
         <!-- TODO add link to admin login -->
         <a href="#" class="flex items-center gap-2 hover:text-bone">
-          <BaseIcon name="bulb-off" class="w-6 h-6" />
+          <BaseIcon name="bulb-off" class="w-[22px] h-[22px]" />
           <span>The Workshop</span>
         </a>
       </div>
