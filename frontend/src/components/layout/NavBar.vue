@@ -43,11 +43,11 @@ import Logo from "../common/Logo.vue"
         <span class="w-[1px] h-5 bg-crayola" />
 
         <button
-          class="group flex items-center justify-center w-8 h-8 hover:bg-eerie-black duration-200 rounded-full"
+          class="group btn-hover flex items-center justify-center w-8 h-8 hover:after:bg-eerie-black rounded-full"
         >
           <BaseIcon
             name="search"
-            class="w-6 h-6 group-hover:text-cosmic-latte"
+            class="w-6 h-6 group-hover:text-cosmic-latte duration-200"
             :stroke-width="4"
           />
           <span class="sr-only">Search</span>
