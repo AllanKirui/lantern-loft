@@ -20,7 +20,17 @@ export const useOverlayStore = defineStore("overlay", () => {
   watch(
     isActive,
     (val) => {
-      document.body.style.overflow = val ? "hidden" : ""
+      if (val) {
+        document.body.style.position = "fixed"
+        document.body.style.top = `-${window.scrollY}px`
+        document.body.style.width = "100%"
+      } else {
+        const scrollY = document.body.style.top
+        document.body.style.position = ""
+        document.body.style.top = ""
+        document.body.style.width = ""
+        window.scrollTo(0, parseInt(scrollY || "0") * -1)
+      }
     },
     { immediate: true }
   )
