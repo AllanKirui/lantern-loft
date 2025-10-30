@@ -15,7 +15,7 @@ function handleClick() {
   <transition name="fade">
     <div
       v-if="overlayStore.isActive"
-      class="fixed inset-0 bg-black/75 z-[999]"
+      class="fixed inset-0 bg-black/75 z-[99]"
       @click="handleClick"
     ></div>
   </transition>
