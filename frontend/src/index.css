@@ -57,4 +57,8 @@
     /* background-color for the after pseudo-selector should come from the element itself */
     transform: scaleX(1.015) scaleY(1.035) perspective(1px);
   }
+
+  .custom-shadow {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
 }
