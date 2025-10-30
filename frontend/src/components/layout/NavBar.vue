@@ -3,7 +3,7 @@ import Logo from "../common/Logo.vue"
 </script>
 
 <template>
-  <header class="w-full bg-black text-crayola">
+  <header class="w-full bg-black text-crayola relative z-[100]">
     <!-- Top navigation -->
     <div
       class="wrapper relative flex items-center justify-between px-fluid-xs h-20"
