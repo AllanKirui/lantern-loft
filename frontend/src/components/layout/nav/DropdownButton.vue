@@ -4,6 +4,7 @@ interface Props {
   activeDropdown: string | null
   icon: string
   text: string
+  controls: string
 }
 
 defineProps<Props>()
@@ -19,7 +20,7 @@ const emit = defineEmits(["toggle"])
       'bg-eerie-black/75 text-bone': activeDropdown === 'account'
     }"
     :aria-expanded="activeDropdown === 'account'"
-    aria-controls="account-menu"
+    :aria-controls="controls"
   >
     <BaseIcon :name="icon" class="w-5 h-5" :stroke-width="3.5" />
     <span>{{ text }}</span>

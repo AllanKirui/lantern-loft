@@ -51,6 +51,7 @@ const leave = (el: Element, done: () => void) => {
         icon="avatar"
         text="Account"
         belongsTo="account"
+        controls="account-menu"
         @toggle="toggleDropdown"
       />
 
