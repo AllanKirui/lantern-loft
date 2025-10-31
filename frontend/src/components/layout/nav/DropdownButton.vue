@@ -30,5 +30,14 @@ const emit = defineEmits(["toggle"])
       :class="{ 'rotate-180': activeDropdown === 'account' }"
       :stroke-width="5"
     />
+    <!-- Pointer -->
+    <span
+      class="absolute left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-cosmic-latte duration-200"
+      :class="[
+        activeDropdown === belongsTo
+          ? 'opacity-1 -bottom-2'
+          : 'opacity-0 -bottom-4'
+      ]"
+    ></span>
   </button>
 </template>
