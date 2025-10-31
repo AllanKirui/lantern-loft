@@ -15,11 +15,11 @@ const emit = defineEmits(["toggle"])
 <template>
   <button
     @click="emit('toggle', belongsTo)"
-    class="btn-hover py-2 px-4 hover:after:bg-eerie-black/75 flex items-center gap-2 group-hover:text-bone overflow-hidden duration-200"
+    class="btn-hover relative py-2 px-4 flex items-center gap-2 hover:text-bone hover:after:bg-eerie-black/75 overflow-hidden duration-200"
     :class="{
-      'bg-eerie-black/75 text-bone': activeDropdown === 'account'
+      'bg-eerie-black/75 text-bone': activeDropdown === belongsTo
     }"
-    :aria-expanded="activeDropdown === 'account'"
+    :aria-expanded="activeDropdown === belongsTo"
     :aria-controls="controls"
   >
     <BaseIcon :name="icon" class="w-5 h-5" :stroke-width="3.5" />
@@ -27,7 +27,7 @@ const emit = defineEmits(["toggle"])
     <BaseIcon
       name="chevron"
       class="w-[11px] h-[6.8px] text-bone duration-200"
-      :class="{ 'rotate-180': activeDropdown === 'account' }"
+      :class="{ 'rotate-180': activeDropdown === belongsTo }"
       :stroke-width="5"
     />
     <!-- Pointer -->
