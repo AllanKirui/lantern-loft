@@ -11,7 +11,14 @@ const activeDropdown = ref<string | null>(null)
 
 function toggleDropdown(menu: string) {
   activeDropdown.value = activeDropdown.value === menu ? null : menu
-  overlayStore.toggle()
+
+  if (activeDropdown.value !== null) overlayStore.open()
+  else overlayStore.close()
+}
+
+function closeDropdown() {
+  activeDropdown.value = null
+  overlayStore.close()
 }
 
 // Set the height and opacity of the dropdown element at the different <transition> stages
@@ -67,7 +74,7 @@ const leave = (el: Element, done: () => void) => {
 
     <!-- Overlay -->
     <Teleport to="body">
-      <BaseOverlay @close="activeDropdown = null" />
+      <BaseOverlay @close="closeDropdown" />
     </Teleport>
   </div>
 </template>
