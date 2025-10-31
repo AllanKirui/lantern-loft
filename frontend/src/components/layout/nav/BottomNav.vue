@@ -2,6 +2,8 @@
 import { ref } from "vue"
 import DropdownButton from "./DropdownButton.vue"
 import AccountDropdown from "./AccountDropdown.vue"
+import RecentItemsDropdown from "./RecentItemsDropdown.vue"
+import WishlistDropdown from "./WishlistDropdown.vue"
 import BaseOverlay from "@/components/base/BaseOverlay.vue"
 import { useOverlayStore } from "@/stores/overlay"
 
@@ -69,6 +71,45 @@ const leave = (el: Element, done: () => void) => {
         @leave="leave"
       >
         <AccountDropdown v-if="activeDropdown === 'account'" />
+      </transition>
+    </div>
+
+    <!-- Recent Items Button -->
+    <DropdownButton
+      :active-dropdown="activeDropdown"
+      icon="history"
+      text="Recently Viewed"
+      belongsTo="recent"
+      controls="recent-items-dropdown"
+      @toggle="toggleDropdown"
+    />
+
+    <!-- Wishlist Button -->
+    <DropdownButton
+      :active-dropdown="activeDropdown"
+      icon="wishlist"
+      text="Wishlist"
+      belongsTo="wishlist"
+      controls="wishlist-dropdown"
+      @toggle="toggleDropdown"
+    />
+
+    <!-- Recent Items and Wishlist Dropdown Container -->
+    <div class="absolute bottom-0">
+      <transition
+        name="dropdown"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @leave="leave"
+      >
+        <RecentItemsDropdown
+          v-if="activeDropdown === 'recent'"
+          @close="closeDropdown"
+        />
+        <WishlistDropdown
+          v-else-if="activeDropdown === 'wishlist'"
+          @close="closeDropdown"
+        />
       </transition>
     </div>
 
