@@ -22,16 +22,17 @@ const emit = defineEmits(["close"])
         Your wishlist could use a little light — keep browsing and save your
         favorites!
       </p>
-      <!-- TODO there're some reusable styles here from block... -->
-      <a
-        href="/collections"
-        class="mt-5 mx-auto max-w-96 block py-[10px] font-medium text-center bg-eerie-black custom-shadow text-crayola rounded-md"
+      <a href="/collections" class="btn-primary mt-5 mx-auto max-w-96"
         >Go Shopping</a
       >
-      <!-- TODO should not be underlined -->
       <p class="mt-5 mb-3">
         Not seeing your saved items from other logged in devices or past visits?
-        <a href="/account/sign-in" class="font-medium underline">Sign in</a>.
+        <a
+          href="/account/sign-in"
+          data-replace="Sign in"
+          class="link-hover font-medium"
+          ><span>Sign in</span></a
+        >.
       </p>
     </div>
   </BaseDropdown>
