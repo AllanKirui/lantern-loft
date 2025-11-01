@@ -40,15 +40,14 @@ const accountLinks = [
       </a>
     </li>
     <li class="my-2 px-[14px]">
-      <a
-        href="/account/create"
-        class="block py-[10px] font-medium text-center bg-eerie-black custom-shadow text-crayola rounded-md"
-        >Create Account</a
-      >
+      <a href="/account/create" class="btn-primary">Create Account</a>
     </li>
     <li class="my-2">
-      <a href="/account/sign-in" class="block my-3 mx-auto w-fit font-medium"
-        >Sign In</a
+      <a
+        href="/account/sign-in"
+        data-replace="Sign In"
+        class="link-hover block my-3 mx-auto w-fit font-medium"
+        ><span>Sign In</span></a
       >
     </li>
   </ul>
