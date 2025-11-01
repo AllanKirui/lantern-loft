@@ -23,11 +23,13 @@ const emit = defineEmits(["close"])
         <!-- Vertical divider -->
         <span class="w-[1px] h-5 bg-pale-brown" />
 
-        <a :href="manageHref">Manage items</a>
+        <a :href="manageHref" data-replace="Manage items" class="link-hover"
+          ><span>Manage items</span></a
+        >
       </div>
 
       <button
-        class="btn-hover flex items-center justify-center w-8 h-8 hover:after:bg-cream rounded-full"
+        class="btn-hover btn-pressable flex items-center justify-center w-8 h-8 hover:after:bg-cream rounded-full"
         @click="emit('close')"
       >
         <BaseIcon
