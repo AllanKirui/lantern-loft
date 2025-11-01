@@ -71,7 +71,53 @@
     /* background-color for the after pseudo-selector should come from the element itself */
     transform: scaleX(1.015) scaleY(1.035) perspective(1px);
   }
-
+  /* Original Hover Effect - https://codepen.io/team/css-tricks/pen/jOarVmy */
+  .link-hover {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+  }
+  .link-hover::before,
+  .link-hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    will-change: transform;
+  }
+  .link-hover::before {
+    bottom: 0;
+    height: 0;
+    box-shadow: 0 0 0 0.7px;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .link-hover::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .link-hover:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+  }
+  .link-hover:hover::after {
+    transform: translate3d(0, 0, 0);
+  }
+  /* Span sliding animation */
+  .link-hover span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    will-change: transform;
+  }
+  .link-hover:hover span {
+    transform: translate3d(-200%, 0, 0);
+  }
   .custom-shadow {
     /* https://getcssscan.com/css-box-shadow-examples #33 */
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
