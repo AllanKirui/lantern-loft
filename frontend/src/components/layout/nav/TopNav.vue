@@ -20,13 +20,20 @@ import Logo from "@/components/common/Logo.vue"
 
     <!-- Center links -->
     <nav class="hidden md:flex gap-6">
-      <a href="/" class="fs-nav-lg">Home</a>
-      <a href="/collections" class="fs-nav-lg">Shop</a>
+      <a href="/" data-replace="Home" class="fs-nav-lg link-hover"
+        ><span>Home</span></a
+      >
+      <a href="/collections" data-replace="Shop" class="fs-nav-lg link-hover"
+        ><span>Shop</span></a
+      >
     </nav>
 
     <!-- Right buttons -->
     <div class="flex items-center gap-4">
-      <a href="/cart" class="flex items-center gap-[10px]">
+      <a
+        href="/cart"
+        class="flex items-center gap-[10px] hover:text-bone duration-200"
+      >
         <div class="relative">
           <BaseIcon name="cart" class="w-7 h-7" />
           <div
