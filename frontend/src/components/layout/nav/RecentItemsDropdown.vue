@@ -22,17 +22,23 @@ const emit = defineEmits(["close"])
         Looks like we don't have anything recent for you.
       </p>
       <!-- TODO there're some reusable styles here from block... -->
-      <a
-        href="/collections"
-        class="block py-[10px] font-medium text-center bg-eerie-black custom-shadow text-crayola rounded-md mt-5 mx-auto max-w-96"
+      <a href="/collections" class="btn-primary mt-5 mx-auto max-w-96"
         >Go Shopping</a
       >
       <!-- TODO should not be underlined -->
       <p class="mt-5 mb-3">
-        <a href="/account/sign-in" class="font-medium underline">Sign in</a>
+        <a
+          href="/account/sign-in"
+          data-replace="Sign in"
+          class="link-hover font-medium"
+          ><span>Sign in</span></a
+        >
         or
-        <a href="/account/create" class="font-medium underline"
-          >create an account</a
+        <a
+          href="/account/create"
+          data-replace="create an account"
+          class="link-hover font-medium"
+          ><span>create an account</span></a
         >
         to see your stuff on all your devices.
       </p>
