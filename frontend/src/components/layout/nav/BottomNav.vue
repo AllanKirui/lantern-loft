@@ -7,11 +7,14 @@ import WishlistDropdown from "./WishlistDropdown.vue"
 import BaseOverlay from "@/components/base/BaseOverlay.vue"
 import { useOverlayStore } from "@/stores/overlay"
 
+// Allowed dropdown types
+type DropdownName = "account" | "recent" | "wishlist"
+
 const overlayStore = useOverlayStore()
 
-const activeDropdown = ref<string | null>(null)
+const activeDropdown = ref<DropdownName | null>(null)
 
-function toggleDropdown(menu: string) {
+function toggleDropdown(menu: DropdownName) {
   const isSame = activeDropdown.value === menu
   activeDropdown.value = isSame ? null : menu
   overlayStore[isSame ? "close" : "open"]()
@@ -58,7 +61,7 @@ function leave(el: Element, done: () => void) {
         :active-dropdown="activeDropdown"
         icon="avatar"
         text="Account"
-        belongsTo="account"
+        dropdown="account"
         controls="account-menu"
         @toggle="toggleDropdown"
       />
@@ -78,7 +81,7 @@ function leave(el: Element, done: () => void) {
       :active-dropdown="activeDropdown"
       icon="history"
       text="Recently Viewed"
-      belongsTo="recent"
+      dropdown="recent"
       controls="recent-items-dropdown"
       @toggle="toggleDropdown"
     />
@@ -88,7 +91,7 @@ function leave(el: Element, done: () => void) {
       :active-dropdown="activeDropdown"
       icon="wishlist"
       text="Wishlist"
-      belongsTo="wishlist"
+      dropdown="wishlist"
       controls="wishlist-dropdown"
       @toggle="toggleDropdown"
     />
