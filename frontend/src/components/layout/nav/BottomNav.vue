@@ -24,7 +24,7 @@ function closeDropdown() {
 }
 
 // Set the height and opacity of the dropdown element at the different <transition> stages
-const beforeEnter = (el: Element) => {
+function beforeEnter(el: Element) {
   const element = el as HTMLElement
   element.style.height = "0"
   element.style.opacity = "0"
@@ -32,7 +32,7 @@ const beforeEnter = (el: Element) => {
   element.style.setProperty("--dropdown-height", height)
 }
 
-const enter = (el: Element, done: () => void) => {
+function enter(el: Element, done: () => void) {
   const element = el as HTMLElement
   const height = element.scrollHeight + "px"
   requestAnimationFrame(() => {
@@ -42,7 +42,7 @@ const enter = (el: Element, done: () => void) => {
   el.addEventListener("transitionend", done, { once: true })
 }
 
-const leave = (el: Element, done: () => void) => {
+function leave(el: Element, done: () => void) {
   const element = el as HTMLElement
   element.style.height = "0"
   element.style.opacity = "0"
