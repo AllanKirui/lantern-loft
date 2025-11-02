@@ -12,10 +12,9 @@ const overlayStore = useOverlayStore()
 const activeDropdown = ref<string | null>(null)
 
 function toggleDropdown(menu: string) {
-  activeDropdown.value = activeDropdown.value === menu ? null : menu
-
-  if (activeDropdown.value !== null) overlayStore.open()
-  else overlayStore.close()
+  const isSame = activeDropdown.value === menu
+  activeDropdown.value = isSame ? null : menu
+  overlayStore[isSame ? "close" : "open"]()
 }
 
 function closeDropdown() {
