@@ -134,6 +134,22 @@ function leave(el: Element, done: () => void) {
       </transition>
     </div>
 
+    <!-- Workshop link -->
+    <div>
+      <!-- TODO add path to admin login -->
+      <a
+        href="#"
+        class="btn-hover relative flex items-center gap-2 py-2 px-4 hover:text-bone hover:after:bg-eerie-black/75 duration-200 overflow-hidden"
+      >
+        <BaseIcon
+          name="bulb-off"
+          class="w-[22px] h-[22px]"
+          :stroke-width="1.3"
+        />
+        <span>The Workshop</span>
+      </a>
+    </div>
+
     <!-- Overlay -->
     <Teleport to="body">
       <BaseOverlay @close="closeDropdown" />
