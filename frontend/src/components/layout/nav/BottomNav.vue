@@ -56,7 +56,7 @@ function leave(el: Element, done: () => void) {
   <!-- Bottom navigation for desktop -->
   <div class="wrapper hidden md:flex justify-end px-4 text-[15px]">
     <!-- Account Dropdown Container -->
-    <div class="group relative">
+    <div class="relative">
       <DropdownButton
         :active-dropdown="activeDropdown"
         icon="avatar"
