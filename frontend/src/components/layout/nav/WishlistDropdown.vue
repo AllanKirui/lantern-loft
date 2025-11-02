@@ -9,7 +9,7 @@ const emit = defineEmits(["close"])
     id="wishlist-dropdown"
     title="Saved Items"
     manage-href="/wishlist"
-    @close="emit('close')"
+    @close="$emit('close')"
   >
     <!-- Empty list -->
     <div class="mt-5 text-center">

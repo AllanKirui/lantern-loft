@@ -9,7 +9,7 @@ const emit = defineEmits(["close"])
     id="recent-items-dropdown"
     title="Recent Items"
     manage-href="/recent-items"
-    @close="emit('close')"
+    @close="$emit('close')"
   >
     <!-- Empty list -->
     <div class="mt-5 text-center">
