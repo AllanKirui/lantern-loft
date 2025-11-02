@@ -40,7 +40,7 @@
     @apply btn bg-black text-crayola;
   }
   .btn-secondary {
-    @apply btn border border-eerie-black bg-cosmic-latte text-chestnut-brown;
+    @apply btn border border-chestnut-brown bg-cosmic-latte text-chestnut-brown;
   }
   .btn-hover {
     @apply relative z-10;
