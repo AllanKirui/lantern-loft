@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { onBeforeUnmount, ref, watch } from "vue"
 import DropdownButton from "./DropdownButton.vue"
 import AccountDropdown from "./AccountDropdown.vue"
 import RecentItemsDropdown from "./RecentItemsDropdown.vue"
@@ -24,6 +24,25 @@ function closeDropdown() {
   activeDropdown.value = null
   overlayStore.close()
 }
+
+function handleScreenResize() {
+  if (window.innerWidth < 768) closeDropdown()
+}
+
+function addResizeListener() {
+  window.addEventListener("resize", handleScreenResize)
+}
+
+function removeResizeListener() {
+  window.removeEventListener("resize", handleScreenResize)
+}
+
+watch(activeDropdown, (newVal) => {
+  if (newVal) addResizeListener()
+  else removeResizeListener()
+})
+
+onBeforeUnmount(removeResizeListener)
 
 // Set the height and opacity of the dropdown element at the different <transition> stages
 function beforeEnter(el: Element) {
