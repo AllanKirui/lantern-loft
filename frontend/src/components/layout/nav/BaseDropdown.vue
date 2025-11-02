@@ -29,7 +29,7 @@ const emit = defineEmits(["close"])
       </div>
 
       <button
-        class="btn-hover btn-pressable flex items-center justify-center w-8 h-8 hover:after:bg-cream rounded-full"
+        class="btn-hover flex items-center justify-center w-8 h-8 hover:after:bg-cream rounded-full"
         @click="emit('close')"
       >
         <BaseIcon
