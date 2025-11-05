@@ -20,6 +20,9 @@
   .storefront-layout {
     @apply min-h-screen bg-cosmic-latte text-chestnut-brown;
   }
+  .storefront-nav-logo-wrapper {
+    @apply w-[126px] absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:-translate-x-0;
+  }
   .wrapper {
     @apply max-w-7xl mx-auto;
   }
