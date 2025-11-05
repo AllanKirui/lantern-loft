@@ -8,14 +8,8 @@ import Logo from "@/components/common/Logo.vue"
     class="wrapper relative flex items-center justify-between px-fluid-xs h-20"
   >
     <!-- Logo -->
-    <div class="w-[126px]">
-      <a href="/">
-        <span
-          class="absolute left-4 top-1/2 -translate-y-1/2 font-medium fs-logo-fallback whitespace-nowrap"
-          >Lantern Loft</span
-        >
-        <Logo />
-      </a>
+    <div class="storefront-nav-logo-wrapper">
+      <Logo href="/" />
     </div>
 
     <!-- Center links -->
