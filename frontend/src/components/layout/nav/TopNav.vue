@@ -12,7 +12,7 @@ import Logo from "@/components/common/Logo.vue"
       <Logo href="/" />
     </div>
 
-    <!-- Center links -->
+    <!-- Center links - Desktop -->
     <nav class="hidden md:flex gap-6">
       <a href="/" data-replace="Home" class="fs-nav-lg link-hover"
         ><span>Home</span></a
@@ -22,18 +22,19 @@ import Logo from "@/components/common/Logo.vue"
       >
     </nav>
 
-    <!-- Right buttons -->
-    <div class="flex items-center gap-4">
+    <!-- Right buttons - Desktop -->
+    <div class="hidden md:flex items-center gap-4">
+      <!-- Cart -->
       <a
         href="/cart"
         class="flex items-center gap-[10px] hover:text-bone duration-200"
       >
         <div class="relative">
-          <BaseIcon name="cart" class="w-7 h-7" />
+          <BaseIcon name="cart" class="w-7 h-7" :stroke-width="3" />
           <div
             class="absolute min-w-5 min-h-5 -top-1/3 -right-2 flex items-center justify-center bg-black rounded-full"
           >
-            <span class="fs-nav-cart-count text-cosmic-latte">3</span>
+            <span class="text-[14px] text-cosmic-latte">5</span>
           </div>
         </div>
         <span class="fs-nav-lg">Cart</span>
@@ -42,6 +43,7 @@ import Logo from "@/components/common/Logo.vue"
       <!-- Vertical divider -->
       <span class="w-[1px] h-5 bg-crayola" />
 
+      <!-- Search Button -->
       <button
         class="group btn-hover flex items-center justify-center w-8 h-8 hover:after:bg-eerie-black rounded-full"
       >
