@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Logo from "@/components/common/Logo.vue"
+import MobileNav from "./MobileNav.vue"
 </script>
 
 <template>
@@ -55,5 +56,8 @@ import Logo from "@/components/common/Logo.vue"
         <span class="sr-only">Search</span>
       </button>
     </div>
+
+    <!-- Mobile Nav -->
+    <MobileNav />
   </div>
 </template>
