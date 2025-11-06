@@ -6,7 +6,7 @@ import MobileNav from "./MobileNav.vue"
 <template>
   <!-- Top navigation -->
   <div
-    class="wrapper relative flex items-center justify-between px-fluid-xs h-20"
+    class="wrapper relative flex items-center justify-between fluid-nav-px h-20"
   >
     <!-- Logo -->
     <div class="storefront-nav-logo-wrapper">
