@@ -1,29 +1,49 @@
 :root {
-  /* Nav on large screens (768px-1280px) */
-  /* 16-17px */
-  --fs-nav-lg: clamp(1rem, 0.9063rem + 0.1953vw, 1.0625rem);
+  /* 
+    Legend:
 
-  /* 20-24px */
-  --fs-20-24: clamp(1.25rem, 0.875rem + 0.7813vw, 1.5rem);
+      1️⃣ -min:
+        > Suffix refers to small screens between 320px and 768px
 
-  /* Fluid font sizes for screens between 320px (min) and 1280px (max) */
-  /* 12-14px */
-  --fs-12-14: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
+      2️⃣ -mid:
+        > Suffix refers to large screens between 768px and 1280px
 
-  /* 16-18px */
-  --fs-16-18: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem);
+      3️⃣ -full:
+        > Suffix refers to all screen sizes, mobile and desktop, between 320px and 1280px
+      
+      💡 Numbers used on variable names refer to pixels e.g 
+        --fs-12-14-min:
+          > [fs] - font size
+          > [12-14] - has a range of 12 to 14 pixels, both inclusive
+          > [min] - style has been set to be fluid between 320px and 768px
+  */
+
+  /* Fluid font sizes for large screens (768px-1280px, -mid) */
+  --fs-16-17-mid: clamp(1rem, 0.9063rem + 0.1953vw, 1.0625rem);
+  --fs-20-24-mid: clamp(1.25rem, 0.875rem + 0.7813vw, 1.5rem);
+
+  /* Fluid font sizes for small screens (320px-768px, -min) */
+  --fs-9-14-min: clamp(0.5625rem, 0.3393rem + 1.1161vw, 0.875rem);
+  --fs-12-14-min: clamp(0.75rem, 0.6607rem + 0.4464vw, 0.875rem);
+
+  /* Fluid font sizes for ALL screens (320px-1280px, -full) */
+  --fs-12-14-full: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
+  --fs-16-18-full: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem);
 }
 
 /* Storefront Styles */
 .fs-logo-fallback {
-  font-size: var(--fs-16-18);
+  font-size: var(--fs-16-18-full);
 }
 .fs-nav-lg {
-  font-size: var(--fs-nav-lg);
+  font-size: var(--fs-16-17-mid);
+}
+.fs-nav-sm {
+  font-size: var(--fs-9-14-min);
 }
 .fs-nav-cart-count {
-  font-size: var(--fs-12-14);
+  font-size: var(--fs-12-14-min);
 }
 .fs-nav-h2 {
-  font-size: var(--fs-20-24);
+  font-size: var(--fs-20-24-mid);
 }
