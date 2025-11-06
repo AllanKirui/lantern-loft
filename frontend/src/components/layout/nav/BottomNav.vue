@@ -151,9 +151,7 @@ function leave(el: Element, done: () => void) {
     </div>
 
     <!-- Overlay -->
-    <Teleport to="body">
-      <BaseOverlay @close="closeDropdown" />
-    </Teleport>
+    <BaseOverlay @close="closeDropdown" />
   </div>
 </template>
 
