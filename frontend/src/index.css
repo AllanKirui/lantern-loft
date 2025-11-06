@@ -17,12 +17,20 @@
 }
 
 @layer components {
+  /*
+    Storefront Layout styles
+  */
   .storefront-layout {
     @apply min-h-screen bg-cosmic-latte text-chestnut-brown;
   }
   .storefront-nav-logo-wrapper {
     @apply w-[126px] absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:-translate-x-0;
   }
+  /* End of Storefront Layout styles  */
+
+  /* 
+    Global styles
+  */
   .wrapper {
     @apply max-w-7xl mx-auto;
   }
@@ -78,8 +86,8 @@
     /* background-color for the after pseudo-selector should come from the element itself */
     transform: scaleX(1.015) scaleY(1.035) perspective(1px);
   }
-  /* Original Hover Effect - https://codepen.io/team/css-tricks/pen/jOarVmy */
   .link-hover {
+    /* Original Hover Effect - https://codepen.io/team/css-tricks/pen/jOarVmy */
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -116,8 +124,8 @@
   .link-hover:hover::after {
     transform: translate3d(0, 0, 0);
   }
-  /* Span sliding animation */
   .link-hover span {
+    /* Span sliding animation */
     display: inline-block;
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
     will-change: transform;
@@ -130,4 +138,5 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   }
+  /* End of Global styles */
 }
