@@ -18,14 +18,15 @@ const emit = defineEmits(["close"])
         class="w-24 h-24 text-pale-brown"
         :stroke-width="3"
       />
+
       <p class="mt-5 fs-nav-lg">
         Looks like we don't have anything recent for you.
       </p>
-      <!-- TODO there're some reusable styles here from block... -->
+
       <a href="/collections" class="btn-primary mt-5 mx-auto max-w-96"
         >Go Shopping</a
       >
-      <!-- TODO should not be underlined -->
+
       <p class="mt-5 mb-3">
         <a
           href="/account/sign-in"
