@@ -1,10 +1,34 @@
 :root {
-  /* Fluid spacing for screens between 320px (min) and 1280px (max) */
-  /* 12-16px */
-  --space-12-16: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+  /* 
+    Legend:
+
+      1️⃣ -min:
+        > Suffix refers to small screens between 320px and 768px
+
+      2️⃣ -mid:
+        > Suffix refers to large screens between 768px and 1280px
+
+      3️⃣ -full:
+        > Suffix refers to all screen sizes, mobile and desktop, between 320px and 1280px
+      
+      💡 Numbers used on variable names refer to pixels e.g 
+        --space-12-16-full:
+          > [space/gap] - space for paddings and margins, gap specific to flex/grid gaps
+          > [12-16] - has a range of 12 to 16 pixels, both inclusive
+          > [full] - style has been set to be fluid on all target screen sizes between 320px and 1280px
+  */
+
+  /* Fluid spacing for ALL screens (320px-1280px, -full) */
+  --space-12-16-full: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+
+  /* Fluid spacing for small screens (320px-768px, -min) */
+  --gap-12-16-min: clamp(0.75rem, 0.5714rem + 0.8929vw, 1rem);
 }
 
 /* Storefront Header Styles */
-.px-fluid-xs {
-  padding: 0 var(--space-12-16);
+.fluid-nav-px {
+  padding: 0 var(--space-12-16-full);
+}
+.fluid-gap-xs {
+  gap: var(--gap-12-16-min);
 }
