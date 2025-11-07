@@ -24,7 +24,7 @@
     @apply min-h-screen bg-cosmic-latte text-chestnut-brown;
   }
   .storefront-nav-logo-wrapper {
-    @apply w-[126px] absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:-translate-x-0;
+    @apply w-[126px] absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:-translate-x-0 z-40;
   }
   /* End of Storefront Layout styles  */
 
