@@ -5,7 +5,7 @@ import BaseMobileNavButton from "./BaseMobileNavButton.vue"
 <template>
   <BaseMobileNavButton type="button" text="Menu">
     <!-- Hamburger Icon -->
-    <div class="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6">
+    <div class="flex items-center justify-center w-5 sm:w-6 h-6">
       <div class="burger">
         <BaseIcon name="patty" class="line" />
         <BaseIcon name="patty" class="line" />
