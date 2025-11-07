@@ -4,7 +4,6 @@ import BottomNav from "./nav/BottomNav.vue"
 </script>
 
 <template>
-  <!-- TODO add a transition when resizing, so that the disappearing elements look smooth -->
   <header class="w-full bg-black text-crayola relative z-[100]">
     <!-- Top navigation -->
     <TopNav />
@@ -14,7 +13,5 @@ import BottomNav from "./nav/BottomNav.vue"
 
     <!-- Bottom navigation -->
     <BottomNav />
-
-    <!-- TODO Mobile menu -->
   </header>
 </template>
