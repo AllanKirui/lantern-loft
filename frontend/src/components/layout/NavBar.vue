@@ -10,7 +10,7 @@ import BottomNav from "./nav/BottomNav.vue"
     <TopNav />
 
     <!-- Horizontal divider -->
-    <span class="block w-full h-[1px] bg-jet" />
+    <span class="hidden md:block w-full h-[1px] bg-jet" />
 
     <!-- Bottom navigation -->
     <BottomNav />
