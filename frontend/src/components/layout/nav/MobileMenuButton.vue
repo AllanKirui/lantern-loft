@@ -1,9 +1,16 @@
 <script setup lang="ts">
+import { useMobileNavStore } from "@/stores/mobileNav"
 import BaseMobileNavButton from "./BaseMobileNavButton.vue"
+
+const mobileNavStore = useMobileNavStore()
 </script>
 
 <template>
-  <BaseMobileNavButton type="button" text="Menu">
+  <BaseMobileNavButton
+    type="button"
+    text="Menu"
+    @click="mobileNavStore.toggleDropdown('menu')"
+  >
     <!-- Hamburger Icon -->
     <div class="flex items-center justify-center w-5 sm:w-6 h-6">
       <div class="burger">
@@ -20,7 +27,14 @@ import BaseMobileNavButton from "./BaseMobileNavButton.vue"
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
+  padding-top: 4px;
+}
+
+@media (min-width: 480px) {
+  .burger {
+    gap: 4px;
+  }
 }
 
 .burger .line {
