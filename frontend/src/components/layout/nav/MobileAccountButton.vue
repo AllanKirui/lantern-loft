@@ -1,9 +1,16 @@
 <script setup lang="ts">
+import { useMobileNavStore } from "@/stores/mobileNav"
 import BaseMobileNavButton from "./BaseMobileNavButton.vue"
+
+const mobileNavStore = useMobileNavStore()
 </script>
 
 <template>
-  <BaseMobileNavButton type="button" text="Account">
+  <BaseMobileNavButton
+    type="button"
+    text="Account"
+    @click="mobileNavStore.toggleDropdown('account')"
+  >
     <div class="w-auto h-6">
       <BaseIcon
         name="avatar"
