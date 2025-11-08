@@ -13,7 +13,9 @@ function uppercaseFirst(str: string) {
   <div class="mobile-nav-dropdown">
     <!-- Header -->
     <div class="flex justify-between">
-      <h2>{{ uppercaseFirst(mobileNavStore.activeDropdown as string) }}</h2>
+      <h2 class="fs-mobile-nav-h2 font-bold">
+        {{ uppercaseFirst(mobileNavStore.activeDropdown as string) }}
+      </h2>
       <button
         class="btn-hover flex items-center justify-center w-8 h-8 hover:after:bg-cream rounded-full"
       >
