@@ -23,6 +23,7 @@
 
   /* Fluid spacing for small screens (320px-768px, -min) */
   --gap-12-16-min: clamp(0.75rem, 0.5714rem + 0.8929vw, 1rem);
+  --space-14-16-min: clamp(0.875rem, 0.7857rem + 0.4464vw, 1rem);
 }
 
 /* Storefront Header Styles */
@@ -31,4 +32,8 @@
 }
 .fluid-gap-xs {
   gap: var(--gap-12-16-min);
+}
+.sp-px-mobile-nav-dropdown {
+  padding-left: var(--space-14-16-min);
+  padding-right: var(--space-14-16-min);
 }
