@@ -10,9 +10,7 @@ function uppercaseFirst(str: string) {
 </script>
 
 <template>
-  <div
-    class="absolute top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-cosmic-latte text-chestnut-brown overflow-y-auto z-20"
-  >
+  <div class="mobile-nav-dropdown">
     <!-- Header -->
     <div class="flex justify-between">
       <h2>{{ uppercaseFirst(mobileNavStore.activeDropdown as string) }}</h2>
