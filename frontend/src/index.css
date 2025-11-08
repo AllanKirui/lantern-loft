@@ -26,6 +26,9 @@
   .storefront-nav-logo-wrapper {
     @apply w-[126px] absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:-translate-x-0 z-40;
   }
+  .mobile-nav-dropdown {
+    @apply absolute top-[80px] left-0 flex flex-col w-full h-[calc(100vh-80px)] sp-px-mobile-nav-dropdown py-[18px] bg-cosmic-latte text-chestnut-brown overflow-y-auto z-20;
+  }
   /* End of Storefront Layout styles  */
 
   /* 
