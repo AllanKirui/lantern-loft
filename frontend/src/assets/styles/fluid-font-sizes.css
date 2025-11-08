@@ -25,6 +25,9 @@
   /* Fluid font sizes for small screens (320px-768px, -min) */
   --fs-9-14-min: clamp(0.5625rem, 0.3393rem + 1.1161vw, 0.875rem);
   --fs-12-14-min: clamp(0.75rem, 0.6607rem + 0.4464vw, 0.875rem);
+  --fs-14-16-min: clamp(0.875rem, 0.7857rem + 0.4464vw, 1rem);
+  --fs-16-18-min: clamp(1rem, 0.9107rem + 0.4464vw, 1.125rem);
+  --fs-22-26-min: clamp(1.375rem, 1.1964rem + 0.8929vw, 1.625rem);
 
   /* Fluid font sizes for ALL screens (320px-1280px, -full) */
   --fs-12-14-full: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
@@ -41,9 +44,19 @@
 .fs-nav-sm {
   font-size: var(--fs-9-14-min);
 }
+.fs-mobile-menu-legal-link,
 .fs-nav-cart-count {
   font-size: var(--fs-12-14-min);
 }
 .fs-nav-h2 {
   font-size: var(--fs-20-24-mid);
+}
+.fs-mobile-nav-h2 {
+  font-size: var(--fs-22-26-min);
+}
+.fs-mobile-menu-link {
+  font-size: var(--fs-16-18-min);
+}
+.fs-mobile-menu-workshop-link {
+  font-size: var(--fs-14-16-min);
 }
