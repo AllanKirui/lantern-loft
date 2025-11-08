@@ -54,7 +54,7 @@
     @apply btn border border-chestnut-brown bg-cosmic-latte text-chestnut-brown;
   }
   .btn-hover {
-    @apply relative z-10;
+    @apply relative z-10 overflow-hidden;
     /* border-radius, width and height or paddings should come from the styles defined on the element itself */
   }
   .btn-hover::before,
