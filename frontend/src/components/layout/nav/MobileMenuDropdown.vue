@@ -31,6 +31,8 @@ const menuLinks = [
     text: "FAQs"
   }
 ]
+
+const DELAY = 60 // Transition delay
 </script>
 
 <template>
@@ -40,7 +42,7 @@ const menuLinks = [
         v-for="(link, index) in menuLinks"
         :key="index"
         :id="index === 0 ? 'target' : ''"
-        :style="{ transitionDelay: `${index * 100}ms` }"
+        :style="{ transitionDelay: `${index * DELAY}ms` }"
       >
         <a
           class="btn-hover block p-3 fs-mobile-menu-link font-semibold hover:after:bg-cream"
@@ -51,7 +53,10 @@ const menuLinks = [
     </ul>
 
     <!-- Mobile Menu Footer -->
-    <div class="mt-auto">
+    <div
+      class="mt-auto"
+      :style="{ transitionDelay: `${menuLinks.length * DELAY}ms` }"
+    >
       <a
         href="#"
         class="btn-hover flex gap-2 mt-3 px-3 py-[14px] fs-mobile-menu-workshop-link font-medium hover:after:bg-cream"
