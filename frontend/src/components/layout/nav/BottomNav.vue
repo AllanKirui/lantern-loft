@@ -151,7 +151,7 @@ function leave(el: Element, done: () => void) {
     </div>
 
     <!-- Overlay -->
-    <BaseOverlay @close="closeDropdown" />
+    <BaseOverlay v-if="activeDropdown" @close="closeDropdown" />
   </div>
 </template>
 
