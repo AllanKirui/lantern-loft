@@ -35,7 +35,10 @@ function setElementId(activeDropdown: string) {
       <h2 class="fs-mobile-nav-h2 font-bold">
         {{ uppercaseFirst(mobileNavStore.activeDropdown as string) }}
       </h2>
-      <BaseCloseButton class="hover:after:bg-cream" />
+      <BaseCloseButton
+        class="hover:after:bg-cream"
+        @click="mobileNavStore.closeAll"
+      />
     </div>
 
     <slot />
