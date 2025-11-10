@@ -13,6 +13,8 @@ const accountLinks = [
     description: "Track, review, or visit your past purchases"
   }
 ]
+
+const DELAY = 60 // Transition delay
 </script>
 
 <template>
@@ -24,7 +26,7 @@ const accountLinks = [
       <a
         :href="link.href"
         class="btn-hover flex gap-2 px-4 py-2 hover:after:bg-cream"
-        :style="{ transitionDelay: `${index * 50}ms` }"
+        :style="{ transitionDelay: `${index * DELAY}ms` }"
       >
         <BaseIcon
           :name="link.icon"
@@ -39,10 +41,17 @@ const accountLinks = [
         </div>
       </a>
     </li>
-    <li class="my-2 px-[14px]">
+    <li
+      class="my-2 px-[14px]"
+      :style="{ transitionDelay: `${accountLinks.length * DELAY}ms` }"
+    >
       <a href="/account/create" class="btn-primary">Create Account</a>
     </li>
-    <li class="my-2">
+    <!-- Delay the second element by adding +1 -->
+    <li
+      class="my-2"
+      :style="{ transitionDelay: `${(accountLinks.length + 1) * DELAY}ms` }"
+    >
       <a
         href="/account/sign-in"
         data-replace="Sign In"
