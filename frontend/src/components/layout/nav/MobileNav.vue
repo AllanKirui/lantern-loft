@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onBeforeUnmount, watch } from "vue"
 import { useMobileNavStore } from "@/stores/mobileNav"
 import MobileAccountButton from "./MobileAccountButton.vue"
 import MobileCartLink from "./MobileCartLink.vue"
@@ -9,6 +10,28 @@ import MobileAccountDropdown from "./MobileAccountDropdown.vue"
 import BaseOverlay from "@/components/base/BaseOverlay.vue"
 
 const mobileNavStore = useMobileNavStore()
+
+function handleScreenResize() {
+  if (window.innerWidth > 767) mobileNavStore.closeAll()
+}
+
+function addResizeListener() {
+  window.addEventListener("resize", handleScreenResize)
+}
+
+function removeResizeListener() {
+  window.removeEventListener("resize", handleScreenResize)
+}
+
+watch(
+  () => mobileNavStore.activeDropdown,
+  (newVal) => {
+    if (newVal) addResizeListener()
+    else removeResizeListener()
+  }
+)
+
+onBeforeUnmount(removeResizeListener)
 </script>
 
 <template>
