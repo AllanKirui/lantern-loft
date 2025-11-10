@@ -175,18 +175,15 @@ function leave(el: Element, done: () => void) {
   opacity: 1;
 }
 
-.dropdown-enter-active li a,
-.dropdown-leave-active li a {
+.dropdown-enter-active * {
   transition: opacity 400ms ease;
 }
 
-.dropdown-enter-from li a,
-.dropdown-leave-to li a {
+.dropdown-enter-from * {
   opacity: 0;
 }
 
-.dropdown-enter-to li a,
-.dropdown-leave-from li a {
+.dropdown-enter-to * {
   opacity: 1;
 }
 </style>
