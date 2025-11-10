@@ -10,6 +10,8 @@ const mobileNavStore = useMobileNavStore()
     type="button"
     text="Account"
     @click="mobileNavStore.toggleDropdown('account')"
+    :aria-expanded="mobileNavStore.isAccountOpen"
+    aria-controls="mobile-account-menu"
   >
     <div class="w-auto h-6">
       <BaseIcon
