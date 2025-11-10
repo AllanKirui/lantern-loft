@@ -57,18 +57,15 @@ const mobileNavStore = useMobileNavStore()
   overflow-y: auto;
 }
 
-.slide-down-enter-active li,
-.slide-down-leave-active li {
+.slide-down-enter-active * {
   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-.slide-down-enter-from li,
-.slide-down-leave-to li {
+.slide-down-enter-from * {
   opacity: 0;
 }
 
-.slide-down-enter-to li,
-.slide-down-leave-from li {
+.slide-down-enter-to * {
   opacity: 1;
 }
 </style>
