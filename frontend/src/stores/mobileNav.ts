@@ -19,5 +19,12 @@ export const useMobileNavStore = defineStore("mobileNav", () => {
     isAccountOpen.value = activeDropdown.value === "account" && true
   }
 
-  return { activeDropdown, isMenuOpen, isAccountOpen, toggleDropdown }
+  function closeAll() {
+    activeDropdown.value = null
+    isMenuOpen.value = false
+    isAccountOpen.value = false
+    overlayStore.close()
+  }
+
+  return { activeDropdown, isMenuOpen, isAccountOpen, toggleDropdown, closeAll }
 })
