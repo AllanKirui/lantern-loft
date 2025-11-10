@@ -16,13 +16,13 @@ const mobileNavStore = useMobileNavStore()
     class="relative md:hidden w-full h-full flex justify-between overflow-hidden"
   >
     <!-- Left buttons - Mobile -->
-    <div class="flex items-center fluid-gap-xs">
+    <div class="flex items-center gap-mobile-nav-buttons">
       <MobileMenuButton />
       <MobileAccountButton />
     </div>
 
     <!-- Right buttons - Mobile -->
-    <div class="flex items-center fluid-gap-xs">
+    <div class="flex items-center gap-mobile-nav-buttons">
       <MobileCartLink />
       <MobileSearchButton />
     </div>

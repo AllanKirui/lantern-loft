@@ -27,10 +27,10 @@
 }
 
 /* Storefront Header Styles */
-.fluid-nav-px {
+.sp-px-nav {
   padding: 0 var(--space-12-16-full);
 }
-.fluid-gap-xs {
+.gap-mobile-nav-buttons {
   gap: var(--gap-12-16-min);
 }
 .sp-px-mobile-nav-dropdown {
