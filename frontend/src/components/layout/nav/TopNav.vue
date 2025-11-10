@@ -45,9 +45,7 @@ import MobileNav from "./MobileNav.vue"
       <span class="w-[1px] h-5 bg-crayola" />
 
       <!-- Search Button -->
-      <button
-        class="group btn-hover flex items-center justify-center w-8 h-8 hover:after:bg-eerie-black rounded-full"
-      >
+      <button class="group btn-rounded hover:after:bg-eerie-black">
         <BaseIcon
           name="search"
           class="w-6 h-6 group-hover:text-cosmic-latte duration-200"
