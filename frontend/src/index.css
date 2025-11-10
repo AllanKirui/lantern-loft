@@ -89,6 +89,9 @@
     /* background-color for the after pseudo-selector should come from the element itself */
     transform: scaleX(1.015) scaleY(1.035) perspective(1px);
   }
+  .btn-rounded {
+    @apply btn-hover flex items-center justify-center w-8 h-8 rounded-full;
+  }
   .link-hover {
     /* Original Hover Effect - https://codepen.io/team/css-tricks/pen/jOarVmy */
     position: relative;
