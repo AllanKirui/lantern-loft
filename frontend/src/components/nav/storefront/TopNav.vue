@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Logo from "@/components/common/Logo.vue"
-import MobileNav from "./MobileNav.vue"
+import MobileNav from "./mobile/MobileNav.vue"
 </script>
 
 <template>
