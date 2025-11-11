@@ -20,7 +20,7 @@ const DELAY = 60 // Transition delay
 <template>
   <ul
     id="account-menu"
-    class="absolute right-0 w-72 text-chestnut-brown custom-shadow bg-cosmic-latte overflow-hidden rounded-b-md"
+    class="absolute -right-1/2 lg:right-0 w-72 text-chestnut-brown custom-shadow bg-cosmic-latte overflow-hidden rounded-b-md"
   >
     <li v-for="(link, index) in accountLinks" :key="link.href">
       <a
