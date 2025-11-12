@@ -16,14 +16,22 @@
           > [space/gap] - space for paddings and margins, gap specific to flex/grid gaps
           > [12-16] - has a range of 12 to 16 pixels, both inclusive
           > [full] - style has been set to be fluid on all target screen sizes between 320px and 1280px
+      
+      💡 sp-px-nav = spacing -> padding on the x-axis -> for nav
+      💡 sp-pt-footer = spacing -> padding top -> for footer
   */
 
   /* Fluid spacing for ALL screens (320px-1280px, -full) */
   --space-12-16-full: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+  --space-16-20-full: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
+  --space-24-32-full: clamp(1.5rem, 1.3333rem + 0.8333vw, 2rem);
+  --space-24-56-full: clamp(1.5rem, 0.8333rem + 3.3333vw, 3.5rem);
+  --space-32-56-full: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
 
   /* Fluid spacing for small screens (320px-768px, -min) */
   --gap-12-16-min: clamp(0.75rem, 0.5714rem + 0.8929vw, 1rem);
   --space-14-16-min: clamp(0.875rem, 0.7857rem + 0.4464vw, 1rem);
+  --space-24-32-min: clamp(1.5rem, 1.1429rem + 1.7857vw, 2rem);
 }
 
 /* Storefront Header Styles */
@@ -36,4 +44,29 @@
 .sp-px-mobile-nav-dropdown {
   padding-left: var(--space-14-16-min);
   padding-right: var(--space-14-16-min);
+}
+.sp-px-footer {
+  padding-left: var(--space-24-56-full);
+  padding-right: var(--space-24-56-full);
+}
+.sp-pt-footer {
+  padding-top: var(--space-32-56-full);
+}
+.sp-mt-footer-divider,
+.sp-mt-footer {
+  margin-top: var(--space-32-56-full);
+}
+.sp-footer-copy,
+.sp-mt-footer-about-wrapper {
+  margin-top: var(--space-24-32-full);
+}
+.sp-mt-footer-about {
+  margin-top: var(--space-16-20-full);
+}
+.sp-mt-footer-bottom {
+  margin-top: var(--space-24-56-full);
+}
+.sp-mt-footer-legal,
+.sp-mt-footer-sign-in {
+  margin-top: var(--space-24-32-min);
 }
