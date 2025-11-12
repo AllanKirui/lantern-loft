@@ -31,10 +31,14 @@
 
   /* Fluid font sizes for ALL screens (320px-1280px, -full) */
   --fs-12-14-full: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
+  --fs-14-16-full: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
   --fs-16-18-full: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem);
+  --fs-24-28-full: clamp(1.5rem, 1.4167rem + 0.4167vw, 1.75rem);
 }
 
 /* Storefront Styles */
+.fs-h3,
+.fs-footer-about,
 .fs-logo-fallback {
   font-size: var(--fs-16-18-full);
 }
@@ -62,4 +66,15 @@
 .fs-mobile-account-link-title,
 .fs-mobile-menu-workshop-link {
   font-size: var(--fs-14-16-min);
+}
+.fs-h2 {
+  font-size: var(--fs-24-28-full);
+}
+.fs-footer-sign-in,
+.fs-footer-reviews,
+.fs-footer-nav-links {
+  font-size: var(--fs-14-16-full);
+}
+.fs-footer-copy {
+  font-size: var(--fs-12-14-full);
 }
