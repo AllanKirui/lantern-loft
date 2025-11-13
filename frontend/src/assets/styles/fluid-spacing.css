@@ -23,7 +23,10 @@
 
   /* Fluid spacing for ALL screens (320px-1280px, -full) */
   --space-12-16-full: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+  --space-14-16-full: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
   --space-16-20-full: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
+  --space-16-32-full: clamp(1rem, 0.6667rem + 1.6667vw, 2rem);
+  --space-20-44-full: clamp(1.25rem, 0.75rem + 2.5vw, 2.75rem);
   --space-24-32-full: clamp(1.5rem, 1.3333rem + 0.8333vw, 2rem);
   --space-24-56-full: clamp(1.5rem, 0.8333rem + 3.3333vw, 3.5rem);
   --space-32-56-full: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
@@ -69,4 +72,14 @@
 .sp-mt-footer-legal,
 .sp-mt-footer-sign-in {
   margin-top: var(--space-24-32-min);
+}
+.sp-px-hero-text {
+  padding-left: var(--space-14-16-full);
+  padding-right: var(--space-14-16-full);
+}
+.sp-mt-hero-about-wrapper {
+  margin-top: var(--space-20-44-full);
+}
+.sp-mt-hero-about-text {
+  margin-top: var(--space-16-32-full);
 }
