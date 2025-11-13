@@ -33,6 +33,7 @@
   --fs-12-14-full: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
   --fs-14-16-full: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
   --fs-16-18-full: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem);
+  --fs-18-20-full: clamp(1.125rem, 1.0833rem + 0.2083vw, 1.25rem);
   --fs-24-28-full: clamp(1.5rem, 1.4167rem + 0.4167vw, 1.75rem);
 }
 
@@ -74,6 +75,9 @@
 .fs-footer-reviews,
 .fs-footer-nav-links {
   font-size: var(--fs-14-16-full);
+}
+.fs-footer-slogan {
+  font-size: var(--fs-18-20-full);
 }
 .fs-footer-copy {
   font-size: var(--fs-12-14-full);

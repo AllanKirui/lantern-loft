@@ -33,7 +33,7 @@
     @apply relative w-[126px] h-20 mt-6 md:mt-0;
   }
   .storefront-footer-logo-slogan {
-    @apply mt-3 font-birthstone font-medium;
+    @apply mt-3 font-birthstone font-medium fs-footer-slogan;
   }
   /* End of Storefront Layout styles  */
 
