@@ -15,6 +15,7 @@ defineProps<{
 
     <!-- Logo -->
     <div class="relative z-40">
+      <span class="absolute top-0 left-0 w-full h-full"></span>
       <img
         src="@/assets/img/logo.svg"
         alt="Lantern Loft Logo"
