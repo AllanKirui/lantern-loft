@@ -30,7 +30,7 @@ defineProps<Props>()
         <span
           class="inline-block w-[14px] h-[1px] md:w-6 md:h-[1.5px] bg-pale-brown"
         ></span>
-        <p class="fs-tagline uppercase font-semibold">{{ data.tagline }}</p>
+        <p class="text-xs uppercase font-semibold">{{ data.tagline }}</p>
       </div>
 
       <h2
