@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from "swiper/vue"
+import { Navigation } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/navigation"
+import NewProductCard from "../organisms/NewProductCard.vue"
 import SectionHeader from "../common/SectionHeader.vue"
 
 /* TODO fetch data using Axios from the API */
@@ -59,7 +64,36 @@ const sectionHeaderData = {
 
 <template>
   <!-- New Arrivals -->
-  <section :aria-labelledby="sectionHeaderData.headingId">
+  <section :aria-labelledby="sectionHeaderData.headingId" class="px-[14px]">
     <SectionHeader :data="sectionHeaderData" />
+
+    <Swiper
+      :modules="[Navigation]"
+      :navigation="{
+        prevEl: '.new-prev',
+        nextEl: '.new-next'
+      }"
+      :slides-per-view="1.12"
+      :space-between="16"
+      :centered-slides="true"
+      :centered-slides-bounds="true"
+      :breakpoints="{
+        640: {
+          centeredSlides: false,
+          slidesPerView: 2.1
+        },
+        768: {
+          centeredSlides: false,
+          slidesPerView: 2.2,
+          spaceBetween: 20
+        },
+        976: { centeredSlides: false, slidesPerView: 3 }
+      }"
+      class="sp-mt-swiper-wrapper"
+    >
+      <SwiperSlide v-for="(product, index) in newArrivals" :key="product.id">
+        <NewProductCard :index="index" :product="product" />
+      </SwiperSlide>
+    </Swiper>
   </section>
 </template>
