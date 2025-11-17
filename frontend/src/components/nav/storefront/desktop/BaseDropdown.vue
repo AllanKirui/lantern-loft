@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BaseCloseButton from "@/components/base/BaseCloseButton.vue"
+
 interface Props {
   id: string
   title: string
@@ -28,17 +30,7 @@ const emit = defineEmits(["close"])
         >
       </div>
 
-      <button
-        class="btn-hover flex items-center justify-center w-8 h-8 hover:after:bg-cream rounded-full"
-        @click="emit('close')"
-      >
-        <BaseIcon
-          name="close"
-          class="w-[18px] h-[18px] duration-200"
-          :stroke-width="2.5"
-        />
-        <span class="sr-only">Close</span>
-      </button>
+      <BaseCloseButton class="hover:after:bg-cream" @click="$emit('close')" />
     </div>
 
     <!-- Horizontal divider -->
