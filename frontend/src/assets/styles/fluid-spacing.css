@@ -59,6 +59,7 @@
 .sp-mt-footer {
   margin-top: var(--space-32-56-full);
 }
+.sp-mt-swiper-wrapper,
 .sp-footer-copy,
 .sp-mt-footer-about-wrapper {
   margin-top: var(--space-24-32-full);
@@ -82,4 +83,7 @@
 }
 .sp-mt-hero-about-text {
   margin-top: var(--space-16-32-full);
+}
+.sp-mt-section-sub-heading {
+  margin-top: var(--space-14-16-full);
 }
