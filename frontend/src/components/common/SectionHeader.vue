@@ -24,7 +24,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <header class="px-[14px]">
+  <header>
     <div class="text-center">
       <div class="flex gap-1 justify-center items-center">
         <span
