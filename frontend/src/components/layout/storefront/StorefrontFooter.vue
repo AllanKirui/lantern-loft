@@ -222,7 +222,7 @@ const footerLinks = [
           </p>
         </div>
 
-        <p class="sp-footer-copy fs-footer-copy text-center">
+        <p class="sp-mt-footer-copy fs-footer-copy text-center">
           © 2026, Lantern Loft. All Rights Reserved.
         </p>
 
