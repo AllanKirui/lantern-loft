@@ -26,6 +26,7 @@ function handleClick() {
       direction === 'left' ? `${productType}-prev` : `${productType}-next`
     ]"
     disabled
+    :title="direction === 'left' ? 'Previous' : 'Next'"
     @click="handleClick"
   >
     <BaseIcon
