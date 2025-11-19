@@ -150,5 +150,33 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
       rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   }
+  .has-ripple {
+    @apply border border-transparent duration-1000;
+  }
+  .has-ripple .circle {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full animate-circle-scale-up;
+  }
+  .has-ripple-primary {
+    @apply has-ripple;
+  }
+  .has-ripple-primary .circle {
+    @apply bg-chestnut-brown/20;
+  }
+  .has-ripple-primary:has(.circle) {
+    @apply has-[.circle]:border-chestnut-brown/60;
+  }
   /* End of Global styles */
+}
+
+@layer utilities {
+  @keyframes circle-scale-up {
+    to {
+      transform: translate(-50%, -50%) scale(3);
+      opacity: 0;
+    }
+  }
+
+  .animate-circle-scale-up {
+    animation: circle-scale-up 0.32s ease-out forwards;
+  }
 }
