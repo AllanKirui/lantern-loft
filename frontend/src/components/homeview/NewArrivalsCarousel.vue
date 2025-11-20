@@ -83,14 +83,19 @@ const sectionHeaderData = {
       :breakpoints="{
         640: {
           centeredSlides: false,
-          slidesPerView: 2.1
+          slidesPerView: 2.1,
+          spaceBetween: 16
         },
         768: {
           centeredSlides: false,
           slidesPerView: 2.2,
-          spaceBetween: 20
+          spaceBetween: 18
         },
-        976: { centeredSlides: false, slidesPerView: 3 }
+        976: {
+          centeredSlides: false,
+          slidesPerView: 3,
+          spaceBetween: 18
+        }
       }"
       class="sp-mt-swiper-wrapper"
     >
