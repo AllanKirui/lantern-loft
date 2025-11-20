@@ -55,6 +55,7 @@
 .sp-pt-footer {
   padding-top: var(--space-32-56-full);
 }
+.sp-mt-storefront-section,
 .sp-mt-footer-divider,
 .sp-mt-footer {
   margin-top: var(--space-32-56-full);

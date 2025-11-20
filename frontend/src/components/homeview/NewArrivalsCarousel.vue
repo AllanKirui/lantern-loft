@@ -64,7 +64,10 @@ const sectionHeaderData = {
 
 <template>
   <!-- New Arrivals -->
-  <section :aria-labelledby="sectionHeaderData.headingId" class="px-[14px]">
+  <section
+    :aria-labelledby="sectionHeaderData.headingId"
+    class="sp-mt-storefront-section px-[14px]"
+  >
     <SectionHeader :data="sectionHeaderData" />
 
     <Swiper
