@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation } from "swiper/modules"
 import NewProductCard from "../organisms/NewProductCard.vue"
@@ -59,6 +60,20 @@ const sectionHeaderData = {
   productType: "new" as "new",
   withNavigation: true
 }
+
+const swiperRef = ref<any | null>(null)
+
+function onGrabStart() {
+  const el = swiperRef.value.$el
+  el.classList.add("cursor-grabbing")
+  el.classList.remove("cursor-grab")
+}
+
+function onGrabEnd() {
+  const el = swiperRef.value.$el
+  el.classList.add("cursor-grab")
+  el.classList.remove("cursor-grabbing")
+}
 </script>
 
 <template>
@@ -70,6 +85,7 @@ const sectionHeaderData = {
     <SectionHeader :data="sectionHeaderData" />
 
     <Swiper
+      ref="swiperRef"
       :modules="[Navigation]"
       :navigation="{
         prevEl: '.new-prev',
@@ -96,7 +112,9 @@ const sectionHeaderData = {
           spaceBetween: 18
         }
       }"
-      class="sp-mt-swiper-wrapper"
+      @touchStart="onGrabStart"
+      @touchEnd="onGrabEnd"
+      class="sp-mt-swiper-wrapper cursor-grab"
     >
       <SwiperSlide v-for="(product, index) in newArrivals" :key="product.id">
         <NewProductCard :index="index" :product="product" />
