@@ -3,7 +3,7 @@ import NewArrivalsCarousel from "./NewArrivalsCarousel.vue"
 </script>
 
 <template>
-  <main class="wrapper sp-mt-footer">
+  <main class="wrapper">
     <NewArrivalsCarousel />
   </main>
 </template>
