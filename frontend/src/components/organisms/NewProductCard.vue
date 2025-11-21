@@ -17,10 +17,7 @@ defineProps<Props>()
   <article role="article" :aria-labelledby="`new-arrival-item-${index + 1}`">
     <div class="relative">
       <span class="absolute top-0 left-0 w-full h-full z-10"></span>
-      <span
-        class="absolute top-0 left-0 px-[5px] py-2 rotated-label fs-new-arrival-label font-medium italic bg-black text-crayola uppercase leading-none"
-        >New Arrival
-      </span>
+      <span class="new-arrival-label">New Arrival</span>
       <img
         src="@/assets/img/storefront/products/4-recopyright.png"
         :alt="product.title"
@@ -49,9 +46,3 @@ defineProps<Props>()
     </div>
   </article>
 </template>
-
-<style scoped>
-.rotated-label {
-  writing-mode: sideways-lr;
-}
-</style>

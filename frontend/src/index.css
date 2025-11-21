@@ -165,6 +165,10 @@
   .has-ripple-primary:has(.circle) {
     @apply has-[.circle]:border-chestnut-brown/60;
   }
+  .new-arrival-label {
+    @apply absolute top-0 left-0 px-[5px] py-2 fs-new-arrival-label font-medium italic bg-black text-crayola uppercase leading-none z-10;
+    writing-mode: sideways-lr;
+  }
   /* End of Global styles */
 }
 
