@@ -25,7 +25,7 @@ defineProps<Props>()
       />
     </div>
     <div class="text-center mt-2">
-      <BaseIcon name="hanging-bulb" class="w-[10px] h-7" />
+      <BaseIcon name="hanging-bulb" class="w-[10px] h-8" />
       <p class="text-xs uppercase font-medium mt-2">Why we love the</p>
       <h4
         :id="`new-arrival-item-${index + 1}`"
