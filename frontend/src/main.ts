@@ -1,6 +1,8 @@
 import { createApp } from "vue"
 import { createPinia } from "pinia"
 import "./index.css"
+import "swiper/css"
+import "swiper/css/navigation"
 import App from "./App.vue"
 import BaseIcon from "./components/base/BaseIcon.vue"
 import router from "./router"

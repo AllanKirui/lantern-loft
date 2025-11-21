@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation } from "swiper/modules"
-import "swiper/css"
-import "swiper/css/navigation"
 import SectionHeader from "../common/SectionHeader.vue"
 import ProductCard from "../organisms/ProductCard.vue"
 
