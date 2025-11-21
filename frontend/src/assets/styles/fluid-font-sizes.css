@@ -76,6 +76,8 @@
 .fs-h2 {
   font-size: var(--fs-24-28-min);
 }
+.fs-items-count,
+.fs-shop-link,
 .fs-footer-sign-in,
 .fs-footer-reviews,
 .fs-footer-nav-links {
@@ -84,18 +86,12 @@
 .fs-footer-slogan {
   font-size: var(--fs-18-20-full);
 }
+.fs-new-arrival-label,
 .fs-footer-copy {
   font-size: var(--fs-12-14-full);
 }
 .fs-hero-h1 {
   font-size: var(--fs-40-56-full);
-}
-.fs-new-arrival-label {
-  font-size: var(--fs-12-14-full);
-}
-.fs-items-count,
-.fs-shop-link {
-  font-size: var(--fs-14-16-full);
 }
 .fs-new-product-title {
   font-size: var(--fs-18-20-min);
