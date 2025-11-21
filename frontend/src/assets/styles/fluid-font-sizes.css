@@ -40,6 +40,8 @@
 }
 
 /* Storefront Styles */
+.fs-product-card-currency,
+.fs-product-card-name,
 .fs-hero-body,
 .fs-footer-about,
 .fs-logo-fallback {
