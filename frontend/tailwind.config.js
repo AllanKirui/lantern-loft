@@ -32,7 +32,8 @@ export default {
         "pale-brown": "#7a6153",
         "pastel-orange": "#ff7f2a",
         "pastel-yellow": "#f39852",
-        "red-munsell": "#ec003f"
+        "red-munsell": "#ec003f",
+        "red-pigment": "#e81e25"
       }
     }
   },
