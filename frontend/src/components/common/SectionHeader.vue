@@ -13,6 +13,7 @@ interface SectionHeader {
       text: string
     }
   }
+  productType: "new" | "featured"
   withNavigation?: boolean
 }
 
@@ -55,8 +56,14 @@ defineProps<Props>()
       <!-- Carousel navigation buttons and shop link-->
       <div class="flex md:items-center gap-3 h-fit">
         <div v-if="data.withNavigation" class="hidden md:flex gap-1">
-          <BaseCarouselNavButton product-type="new" direction="left" />
-          <BaseCarouselNavButton product-type="new" direction="right" />
+          <BaseCarouselNavButton
+            :product-type="data.productType"
+            direction="left"
+          />
+          <BaseCarouselNavButton
+            :product-type="data.productType"
+            direction="right"
+          />
         </div>
         <div v-if="data.subheading?.link?.to">
           <a

@@ -58,6 +58,7 @@ const sectionHeaderData = {
       text: "Shop all"
     }
   },
+  productType: "new" as "new",
   withNavigation: true
 }
 </script>
