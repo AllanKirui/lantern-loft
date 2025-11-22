@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import StarRatingDisplay from "../common/StarRatingDisplay.vue"
+
 interface Product {
   id: number
   name: string
   reviewsCount: number
   finishesCount: number
+  rating: number
   price: number
   discountedPrice: number
   isNew: boolean
@@ -50,15 +53,13 @@ defineProps<Props>()
           {{ product.name }}
         </h4>
         <p class="flex items-center gap-[6px] mt-[10px] leading-none">
-          <span>
-            <BaseIcon
-              v-for="n in 5"
-              :key="n"
-              name="full-star"
-              class="w-5 h-5 -mx-[1.5px]"
-            />
-          </span>
-          <span class="text-sm font-medium leading-none"
+          <StarRatingDisplay
+            :product-id="product.id"
+            :rating="product.rating"
+          />
+          <span
+            v-if="product.reviewsCount > 0"
+            class="text-sm font-medium leading-none"
             >({{ product.reviewsCount.toLocaleString() }})</span
           >
         </p>
