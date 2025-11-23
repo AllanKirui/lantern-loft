@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue"
-import { Navigation } from "swiper/modules"
+import { Navigation, Keyboard } from "swiper/modules"
 import SectionHeader from "../common/SectionHeader.vue"
 import ProductCard from "../organisms/ProductCard.vue"
 
@@ -122,10 +122,14 @@ const sectionHeaderData = {
     <SectionHeader :data="sectionHeaderData" />
 
     <Swiper
-      :modules="[Navigation]"
+      :modules="[Navigation, Keyboard]"
       :navigation="{
         prevEl: '.featured-prev',
         nextEl: '.featured-next'
+      }"
+      :keyboard="{
+        enabled: true,
+        onlyInViewport: true
       }"
       :slides-per-view="1.5"
       :space-between="16"

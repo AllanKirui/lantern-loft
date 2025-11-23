@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
-import { Navigation } from "swiper/modules"
+import { Navigation, Keyboard } from "swiper/modules"
 import NewProductCard from "../organisms/NewProductCard.vue"
 import SectionHeader from "../common/SectionHeader.vue"
 
@@ -86,10 +86,14 @@ function onGrabEnd() {
 
     <Swiper
       ref="swiperRef"
-      :modules="[Navigation]"
+      :modules="[Navigation, Keyboard]"
       :navigation="{
         prevEl: '.new-prev',
         nextEl: '.new-next'
+      }"
+      :keyboard="{
+        enabled: true,
+        onlyInViewport: true
       }"
       :slides-per-view="1.12"
       :space-between="16"
