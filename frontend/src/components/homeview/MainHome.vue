@@ -4,7 +4,7 @@ import NewArrivalsCarousel from "./NewArrivalsCarousel.vue"
 </script>
 
 <template>
-  <main class="wrapper">
+  <main id="main-content" class="wrapper">
     <NewArrivalsCarousel />
     <FeaturedCarousel />
   </main>
