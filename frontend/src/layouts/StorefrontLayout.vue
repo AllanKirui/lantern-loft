@@ -6,6 +6,7 @@ import StorefrontFooter from "@/components/layout/storefront/StorefrontFooter.vu
 <template>
   <div class="storefront-layout">
     <StorefrontNav />
+    <RouterView />
     <StorefrontFooter />
   </div>
 </template>
