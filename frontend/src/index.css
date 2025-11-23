@@ -183,4 +183,33 @@
   .animate-circle-scale-up {
     animation: circle-scale-up 0.32s ease-out forwards;
   }
+
+  @keyframes scaleUp {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scaleDown {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  .animate-scale-up {
+    animation: scaleUp 0.4s cubic-bezier(0.345, 0.115, 0.135, 1.42) forwards;
+  }
+  .animate-scale-down {
+    animation: scaleDown 0.4s cubic-bezier(0.345, 0.115, 0.135, 1.42) forwards;
+  }
 }
