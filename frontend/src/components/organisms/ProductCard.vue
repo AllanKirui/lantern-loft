@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
+import WishlistButton from "../common/WishlistButton.vue"
 
 interface Product {
   id: number
@@ -27,11 +28,14 @@ defineProps<Props>()
     :aria-labelledby="`featured-item-${index + 1}`"
     class="card-hover rounded-md m-[2px]"
   >
-    <a href="#" :title="`Explore the ${product.name}`" class="block">
+    <a href="#" :title="`Explore the ${product.name}`" class="group block">
       <!-- Product Image -->
       <div class="relative rounded-md overflow-hidden">
         <span class="absolute top-0 left-0 w-full h-full z-10"></span>
         <span v-if="product.isNew" class="new-arrival-label">New Arrival</span>
+        <div class="absolute right-2 top-2 z-20">
+          <WishlistButton />
+        </div>
         <img
           src="@/assets/img/storefront/products/4-recopyright.png"
           class="w-full h-auto object-cover"
