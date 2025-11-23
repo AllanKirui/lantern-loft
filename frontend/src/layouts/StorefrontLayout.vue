@@ -7,6 +7,7 @@ import StorefrontFooter from "@/components/layout/storefront/StorefrontFooter.vu
   <div class="storefront-layout">
     <StorefrontNav />
     <RouterView />
+    <BackToTop />
     <StorefrontFooter />
   </div>
 </template>
