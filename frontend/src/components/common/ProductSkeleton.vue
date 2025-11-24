@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import PistonLoader from "./PistonLoader.vue"
+
+withDefaults(defineProps<{ isForNewProducts?: boolean }>(), {
+  isForNewProducts: false
+})
 </script>
 
 <template>
@@ -10,8 +14,16 @@ import PistonLoader from "./PistonLoader.vue"
       <PistonLoader />
     </div>
     <div class="p-3 space-y-3">
-      <div class="skeleton"></div>
-      <div class="skeleton w-1/2"></div>
+      <template v-if="isForNewProducts">
+        <div class="skeleton w-1/2 mx-auto"></div>
+        <div class="skeleton w-5/6 mx-auto"></div>
+        <div class="skeleton w-5/6 mx-auto"></div>
+        <div class="skeleton w-5/6 mx-auto"></div>
+      </template>
+      <template v-else>
+        <div class="skeleton"></div>
+        <div class="skeleton w-1/2"></div>
+      </template>
     </div>
   </div>
 </template>
