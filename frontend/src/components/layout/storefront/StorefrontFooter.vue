@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Logo from "@/components/common/Logo.vue"
+import FooterLinks from "@/components/footer/storefront/FooterLinks.vue"
 
 const footerLinks = [
   {
@@ -87,63 +88,21 @@ const footerLinks = [
           <!-- Footer Links -->
           <!-- Only show these links for screens between 480px and 768px  -->
           <div class="hidden sm:flex gap-14 w-fit mx-auto md:hidden">
-            <div v-for="section in footerLinks" :key="section.title">
-              <h3 class="fs-h3 font-bold">{{ section.title }}</h3>
-              <ul
-                class="fs-footer-nav-links mt-3 flex flex-col gap-2 text-bone"
-              >
-                <li
-                  v-for="link in section.links"
-                  :key="link.text"
-                  class="flex items-center gap-2"
-                >
-                  <BaseIcon
-                    name="chevron"
-                    class="w-[9.5px] h-[5.5px] sm:w-[11px] sm:h-[6.8px] text-crayola duration-200 -rotate-90"
-                    :stroke-width="6"
-                  />
-                  <a
-                    :href="link.href"
-                    :data-replace="link.text"
-                    class="link-hover"
-                  >
-                    <span>{{ link.text }}</span></a
-                  >
-                </li>
-              </ul>
+            <div v-for="linkGroup in footerLinks" :key="linkGroup.title">
+              <FooterLinks :group="linkGroup" />
             </div>
           </div>
 
           <!-- Only show these links for screens below 480px and those above 768px  -->
           <div
-            v-for="(section, index) in footerLinks"
-            :key="section.title"
+            v-for="(linkGroup, index) in footerLinks"
+            :key="linkGroup.title"
             :class="[
               index > 0 ? 'sp-mt-footer-legal' : '',
               'sm:hidden md:block md:mt-0'
             ]"
           >
-            <h3 class="fs-h3 font-bold">{{ section.title }}</h3>
-            <ul class="fs-footer-nav-links mt-3 flex flex-col gap-2 text-bone">
-              <li
-                v-for="link in section.links"
-                :key="link.text"
-                class="flex items-center gap-2"
-              >
-                <BaseIcon
-                  name="chevron"
-                  class="w-[9.5px] h-[5.5px] sm:w-[11px] sm:h-[6.8px] text-crayola duration-200 -rotate-90"
-                  :stroke-width="6"
-                />
-                <a
-                  :href="link.href"
-                  :data-replace="link.text"
-                  class="link-hover"
-                >
-                  <span>{{ link.text }}</span></a
-                >
-              </li>
-            </ul>
+            <FooterLinks :group="linkGroup" />
           </div>
 
           <!-- Global Ratings -->
