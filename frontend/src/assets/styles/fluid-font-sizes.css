@@ -77,10 +77,7 @@
   font-size: var(--fs-24-28-min);
 }
 .fs-items-count,
-.fs-shop-link,
-.fs-footer-sign-in,
-.fs-footer-reviews,
-.fs-footer-nav-links {
+.fs-shop-link {
   font-size: var(--fs-14-16-full);
 }
 .fs-footer-slogan {

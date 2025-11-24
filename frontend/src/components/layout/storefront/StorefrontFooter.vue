@@ -107,7 +107,7 @@ const footerLinks = [
 
           <!-- Global Ratings -->
           <div class="mt-8 md:mt-0 flex flex-col items-center">
-            <p class="fs-footer-reviews">
+            <p>
               Check out our
               <a
                 href="/reviews"
@@ -133,7 +133,7 @@ const footerLinks = [
               </span>
             </div>
 
-            <p class="sp-mt-footer-sign-in fs-footer-sign-in">
+            <p class="sp-mt-footer-sign-in">
               Already a customer?
               <a
                 href="/account/sign-in"
