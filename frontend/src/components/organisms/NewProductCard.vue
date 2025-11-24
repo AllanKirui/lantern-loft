@@ -22,6 +22,7 @@ defineProps<Props>()
         src="@/assets/img/storefront/products/4-recopyright.png"
         :alt="product.title"
         class="w-full h-auto object-cover"
+        loading="lazy"
       />
     </div>
     <div class="text-center mt-2">
