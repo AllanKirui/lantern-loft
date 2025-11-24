@@ -40,6 +40,7 @@ defineProps<Props>()
           src="@/assets/img/storefront/products/4-recopyright.png"
           class="w-full h-auto object-cover"
           :alt="product.name"
+          loading="lazy"
         />
         <span
           v-if="product.finishesCount > 0"
