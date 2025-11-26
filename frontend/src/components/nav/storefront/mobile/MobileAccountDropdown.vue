@@ -24,7 +24,7 @@ const accountLinks = [
   }
 ]
 
-const DELAY = 60 // Transition delay
+const DELAY = 40 // Transition delay
 </script>
 
 <template>
