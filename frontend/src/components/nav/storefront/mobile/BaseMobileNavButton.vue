@@ -2,13 +2,9 @@
 import { computed } from "vue"
 import { useMobileNavStore } from "@/stores/mobileNav"
 
-defineOptions({ inheritAttrs: false })
+const props = defineProps<{ text: "menu" | "account" | "search" }>()
 
-const props = defineProps<{
-  type: "link" | "button"
-  text: string
-  href?: string
-}>()
+defineEmits(["click"])
 
 const mobileNavStore = useMobileNavStore()
 
@@ -16,20 +12,15 @@ const selected = computed(() => props.text.toLowerCase())
 </script>
 
 <template>
-  <component
-    :is="type === 'link' ? 'a' : 'button'"
-    :href="type === 'link' ? href : undefined"
-    :type="type === 'button' ? 'button' : undefined"
-    class="relative -bottom-1 flex flex-col items-center gap-2 hover:text-bone duration-200"
+  <button
+    class="mobile-nav-button"
     :class="{
       'text-bone': mobileNavStore.activeDropdown === selected
     }"
-    v-bind="$attrs"
+    @click="$emit('click')"
   >
     <slot />
-    <span class="fs-nav-sm uppercase leading-none">
-      {{ text }}
-    </span>
+    <span class="fs-nav-sm uppercase leading-none">{{ text }}</span>
 
     <!-- Pointer -->
     <span
@@ -40,5 +31,5 @@ const selected = computed(() => props.text.toLowerCase())
           : 'opacity-0 -bottom-8'
       ]"
     ></span>
-  </component>
+  </button>
 </template>
