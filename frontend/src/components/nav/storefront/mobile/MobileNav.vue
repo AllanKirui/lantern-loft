@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, watch } from "vue"
+import { onMounted, onBeforeUnmount, watch } from "vue"
 import { useMobileNavStore } from "@/stores/mobileNav"
 import MobileAccountButton from "./MobileAccountButton.vue"
 import MobileCartLink from "./MobileCartLink.vue"
@@ -75,36 +75,29 @@ onMounted(calculateMobileNavDropdownHeight)
 </template>
 
 <style scoped>
-.slide-down-enter-active,
-.slide-down-leave-active {
-  transition: height 0.32s cubic-bezier(0.4, 0, 0.6, 1),
-    opacity 0.32s cubic-bezier(0.4, 0, 0.6, 1);
+.slide-down-leave-active,
+.slide-down-enter-active {
+  transition: all 0.32s;
   overflow: hidden;
 }
-
-.slide-down-enter-from,
-.slide-down-leave-to {
+.slide-down-leave-to,
+.slide-down-enter-from {
   height: 0;
   opacity: 0;
+  visibility: hidden;
 }
-
 .slide-down-enter-to,
 .slide-down-leave-from {
-  height: calc(100vh - 80px);
+  height: var(--mobile-nav-dropdown-height);
   opacity: 1;
+  visibility: visible;
 }
-.slide-down-leave-from {
-  overflow-y: auto;
-}
-
 .slide-down-enter-active * {
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1);
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.6, 1);
 }
-
 .slide-down-enter-from * {
   opacity: 0;
 }
-
 .slide-down-enter-to * {
   opacity: 1;
 }
