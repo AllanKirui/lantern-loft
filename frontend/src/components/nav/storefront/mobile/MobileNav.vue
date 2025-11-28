@@ -32,6 +32,16 @@ watch(
 )
 
 onBeforeUnmount(removeResizeListener)
+
+function calculateMobileNavDropdownHeight() {
+  const dropdownHeight = window.innerHeight - 80 // Minus 80px for the nav height
+  document.documentElement.style.setProperty(
+    "--mobile-nav-dropdown-height",
+    `${dropdownHeight}px`
+  )
+}
+
+onMounted(calculateMobileNavDropdownHeight)
 </script>
 
 <template>
