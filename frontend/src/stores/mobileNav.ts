@@ -2,7 +2,7 @@ import { defineStore } from "pinia"
 import { ref } from "vue"
 import { useOverlayStore } from "./overlay"
 
-type DropdownName = "menu" | "account"
+type DropdownName = "menu" | "account" | "search"
 
 export const useMobileNavStore = defineStore("mobileNav", () => {
   const overlayStore = useOverlayStore()
