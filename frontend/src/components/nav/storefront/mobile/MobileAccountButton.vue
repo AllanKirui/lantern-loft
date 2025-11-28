@@ -7,11 +7,10 @@ const mobileNavStore = useMobileNavStore()
 
 <template>
   <BaseMobileNavButton
-    type="button"
-    text="Account"
-    @click="mobileNavStore.toggleDropdown('account')"
     :aria-expanded="mobileNavStore.isAccountOpen"
     aria-controls="mobile-account-menu"
+    text="account"
+    @click="mobileNavStore.toggleDropdown('account')"
   >
     <div class="w-auto h-6">
       <BaseIcon

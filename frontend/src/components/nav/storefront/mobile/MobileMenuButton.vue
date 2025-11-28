@@ -7,11 +7,10 @@ const mobileNavStore = useMobileNavStore()
 
 <template>
   <BaseMobileNavButton
-    type="button"
-    text="Menu"
-    @click="mobileNavStore.toggleDropdown('menu')"
     :aria-expanded="mobileNavStore.isMenuOpen"
     aria-controls="mobile-menu"
+    text="menu"
+    @click="mobileNavStore.toggleDropdown('menu')"
   >
     <!-- Hamburger Icon -->
     <div class="flex items-center justify-center w-5 sm:w-6 h-6">
