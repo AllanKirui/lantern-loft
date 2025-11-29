@@ -2,13 +2,6 @@
 import { useOverlayStore } from "@/stores/overlay"
 
 const overlayStore = useOverlayStore()
-
-const emit = defineEmits(["close"])
-
-function handleClick() {
-  overlayStore.close()
-  emit("close")
-}
 </script>
 
 <template>
@@ -17,7 +10,7 @@ function handleClick() {
       <div
         v-if="overlayStore.isActive"
         class="fixed inset-0 bg-black/75 z-[99]"
-        @click="handleClick"
+        @click="overlayStore.close"
       ></div>
     </transition>
   </Teleport>
@@ -26,7 +19,7 @@ function handleClick() {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: all 0.3s;
 }
 .fade-enter-from,
 .fade-leave-to {
