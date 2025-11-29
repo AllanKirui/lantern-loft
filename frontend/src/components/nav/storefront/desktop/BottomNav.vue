@@ -117,14 +117,8 @@ function leave(el: Element, done: () => void) {
         @enter="enter"
         @leave="leave"
       >
-        <RecentItemsDropdown
-          v-if="activeDropdown === 'recent'"
-          @close="closeDropdown"
-        />
-        <WishlistDropdown
-          v-else-if="activeDropdown === 'wishlist'"
-          @close="closeDropdown"
-        />
+        <RecentItemsDropdown v-if="isRecentOpen" />
+        <WishlistDropdown v-else-if="isWishlistOpen" />
       </transition>
     </div>
 

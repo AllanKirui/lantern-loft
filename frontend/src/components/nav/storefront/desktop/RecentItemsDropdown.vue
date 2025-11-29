@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import BaseDropdown from "./BaseDropdown.vue"
-
-const emit = defineEmits(["close"])
 </script>
 
 <template>
@@ -9,7 +7,6 @@ const emit = defineEmits(["close"])
     id="recent-items-dropdown"
     title="Recent Items"
     manage-href="/recent-items"
-    @close="$emit('close')"
   >
     <!-- Empty list -->
     <div class="mt-5 text-center">
