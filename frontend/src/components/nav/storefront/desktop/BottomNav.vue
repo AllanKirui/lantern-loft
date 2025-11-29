@@ -6,8 +6,6 @@ import DropdownButton from "./DropdownButton.vue"
 import AccountDropdown from "./AccountDropdown.vue"
 import RecentItemsDropdown from "./RecentItemsDropdown.vue"
 import WishlistDropdown from "./WishlistDropdown.vue"
-import BaseOverlay from "@/components/base/BaseOverlay.vue"
-import { useOverlayStore } from "@/stores/overlay"
 
 const desktopNavStore = useDesktopNavStore()
 const { activeDropdown, isAccountOpen, isRecentOpen, isWishlistOpen } =
@@ -125,9 +123,6 @@ function leave(el: Element, done: () => void) {
         <span>The Workshop</span>
       </a>
     </div>
-
-    <!-- Overlay -->
-    <BaseOverlay v-if="activeDropdown" @close="closeDropdown" />
   </div>
 </template>
 
