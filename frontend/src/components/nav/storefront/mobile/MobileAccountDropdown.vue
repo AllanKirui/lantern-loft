@@ -42,13 +42,10 @@ const DELAY = 40 // Transition delay
           <BaseIcon :name="link.icon" class="w-6 h-6" :stroke-width="3.5" />
 
           <div class="flex flex-col gap-2">
-            <span class="fs-mobile-account-link-title font-semibold">{{
-              link.title
+            <span class="font-semibold">{{ link.title }}</span>
+            <span class="text-sm leading-snug font-medium text-pale-brown">{{
+              link.about
             }}</span>
-            <span
-              class="fs-mobile-account-link-about font-semibold text-pale-brown"
-              >{{ link.about }}</span
-            >
           </div>
         </a>
 
@@ -66,15 +63,13 @@ const DELAY = 40 // Transition delay
       :style="{ transitionDelay: `${accountLinks.length * DELAY}ms` }"
     >
       <!-- Auth Links -->
-      <a
-        href="/account/create"
-        class="btn-primary sm:max-w-96 sm:mx-auto fs-mobile-account-auth-link"
+      <a href="/account/create" class="btn-primary sm:max-w-96 sm:mx-auto"
         >Create Account</a
       >
       <a
         href="/account/sign-in"
         data-replace="Sign In"
-        class="link-hover block my-3 mx-auto w-fit font-medium fs-mobile-account-auth-link"
+        class="link-hover block my-3 mx-auto w-fit font-medium"
         ><span>Sign In</span></a
       >
     </div>
