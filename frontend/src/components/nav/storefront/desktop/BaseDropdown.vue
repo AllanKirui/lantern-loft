@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseCloseButton from "@/components/base/BaseCloseButton.vue"
+import { useDesktopNavStore } from "@/stores/desktopNav"
 
 interface Props {
   id: string
@@ -9,7 +10,7 @@ interface Props {
 
 defineProps<Props>()
 
-const emit = defineEmits(["close"])
+const desktopNavStore = useDesktopNavStore()
 </script>
 
 <template>
@@ -30,7 +31,10 @@ const emit = defineEmits(["close"])
         >
       </div>
 
-      <BaseCloseButton class="hover:after:bg-cream" @click="$emit('close')" />
+      <BaseCloseButton
+        class="hover:after:bg-cream"
+        @click="desktopNavStore.closeAll"
+      />
     </div>
 
     <!-- Horizontal divider -->
