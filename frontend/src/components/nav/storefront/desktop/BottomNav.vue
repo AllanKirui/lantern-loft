@@ -129,8 +129,7 @@ function leave(el: Element, done: () => void) {
 <style scoped>
 .dropdown-enter-active,
 .dropdown-leave-active {
-  transition: height 300ms cubic-bezier(0.3, 0, 0.7, 1),
-    opacity 300ms cubic-bezier(0.3, 0, 0.7, 1);
+  transition: all 300ms;
   overflow: hidden;
 }
 
