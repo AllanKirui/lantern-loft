@@ -7,7 +7,6 @@ import MobileMenuButton from "./MobileMenuButton.vue"
 import MobileSearchButton from "./MobileSearchButton.vue"
 import MobileMenuDropdown from "./MobileMenuDropdown.vue"
 import MobileAccountDropdown from "./MobileAccountDropdown.vue"
-import BaseOverlay from "@/components/base/BaseOverlay.vue"
 
 const mobileNavStore = useMobileNavStore()
 
@@ -66,12 +65,6 @@ onMounted(calculateMobileNavDropdownHeight)
     <MobileMenuDropdown v-if="mobileNavStore.isMenuOpen" />
     <MobileAccountDropdown v-else-if="mobileNavStore.isAccountOpen" />
   </transition>
-
-  <!-- Overlay -->
-  <BaseOverlay
-    v-if="mobileNavStore.activeDropdown"
-    @close="mobileNavStore.closeAll"
-  />
 </template>
 
 <style scoped>
