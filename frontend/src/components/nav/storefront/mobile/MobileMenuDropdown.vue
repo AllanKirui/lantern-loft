@@ -45,7 +45,7 @@ const DELAY = 40 // Transition delay
         :style="{ transitionDelay: `${index * DELAY}ms` }"
       >
         <a
-          class="btn-hover block p-3 fs-mobile-menu-link font-semibold hover:after:bg-cream"
+          class="btn-hover block p-3 text-lg leading-snug font-semibold hover:after:bg-cream"
           :href="link.href"
           >{{ link.text }}</a
         >
@@ -59,7 +59,7 @@ const DELAY = 40 // Transition delay
     >
       <a
         href="#"
-        class="btn-hover flex gap-2 mt-3 px-3 py-[14px] fs-mobile-menu-workshop-link font-medium hover:after:bg-cream"
+        class="btn-hover flex gap-2 mt-3 px-3 py-[14px] font-medium hover:after:bg-cream"
       >
         <BaseIcon name="bulb-off" class="w-5 h-5" :stroke-width="2" />
         <span>The Workshop</span></a
@@ -100,7 +100,7 @@ const DELAY = 40 // Transition delay
           <a
             href="#"
             data-replace="Privacy Policy"
-            class="link-hover fs-mobile-menu-legal-link font-medium"
+            class="link-hover text-sm font-medium"
             ><span>Privacy Policy</span></a
           >
 
@@ -110,7 +110,7 @@ const DELAY = 40 // Transition delay
           <a
             href="#"
             data-replace="Conditions of Use"
-            class="link-hover fs-mobile-menu-legal-link font-medium"
+            class="link-hover text-sm font-medium"
             ><span>Conditions of Use</span></a
           >
         </div>
