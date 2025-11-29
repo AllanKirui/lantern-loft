@@ -1,7 +1,11 @@
 import { defineStore } from "pinia"
 import { ref, watch } from "vue"
+import { useDesktopNavStore } from "./desktopNav"
+import { useMobileNavStore } from "./mobileNav"
 
 export const useOverlayStore = defineStore("overlay", () => {
+  const desktopNavStore = useDesktopNavStore()
+  const mobileNavStore = useMobileNavStore()
   const isActive = ref(false)
 
   function open() {
@@ -10,6 +14,9 @@ export const useOverlayStore = defineStore("overlay", () => {
 
   function close() {
     isActive.value = false
+
+    if (desktopNavStore.activeDropdown) desktopNavStore.closeAll()
+    if (mobileNavStore.activeDropdown) mobileNavStore.closeAll()
   }
 
   function toggle() {
