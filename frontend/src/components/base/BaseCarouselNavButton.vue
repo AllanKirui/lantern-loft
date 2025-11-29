@@ -21,7 +21,7 @@ function handleClick() {
 
 <template>
   <button
-    class="btn-hover has-ripple-primary flex items-center justify-center w-8 h-8 rounded-md hover:after:bg-cream text-chestnut-brown disabled:pointer-events-none disabled:text-chestnut-brown/30"
+    class="btn-rounded rounded-md has-ripple-primary hover:after:bg-cream text-chestnut-brown disabled:pointer-events-none disabled:text-chestnut-brown/30"
     :class="[
       direction === 'left' ? `${productType}-prev` : `${productType}-next`
     ]"
