@@ -77,12 +77,10 @@ function leave(el: Element, done: () => void) {
     <!-- Account Dropdown Container -->
     <div class="relative">
       <DropdownButton
-        :active-dropdown="activeDropdown"
         icon="avatar"
         text="Account"
         dropdown="account"
         controls="account-menu"
-        @toggle="toggleDropdown"
       />
 
       <transition
@@ -97,22 +95,18 @@ function leave(el: Element, done: () => void) {
 
     <!-- Recent Items Button -->
     <DropdownButton
-      :active-dropdown="activeDropdown"
       icon="history"
       text="Recently Viewed"
       dropdown="recent"
       controls="recent-items-dropdown"
-      @toggle="toggleDropdown"
     />
 
     <!-- Wishlist Button -->
     <DropdownButton
-      :active-dropdown="activeDropdown"
       icon="wishlist"
       text="Wishlist"
       dropdown="wishlist"
       controls="wishlist-dropdown"
-      @toggle="toggleDropdown"
     />
 
     <!-- Recent Items and Wishlist Dropdown Container -->

@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { useDesktopNavStore } from "@/stores/desktopNav"
+import { storeToRefs } from "pinia"
+
 // Allowed dropdown types
 type DropdownName = "account" | "recent" | "wishlist"
 
 interface Props {
   dropdown: DropdownName
-  activeDropdown: DropdownName | null
   icon: string
   text: string
   controls: string
@@ -12,14 +14,13 @@ interface Props {
 
 defineProps<Props>()
 
-const emit = defineEmits<{
-  toggle: [value: DropdownName]
-}>()
+const desktopNavStore = useDesktopNavStore()
+const { activeDropdown } = storeToRefs(desktopNavStore)
 </script>
 
 <template>
   <button
-    @click="$emit('toggle', dropdown)"
+    @click="desktopNavStore.toggleDropdown(dropdown)"
     class="btn-hover relative py-2 px-4 flex items-center gap-2 hover:text-bone hover:after:bg-eerie-black/75 overflow-hidden duration-200"
     :class="{
       'bg-eerie-black/75 text-bone': activeDropdown === dropdown
