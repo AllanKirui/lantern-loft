@@ -71,10 +71,7 @@ const DELAY = 40 // Transition delay
       <div class="flex items-center justify-between mt-[14px]">
         <!-- Social Links -->
         <div class="flex gap-2">
-          <a
-            href="#"
-            class="btn-hover flex items-center justify-center w-8 h-8 rounded-full hover:after:bg-cream"
-          >
+          <a href="#" class="btn-rounded hover:after:bg-cream">
             <BaseIcon
               name="facebook"
               icon-type="social"
@@ -82,10 +79,7 @@ const DELAY = 40 // Transition delay
               :stroke-width="3.5"
             />
           </a>
-          <a
-            href="#"
-            class="btn-hover flex items-center justify-center w-8 h-8 rounded-full hover:after:bg-cream"
-          >
+          <a href="#" class="btn-rounded hover:after:bg-cream">
             <BaseIcon
               name="instagram"
               icon-type="social"
