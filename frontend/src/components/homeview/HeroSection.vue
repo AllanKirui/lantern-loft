@@ -5,7 +5,7 @@
       class="wrapper relative flex flex-col md:flex-row md:items-center pb-24 sm:pb-0"
     >
       <!-- Hero Image -->
-      <div class="relative w-full md:max-w-[480px]">
+      <div class="relative w-full md:max-w-[480px] -top-[2px]">
         <span class="absolute top-0 left-0 w-full h-full"></span>
         <span
           class="absolute top-0 w-full h-full z-10 linear-gradient md:hidden"
