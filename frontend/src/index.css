@@ -48,7 +48,7 @@
     @apply max-w-7xl mx-auto;
   }
   .btn {
-    @apply btn-pressable custom-shadow block py-[10px] font-medium text-center rounded-[4px];
+    @apply btn-pressable custom-shadow block py-3 font-medium text-center rounded;
   }
   .btn-pressable {
     position: relative;
