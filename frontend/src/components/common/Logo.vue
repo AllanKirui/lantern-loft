@@ -1,8 +1,7 @@
 <script setup lang="ts">
-defineProps<{
-  href: string
-  height?: string // tailwind classes e.g h-20, h-32, h-[100px]
-}>()
+withDefaults(defineProps<{ href: string; height?: string }>(), {
+  height: "h-20"
+})
 </script>
 
 <template>
@@ -19,8 +18,7 @@ defineProps<{
       <img
         src="@/assets/img/logo.svg"
         alt="Lantern Loft Logo"
-        class="w-auto"
-        :class="height ? height : 'h-20'"
+        :class="['w-auto', height]"
       />
     </div>
   </a>
