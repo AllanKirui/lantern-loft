@@ -5,13 +5,11 @@ import BottomNav from "@/components/nav/storefront/desktop/BottomNav.vue"
 
 <template>
   <header class="w-full bg-black text-crayola relative z-[100]">
-    <!-- Top navigation -->
     <TopNav />
 
     <!-- Horizontal divider -->
     <span class="hidden md:block w-full h-[1px] bg-jet" />
 
-    <!-- Bottom navigation -->
     <BottomNav />
   </header>
 </template>
