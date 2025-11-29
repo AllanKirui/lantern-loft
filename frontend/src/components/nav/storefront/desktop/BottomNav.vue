@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { onBeforeUnmount, ref, watch } from "vue"
+import { onBeforeUnmount, watch } from "vue"
+import { useDesktopNavStore } from "@/stores/desktopNav"
+import { storeToRefs } from "pinia"
 import DropdownButton from "./DropdownButton.vue"
 import AccountDropdown from "./AccountDropdown.vue"
 import RecentItemsDropdown from "./RecentItemsDropdown.vue"
@@ -7,26 +9,12 @@ import WishlistDropdown from "./WishlistDropdown.vue"
 import BaseOverlay from "@/components/base/BaseOverlay.vue"
 import { useOverlayStore } from "@/stores/overlay"
 
-// Allowed dropdown types
-type DropdownName = "account" | "recent" | "wishlist"
-
-const overlayStore = useOverlayStore()
-
-const activeDropdown = ref<DropdownName | null>(null)
-
-function toggleDropdown(menu: DropdownName) {
-  const isSame = activeDropdown.value === menu
-  activeDropdown.value = isSame ? null : menu
-  overlayStore[isSame ? "close" : "open"]()
-}
-
-function closeDropdown() {
-  activeDropdown.value = null
-  overlayStore.close()
-}
+const desktopNavStore = useDesktopNavStore()
+const { activeDropdown, isAccountOpen, isRecentOpen, isWishlistOpen } =
+  storeToRefs(desktopNavStore)
 
 function handleScreenResize() {
-  if (window.innerWidth < 768) closeDropdown()
+  if (window.innerWidth < 768) desktopNavStore.closeAll()
 }
 
 function addResizeListener() {
@@ -89,7 +77,7 @@ function leave(el: Element, done: () => void) {
         @enter="enter"
         @leave="leave"
       >
-        <AccountDropdown v-if="activeDropdown === 'account'" />
+        <AccountDropdown v-if="isAccountOpen" />
       </transition>
     </div>
 
