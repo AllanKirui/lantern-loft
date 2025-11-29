@@ -2,6 +2,7 @@
 import StorefrontNav from "@/components/layout/storefront/StorefrontNav.vue"
 import StorefrontFooter from "@/components/layout/storefront/StorefrontFooter.vue"
 import BackToTop from "@/components/common/BackToTop.vue"
+import BaseOverlay from "@/components/base/BaseOverlay.vue"
 </script>
 
 <template>
@@ -13,5 +14,6 @@ import BackToTop from "@/components/common/BackToTop.vue"
     <RouterView />
     <BackToTop />
     <StorefrontFooter />
+    <BaseOverlay />
   </div>
 </template>
