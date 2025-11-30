@@ -3,7 +3,7 @@ import BaseCarouselNavButton from "../base/BaseCarouselNavButton.vue"
 
 interface SectionHeader {
   tagline: string
-  title: string
+  title?: string
   headingId: string
   subheading?: {
     title: string
