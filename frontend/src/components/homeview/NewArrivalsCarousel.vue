@@ -47,7 +47,6 @@ const newArrivals = [
 
 const sectionHeaderData = {
   tagline: "Trending right now",
-  title: "Treat your home to something new",
   headingId: "new-arrivals-section",
   subheading: {
     title: "What's new",
@@ -82,7 +81,12 @@ function onGrabEnd() {
     :aria-labelledby="sectionHeaderData.headingId"
     class="sp-mt-storefront-section px-[14px]"
   >
-    <SectionHeader :data="sectionHeaderData" />
+    <SectionHeader :data="sectionHeaderData">
+      <template #title>
+        Treat your home <br />
+        to something new
+      </template>
+    </SectionHeader>
 
     <Swiper
       ref="swiperRef"

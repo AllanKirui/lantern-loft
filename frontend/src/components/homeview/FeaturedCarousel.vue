@@ -98,7 +98,6 @@ const featuredProducts = [
 
 const sectionHeaderData = {
   tagline: "Have you seen these future favorites?",
-  title: "Explore our ever-growing collection",
   headingId: "featured-products-section",
   subheading: {
     title: "We think you'll like",
@@ -119,7 +118,12 @@ const sectionHeaderData = {
     :aria-labelledby="sectionHeaderData.headingId"
     class="sp-mt-storefront-section px-[14px]"
   >
-    <SectionHeader :data="sectionHeaderData" />
+    <SectionHeader :data="sectionHeaderData">
+      <template #title>
+        Explore our <br />
+        ever-growing collection
+      </template>
+    </SectionHeader>
 
     <Swiper
       :modules="[Navigation, Keyboard]"
