@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { onBeforeUnmount, watch } from "vue"
+import { defineAsyncComponent, onBeforeUnmount, watch } from "vue"
 import { useDesktopNavStore } from "@/stores/desktopNav"
 import { storeToRefs } from "pinia"
 import DropdownButton from "./DropdownButton.vue"
-import AccountDropdown from "./AccountDropdown.vue"
-import RecentItemsDropdown from "./RecentItemsDropdown.vue"
-import WishlistDropdown from "./WishlistDropdown.vue"
+
+const AccountDropdown = defineAsyncComponent(
+  () => import("./AccountDropdown.vue")
+)
+const RecentItemsDropdown = defineAsyncComponent(
+  () => import("./RecentItemsDropdown.vue")
+)
+const WishlistDropdown = defineAsyncComponent(
+  () => import("./WishlistDropdown.vue")
+)
 
 const desktopNavStore = useDesktopNavStore()
 const { activeDropdown, isAccountOpen, isRecentOpen, isWishlistOpen } =
