@@ -117,7 +117,7 @@ function leave(el: Element, done: () => void) {
       >
         <BaseIcon
           name="bulb-off"
-          class="w-[22px] h-[22px]"
+          class="w-[22px] h-[22px] -mx-[3px]"
           :stroke-width="1.3"
         />
         <span>The Workshop</span>
