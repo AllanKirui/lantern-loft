@@ -1,12 +1,17 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, watch } from "vue"
+import { onMounted, onBeforeUnmount, watch, defineAsyncComponent } from "vue"
 import { useMobileNavStore } from "@/stores/mobileNav"
 import MobileAccountButton from "./MobileAccountButton.vue"
 import MobileCartLink from "./MobileCartLink.vue"
 import MobileMenuButton from "./MobileMenuButton.vue"
 import MobileSearchButton from "./MobileSearchButton.vue"
-import MobileMenuDropdown from "./MobileMenuDropdown.vue"
-import MobileAccountDropdown from "./MobileAccountDropdown.vue"
+
+const MobileMenuDropdown = defineAsyncComponent(
+  () => import("./MobileMenuDropdown.vue")
+)
+const MobileAccountDropdown = defineAsyncComponent(
+  () => import("./MobileAccountDropdown.vue")
+)
 
 const mobileNavStore = useMobileNavStore()
 
