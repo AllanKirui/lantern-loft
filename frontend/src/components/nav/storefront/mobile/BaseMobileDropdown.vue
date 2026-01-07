@@ -4,11 +4,6 @@ import { useMobileNavStore } from "@/stores/mobileNav"
 
 const mobileNavStore = useMobileNavStore()
 
-function uppercaseFirst(str: string) {
-  const firstChar = str.charAt(0)
-  return str.replace(firstChar, firstChar.toUpperCase())
-}
-
 function setElementId(activeDropdown: string) {
   let id = ""
 
@@ -32,8 +27,8 @@ function setElementId(activeDropdown: string) {
   >
     <!-- Header -->
     <div class="flex justify-between">
-      <h2 class="fs-mobile-nav-h2 font-bold">
-        {{ uppercaseFirst(mobileNavStore.activeDropdown as string) }}
+      <h2 class="fs-mobile-nav-h2 font-bold first-letter:uppercase">
+        {{ mobileNavStore.activeDropdown }}
       </h2>
       <BaseCloseButton
         class="hover:after:bg-cream"
