@@ -97,12 +97,9 @@ defineProps<Props>()
           <span class="mr-[2px] fs-product-card-currency leading-none"
             >kes</span
           >
-          <span v-if="product.hasDiscount" class="text-[22px] leading-none">{{
-            product.discountedPrice.toLocaleString()
+          <span class="text-[22px] leading-none">{{
+            (product.discountedPrice || product.price).toLocaleString()
           }}</span>
-          <span v-else class="text-[22px] leading-none">
-            {{ product.price.toLocaleString() }}</span
-          >
         </p>
       </div>
     </a>
