@@ -18,12 +18,14 @@ defineProps<Props>()
     <div class="relative">
       <span class="absolute top-0 left-0 w-full h-full z-10"></span>
       <span class="new-arrival-label">New Arrival</span>
-      <img
-        src="@/assets/img/storefront/products/4-recopyright.png"
-        :alt="product.title"
-        class="w-full h-auto object-cover"
-        loading="lazy"
-      />
+      <figure class="relative aspect-square bg-cream rounded overflow-hidden">
+        <img
+          src="@/assets/img/storefront/products/4-recopyright.png"
+          :alt="product.title"
+          class="w-full h-auto object-cover"
+          loading="lazy"
+        />
+      </figure>
     </div>
     <div class="text-center mt-2">
       <BaseIcon name="hanging-bulb" class="w-[10px] h-8" />
