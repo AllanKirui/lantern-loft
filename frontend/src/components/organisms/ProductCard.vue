@@ -36,17 +36,20 @@ defineProps<Props>()
         <div class="absolute right-2 top-2 z-20">
           <WishlistButton />
         </div>
-        <img
-          src="@/assets/img/storefront/products/4-recopyright.png"
-          class="w-full h-auto object-cover"
-          :alt="product.name"
-          loading="lazy"
-        />
-        <span
-          v-if="product.finishesCount > 0"
-          class="absolute bottom-2 left-2 px-1 py-[2px] rounded bg-black/75 text-cosmic-latte text-sm"
-          >{{ `${product.finishesCount} finishes` }}</span
-        >
+
+        <figure class="relative aspect-square bg-cream rounded overflow-hidden">
+          <img
+            src="@/assets/img/storefront/products/4-recopyright.png"
+            class="w-full h-auto object-cover"
+            :alt="product.name"
+            loading="lazy"
+          />
+          <span
+            v-if="product.finishesCount > 0"
+            class="absolute bottom-2 left-2 px-1 py-[2px] rounded bg-black/75 text-cosmic-latte text-sm"
+            >{{ `${product.finishesCount} finishes` }}</span
+          >
+        </figure>
       </div>
 
       <!-- Product Details -->
