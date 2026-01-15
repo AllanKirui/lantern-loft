@@ -48,7 +48,7 @@
     @apply max-w-7xl mx-auto;
   }
   .btn {
-    @apply btn-pressable custom-shadow block py-3 font-medium text-center rounded;
+    @apply btn-pressable custom-shadow block py-[10px] font-medium text-center rounded;
   }
   .btn-pressable {
     position: relative;
@@ -65,6 +65,8 @@
   }
   .btn-secondary {
     @apply btn border border-chestnut-brown bg-cosmic-latte text-chestnut-brown;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.08) 0px 1px 3px -1px;
   }
   .btn-hover {
     @apply relative z-10 overflow-hidden;
