@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -27,9 +28,10 @@ class ProductFactory extends Factory
         $price = $this->faker->randomFloat(0, 3000, 15000);
         $discount = random_int(12, 30) / 100; // percentage
         $salePrice = round($price * (1 - $discount), 2);
+        $category = Category::inRandomOrder()->first();
         $modelCode = strtoupper(
             'LMP-' .
-                $this->faker->randomElement(['FLR', 'TBL']) .
+                ($category->slug === 'table-lamps' ? 'TBL' : 'FLR') .
                 '-' .
                 $this->faker->numberBetween(100, 999)
         );
@@ -46,6 +48,7 @@ class ProductFactory extends Factory
         return [
             'name' => $name,
             'slug' => Str::slug($name) . '-' . $this->faker->unique()->numberBetween(100, 999),
+            'category_id' => $category->id,
             'price' => $price,
             'discount_price' => $onSale ? $salePrice : null,
             'description' => $this->faker->sentences(random_int(5, 12), true),
