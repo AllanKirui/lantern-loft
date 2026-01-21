@@ -34,6 +34,15 @@ class ProductFactory extends Factory
                 $this->faker->numberBetween(100, 999)
         );
 
+        // Create an array of 100 elements with varying counts for each value
+        $statuses = array_merge(
+            array_fill(0, 70, 'live'),
+            array_fill(0, 10, 'draft'),
+            array_fill(0, 10, 'coming_soon'),
+            array_fill(0, 5, 'out_of_stock'),
+            array_fill(0, 5, 'archived'),
+        );
+
         return [
             'name' => $name,
             'slug' => Str::slug($name) . '-' . $this->faker->unique()->numberBetween(100, 999),
@@ -48,12 +57,12 @@ class ProductFactory extends Factory
                 'alt' => $name . ' image ' . $i,
                 'is_primary' => $i === 1,
             ])->toArray(),
-            'is_featured' => $this->faker->boolean(30),
-            'is_new' => $this->faker->boolean(30),
+            'is_featured' => $this->faker->boolean(60),
+            'is_new' => $this->faker->boolean(40),
             'stock_quantity' => $this->faker->numberBetween(0, 40),
             'model_code' => $modelCode,
             'sku' => strtoupper('SKU-' . $this->faker->bothify('LMP-###??')),
-            'status' => $this->faker->randomElement(['live', 'draft', 'archived', 'coming_soon', 'out_of_stock']),
+            'status' => $this->faker->randomElement($statuses),
         ];
     }
 }
