@@ -37,4 +37,9 @@ class Product extends Model
         'is_featured' => 'boolean',
         'is_new' => 'boolean',
     ];
+
+    public function category()
+    {
+        $this->belongsTo(Category::class);
+    }
 }
