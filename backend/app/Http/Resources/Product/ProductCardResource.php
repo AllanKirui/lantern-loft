@@ -18,6 +18,9 @@ class ProductCardResource extends JsonResource
 
         $primaryImage = collect($this->images)->firstWhere('is_primary', true) ?? collect($this->images)->first();
 
+        $hasNoReviews = fake()->boolean(40);
+        $hasNoFinish = fake()->boolean(60);
+
         return [
             // Shared payload used by NewProductCard.vue and ProductCard.vue
             'id' => $this->id,
@@ -36,9 +39,9 @@ class ProductCardResource extends JsonResource
                 'is_new' => $this->is_new,
 
                 // TODO Computed data
-                'rating' => null,
-                'review_count' => null,
-                'finishes_count' => null,
+                'rating' => $hasNoReviews ? 0 : round(fake()->randomFloat(1, 3.5, 5), 1),
+                'review_count' => $hasNoReviews ? 0 : random_int(0, 500),
+                'finishes_count' => $hasNoFinish ? 0 : random_int(0, 100),
             ]),
 
         ];
