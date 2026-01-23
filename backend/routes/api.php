@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,5 @@ Route::get('/db-test', function () {
 
 // Protected route for Sanctum sanity-check
 Route::middleware('auth:sanctum')->get('/user', fn(Request $request) => $request->user());
+
+Route::apiResource('products', ProductController::class);
