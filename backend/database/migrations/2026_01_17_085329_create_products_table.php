@@ -17,10 +17,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->decimal('price', 10, 2);
             $table->decimal('discount_price', 10, 2)->nullable();
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->string('short_description')->nullable();
-            $table->string('meta_title')->nullable();
-            $table->string('meta_description')->nullable();
             $table->json('images')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_new')->default(false);
