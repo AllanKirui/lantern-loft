@@ -28,4 +28,5 @@ Route::get('/db-test', function () {
 // Protected route for Sanctum sanity-check
 Route::middleware('auth:sanctum')->get('/user', fn(Request $request) => $request->user());
 
+Route::get('/products/new-arrivals', [ProductController::class, 'newArrivals']);
 Route::apiResource('products', ProductController::class);
