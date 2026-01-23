@@ -33,7 +33,7 @@ class ProductFactory extends Factory
             'LMP-' .
                 ($category->slug === 'table-lamps' ? 'TBL' : 'FLR') .
                 '-' .
-                $this->faker->numberBetween(100, 999)
+                $this->faker->numberBetween(1000, 9999)
         );
 
         // Create an array of 100 elements with varying counts for each value
