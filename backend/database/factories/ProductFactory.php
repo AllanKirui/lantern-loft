@@ -53,8 +53,6 @@ class ProductFactory extends Factory
             'discount_price' => $onSale ? $salePrice : null,
             'description' => $this->faker->sentences(random_int(5, 12), true),
             'short_description' => $this->faker->optional(0.7)->sentences(3, true),
-            'meta_title' => $this->faker->words(3, true),
-            'meta_description' => $this->faker->sentences(3, true),
             'images' => collect(range(1, random_int(2, 5)))->map(fn($i) => [
                 'url' => $this->faker->imageUrl(512, 512, 'lamp', true),
                 'alt' => $name . ' image ' . $i,
