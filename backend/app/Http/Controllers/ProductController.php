@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Termwind\Components\Raw;
+use App\Http\Resources\Product\ProductCardResource;
 
 class ProductController extends Controller
 {
@@ -45,5 +47,12 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function newArrivals()
+    {
+        $products = Product::where('is_new', true)->take(6)->get();
+
+        return ProductCardResource::collection($products);
     }
 }
