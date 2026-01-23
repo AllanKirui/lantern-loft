@@ -29,4 +29,5 @@ Route::get('/db-test', function () {
 Route::middleware('auth:sanctum')->get('/user', fn(Request $request) => $request->user());
 
 Route::get('/products/new-arrivals', [ProductController::class, 'newArrivals']);
+Route::get('/products/featured', [ProductController::class, 'featured']);
 Route::apiResource('products', ProductController::class);
