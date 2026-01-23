@@ -55,4 +55,11 @@ class ProductController extends Controller
 
         return ProductCardResource::collection($products);
     }
+
+    public function featured()
+    {
+        $products = Product::where('is_featured', true)->take(8)->get();
+
+        return ProductCardResource::collection($products);
+    }
 }
