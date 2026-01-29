@@ -19,8 +19,6 @@ class Product extends Model
         'discount_price',
         'description',
         'short_description',
-        'meta_title',
-        'meta_description',
         'images',
         'is_featured',
         'is_new',
