@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Termwind\Components\Raw;
 use App\Http\Resources\Product\ProductCardResource;
+use App\Http\Resources\Product\ProductCardBaseResource;
 
 class ProductController extends Controller
 {
@@ -51,7 +52,7 @@ class ProductController extends Controller
 
     public function newArrivals()
     {
-        return ProductCardResource::collection(Product::newArrivals()->get());
+        return ProductCardBaseResource::collection(Product::newArrivals()->get());
     }
 
     public function featured()
