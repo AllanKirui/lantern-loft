@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -39,5 +40,11 @@ class Product extends Model
     public function category()
     {
         $this->belongsTo(Category::class);
+    }
+
+    // Model scopes
+    public function scopeNewArrivals(Builder $query): Builder
+    {
+        return $query->where('is_new', true)->latest()->take(6);
     }
 }
