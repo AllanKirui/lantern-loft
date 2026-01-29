@@ -51,15 +51,11 @@ class ProductController extends Controller
 
     public function newArrivals()
     {
-        $products = Product::where('is_new', true)->take(6)->get();
-
-        return ProductCardResource::collection($products);
+        return ProductCardResource::collection(Product::newArrivals()->get());
     }
 
     public function featured()
     {
-        $products = Product::where('is_featured', true)->take(8)->get();
-
-        return ProductCardResource::collection($products);
+        return ProductCardResource::collection(Product::featured()->get());
     }
 }
