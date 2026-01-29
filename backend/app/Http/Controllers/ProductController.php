@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Termwind\Components\Raw;
-use App\Http\Resources\Product\ProductCardResource;
 use App\Http\Resources\Product\ProductCardBaseResource;
+use App\Http\Resources\Product\ProductCardExtendedResource;
 
 class ProductController extends Controller
 {
@@ -57,6 +57,6 @@ class ProductController extends Controller
 
     public function featured()
     {
-        return ProductCardResource::collection(Product::featured()->get());
+        return ProductCardExtendedResource::collection(Product::featured()->get());
     }
 }
