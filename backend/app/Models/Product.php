@@ -47,4 +47,9 @@ class Product extends Model
     {
         return $query->where('is_new', true)->latest()->take(6);
     }
+
+    public function scopeFeatured(Builder $query): Builder
+    {
+        return $query->where('is_featured', true)->latest()->take(8);
+    }
 }
