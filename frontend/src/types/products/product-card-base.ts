@@ -3,7 +3,7 @@ export interface ProductCardBase {
   id: number
   name: string
   slug: string
-  short_description: string
+  shortDescription: string
   image: {
     url: string
     alt: string
