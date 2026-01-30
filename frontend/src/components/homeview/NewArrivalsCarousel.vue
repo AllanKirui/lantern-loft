@@ -1,56 +1,36 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
+import type { ProductCardBase } from "@/types/products/product-card-base"
+import { fetchNewArrivals } from "@/services/productService"
 import NewProductCard from "../organisms/NewProductCard.vue"
 import SectionHeader from "../common/SectionHeader.vue"
 
-/* TODO fetch data using Axios from the API */
-const newArrivals = [
-  {
-    id: 1,
-    title: "Luminous Sphere",
-    description:
-      "It's a spark of elegance. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sodales orci nec ligula. Nam consectetuer mollis dolor."
-  },
-  {
-    id: 2,
-    title: "New Product 2",
-    description:
-      "It's a spark of elegance. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sodales orci nec ligula. Nam consectetuer mollis dolor."
-  },
-  {
-    id: 3,
-    title: "New Product 3",
-    description:
-      "It's a spark of elegance. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sodales orci nec ligula. Nam consectetuer mollis dolor."
-  },
-  {
-    id: 4,
-    title: "New Product 4",
-    description:
-      "It's a spark of elegance. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sodales orci nec ligula. Nam consectetuer mollis dolor."
-  },
-  {
-    id: 5,
-    title: "New Product 5",
-    description:
-      "It's a spark of elegance. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sodales orci nec ligula. Nam consectetuer mollis dolor."
-  },
-  {
-    id: 6,
-    title: "New Product 6",
-    description:
-      "It's a spark of elegance. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sodales orci nec ligula. Nam consectetuer mollis dolor."
+const products = ref<ProductCardBase[]>([])
+const isLoading = ref(false)
+const error = ref<string | null>(null)
+
+async function fetchNewProducts() {
+  try {
+    isLoading.value = true
+    products.value = await fetchNewArrivals()
+  } catch (err) {
+    error.value = "Failed to load new arrivals"
+    console.error(err)
+  } finally {
+    isLoading.value = false
   }
-]
+}
+
+onMounted(fetchNewProducts)
 
 const sectionHeaderData = {
   tagline: "Trending right now",
   headingId: "new-arrivals-section",
   subheading: {
     title: "What's new",
-    subtitle: `${newArrivals.length} items`,
+    subtitle: `${products.value.length} items`,
     link: {
       to: "/collections",
       text: "Shop all"
@@ -124,8 +104,8 @@ function onGrabEnd() {
       @touchEnd="onGrabEnd"
       class="sp-mt-swiper-wrapper cursor-grab"
     >
-      <SwiperSlide v-for="(product, index) in newArrivals" :key="product.id">
-        <NewProductCard :index="index" :product="product" />
+      <SwiperSlide v-for="product in products" :key="product.id">
+        <NewProductCard :product="product" />
       </SwiperSlide>
     </Swiper>
   </section>
