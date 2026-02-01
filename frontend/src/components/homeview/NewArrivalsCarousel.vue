@@ -118,8 +118,12 @@ function onGrabEnd() {
         </SwiperSlide>
       </template>
       <template v-else>
-        <SwiperSlide v-for="product in products" :key="product.id">
-          <NewProductCard :product="product" />
+        <SwiperSlide v-for="(product, index) in products" :key="product.id">
+          <NewProductCard
+            :product="product"
+            class="animate-fade-in-down"
+            :style="{ animationDelay: `${index * 0.1}s` }"
+          />
         </SwiperSlide>
       </template>
     </Swiper>
