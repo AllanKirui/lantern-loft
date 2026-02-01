@@ -1,24 +1,21 @@
 <script setup lang="ts">
 import BaseCarouselNavButton from "../base/BaseCarouselNavButton.vue"
 
-interface SectionHeader {
+interface SectionHeaderOptions {
   tagline: string
-  title?: string
   headingId: string
-  subheading?: {
-    title: string
-    subtitle: string
-    link?: {
-      to: string
-      text: string
-    }
+  title?: string
+  subtitle?: string
+  link?: {
+    to: string
+    text: string
   }
-  productType: "new" | "featured"
+  productType?: "new" | "featured"
   withNavigation?: boolean
 }
 
 interface Props {
-  data: SectionHeader
+  data: SectionHeaderOptions
 }
 
 defineProps<Props>()
@@ -43,13 +40,13 @@ defineProps<Props>()
     </div>
 
     <div class="sp-mt-section-sub-heading flex justify-between">
-      <div>
+      <div v-if="data.title">
         <h3 class="fs-h3 font-semibold leading-none">
-          {{ data.subheading?.title }}
+          {{ data.title }}
         </h3>
         <span
           class="fs-items-count text-pale-brown block mt-2 md:mt-[10px] font-medium leading-none"
-          >{{ data.subheading?.subtitle }}</span
+          >{{ data.subtitle }}</span
         >
       </div>
 
@@ -65,12 +62,12 @@ defineProps<Props>()
             direction="right"
           />
         </div>
-        <div v-if="data.subheading?.link?.to">
+        <div v-if="data.link">
           <a
-            :href="data.subheading?.link?.to"
-            :data-replace="data.subheading?.link?.text"
+            :href="data.link?.to"
+            :data-replace="data.link?.text"
             class="link-hover fs-shop-link font-medium"
-            ><span>{{ data.subheading?.link?.text }}</span></a
+            ><span>{{ data.link?.text }}</span></a
           >
         </div>
       </div>
