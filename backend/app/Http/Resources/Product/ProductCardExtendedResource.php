@@ -19,8 +19,8 @@ class ProductCardExtendedResource extends ProductCardBaseResource
 
         // Merge the return array from ProductCardBaseResource with these additional fields
         return array_merge(parent::toArray($request), [
-            'price' => $this->price,
-            'discount_price' => $this->discount_price,
+            'price' => round(floatVal($this->price)),
+            'discount_price' => $this->discount_price ? round(floatVal($this->discount_price)) : null,
             'tagline' => $this->tagline,
             'is_new' => $this->is_new,
             'rating' => $hasNoReviews ? 0 : round(fake()->randomFloat(1, 3.5, 5), 1),
