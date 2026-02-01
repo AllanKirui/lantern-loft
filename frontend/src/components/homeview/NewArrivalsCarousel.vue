@@ -68,7 +68,7 @@ function onGrabEnd() {
     class="sp-mt-storefront-section px-[14px]"
   >
     <SectionHeader :data="sectionHeaderData">
-      <template #title>
+      <template #heading>
         Treat your home <br />
         to something new
       </template>

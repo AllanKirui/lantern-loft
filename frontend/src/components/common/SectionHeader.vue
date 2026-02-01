@@ -35,7 +35,7 @@ defineProps<Props>()
         :id="data.headingId"
         class="fs-h2 font-bold max-w-xs mx-auto leading-snug"
       >
-        <slot name="title" />
+        <slot name="heading" />
       </h2>
     </div>
 
