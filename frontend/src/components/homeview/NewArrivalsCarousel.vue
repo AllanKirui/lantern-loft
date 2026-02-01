@@ -6,6 +6,7 @@ import type { ProductCardBase } from "@/types/products/product-card-base"
 import { fetchNewArrivals } from "@/services/productService"
 import NewProductCard from "../organisms/NewProductCard.vue"
 import SectionHeader from "../common/SectionHeader.vue"
+import ProductSkeleton from "../common/ProductSkeleton.vue"
 
 const products = ref<ProductCardBase[]>([])
 const isLoading = ref(false)
@@ -108,11 +109,19 @@ function onGrabEnd() {
       }"
       @touchStart="onGrabStart"
       @touchEnd="onGrabEnd"
-      class="sp-mt-swiper-wrapper cursor-grab"
+      class="sp-mt-swiper-wrapper"
+      :class="{ 'cursor-grab': !isLoading }"
     >
-      <SwiperSlide v-for="product in products" :key="product.id">
-        <NewProductCard :product="product" />
-      </SwiperSlide>
+      <template v-if="isLoading">
+        <SwiperSlide v-for="n in 3" :key="n">
+          <ProductSkeleton :is-for-new-products="true" />
+        </SwiperSlide>
+      </template>
+      <template v-else>
+        <SwiperSlide v-for="product in products" :key="product.id">
+          <NewProductCard :product="product" />
+        </SwiperSlide>
+      </template>
     </Swiper>
   </section>
 </template>
