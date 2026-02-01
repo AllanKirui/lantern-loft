@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue"
+import { onMounted, computed, ref } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import type { ProductCardBase } from "@/types/products/product-card-base"
@@ -25,20 +25,26 @@ async function fetchNewProducts() {
 
 onMounted(fetchNewProducts)
 
-const sectionHeaderData = {
+const subtitle = computed(() => {
+  if (isLoading.value) return "Switching on something special…"
+  if (error.value) return "Something dimmed the glow. Refresh to retry."
+  return `${products.value.length} ${
+    products.value.length === 1 ? "item" : "items"
+  }`
+})
+
+const sectionHeaderData = computed(() => ({
   tagline: "Trending right now",
   headingId: "new-arrivals-section",
-  subheading: {
-    title: "What's new",
-    subtitle: `${products.value.length} items`,
-    link: {
-      to: "/collections",
-      text: "Shop all"
-    }
+  title: "What's new",
+  subtitle: subtitle.value,
+  link: {
+    to: "/collections",
+    text: "Shop all"
   },
   productType: "new" as "new",
   withNavigation: true
-}
+}))
 
 const swiperRef = ref<any | null>(null)
 
