@@ -39,7 +39,11 @@ defineProps<Props>()
           <span
             v-if="product.finishesCount > 0"
             class="absolute bottom-2 left-2 px-1 py-[2px] rounded bg-black/75 text-cosmic-latte text-sm"
-            >{{ `${product.finishesCount} finishes` }}</span
+            >{{
+              `${product.finishesCount} ${
+                product.finishesCount === 1 ? "finish" : "finishes"
+              }`
+            }}</span
           >
         </figure>
       </div>
