@@ -10,11 +10,13 @@
         <span
           class="absolute top-0 w-full h-full z-10 linear-gradient md:hidden"
         ></span>
-        <img
-          src="@/assets/img/storefront/hero.webp"
-          alt="Hero"
-          class="w-full h-auto object-cover"
-        />
+        <figure class="relative aspect-[6/7] bg-black overflow-hidden">
+          <img
+            src="@/assets/img/storefront/hero.webp"
+            alt="Hero"
+            class="w-full h-auto object-cover"
+          />
+        </figure>
       </div>
 
       <!-- Hero Text -->
