@@ -13,7 +13,7 @@ defineProps<Props>()
 <template>
   <article
     role="article"
-    :aria-labelledby="`featured-item-${product.id}`"
+    :aria-labelledby="`product-card-item-${product.id}`"
     class="card-hover rounded-md m-[2px]"
   >
     <a
@@ -51,7 +51,7 @@ defineProps<Props>()
       <!-- Product Details -->
       <div class="py-3 px-[10px] md:px-3">
         <h4
-          :id="`featured-item-${product.id}`"
+          :id="`product-card-item-${product.id}`"
           class="fs-product-card-name font-semibold leading-none capitalize"
         >
           {{ product.name }}
