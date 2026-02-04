@@ -105,12 +105,13 @@ const sectionHeaderData = computed(() => ({
         </SwiperSlide>
       </template>
       <template v-else>
-        <SwiperSlide v-for="(product, index) in products" :key="product.id">
-          <ProductCard
-            :product="product"
-            class="animate-fade-in-down"
-            :style="{ animationDelay: `${index * 0.1}s` }"
-          />
+        <SwiperSlide
+          v-for="(product, index) in products"
+          :key="product.id"
+          class="animate-fade-in-down"
+          :style="{ animationDelay: `${index * 0.1}s` }"
+        >
+          <ProductCard :product="product" />
         </SwiperSlide>
       </template>
     </Swiper>
