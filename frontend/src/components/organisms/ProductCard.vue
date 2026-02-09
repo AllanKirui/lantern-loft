@@ -104,14 +104,3 @@ defineProps<Props>()
     </a>
   </article>
 </template>
-
-<style scoped>
-.card-hover {
-  transition: all 0.2s cubic-bezier(0.3, 0, 0.7, 1);
-}
-.card-hover:hover {
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.08) 0px 1px 3px -1px;
-  transform: translateY(-2px);
-}
-</style>
