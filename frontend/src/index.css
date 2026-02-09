@@ -175,6 +175,14 @@
     @apply absolute top-0 left-0 px-[5px] py-2 fs-new-arrival-label font-medium italic bg-black text-crayola uppercase leading-none z-10;
     writing-mode: sideways-lr;
   }
+  .card-hover {
+    transition: all 0.2s cubic-bezier(0.3, 0, 0.7, 1);
+  }
+  .card-hover:hover {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.08) 0px 1px 3px -1px;
+    transform: translateY(-2px);
+  }
   /* End of Global styles */
 }
 
