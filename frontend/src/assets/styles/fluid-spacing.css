@@ -60,11 +60,13 @@
 .sp-mt-footer {
   margin-top: var(--space-32-56-full);
 }
+.sp-mt-categories-wrapper,
 .sp-mt-swiper-wrapper,
 .sp-mt-footer-copy,
 .sp-mt-footer-about-wrapper {
   margin-top: var(--space-24-32-full);
 }
+.sp-mt-categories-about,
 .sp-mt-footer-about {
   margin-top: var(--space-16-20-full);
 }
@@ -87,4 +89,7 @@
 }
 .sp-mt-section-sub-heading {
   margin-top: var(--space-14-16-full);
+}
+.gap-categories-section {
+  gap: var(--space-32-56-full);
 }
