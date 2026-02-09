@@ -3,7 +3,7 @@ import { onMounted, computed, ref } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
-import { fetchFeatured } from "@/services/productService"
+import { productService } from "@/services/productService"
 import SectionHeader from "../common/SectionHeader.vue"
 import ProductCard from "../organisms/ProductCard.vue"
 import ProductSkeleton from "../common/ProductSkeleton.vue"
@@ -15,7 +15,7 @@ const error = ref<string | null>(null)
 async function fetchFeaturedProducts() {
   try {
     isLoading.value = true
-    products.value = await fetchFeatured()
+    products.value = await productService.fetchFeatured()
   } catch (err) {
     error.value = "Failed to load featured products"
     console.error(err)

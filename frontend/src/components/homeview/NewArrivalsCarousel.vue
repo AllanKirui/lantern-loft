@@ -3,7 +3,7 @@ import { onMounted, computed, ref } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import type { ProductCardBase } from "@/types/products/product-card-base"
-import { fetchNewArrivals } from "@/services/productService"
+import { productService } from "@/services/productService"
 import NewProductCard from "../organisms/NewProductCard.vue"
 import SectionHeader from "../common/SectionHeader.vue"
 import ProductSkeleton from "../common/ProductSkeleton.vue"
@@ -15,7 +15,7 @@ const error = ref<string | null>(null)
 async function fetchNewProducts() {
   try {
     isLoading.value = true
-    products.value = await fetchNewArrivals()
+    products.value = await productService.fetchNewArrivals()
   } catch (err) {
     error.value = "Failed to load new arrivals"
     console.error(err)
