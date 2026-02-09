@@ -39,8 +39,11 @@ defineProps<Props>()
       </h2>
     </div>
 
-    <div class="sp-mt-section-sub-heading flex justify-between">
-      <div v-if="data.title">
+    <div
+      v-if="data.title"
+      class="sp-mt-section-sub-heading flex justify-between"
+    >
+      <div>
         <h3 class="fs-h3 font-semibold leading-none">
           {{ data.title }}
         </h3>
