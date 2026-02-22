@@ -56,47 +56,47 @@ defineProps<Props>()
         >
           {{ product.name }}
         </h4>
-        <p class="flex items-center gap-[6px] mt-[10px] leading-none">
+        <div class="flex items-center gap-[6px] mt-[10px] leading-none">
           <StarRatingDisplay :rating="product.rating" />
           <span
             v-if="product.reviewCount > 0"
             class="text-sm font-medium leading-none"
             >({{ product.reviewCount.toLocaleString() }})</span
           >
-        </p>
+        </div>
 
         <!-- Previous price -->
         <div
           v-if="product.discountPrice"
           class="flex items-center gap-2 flex-wrap mt-1"
         >
-          <p
+          <div
             class="flex items-baseline whitespace-nowrap mt-[1px] font-semibold text-pale-brown"
           >
             <span class="mr-[2px] text-sm leading-none">Was kes</span>
             <span class="leading-none">{{
               product.price.toLocaleString()
             }}</span>
-          </p>
-          <p
+          </div>
+          <div
             class="flex items-baseline whitespace-nowrap px-1 py-[2px] rounded font-semibold text-cosmic-latte bg-red-pigment"
           >
             <span class="mr-[2px] text-sm leading-none">Save kes</span>
             <span class="leading-none">{{
               (product.price - product.discountPrice).toLocaleString()
             }}</span>
-          </p>
+          </div>
         </div>
 
         <!-- Current Price -->
-        <p class="mt-1 font-semibold">
+        <div class="mt-1 font-semibold">
           <span class="mr-[2px] fs-product-card-currency leading-none"
             >kes</span
           >
           <span class="text-[22px] leading-none">{{
             (product.discountPrice || product.price).toLocaleString()
           }}</span>
-        </p>
+        </div>
       </div>
     </a>
   </article>
