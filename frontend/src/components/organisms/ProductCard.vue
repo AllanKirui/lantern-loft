@@ -57,10 +57,7 @@ defineProps<Props>()
           {{ product.name }}
         </h4>
         <p class="flex items-center gap-[6px] mt-[10px] leading-none">
-          <StarRatingDisplay
-            :product-id="product.id"
-            :rating="product.rating"
-          />
+          <StarRatingDisplay :rating="product.rating" />
           <span
             v-if="product.reviewCount > 0"
             class="text-sm font-medium leading-none"
