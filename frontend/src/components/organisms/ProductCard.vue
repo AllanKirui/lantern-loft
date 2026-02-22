@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ImageAnchoredInfo from "../common/ImageAnchoredInfo.vue"
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
@@ -36,15 +37,17 @@ defineProps<Props>()
             :alt="product.image?.alt"
             loading="lazy"
           />
-          <span
+          <ImageAnchoredInfo
             v-if="product.finishesCount > 0"
-            class="absolute bottom-2 left-2 px-1 py-[2px] rounded bg-black/75 text-cosmic-latte text-sm"
-            >{{
+            x-position="left"
+            y-position="bottom"
+          >
+            {{
               `${product.finishesCount} ${
                 product.finishesCount === 1 ? "finish" : "finishes"
               }`
-            }}</span
-          >
+            }}
+          </ImageAnchoredInfo>
         </figure>
       </div>
 
