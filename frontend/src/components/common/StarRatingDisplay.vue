@@ -1,14 +1,16 @@
 <!-- Star ratings - display only, no interactions -->
 <script setup lang="ts">
 import { computed } from "vue"
+import { useUniqueId } from "@/composables/useUniqueId"
 
 interface Props {
-  productId: number
   rating: number
+  size?: number // in pixels, sm - 19, lg - 22, xl - 24
   maxStars?: number // default 5
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  size: 19,
   maxStars: 5
 })
 
@@ -18,6 +20,8 @@ const hasPartialStar = computed(() => props.rating % 1 >= 0.01)
 const fillPartialStarBy = computed(
   () => parseInt(props.rating.toString().slice(-1)) * 10
 )
+
+const gradientId = useUniqueId()
 </script>
 
 <template>
@@ -29,7 +33,7 @@ const fillPartialStarBy = computed(
         viewBox="0 0 64 64"
         stroke="currentColor"
         fill="currentColor"
-        class="w-[19px] h-[19px] -mx-[1px]"
+        :class="[`w-[${size}px] h-[${size}px] -mx-[1px]`]"
         style="stroke-width: 2"
       >
         <!-- Full Star -->
@@ -43,18 +47,18 @@ const fillPartialStarBy = computed(
         viewBox="0 0 64 64"
         stroke="currentColor"
         fill="none"
-        class="w-[19px] h-[19px] -mx-[1px]"
+        :class="[`w-[${size}px] h-[${size}px] -mx-[1px]`]"
         style="stroke-width: 2"
       >
         <!-- Partially Filled Star -->
         <defs>
-          <linearGradient :id="`partialGradient-${productId}-${star}`">
+          <linearGradient :id="`partialGradient-${gradientId}`">
             <stop :offset="`${fillPartialStarBy}%`" stop-color="#5f4235" />
             <stop offset="0%" stop-color="transparent" />
           </linearGradient>
         </defs>
         <path
-          :fill="`url(#partialGradient-${productId}-${star})`"
+          :fill="`url(#partialGradient-${gradientId})`"
           d="M32.5,10.36l6.84,13.57a.55.55,0,0,0,.42.3L55,26.4a.57.57,0,0,1,.3,1L44.3,37.9a.56.56,0,0,0-.16.51l2.6,14.88a.56.56,0,0,1-.81.6l-13.67-7a.59.59,0,0,0-.52,0l-13.67,7a.56.56,0,0,1-.81-.6l2.6-14.88a.56.56,0,0,0-.16-.51l-11-10.52a.57.57,0,0,1,.3-1l15.26-2.17a.55.55,0,0,0,.42-.3L31.5,10.36A.56.56,0,0,1,32.5,10.36Z"
         />
       </svg>
@@ -64,7 +68,7 @@ const fillPartialStarBy = computed(
         viewBox="0 0 64 64"
         stroke="currentColor"
         fill="none"
-        class="w-[19px] h-[19px] -mx-[1px]"
+        :class="[`w-[${size}px] h-[${size}px] -mx-[1px]`]"
         style="stroke-width: 2"
       >
         <!-- Empty Star -->
