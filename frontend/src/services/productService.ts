@@ -1,6 +1,8 @@
 import apiClient from "./api"
-import type { LaravelApiResponse } from "@/types/api/laravel-api-response"
-import type { LaravelPaginatedResponse } from "@/types/api/laravel"
+import type {
+  LaravelApiResponse,
+  LaravelPaginatedResponse
+} from "@/types/api/laravel"
 import type { ProductCardBase } from "@/types/products/product-card-base"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 
