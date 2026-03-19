@@ -2,6 +2,7 @@
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
+import PriceBlock from "../common/PriceBlock.vue"
 
 interface Props {
   product: ProductCardExtended
@@ -65,8 +66,10 @@ defineProps<Props>()
             >
           </p>
 
-          <!-- PriceBlock inserted here -->
-          <slot />
+          <PriceBlock
+            :price="product.price"
+            :sale-price="product.discountPrice"
+          />
         </div>
       </div>
     </a>
