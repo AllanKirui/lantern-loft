@@ -60,6 +60,7 @@
 .sp-mt-footer {
   margin-top: var(--space-32-56-full);
 }
+.sp-mt-collections-header,
 .sp-mt-categories-wrapper,
 .sp-mt-swiper-wrapper,
 .sp-mt-footer-copy,
