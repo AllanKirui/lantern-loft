@@ -1,11 +1,13 @@
 <script setup lang="ts">
 interface Props {
-  routeName: string
   price: number
   salePrice: number | null
+  makeLarger?: boolean
 }
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  makeLarger: false
+})
 </script>
 
 <template>
@@ -17,10 +19,7 @@ defineProps<Props>()
       >
         <span class="mr-0.5 text-sm leading-none">Was kes</span>
         <span
-          :class="[
-            'leading-none',
-            routeName === 'collections.show' ? 'fs-pdp-original-price' : ''
-          ]"
+          :class="['leading-none', makeLarger ? 'fs-pdp-original-price' : '']"
           >{{ price.toLocaleString() }}</span
         >
       </div>
@@ -29,17 +28,13 @@ defineProps<Props>()
       <div
         :class="[
           'flex items-baseline whitespace-nowrap px-1 rounded font-semibold text-cosmic-latte bg-red-pigment',
-          routeName === 'collections.show' ? 'py-[3px]' : 'py-0.5'
+          makeLarger ? 'py-[3px]' : 'py-0.5'
         ]"
       >
         <span class="mr-0.5 text-sm leading-none">Save kes</span>
-        <span
-          :class="[
-            'leading-none',
-            routeName === 'collections.show' ? 'fs-pdp-savings' : ''
-          ]"
-          >{{ (price - salePrice).toLocaleString() }}</span
-        >
+        <span :class="['leading-none', makeLarger ? 'fs-pdp-savings' : '']">{{
+          (price - salePrice).toLocaleString()
+        }}</span>
       </div>
     </div>
 
@@ -48,18 +43,14 @@ defineProps<Props>()
       <span
         :class="[
           'mr-0.5 leading-none',
-          routeName === 'collections.show'
-            ? 'fs-pdp-currency'
-            : 'fs-product-card-currency'
+          makeLarger ? 'fs-pdp-currency' : 'fs-product-card-currency'
         ]"
         >kes</span
       >
       <span
         :class="[
           'leading-none',
-          routeName === 'collections.show'
-            ? 'fs-pdp-current-price'
-            : 'text-[22px]'
+          makeLarger ? 'fs-pdp-current-price' : 'text-[22px]'
         ]"
         >{{ (salePrice || price).toLocaleString() }}</span
       >
