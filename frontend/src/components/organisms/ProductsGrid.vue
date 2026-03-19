@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import { useRoute } from "vue-router"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import GridListProductCard from "./GridListProductCard.vue"
-import PriceBlock from "../common/PriceBlock.vue"
 
 interface Props {
   products: ProductCardExtended[]
 }
 defineProps<Props>()
-
-const route = useRoute()
-const routeName = computed(() => route.name as string)
 </script>
 
 <template>
@@ -29,13 +23,7 @@ const routeName = computed(() => route.name as string)
             :product="product"
             class="animate-fade-in-down"
             :style="{ animationDelay: `${index * 0.1}s` }"
-          >
-            <PriceBlock
-              :route-name="routeName"
-              :price="product.price"
-              :sale-price="product.discountPrice"
-            />
-          </GridListProductCard>
+          />
         </div>
       </template>
     </div>
