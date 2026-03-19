@@ -15,7 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        // Eager-load the relationship to include category data
+        $products = Product::with('category')->paginate(12)->withQueryString();
+
+        return ProductCardExtendedResource::collection($products);
     }
 
     /**
