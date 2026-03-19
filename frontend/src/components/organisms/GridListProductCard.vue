@@ -65,39 +65,8 @@ defineProps<Props>()
             >
           </p>
 
-          <!-- Previous price -->
-          <!-- TODO use PriceBlock component -->
-          <div
-            v-if="product.discountPrice"
-            class="flex items-center gap-2 flex-wrap mt-1"
-          >
-            <p
-              class="flex items-baseline whitespace-nowrap mt-[1px] font-semibold text-pale-brown"
-            >
-              <span class="mr-[2px] text-sm leading-none">Was kes</span>
-              <span class="leading-none">{{
-                product.price.toLocaleString()
-              }}</span>
-            </p>
-            <p
-              class="flex items-baseline whitespace-nowrap px-1 py-[2px] rounded font-semibold text-cosmic-latte bg-red-pigment"
-            >
-              <span class="mr-[2px] text-sm leading-none">Save kes</span>
-              <span class="leading-none">{{
-                (product.price - product.discountPrice).toLocaleString()
-              }}</span>
-            </p>
-          </div>
-
-          <!-- Current Price -->
-          <p class="mt-1 font-semibold">
-            <span class="mr-[2px] fs-product-card-currency leading-none"
-              >kes</span
-            >
-            <span class="text-[22px] leading-none">{{
-              (product.discountPrice || product.price).toLocaleString()
-            }}</span>
-          </p>
+          <!-- PriceBlock inserted here -->
+          <slot />
         </div>
       </div>
     </a>
