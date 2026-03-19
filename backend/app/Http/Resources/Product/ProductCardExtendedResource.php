@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Product;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\Category\CategoryResource;
 
 class ProductCardExtendedResource extends ProductCardBaseResource
 {
@@ -19,6 +20,7 @@ class ProductCardExtendedResource extends ProductCardBaseResource
 
         // Merge the return array from ProductCardBaseResource with these additional fields
         return array_merge(parent::toArray($request), [
+            'category' => CategoryResource::make($this->whenLoaded('category')),
             'price' => round(floatVal($this->price)),
             'discount_price' => $this->discount_price ? round(floatVal($this->discount_price)) : null,
             'tagline' => $this->tagline,
