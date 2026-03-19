@@ -1,0 +1,1 @@
+<template>ProductListView</template>
