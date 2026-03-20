@@ -19,6 +19,7 @@ const {
   from,
   to,
   isLoading,
+  error,
   fetchPage
 } = usePagination<ProductCardExtended>()
 
@@ -53,7 +54,13 @@ onMounted(() => loadProducts(Number(route.query.page ?? 1)))
 
 <template>
   <div class="wrapper px-3.5">
-    <CollectionsHeader :total-items="totalItems" :from="from" :to="to" />
+    <CollectionsHeader
+      :total-items="totalItems"
+      :from="from"
+      :to="to"
+      :is-loading="isLoading"
+      :error="error"
+    />
 
     <CollectionsMain>
       <ProductsGrid :is-loading="isLoading" :products="products" />

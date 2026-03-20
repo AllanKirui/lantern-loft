@@ -1,11 +1,20 @@
 <script setup lang="ts">
+import { computed } from "vue"
+
 interface Props {
   totalItems: number
   from: number
   to: number
+  isLoading: boolean
+  error: string | null
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const message = computed(() => {
+  if (props.isLoading) return "Good things take time to shine…"
+  if (props.error) return "Something dimmed the glow. Refresh to retry."
+})
 </script>
 
 <template>
@@ -36,7 +45,12 @@ defineProps<Props>()
     <div
       class="sp-mt-section-sub-heading flex flex-col flex-wrap md:flex-row md:justify-between md:gap-2"
     >
-      <div>
+      <div v-if="isLoading || error">
+        <h3 class="fs-h3 font-semibold leading-none">
+          {{ message }}
+        </h3>
+      </div>
+      <div v-else>
         <h3 class="fs-h3 font-semibold leading-none">
           {{ `${totalItems} products` }}
         </h3>
