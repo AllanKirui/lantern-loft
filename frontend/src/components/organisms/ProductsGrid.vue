@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import GridListProductCard from "./GridListProductCard.vue"
+import ProductSkeleton from "../common/ProductSkeleton.vue"
 
 interface Props {
+  isLoading: boolean
   products: ProductCardExtended[]
 }
 defineProps<Props>()
@@ -17,7 +19,10 @@ defineProps<Props>()
       class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4"
       role="list"
     >
-      <template v-for="(product, index) in products">
+      <template v-if="isLoading">
+        <ProductSkeleton v-for="n in 8" :key="n" />
+      </template>
+      <template v-else v-for="(product, index) in products">
         <div class="card-hover lg:max-w-3xl lg:mx-auto rounded-md">
           <GridListProductCard
             :product="product"
