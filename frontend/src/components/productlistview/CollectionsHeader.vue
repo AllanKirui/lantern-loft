@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue"
+import LayoutButton from "../common/LayoutButton.vue"
 
 interface Props {
   totalItems: number
@@ -58,6 +59,11 @@ const message = computed(() => {
           class="fs-items-count text-pale-brown block mt-2 md:mt-[10px] font-medium leading-none"
           >{{ `Displaying ${from}-${to} of ${totalItems} products` }}</span
         >
+      </div>
+
+      <!-- Sort & filter controls -->
+      <div class="flex items-center justify-between gap-3 mt-3 custom-width">
+        <LayoutButton />
       </div>
     </div>
   </header>
