@@ -65,7 +65,7 @@ onMounted(() => loadProducts(Number(route.query.page ?? 1)))
     <CollectionsMain>
       <ProductsGrid :is-loading="isLoading" :products="products" />
       <Pagination
-        v-show="!isLoading"
+        v-show="!isLoading && !error"
         :current-page="currentPage"
         :total-pages="lastPage"
         @page-change="goToPage"
