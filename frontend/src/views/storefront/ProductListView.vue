@@ -38,6 +38,14 @@ function goToPage(page: number) {
   })
 
   loadProducts(page)
+  scrollToTop()
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
 }
 
 onMounted(() => loadProducts(Number(route.query.page ?? 1)))
