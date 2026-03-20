@@ -1,14 +1,53 @@
 <script setup lang="ts">
+import { computed } from "vue"
+
 interface Props {
   currentPage: number
   totalPages: number
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const emit = defineEmits<{
   (e: "page-change", page: number): void
 }>()
+
+// Condensed pagination
+const paginationPages = computed(() =>
+  getPaginationPages(props.currentPage, props.totalPages)
+)
+
+// Function returns an array with condensed pagination e.g [1, "...", 4, 5, 6, "...", 10]
+function getPaginationPages(currentPage: number, lastPage: number, delta = 1) {
+  const range = []
+  const rangeWithDots = []
+  let l: number | null = null
+
+  for (let i = 1; i <= lastPage; i++) {
+    if (
+      i === 1 ||
+      i === lastPage ||
+      (i >= currentPage - delta && i <= currentPage + delta)
+    ) {
+      range.push(i)
+    }
+  }
+
+  for (const i of range) {
+    if (l !== null) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1)
+      } else if (i - l !== 1) {
+        rangeWithDots.push("...")
+      }
+    }
+
+    rangeWithDots.push(i)
+    l = i
+  }
+
+  return rangeWithDots
+}
 </script>
 
 <template>
@@ -32,9 +71,18 @@ const emit = defineEmits<{
     </button>
 
     <!-- Page Buttons -->
-    <template v-for="page in totalPages" :key="page">
+    <template v-for="page in paginationPages" :key="page">
+      <!-- Ellipsis -->
+      <span
+        v-if="page === '...'"
+        class="grid place-items-center w-8 h-8 font-bold text-pale-brown pointer-events-none"
+      >
+        ...
+      </span>
+
       <button
-        @click="$emit('page-change', page)"
+        v-else
+        @click="$emit('page-change', page as number)"
         class="pagination-button font-medium duration-200"
         :class="{
           'bg-chestnut-brown text-cosmic-latte hover:after:bg-chestnut-brown':
