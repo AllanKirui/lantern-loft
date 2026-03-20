@@ -33,6 +33,7 @@
 
   /* Fluid font sizes for ALL screens (320px-1280px, -full) */
   --fs-12-14-full: clamp(0.75rem, 0.7083rem + 0.2083vw, 0.875rem);
+  --fs-12\.8-14-full: clamp(0.8rem, 0.775rem + 0.125vw, 0.875rem);
   --fs-14-16-full: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
   --fs-16-18-full: clamp(1rem, 0.9583rem + 0.2083vw, 1.125rem);
   --fs-16-20-full: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
@@ -95,4 +96,7 @@
 }
 .fs-pdp-current-price {
   font-size: var(--fs-22-26-full);
+}
+.fs-product-card-tagline {
+  font-size: var(--fs-12\.8-14-full);
 }
