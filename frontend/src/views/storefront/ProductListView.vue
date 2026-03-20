@@ -9,6 +9,9 @@ import ProductsGrid from "@/components/organisms/ProductsGrid.vue"
 
 const {
   items: products,
+  totalItems,
+  from,
+  to,
   isLoading,
   fetchPage
 } = usePagination<ProductCardExtended>()
@@ -22,7 +25,7 @@ onMounted(() => loadProducts())
 
 <template>
   <div class="wrapper px-3.5">
-    <CollectionsHeader />
+    <CollectionsHeader :total-items="totalItems" :from="from" :to="to" />
 
     <CollectionsMain>
       <ProductsGrid :is-loading="isLoading" :products="products" />

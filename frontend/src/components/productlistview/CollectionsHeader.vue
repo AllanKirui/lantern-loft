@@ -1,3 +1,13 @@
+<script setup lang="ts">
+interface Props {
+  totalItems: number
+  from: number
+  to: number
+}
+
+defineProps<Props>()
+</script>
+
 <template>
   <header class="sp-mt-collections-header">
     <div class="text-center">
@@ -28,11 +38,11 @@
     >
       <div>
         <h3 class="fs-h3 font-semibold leading-none">
-          {{ `${"X"} products` }}
+          {{ `${totalItems} products` }}
         </h3>
         <span
           class="fs-items-count text-pale-brown block mt-2 md:mt-[10px] font-medium leading-none"
-          >{{ `Displaying ${"X"}-${"X"} of ${"X"} products` }}</span
+          >{{ `Displaying ${from}-${to} of ${totalItems} products` }}</span
         >
       </div>
     </div>
