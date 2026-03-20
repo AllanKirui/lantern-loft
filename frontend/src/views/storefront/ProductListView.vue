@@ -7,7 +7,11 @@ import CollectionsHeader from "@/components/productlistview/CollectionsHeader.vu
 import CollectionsMain from "@/components/productlistview/CollectionsMain.vue"
 import ProductsGrid from "@/components/organisms/ProductsGrid.vue"
 
-const { items: products, fetchPage } = usePagination<ProductCardExtended>()
+const {
+  items: products,
+  isLoading,
+  fetchPage
+} = usePagination<ProductCardExtended>()
 
 async function loadProducts(page = 1) {
   await fetchPage(productService.fetchAll, page)
@@ -21,7 +25,7 @@ onMounted(() => loadProducts())
     <CollectionsHeader />
 
     <CollectionsMain>
-      <ProductsGrid :products="products" />
+      <ProductsGrid :is-loading="isLoading" :products="products" />
     </CollectionsMain>
   </div>
 </template>
