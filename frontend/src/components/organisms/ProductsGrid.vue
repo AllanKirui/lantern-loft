@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLayoutStore } from "@/stores/layout"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import GridListProductCard from "./GridListProductCard.vue"
 import ProductSkeleton from "../common/ProductSkeleton.vue"
@@ -8,6 +9,8 @@ interface Props {
   products: ProductCardExtended[]
 }
 defineProps<Props>()
+
+const layoutStore = useLayoutStore()
 </script>
 
 <template>
@@ -16,7 +19,12 @@ defineProps<Props>()
 
     <!-- Products grid -->
     <div
-      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4"
+      :class="[
+        'sp-mt-swiper-wrapper',
+        layoutStore.layout === 'grid'
+          ? 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4'
+          : 'space-y-4'
+      ]"
       role="list"
     >
       <template v-if="isLoading">
