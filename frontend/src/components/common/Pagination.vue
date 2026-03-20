@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue"
+import { ref, computed } from "vue"
 
 interface Props {
   currentPage: number
@@ -11,6 +11,24 @@ const props = defineProps<Props>()
 const emit = defineEmits<{
   (e: "page-change", page: number): void
 }>()
+
+const showRipple = ref(false)
+
+function handleClick(ev: PointerEvent, page: number) {
+  const btn = ev.target as HTMLButtonElement
+  const rippleEl = document.createElement("span")
+  rippleEl.classList.add("circle")
+  btn.appendChild(rippleEl)
+
+  showRipple.value = !showRipple.value
+
+  setTimeout(() => {
+    showRipple.value = false
+    btn.removeChild(rippleEl)
+  }, 320) // Set it to the duration of the circle-scale-up animation in index.css
+
+  emit("page-change", page)
+}
 
 // Condensed pagination
 const paginationPages = computed(() =>
@@ -60,7 +78,7 @@ function getPaginationPages(currentPage: number, lastPage: number, delta = 1) {
     <button
       class="pagination-button disabled:pointer-events-none disabled:text-chestnut-brown/30"
       :disabled="currentPage === 1"
-      @click="$emit('page-change', currentPage - 1)"
+      @click="($event) => handleClick($event, currentPage - 1)"
     >
       <span class="sr-only">Previous</span>
       <BaseIcon
@@ -82,7 +100,7 @@ function getPaginationPages(currentPage: number, lastPage: number, delta = 1) {
 
       <button
         v-else
-        @click="$emit('page-change', page as number)"
+        @click="($event) => handleClick($event, page as number)"
         class="pagination-button font-medium duration-200"
         :class="{
           'bg-chestnut-brown text-cosmic-latte hover:after:bg-chestnut-brown':
@@ -97,7 +115,7 @@ function getPaginationPages(currentPage: number, lastPage: number, delta = 1) {
     <button
       class="pagination-button disabled:pointer-events-none disabled:text-chestnut-brown/30"
       :disabled="currentPage === totalPages"
-      @click="$emit('page-change', currentPage + 1)"
+      @click="($event) => handleClick($event, currentPage + 1)"
     >
       <span class="sr-only">Next</span>
       <BaseIcon
