@@ -2,6 +2,7 @@
 import ImageAnchoredInfo from "../common/ImageAnchoredInfo.vue"
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
+import PriceBlock from "../common/PriceBlock.vue"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 
 interface Props {
@@ -68,38 +69,10 @@ defineProps<Props>()
           >
         </div>
 
-        <!-- Previous price -->
-        <div
-          v-if="product.discountPrice"
-          class="flex items-center gap-2 flex-wrap mt-1"
-        >
-          <div
-            class="flex items-baseline whitespace-nowrap mt-[1px] font-semibold text-pale-brown"
-          >
-            <span class="mr-[2px] text-sm leading-none">Was kes</span>
-            <span class="leading-none">{{
-              product.price.toLocaleString()
-            }}</span>
-          </div>
-          <div
-            class="flex items-baseline whitespace-nowrap px-1 py-[2px] rounded font-semibold text-cosmic-latte bg-red-pigment"
-          >
-            <span class="mr-[2px] text-sm leading-none">Save kes</span>
-            <span class="leading-none">{{
-              (product.price - product.discountPrice).toLocaleString()
-            }}</span>
-          </div>
-        </div>
-
-        <!-- Current Price -->
-        <div class="mt-1 font-semibold">
-          <span class="mr-[2px] fs-product-card-currency leading-none"
-            >kes</span
-          >
-          <span class="text-[22px] leading-none">{{
-            (product.discountPrice || product.price).toLocaleString()
-          }}</span>
-        </div>
+        <PriceBlock
+          :price="product.price"
+          :sale-price="product.discountPrice"
+        />
       </div>
     </a>
   </article>
