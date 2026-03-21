@@ -1,4 +1,5 @@
-import { ref, computed, onMounted, onUnmounted } from "vue"
+import { ref, computed, onMounted, onUnmounted, watch } from "vue"
+import { useLayoutStore } from "@/stores/layout"
 
 function truncateWords(text: string, wordLimit: number, suffix = "…") {
   if (!text || wordLimit <= 0) return ""
@@ -8,6 +9,8 @@ function truncateWords(text: string, wordLimit: number, suffix = "…") {
 
   return words.slice(0, wordLimit).join(" ") + suffix
 }
+
+const layoutStore = useLayoutStore()
 
 export function useResponsiveTruncate(
   text: string,
@@ -31,6 +34,18 @@ export function useResponsiveTruncate(
       width.value = window.innerWidth
     }, 150)
   }
+
+  watch(
+    () => layoutStore.layout,
+    (newLayout) => {
+      if (newLayout === "grid") {
+        window.removeEventListener("resize", updateWidth)
+      } else {
+        window.addEventListener("resize", updateWidth)
+      }
+    },
+    { immediate: true }
+  )
 
   onMounted(() => {
     window.addEventListener("resize", updateWidth)
