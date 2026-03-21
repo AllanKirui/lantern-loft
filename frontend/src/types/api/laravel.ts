@@ -1,5 +1,5 @@
 export interface LaravelApiResponse<T> {
-  data: T
+  data: T[]
 }
 
 export interface LaravelPaginationMeta {
@@ -19,8 +19,7 @@ export interface LaravelPaginationLinks {
   next: string | null
 }
 
-export interface LaravelPaginatedResponse<T> {
-  data: T
+export interface LaravelPaginatedResponse<T> extends LaravelApiResponse<T> {
   links: LaravelPaginationLinks
   meta: LaravelPaginationMeta
 }
