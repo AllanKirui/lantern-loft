@@ -3,12 +3,21 @@ import { computed } from "vue"
 import { useLayoutStore } from "@/stores/layout"
 import PistonLoader from "./PistonLoader.vue"
 
-withDefaults(defineProps<{ isForNewProducts?: boolean }>(), {
+interface Props {
+  isForNewProducts?: boolean
+  useAdaptiveLayout?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  useAdaptiveLayout: false,
   isForNewProducts: false
 })
 
 const layoutStore = useLayoutStore()
-const layout = computed(() => layoutStore.layout)
+const layout = computed(() => {
+  if (props.useAdaptiveLayout) return layoutStore.layout
+  else return "grid"
+})
 </script>
 
 <template>

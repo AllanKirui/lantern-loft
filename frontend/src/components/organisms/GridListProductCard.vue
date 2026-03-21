@@ -8,12 +8,18 @@ import PriceBlock from "../common/PriceBlock.vue"
 
 interface Props {
   product: ProductCardExtended
+  useAdaptiveLayout?: boolean
 }
 
-defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  useAdaptiveLayout: false
+})
 
 const layoutStore = useLayoutStore()
-const layout = computed(() => layoutStore.layout)
+const layout = computed(() => {
+  if (props.useAdaptiveLayout) return layoutStore.layout
+  else return "grid"
+})
 </script>
 
 <template>

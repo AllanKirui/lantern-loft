@@ -28,7 +28,7 @@ const layoutStore = useLayoutStore()
       role="list"
     >
       <template v-if="isLoading">
-        <ProductSkeleton v-for="n in 8" :key="n" />
+        <ProductSkeleton v-for="n in 8" :key="n" :use-adaptive-layout="true" />
       </template>
       <template v-else v-for="(product, index) in products">
         <div class="card-hover lg:max-w-3xl lg:mx-auto rounded-md">
@@ -36,6 +36,7 @@ const layoutStore = useLayoutStore()
             :product="product"
             class="animate-fade-in-down"
             :style="{ animationDelay: `${index * 0.1}s` }"
+            :use-adaptive-layout="true"
           />
         </div>
       </template>
