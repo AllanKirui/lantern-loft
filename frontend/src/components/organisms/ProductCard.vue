@@ -55,7 +55,7 @@ defineProps<Props>()
       <div class="py-3 px-[10px] md:px-3">
         <h4
           :id="`product-card-item-${product.id}`"
-          class="fs-product-card-name font-semibold leading-none capitalize"
+          class="fs-product-card-name font-semibold leading-snug capitalize"
         >
           {{ product.name }}
         </h4>
