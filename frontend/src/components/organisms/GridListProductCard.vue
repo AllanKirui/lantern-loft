@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { useLayoutStore } from "@/stores/layout"
+import { useResponsiveTruncate } from "@/composables/useResponsiveTruncate"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
@@ -20,6 +21,16 @@ const layout = computed(() => {
   if (props.useAdaptiveLayout) return layoutStore.layout
   else return "grid"
 })
+
+const { truncated: truncatedDescription } = useResponsiveTruncate(
+  props.product.shortDescription,
+  {
+    sm: 10,
+    sm_plus: 14,
+    md: 22,
+    default: 6
+  }
+)
 </script>
 
 <template>
@@ -82,7 +93,7 @@ const layout = computed(() => {
               >The perfect glow for every moment</small
             >
             <p class="mt-1 md:overflow-visible md:whitespace-normal">
-              {{ product.shortDescription }}
+              {{ truncatedDescription }}
             </p>
           </template>
 
