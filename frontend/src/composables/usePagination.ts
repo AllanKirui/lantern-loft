@@ -25,7 +25,7 @@ export function usePagination<T>() {
   const hasPrevPage = computed(() => !!links.value?.prev)
 
   async function fetchPage(
-    fetcher: (page: number) => Promise<LaravelPaginatedResponse<T[]>>,
+    fetcher: (page: number) => Promise<LaravelPaginatedResponse<T>>,
     page = 1
   ) {
     try {
