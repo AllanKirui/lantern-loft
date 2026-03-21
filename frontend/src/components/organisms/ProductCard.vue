@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ImageAnchoredInfo from "../common/ImageAnchoredInfo.vue"
+// import ImageAnchoredInfo from "../common/ImageAnchoredInfo.vue"
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
 import PriceBlock from "../common/PriceBlock.vue"
@@ -38,7 +38,8 @@ defineProps<Props>()
             :alt="product.image?.alt"
             loading="lazy"
           />
-          <ImageAnchoredInfo
+          <!-- TODO uncomment this, add to GridListProductCard -->
+          <!-- <ImageAnchoredInfo
             v-if="product.finishesCount > 0"
             x-position="left"
             y-position="bottom"
@@ -48,7 +49,7 @@ defineProps<Props>()
                 product.finishesCount === 1 ? "finish" : "finishes"
               }`
             }}
-          </ImageAnchoredInfo>
+          </ImageAnchoredInfo> -->
         </figure>
       </div>
 
