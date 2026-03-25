@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue"
+import CollectionsToolbar from "./CollectionsToolbar.vue"
 import LayoutButton from "../common/LayoutButton.vue"
+import FiltersSidebarToggle from "../common/FiltersSidebarToggle.vue"
 
 interface Props {
   totalItems: number
@@ -62,9 +64,12 @@ const message = computed(() => {
       </div>
 
       <!-- Sort & filter controls -->
-      <div class="flex items-center justify-between gap-3 mt-3 custom-width">
-        <LayoutButton />
-      </div>
+      <CollectionsToolbar>
+        <div class="flex items-center gap-3">
+          <FiltersSidebarToggle />
+          <LayoutButton />
+        </div>
+      </CollectionsToolbar>
     </div>
   </header>
 </template>
