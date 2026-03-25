@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { useRoute } from "vue-router"
 import StorefrontNav from "@/components/layout/storefront/StorefrontNav.vue"
 import StorefrontFooter from "@/components/layout/storefront/StorefrontFooter.vue"
 import BackToTop from "@/components/common/BackToTop.vue"
 import BaseOverlay from "@/components/base/BaseOverlay.vue"
 import FiltersSidebar from "@/components/organisms/FiltersSidebar.vue"
+
+const route = useRoute()
 </script>
 
 <template>
@@ -15,7 +18,7 @@ import FiltersSidebar from "@/components/organisms/FiltersSidebar.vue"
     <RouterView />
     <BackToTop />
     <StorefrontFooter />
-    <FiltersSidebar />
+    <FiltersSidebar v-if="route.name === 'collections'" />
     <BaseOverlay />
   </div>
 </template>
