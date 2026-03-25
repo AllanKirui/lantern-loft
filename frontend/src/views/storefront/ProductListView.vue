@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "vue"
-import { useRoute, useRouter } from "vue-router"
-import { usePagination } from "@/composables/usePagination"
+import { useCollection } from "@/composables/useCollection"
 import { productService } from "@/services/productService"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import CollectionsHeader from "@/components/productlistview/CollectionsHeader.vue"
@@ -9,67 +7,29 @@ import CollectionsMain from "@/components/productlistview/CollectionsMain.vue"
 import ProductsGrid from "@/components/organisms/ProductsGrid.vue"
 import Pagination from "@/components/common/Pagination.vue"
 
-const route = useRoute()
-const router = useRouter()
 const {
   items: products,
-  totalItems,
-  currentPage,
-  lastPage,
-  from,
-  to,
+  meta,
   isLoading,
   error,
-  fetchPage
-} = usePagination<ProductCardExtended>()
-
-async function loadProducts(page = 1) {
-  await fetchPage(productService.fetchAll, page)
-}
-
-function goToPage(page: number) {
-  if (page === currentPage.value) return
-
-  // Show current page on the URL
-  router.push({
-    query: {
-      ...route.query,
-      page
-    }
-  })
-
-  loadProducts(page)
-  scrollToTop()
-}
-
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  })
-}
-
-onMounted(() => loadProducts(Number(route.query.page ?? 1)))
+  setPage
+} = useCollection<ProductCardExtended>(productService.fetchAll)
 </script>
 
 <template>
   <div class="wrapper px-3.5">
-    <CollectionsHeader
-      :total-items="totalItems"
-      :from="from"
-      :to="to"
-      :is-loading="isLoading"
-      :error="error"
-    />
+    <CollectionsHeader :meta="meta" :is-loading="isLoading" :error="error" />
 
     <CollectionsMain>
       <ProductsGrid :is-loading="isLoading" :products="products" />
-      <Pagination
-        v-show="!isLoading && !error"
-        :current-page="currentPage"
-        :total-pages="lastPage"
-        @page-change="goToPage"
-      />
+      <template v-if="meta">
+        <Pagination
+          v-show="!isLoading && !error"
+          :current-page="meta.currentPage"
+          :total-pages="meta.lastPage"
+          @page-change="setPage"
+        />
+      </template>
     </CollectionsMain>
   </div>
 </template>
