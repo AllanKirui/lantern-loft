@@ -5,6 +5,7 @@ import type {
 } from "@/types/api/laravel"
 import type { ProductCardBase } from "@/types/products/product-card-base"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
+import type { ProductFilters } from "@/types/products/product-filters"
 
 export const productService = {
   async fetchAll(page = 1) {
@@ -27,5 +28,10 @@ export const productService = {
       "/products/featured"
     )
     return res.data.data
+  },
+
+  async fetchFilters() {
+    const res = await apiClient.get<ProductFilters>("/products/filters")
+    return res.data
   }
 }
