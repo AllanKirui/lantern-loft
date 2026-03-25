@@ -8,11 +8,10 @@ import type { ProductCardExtended } from "@/types/products/product-card-extended
 import type { ProductFilters } from "@/types/products/product-filters"
 
 export const productService = {
-  async fetchAll(page = 1) {
+  async fetchAll(params: Record<string, any>) {
     const res = await apiClient.get<
       LaravelPaginatedResponse<ProductCardExtended>
-    >(`/products?page=${page}`)
-
+    >("/products", { params })
     return res.data
   },
 
