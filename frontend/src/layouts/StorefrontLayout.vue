@@ -3,6 +3,7 @@ import StorefrontNav from "@/components/layout/storefront/StorefrontNav.vue"
 import StorefrontFooter from "@/components/layout/storefront/StorefrontFooter.vue"
 import BackToTop from "@/components/common/BackToTop.vue"
 import BaseOverlay from "@/components/base/BaseOverlay.vue"
+import FiltersSidebar from "@/components/organisms/FiltersSidebar.vue"
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import BaseOverlay from "@/components/base/BaseOverlay.vue"
     <RouterView />
     <BackToTop />
     <StorefrontFooter />
+    <FiltersSidebar />
     <BaseOverlay />
   </div>
 </template>
