@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Termwind\Components\Raw;
 use App\Http\Resources\Product\ProductCardBaseResource;
@@ -61,5 +62,12 @@ class ProductController extends Controller
     public function featured()
     {
         return ProductCardExtendedResource::collection(Product::featured()->get());
+    }
+
+    public function filters()
+    {
+        return response()->json([
+            'categories' => Category::select(['name', 'slug'])->get()
+        ]);
     }
 }
