@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { reactive } from "vue"
+import { onMounted, reactive, ref } from "vue"
 import { useFiltersStore } from "@/stores/filters"
+import { productService } from "@/services/productService"
+import type { ProductFilters } from "@/types/products/product-filters"
 import FiltersHeader from "../common/FiltersHeader.vue"
 import FilterAccordion from "../common/FilterAccordion.vue"
 import FilterAccordionToggle from "../common/FilterAccordionToggle.vue"
+import FilterCategory from "../common/FilterCategory.vue"
 
 const filtersStore = useFiltersStore()
 
@@ -18,6 +21,24 @@ const openAccordions = reactive<boolean[]>(filterGroups.map(() => true))
 function toggleAccordion(i: number) {
   openAccordions[i] = !openAccordions[i]
 }
+
+const isLoading = ref(false)
+const error = ref<string | null>(null)
+const filtersMeta = ref<ProductFilters | null>(null)
+
+async function loadFilters() {
+  try {
+    isLoading.value = true
+    error.value = null
+    filtersMeta.value = await productService.fetchFilters()
+  } catch (err) {
+    error.value = "Failed to load filters"
+  } finally {
+    isLoading.value = false
+  }
+}
+
+onMounted(loadFilters)
 </script>
 
 <template>
@@ -28,7 +49,11 @@ function toggleAccordion(i: number) {
     <FiltersHeader />
 
     <!-- Accordion filter groups -->
-    <FilterAccordion v-for="(group, index) in filterGroups" :key="group.key">
+    <FilterAccordion
+      v-if="filtersMeta"
+      v-for="(group, index) in filterGroups"
+      :key="group.key"
+    >
       <FilterAccordionToggle
         :label="group.label"
         @toggle="() => toggleAccordion(index)"
@@ -42,12 +67,11 @@ function toggleAccordion(i: number) {
 
       <div v-show="openAccordions[index]" class="px-5 pb-4">
         <template v-if="group.key === 'category'">
-          Category: Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Impedit dignissimos, excepturi rem distinctio molestias nulla quod,
-          accusamus officiis temporibus nesciunt adipisci illum repellendus!
-          Officia magni voluptas quo corrupti officiis animi.
+          <FilterCategory :categories="filtersMeta.categories" />
         </template>
       </div>
     </FilterAccordion>
+
+    <!-- TODO handle v-else case -->
   </aside>
 </template>
