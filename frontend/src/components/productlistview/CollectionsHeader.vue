@@ -3,11 +3,10 @@ import { computed } from "vue"
 import CollectionsToolbar from "./CollectionsToolbar.vue"
 import LayoutButton from "../common/LayoutButton.vue"
 import FiltersSidebarToggle from "../common/FiltersSidebarToggle.vue"
+import type { LaravelPaginationMeta } from "@/types/api/laravel"
 
 interface Props {
-  totalItems: number
-  from: number
-  to: number
+  meta: LaravelPaginationMeta | null
   isLoading: boolean
   error: string | null
 }
@@ -55,11 +54,13 @@ const message = computed(() => {
       </div>
       <div v-else>
         <h3 class="fs-h3 font-semibold leading-none">
-          {{ `${totalItems} products` }}
+          {{ `${meta?.total} products` }}
         </h3>
         <span
           class="fs-items-count text-pale-brown block mt-2 md:mt-[10px] font-medium leading-none"
-          >{{ `Displaying ${from}-${to} of ${totalItems} products` }}</span
+          >{{
+            `Displaying ${meta?.from}-${meta?.to} of ${meta?.total} products`
+          }}</span
         >
       </div>
 
