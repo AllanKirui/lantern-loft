@@ -13,6 +13,7 @@ export const useFiltersStore = defineStore("filters", () => {
 
   function close() {
     sidebarVisible.value = false
+    overlayStore.close()
   }
 
   return { sidebarVisible, toggleSidebar, close }
