@@ -6,7 +6,9 @@ import type {
 } from "@/types/api/laravel"
 
 export function useCollection<T>(
-  fetcher: (params: Record<string, any>) => Promise<LaravelPaginatedResponse<T>>
+  fetcher?: (
+    params: Record<string, any>
+  ) => Promise<LaravelPaginatedResponse<T>>
 ) {
   const route = useRoute()
   const router = useRouter()
@@ -25,6 +27,8 @@ export function useCollection<T>(
   }))
 
   async function load() {
+    if (!fetcher) return
+
     try {
       isLoading.value = true
       error.value = null

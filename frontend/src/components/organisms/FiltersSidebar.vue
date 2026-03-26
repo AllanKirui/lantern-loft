@@ -42,7 +42,7 @@ async function loadFilters() {
 
 onMounted(loadFilters)
 
-const { query, updateQuery } = useCollection(productService.fetchAll)
+const { query, updateQuery } = useCollection()
 </script>
 
 <template>
