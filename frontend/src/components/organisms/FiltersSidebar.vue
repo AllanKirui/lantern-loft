@@ -2,6 +2,7 @@
 import { onMounted, reactive, ref } from "vue"
 import { useFiltersStore } from "@/stores/filters"
 import { productService } from "@/services/productService"
+import { useCollection } from "@/composables/useCollection"
 import type { ProductFilters } from "@/types/products/product-filters"
 import FiltersHeader from "../common/FiltersHeader.vue"
 import FilterAccordion from "../common/FilterAccordion.vue"
@@ -39,6 +40,8 @@ async function loadFilters() {
 }
 
 onMounted(loadFilters)
+
+const { query, updateQuery } = useCollection(productService.fetchAll)
 </script>
 
 <template>
@@ -67,7 +70,11 @@ onMounted(loadFilters)
 
       <div v-show="openAccordions[index]" class="px-5 pb-4">
         <template v-if="group.key === 'category'">
-          <FilterCategory :categories="filtersMeta.categories" />
+          <FilterCategory
+            :categories="filtersMeta.categories"
+            :query="query"
+            @click="(value) => updateQuery({ category: value })"
+          />
         </template>
       </div>
     </FilterAccordion>
