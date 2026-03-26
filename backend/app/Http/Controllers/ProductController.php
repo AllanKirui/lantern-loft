@@ -73,7 +73,11 @@ class ProductController extends Controller
     public function filters()
     {
         return response()->json([
-            'categories' => Category::select(['name', 'slug'])->get()
+            'categories' => Category::select(['name', 'slug'])->get(),
+            'price' => [
+                'min' => Product::min('price'),
+                'max' => Product::max('price')
+            ]
         ]);
     }
 }
