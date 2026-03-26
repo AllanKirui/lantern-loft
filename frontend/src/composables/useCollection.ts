@@ -38,6 +38,16 @@ export function useCollection<T>(
     }
   }
 
+  function updateQuery(newQuery: Record<string, any>) {
+    router.push({
+      query: {
+        ...route.query,
+        ...newQuery,
+        page: 1 // reset page on filter change
+      }
+    })
+  }
+
   function setPage(page: number) {
     if (page === query.value.page) return
 
@@ -58,6 +68,7 @@ export function useCollection<T>(
     isLoading,
     error,
     query,
-    setPage
+    setPage,
+    updateQuery
   }
 }
