@@ -13,11 +13,11 @@ defineEmits<{
 </script>
 
 <template>
-  <div class="space-y-2 mt-2">
+  <div class="space-y-2">
     <button
       v-for="cat in categories"
       :key="cat.slug"
-      class="flex items-center capitalize"
+      class="flex items-center capitalize btn-hover hover:after:bg-cream w-full p-1"
       @click="$emit('click', cat.slug)"
     >
       <span class="flex items-baseline gap-2">
