@@ -63,4 +63,17 @@ class Product extends Model
             }
         );
     }
+
+    public function scopePrice(Builder $query, $min, $max): Builder
+    {
+        return $query->when(
+            $min,
+            fn($q) =>
+            $q->where('price', '>=', $min)
+        )->when(
+            $max,
+            fn($q) =>
+            $q->where('price', '<=', $max)
+        );
+    }
 }
