@@ -52,4 +52,15 @@ class Product extends Model
     {
         return $query->where('is_featured', true)->latest()->take(8);
     }
+
+    public function scopeCategory(Builder $query, $slug): Builder
+    {
+        return $query->whereHas(
+            'category',
+            function ($q) use ($slug) {
+                // import $slug into the callback's scope with `use ($slug)`
+                $q->where('slug', $slug);
+            }
+        );
+    }
 }
