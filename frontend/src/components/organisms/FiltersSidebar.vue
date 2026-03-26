@@ -8,6 +8,7 @@ import FiltersHeader from "../common/FiltersHeader.vue"
 import FilterAccordion from "../common/FilterAccordion.vue"
 import FilterAccordionToggle from "../common/FilterAccordionToggle.vue"
 import FilterCategory from "../common/FilterCategory.vue"
+import FilterPrice from "../common/FilterPrice.vue"
 
 const filtersStore = useFiltersStore()
 
@@ -76,6 +77,14 @@ const { query, updateQuery } = useCollection(productService.fetchAll)
             :categories="filtersMeta.categories"
             :query="query"
             @click="(value) => updateQuery({ category: value })"
+          />
+        </template>
+
+        <template v-if="group.key === 'price'">
+          <FilterPrice
+            :price="filtersMeta.price"
+            :query="query"
+            @price-change="(price) => updateQuery(price)"
           />
         </template>
       </div>
