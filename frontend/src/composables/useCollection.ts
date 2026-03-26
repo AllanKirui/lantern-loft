@@ -19,7 +19,9 @@ export function useCollection<T>(
   // URL driven query state for filters
   const query = computed(() => ({
     page: Number(route.query.page ?? 1),
-    category: route.query.category
+    category: route.query.category,
+    min_price: route.query.min_price,
+    max_price: route.query.max_price
   }))
 
   async function load() {
