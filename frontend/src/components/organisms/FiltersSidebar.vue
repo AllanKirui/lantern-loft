@@ -63,8 +63,10 @@ const { query, updateQuery } = useCollection(productService.fetchAll)
       >
         <BaseIcon
           name="chevron-alt"
-          class="w-[22px] h-[22px] duration-200 rotate-180"
-          :class="{ 'rotate-0': openAccordions[index] }"
+          :class="[
+            'w-[22px] h-[22px] duration-200',
+            openAccordions[index] ? 'rotate-0' : 'rotate-180'
+          ]"
         />
       </FilterAccordionToggle>
 
