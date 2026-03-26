@@ -22,6 +22,7 @@ class ProductController extends Controller
                 $request->category,
                 fn($q) => $q->category($request->category)
             )
+            ->price($request->min_price, $request->max_price)
             ->paginate(12)
             ->withQueryString();
 
