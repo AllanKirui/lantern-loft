@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref } from "vue"
+import { computed, onMounted, reactive, ref } from "vue"
 import { useFiltersStore } from "@/stores/filters"
 import { productService } from "@/services/productService"
 import { useCollection } from "@/composables/useCollection"
@@ -9,6 +9,7 @@ import FilterAccordion from "../common/FilterAccordion.vue"
 import FilterAccordionToggle from "../common/FilterAccordionToggle.vue"
 import FilterCategory from "../common/FilterCategory.vue"
 import FilterPrice from "../common/FilterPrice.vue"
+import FiltersFooter from "../common/FiltersFooter.vue"
 
 const filtersStore = useFiltersStore()
 
@@ -43,6 +44,52 @@ async function loadFilters() {
 onMounted(loadFilters)
 
 const { query, updateQuery } = useCollection()
+
+const draftFilters = reactive({
+  category: query.value.category ?? undefined,
+  min_price: query.value.min_price ?? (undefined as number | undefined),
+  max_price: query.value.max_price ?? (undefined as number | undefined)
+})
+
+// Number of filters applied
+const appliedCount = computed(() => {
+  let count = 0
+
+  if (draftFilters.category !== query.value.category) count++
+  if (draftFilters.min_price !== query.value.min_price) count++
+  if (draftFilters.max_price !== query.value.max_price) count++
+
+  return count
+})
+
+function applyFilters() {
+  updateQuery({
+    category: draftFilters.category || undefined,
+    min_price: draftFilters.min_price || undefined,
+    max_price: draftFilters.max_price || undefined
+  })
+}
+
+const hasFilters = computed(() => {
+  const selectedFilters = Object.values(draftFilters).map((val) =>
+    val ? true : false
+  )
+
+  if (selectedFilters.includes(true)) return true
+  else return false
+})
+
+function clearFilters() {
+  draftFilters.category = undefined
+  draftFilters.min_price = undefined
+  draftFilters.max_price = undefined
+
+  updateQuery({
+    category: undefined,
+    min_price: undefined,
+    max_price: undefined
+  })
+}
 </script>
 
 <template>
@@ -91,5 +138,12 @@ const { query, updateQuery } = useCollection()
     </FilterAccordion>
 
     <!-- TODO handle v-else case -->
+
+    <FiltersFooter
+      :applied-count="appliedCount"
+      :has-filters="hasFilters"
+      @apply="applyFilters"
+      @clear="clearFilters"
+    />
   </aside>
 </template>
