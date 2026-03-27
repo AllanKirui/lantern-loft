@@ -51,6 +51,13 @@ const draftFilters = reactive({
   max_price: query.value.max_price ?? (undefined as number | undefined)
 })
 
+function handlePriceChange(price: Record<string, number>) {
+  hasCleared.value = false // reset state
+
+  draftFilters.min_price = price.min_price ?? draftFilters.min_price
+  draftFilters.max_price = price.max_price ?? draftFilters.max_price
+}
+
 // Number of filters applied
 const appliedCount = computed(() => {
   let count = 0
@@ -79,7 +86,10 @@ const hasFilters = computed(() => {
   else return false
 })
 
+const hasCleared = ref(false)
+
 function clearFilters() {
+  hasCleared.value = true
   draftFilters.category = undefined
   draftFilters.min_price = undefined
   draftFilters.max_price = undefined
@@ -130,8 +140,9 @@ function clearFilters() {
         <template v-if="group.key === 'price'">
           <FilterPrice
             :price="filtersMeta.price"
-            :query="query"
-            @price-change="(price) => updateQuery(price)"
+            :draft-filters="draftFilters"
+            :has-cleared="hasCleared"
+            @price-change="handlePriceChange"
           />
         </template>
       </div>
