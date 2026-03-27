@@ -13,7 +13,7 @@ defineEmits<{
 </script>
 
 <template>
-  <div class="space-y-2">
+  <div class="space-y-1 mt-2">
     <button
       v-for="cat in categories"
       :key="cat.slug"
@@ -31,7 +31,7 @@ defineEmits<{
       <BaseIcon
         v-if="draftFilters.category?.includes(cat.slug)"
         name="round-check"
-        class="w-4 h-4 ml-2.5"
+        class="w-4 h-4 ml-2.5 animate-scale-up"
       />
     </button>
   </div>
