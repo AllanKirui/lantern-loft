@@ -122,8 +122,8 @@ function clearFilters() {
         <template v-if="group.key === 'category'">
           <FilterCategory
             :categories="filtersMeta.categories"
-            :query="query"
-            @click="(value) => updateQuery({ category: value })"
+            :draft-filters="draftFilters"
+            @click="(value) => (draftFilters.category = value)"
           />
         </template>
 
