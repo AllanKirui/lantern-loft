@@ -3,7 +3,7 @@ import type { categories } from "@/types/products/product-filters"
 
 interface Props {
   categories: categories
-  query: Record<string, any>
+  draftFilters: Record<string, any>
 }
 
 defineProps<Props>()
@@ -29,7 +29,7 @@ defineEmits<{
       </span>
 
       <BaseIcon
-        v-if="query.category?.includes(cat.slug)"
+        v-if="draftFilters.category?.includes(cat.slug)"
         name="round-check"
         class="w-4 h-4 ml-2.5"
       />
