@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from "vue"
+import { computed, onMounted, reactive, ref, watch, inject } from "vue"
 import { useFiltersStore } from "@/stores/filters"
 import { productService } from "@/services/productService"
-import { useCollection } from "@/composables/useCollection"
 import type { ProductFilters } from "@/types/products/product-filters"
+import type { CollectionContext } from "@/types/collection"
+import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import FiltersHeader from "../common/FiltersHeader.vue"
 import FilterAccordion from "../common/FilterAccordion.vue"
 import FilterAccordionToggle from "../common/FilterAccordionToggle.vue"
@@ -43,12 +44,22 @@ async function loadFilters() {
 
 onMounted(loadFilters)
 
-const { query, updateQuery } = useCollection()
+// Inject the collection instance coming from parent (StorefrontLayout.vue)
+const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
+
+const { query, filters, setFilters, resetFilters, updateQuery } = collection
 
 const draftFilters = reactive({
-  category: query.value.category ?? undefined,
-  min_price: query.value.min_price ?? (undefined as number | undefined),
-  max_price: query.value.max_price ?? (undefined as number | undefined)
+  category: query.value.category ?? null,
+  min_price: filters.value.min_price,
+  max_price: filters.value.max_price
+})
+
+// Update local filters state if the query or filters changes
+watch([query, filters], ([q, f]) => {
+  draftFilters.category = q.category ?? null
+  draftFilters.min_price = f.min_price
+  draftFilters.max_price = f.max_price
 })
 
 function handlePriceChange(price: Record<string, number>) {
@@ -63,17 +74,20 @@ const appliedCount = computed(() => {
   let count = 0
 
   if (draftFilters.category !== query.value.category) count++
-  if (draftFilters.min_price !== query.value.min_price) count++
-  if (draftFilters.max_price !== query.value.max_price) count++
+  if (draftFilters.min_price !== filters.value.min_price) count++
+  if (draftFilters.max_price !== filters.value.max_price) count++
 
   return count
 })
 
 function applyFilters() {
+  setFilters({
+    min_price: draftFilters.min_price,
+    max_price: draftFilters.max_price
+  })
+
   updateQuery({
-    category: draftFilters.category || undefined,
-    min_price: draftFilters.min_price || undefined,
-    max_price: draftFilters.max_price || undefined
+    category: draftFilters.category
   })
 }
 
@@ -90,15 +104,8 @@ const hasCleared = ref(false)
 
 function clearFilters() {
   hasCleared.value = true
-  draftFilters.category = undefined
-  draftFilters.min_price = undefined
-  draftFilters.max_price = undefined
 
-  updateQuery({
-    category: undefined,
-    min_price: undefined,
-    max_price: undefined
-  })
+  resetFilters()
 }
 </script>
 
