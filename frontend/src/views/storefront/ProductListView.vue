@@ -1,19 +1,15 @@
 <script setup lang="ts">
-import { useCollection } from "@/composables/useCollection"
-import { productService } from "@/services/productService"
+import { inject } from "vue"
+import type { CollectionContext } from "@/types/collection"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import CollectionsHeader from "@/components/productlistview/CollectionsHeader.vue"
 import CollectionsMain from "@/components/productlistview/CollectionsMain.vue"
 import ProductsGrid from "@/components/organisms/ProductsGrid.vue"
 import Pagination from "@/components/common/Pagination.vue"
 
-const {
-  items: products,
-  meta,
-  isLoading,
-  error,
-  setPage
-} = useCollection<ProductCardExtended>(productService.fetchAll)
+const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
+
+const { items: products, meta, isLoading, error, setPage } = collection
 </script>
 
 <template>
