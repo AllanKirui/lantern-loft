@@ -6,9 +6,7 @@ import type {
 } from "@/types/api/laravel"
 
 export function useCollection<T>(
-  fetcher?: (
-    params: Record<string, any>
-  ) => Promise<LaravelPaginatedResponse<T>>
+  fetcher: (params: Record<string, any>) => Promise<LaravelPaginatedResponse<T>>
 ) {
   const route = useRoute()
   const router = useRouter()
@@ -21,19 +19,27 @@ export function useCollection<T>(
   // URL driven query state for filters
   const query = computed(() => ({
     page: Number(route.query.page ?? 1),
-    category: route.query.category,
-    min_price: route.query.min_price,
-    max_price: route.query.max_price
+    category: route.query.category ?? null
+  }))
+
+  // Internal filters for API requests, not shown in URL
+  const filters = ref<Record<string, any>>({
+    min_price: null,
+    max_price: null
+  })
+
+  // API params
+  const params = computed(() => ({
+    ...query.value,
+    ...filters.value
   }))
 
   async function load() {
-    if (!fetcher) return
-
     try {
       isLoading.value = true
       error.value = null
 
-      const res = await fetcher(query.value)
+      const res = await fetcher(params.value)
 
       items.value = res.data
       meta.value = res.meta
@@ -44,29 +50,43 @@ export function useCollection<T>(
     }
   }
 
+  // Update params that should be shown in URL
   function updateQuery(newQuery: Record<string, any>) {
-    router.push({
-      query: {
-        ...route.query,
-        ...newQuery,
-        page: 1 // reset page on filter change
-      }
-    })
+    const next: Record<string, any> = {}
+
+    const category = newQuery.category
+    const page = newQuery.page ?? 1
+
+    if (category) next.category = category
+    if (page) next.page = page
+
+    router.push({ query: next })
+  }
+
+  // Update internal filters used on request to API
+  function setFilters(newFilters: Record<string, any>) {
+    filters.value = {
+      ...filters.value,
+      ...newFilters
+    }
+  }
+
+  function resetFilters() {
+    filters.value = {
+      min_price: null,
+      max_price: null
+    }
+
+    updateQuery({ category: null })
   }
 
   function setPage(page: number) {
     if (page === query.value.page) return
-
-    router.push({
-      query: {
-        ...route.query,
-        page
-      }
-    })
+    updateQuery({ page })
   }
 
-  // When the query changes, fetch items
-  watch(query, load, { immediate: true })
+  // When the query or internal filters change, fetch items
+  watch([query, filters], load, { immediate: true })
 
   return {
     items,
@@ -74,6 +94,9 @@ export function useCollection<T>(
     isLoading,
     error,
     query,
+    filters,
+    setFilters,
+    resetFilters,
     setPage,
     updateQuery
   }
