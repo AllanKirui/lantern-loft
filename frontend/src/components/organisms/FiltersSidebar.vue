@@ -81,6 +81,16 @@ const appliedCount = computed(() => {
 })
 
 function applyFilters() {
+  // Store selected filters locally
+  // TODO add rating
+  localStorage.setItem(
+    "filters",
+    JSON.stringify({
+      min_price: draftFilters.min_price,
+      max_price: draftFilters.max_price
+    })
+  )
+
   setFilters({
     min_price: draftFilters.min_price,
     max_price: draftFilters.max_price
