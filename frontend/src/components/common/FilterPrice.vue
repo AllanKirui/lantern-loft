@@ -13,12 +13,15 @@ const emit = defineEmits<{
   (e: "priceChange", value: Record<string, number>): void
 }>()
 
+const range = props.price.max - props.price.min
+const STEP = range < 5000 ? 100 : range < 20000 ? 200 : 500 // dynamic step value
+const roundedMin = roundDown(props.price.min, STEP)
+const roundedMax = roundUp(props.price.max, STEP)
+
 const state = reactive({
   filters: {
-    priceMin:
-      Number(props.draftFilters.min_price) || Math.round(props.price.min),
-    priceMax:
-      Number(props.draftFilters.max_price) || Math.round(props.price.max)
+    priceMin: Number(props.draftFilters.min_price) || roundedMin,
+    priceMax: Number(props.draftFilters.max_price) || roundedMax
   }
 })
 
@@ -26,11 +29,46 @@ watch(
   () => props.hasCleared,
   (newVal) => {
     if (newVal) {
-      state.filters.priceMin = Math.round(props.price.min)
-      state.filters.priceMax = Math.round(props.price.max)
+      state.filters.priceMin = roundedMin
+      state.filters.priceMax = roundedMax
     }
   }
 )
+
+function handleMinChange() {
+  const snapped = snapToStep(state.filters.priceMin, STEP)
+
+  // prevent the min value from crossing the selected max price
+  if (snapped > state.filters.priceMax) return
+
+  state.filters.priceMin = snapped
+
+  emit("priceChange", { min_price: state.filters.priceMin })
+}
+
+function handleMaxChange() {
+  const snapped = snapToStep(state.filters.priceMax, STEP)
+
+  // prevent the max value from crossing the selected min price
+  if (snapped < state.filters.priceMin) return
+
+  state.filters.priceMax = snapped
+
+  emit("priceChange", { max_price: state.filters.priceMax })
+}
+
+// Helpers
+function roundDown(value: number, step: number) {
+  return Math.floor(value / step) * step
+}
+
+function roundUp(value: number, step: number) {
+  return Math.ceil(value / step) * step
+}
+
+function snapToStep(value: number, step: number) {
+  return Math.round(value / step) * step
+}
 </script>
 
 <template>
@@ -42,10 +80,11 @@ watch(
         <input
           id="min"
           type="range"
-          :min="price.min"
-          :max="price.max"
+          :min="roundedMin"
+          :max="roundedMax"
+          :step="STEP"
           v-model.number="state.filters.priceMin"
-          @change="$emit('priceChange', { min_price: state.filters.priceMin })"
+          @change="handleMinChange"
           class="w-full mt-1"
         />
       </div>
@@ -54,10 +93,11 @@ watch(
         <input
           id="max"
           type="range"
-          :min="price.min"
-          :max="price.max"
+          :min="roundedMin"
+          :max="roundedMax"
+          :step="STEP"
           v-model.number="state.filters.priceMax"
-          @change="$emit('priceChange', { max_price: state.filters.priceMax })"
+          @change="handleMaxChange"
           class="w-full mt-1"
         />
       </div>
