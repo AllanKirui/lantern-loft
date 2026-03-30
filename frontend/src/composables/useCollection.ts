@@ -66,7 +66,9 @@ export function useCollection<T>(
   function updateQuery(newQuery: Record<string, any>) {
     const next: Record<string, any> = {}
 
-    const category = newQuery.category
+    const category = hasCleared.value
+      ? newQuery.category
+      : newQuery.category ?? route.query.category
     const page = newQuery.page ?? 1
 
     if (category) next.category = category
@@ -83,7 +85,13 @@ export function useCollection<T>(
     }
   }
 
+  const hasCleared = ref(false)
+
   function resetFilters() {
+    hasCleared.value = true
+
+    localStorage.removeItem("filters")
+
     filters.value = {
       min_price: null,
       max_price: null
