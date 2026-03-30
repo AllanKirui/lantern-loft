@@ -34,19 +34,28 @@ export function useCollection<T>(
     ...filters.value
   }))
 
+  let currentRequest = 0
+
   async function load() {
+    const requestId = ++currentRequest
+
     try {
       isLoading.value = true
       error.value = null
 
       const res = await fetcher(params.value)
 
+      // Ignore stale responses
+      if (requestId !== currentRequest) return
+
       items.value = res.data
       meta.value = res.meta
     } catch (e: any) {
       error.value = e.message
     } finally {
-      isLoading.value = false
+      if (requestId === currentRequest) {
+        isLoading.value = false
+      }
     }
   }
 
