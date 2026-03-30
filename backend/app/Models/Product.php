@@ -68,12 +68,14 @@ class Product extends Model
     {
         return $query->when(
             $min,
-            fn($q) =>
-            $q->where('price', '>=', $min)
+            function ($q) use ($min) {
+                $q->whereRaw('COALESCE(discount_price, price) >= ?', [$min]);
+            }
         )->when(
             $max,
-            fn($q) =>
-            $q->where('price', '<=', $max)
+            function ($q) use ($max) {
+                $q->whereRaw('COALESCE(discount_price, price) <= ?', [$max]);
+            }
         );
     }
 }
