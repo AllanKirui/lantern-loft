@@ -34,6 +34,9 @@ export function useCollection<T>(
     ...filters.value
   }))
 
+  const storedFilters = localStorage.getItem("filters")
+  if (storedFilters) setFilters(JSON.parse(storedFilters))
+
   let currentRequest = 0
 
   async function load() {
