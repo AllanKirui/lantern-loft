@@ -85,8 +85,21 @@ export function useCollection<T>(
     updateQuery({ page })
   }
 
+  let lastKey = ""
+
   // When the query or internal filters change, fetch items
-  watch([query, filters], load, { immediate: true })
+  watch(
+    params,
+    (p) => {
+      const key = JSON.stringify(p)
+
+      if (key === lastKey) return
+      lastKey = key
+
+      load()
+    },
+    { immediate: true }
+  )
 
   return {
     items,
