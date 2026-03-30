@@ -22,10 +22,7 @@ defineEmits<{
     >
       <span class="flex items-baseline gap-2">
         <span>{{ cat.name }}</span>
-        <!-- TODO add product count -->
-        <span class="text-sm text-pale-brown">{{
-          Math.round(5 + Math.random() * 20)
-        }}</span>
+        <span class="text-sm text-pale-brown">{{ cat.productsCount }}</span>
       </span>
 
       <BaseIcon
