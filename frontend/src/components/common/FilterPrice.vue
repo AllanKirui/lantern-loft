@@ -76,7 +76,7 @@ function snapToStep(value: number, step: number) {
     <!-- Price range sliders -->
     <div class="flex items-center gap-2">
       <div class="flex flex-col w-1/2 bg-red-100/0">
-        <label for="min" class="text-sm">Min price</label>
+        <label for="min" class="text-sm select-none">Min price</label>
         <input
           id="min"
           type="range"
@@ -89,7 +89,9 @@ function snapToStep(value: number, step: number) {
         />
       </div>
       <div class="flex flex-col w-1/2 bg-red-100/0">
-        <label for="max" class="text-sm text-right">Max price</label>
+        <label for="max" class="text-sm text-right select-none"
+          >Max price</label
+        >
         <input
           id="max"
           type="range"
@@ -103,7 +105,9 @@ function snapToStep(value: number, step: number) {
       </div>
     </div>
 
-    <div class="mt-1 flex justify-between text-pale-brown font-medium">
+    <div
+      class="mt-1 flex justify-between text-pale-brown font-medium select-none"
+    >
       <div>
         <span class="mr-0.5 text-sm">kes</span>
         <span>{{ state.filters.priceMin.toLocaleString() }}</span>
