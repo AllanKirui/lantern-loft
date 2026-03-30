@@ -71,10 +71,22 @@ class ProductController extends Controller
         return ProductCardExtendedResource::collection(Product::featured()->get());
     }
 
-    public function filters()
+    public function filters(Request $request)
     {
+        // Base filtered query (IMPORTANT: reuse filters except category)
+        // TODO chain rating scope after price
+        $baseQuery = Product::query()
+            ->price($request->min_price, $request->max_price);
+
+        // Get categories with product counts for each category
+        $categories = Category::select('id', 'name', 'slug')
+            ->withCount(['products as products_count' => function ($q) use ($baseQuery) {
+                $q->whereIn('id', $baseQuery->pluck('id'));
+            }])
+            ->get();
+
         return response()->json([
-            'categories' => Category::select(['name', 'slug'])->get(),
+            'categories' => $categories,
             'price' => [
                 'min' => Product::min('price'),
                 'max' => Product::max('price')
