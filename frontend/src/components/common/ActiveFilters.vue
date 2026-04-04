@@ -1,0 +1,56 @@
+<script setup lang="ts">
+import { computed, inject } from "vue"
+import type { CollectionContext } from "@/types/collection"
+import type { ProductCardExtended } from "@/types/products/product-card-extended"
+import { capitalizeWords } from "@/utils/capitalizeWords"
+import BaseCloseButton from "../base/BaseCloseButton.vue"
+
+const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
+
+const { filters, query, removeFilter } = collection
+
+const minPrice = computed(() => filters.value.min_price)
+const maxPrice = computed(() => filters.value.max_price)
+const category = computed(() => query.value.category)
+
+const activeFilters = computed(() => {
+  const list: any[] = []
+
+  if (category.value) {
+    list.push({
+      type: "category",
+      label: category.value
+    })
+  }
+
+  if (minPrice.value || maxPrice.value) {
+    list.push({
+      type: "price",
+      label: `KES ${minPrice.value ?? "0"} - ${maxPrice.value ?? "∞"}`
+    })
+  }
+
+  // TODO add rating
+
+  return list
+})
+</script>
+
+<template>
+  <div class="flex flex-wrap gap-2 mt-3 animate-fade-in-down">
+    <span
+      v-for="(f, index) in activeFilters"
+      :key="f.type"
+      class="filter-badge animate-fade-in-down"
+      :style="{ animationDelay: `${index * 0.1}s` }"
+    >
+      <span>{{ capitalizeWords(f.label) }}</span>
+      <BaseCloseButton
+        class="filter-badge-btn"
+        title="Remove filter"
+        :size="`16px`"
+        @click="() => removeFilter(f.type)"
+      />
+    </span>
+  </div>
+</template>
