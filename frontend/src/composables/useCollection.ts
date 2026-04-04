@@ -164,7 +164,7 @@ export function useCollection<T>(
 
   function setPage(page: number) {
     if (page === query.value.page) return
-    updateQuery({ page })
+    applyChanges({ query: { category: route.query.category, page } })
   }
 
   let lastKey = ""
