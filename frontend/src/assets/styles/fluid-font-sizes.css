@@ -102,6 +102,7 @@
 .fs-product-card-tagline {
   font-size: var(--fs-12\.8-14-full);
 }
+.fs-filters-badge,
 .fs-filters-sidebar-toggle {
   font-size: var(--fs-14-16-min);
 }
