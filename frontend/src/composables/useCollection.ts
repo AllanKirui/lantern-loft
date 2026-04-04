@@ -46,8 +46,18 @@ export function useCollection<T>(
     ...filters.value
   }))
 
-  const storedFilters = localStorage.getItem("filters")
-  if (storedFilters) setFilters(JSON.parse(storedFilters))
+  const hasFilters = computed(() => {
+    // Check category from URL
+    const hasCategory = !!route.query.category
+
+    // Check internal filters
+    const hasPrice =
+      filters.value.min_price !== null || filters.value.max_price !== null
+
+    // TODO add rating
+
+    return hasCategory || hasPrice
+  })
 
   let currentRequest = 0
 
@@ -185,7 +195,7 @@ export function useCollection<T>(
     error,
     query,
     filters,
-    setFilters,
+    hasFilters,
     resetFilters,
     removeFilter,
     setPage,
