@@ -47,7 +47,7 @@ onMounted(loadFilters)
 // Inject the collection instance coming from parent (StorefrontLayout.vue)
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
 
-const { query, filters, setFilters, resetFilters, updateQuery } = collection
+const { query, filters, resetFilters, applyChanges } = collection
 
 const draftFilters = reactive({
   category: query.value.category ?? null,
@@ -81,23 +81,14 @@ const appliedCount = computed(() => {
 })
 
 function applyFilters() {
-  // Store selected filters locally
   // TODO add rating
-  localStorage.setItem(
-    "filters",
-    JSON.stringify({
+
+  applyChanges({
+    filters: {
       min_price: draftFilters.min_price,
       max_price: draftFilters.max_price
-    })
-  )
-
-  setFilters({
-    min_price: draftFilters.min_price,
-    max_price: draftFilters.max_price
-  })
-
-  updateQuery({
-    category: draftFilters.category
+    },
+    query: { category: draftFilters.category, page: 1 }
   })
 }
 
