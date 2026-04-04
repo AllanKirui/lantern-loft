@@ -27,6 +27,18 @@ export function useCollection<T>(
     min_price: null,
     max_price: null
   })
+  let pendingFilters: Record<string, any>
+  let isHydrated = false
+
+  // Check for stored filters when the composable initializes
+  const stored = localStorage.getItem("filters")
+  if (stored) filters.value = JSON.parse(stored)
+
+  // Sync pending filters
+  pendingFilters = { ...filters.value }
+
+  // Enable persistence after hydration
+  isHydrated = true
 
   // API params
   const params = computed(() => ({
