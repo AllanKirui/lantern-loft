@@ -74,43 +74,93 @@ export function useCollection<T>(
     }
   }
 
-  // Update params that should be shown in URL
-  function updateQuery(newQuery: Record<string, any>) {
-    const next: Record<string, any> = {}
-
-    const category = hasCleared.value
-      ? newQuery.category
-      : newQuery.category ?? route.query.category
-    const page = newQuery.page ?? 1
-
-    if (category) next.category = category
-    if (page) next.page = page
-
-    router.push({ query: next })
-  }
-
-  // Update internal filters used on request to API
-  function setFilters(newFilters: Record<string, any>) {
-    filters.value = {
-      ...filters.value,
-      ...newFilters
-    }
-  }
-
-  const hasCleared = ref(false)
-
   function resetFilters() {
-    hasCleared.value = true
+    // TODO add rating
+    applyChanges({
+      filters: {
+        min_price: null,
+        max_price: null
+      },
+      query: {
+        category: null,
+        page: 1
+      }
+    })
+  }
 
-    localStorage.removeItem("filters")
+  function removeFilter(type: "category" | "price") {
+    switch (type) {
+      case "category":
+        applyChanges({ query: { category: null, page: 1 } })
+        break
 
-    filters.value = {
-      min_price: null,
-      max_price: null
+      case "price":
+        applyChanges({
+          filters: { min_price: null, max_price: null },
+          query: { category: route.query.category ?? null, page: 1 }
+        })
+        break
+
+      // TODO add rating
+    }
+  }
+
+  // Batch updates to avoid sending multiple requests when filters and the query changes
+  function applyChanges({
+    query: newQuery,
+    filters: newFilters
+  }: {
+    query?: Record<string, any>
+    filters?: Record<string, any>
+  }) {
+    const nextQuery: Record<string, any> = {}
+
+    const category =
+      newQuery && "category" in newQuery
+        ? newQuery.category
+        : route.query.category
+
+    const page =
+      newQuery && "page" in newQuery
+        ? newQuery.page
+        : Number(route.query.page ?? 1)
+
+    if (category) nextQuery.category = category
+    if (page && page !== 1) nextQuery.page = page
+
+    // Prepare filters
+    if (newFilters) {
+      pendingFilters = {
+        ...filters.value,
+        ...newFilters
+      }
     }
 
-    updateQuery({ category: null })
+    // Avoid unnecessary router pushes by comparing the current and next queries
+    const current = JSON.stringify(route.query)
+    const next = JSON.stringify(nextQuery)
+
+    // Handle the case where the route doesn't change, but there are pending filters
+    if (current === next) {
+      // Manually update filters and call load
+      filters.value = { ...pendingFilters }
+      load()
+      return
+    }
+
+    // Then update the route
+    router.push({ query: nextQuery })
   }
+
+  // Watch filters for changes and persist to local storage
+  watch(
+    filters,
+    (f) => {
+      if (!isHydrated) return
+      localStorage.setItem("filters", JSON.stringify(f))
+    },
+    { deep: true }
+  )
 
   function setPage(page: number) {
     if (page === query.value.page) return
@@ -142,7 +192,8 @@ export function useCollection<T>(
     filters,
     setFilters,
     resetFilters,
+    removeFilter,
     setPage,
-    updateQuery
+    applyChanges
   }
 }
