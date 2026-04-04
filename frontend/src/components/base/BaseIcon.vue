@@ -2,7 +2,8 @@
 defineProps({
   iconType: { type: String, default: "ui" }, // 'ui' or 'social'
   name: { type: String, required: true },
-  strokeWidth: { type: [Number, String], default: 1.5 }
+  strokeWidth: { type: [Number, String], default: 1.5 },
+  size: { type: [Number, String] }
 })
 </script>
 
@@ -10,7 +11,7 @@ defineProps({
   <svg
     class="inline-block"
     aria-hidden="true"
-    :style="{ '--icon-stroke-width': strokeWidth }"
+    :style="{ '--icon-stroke-width': strokeWidth, '--icon-size': size }"
   >
     <use :href="`/src/assets/icons/${iconType}/${name}.svg`" />
   </svg>

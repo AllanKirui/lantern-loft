@@ -1,4 +1,7 @@
 <script setup lang="ts">
+withDefaults(defineProps<{ size?: string }>(), {
+  size: "18px"
+})
 const emit = defineEmits(["click"])
 </script>
 
@@ -6,8 +9,9 @@ const emit = defineEmits(["click"])
   <button class="btn-rounded" @click="$emit('click')">
     <BaseIcon
       name="close"
-      class="w-[18px] h-[18px] duration-200"
+      class="duration-200"
       :stroke-width="2.5"
+      :size="size"
     />
     <span class="sr-only">Close</span>
   </button>
