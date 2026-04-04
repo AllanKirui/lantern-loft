@@ -186,6 +186,13 @@
   .pagination-button {
     @apply btn-rounded w-9 h-9 rounded-md has-ripple-primary hover:after:bg-cream text-chestnut-brown;
   }
+  .filter-badge {
+    @apply inline-flex items-center gap-1 py-1 pl-2.5 pr-1 fs-filters-badge bg-cream 
+    text-chestnut-brown font-medium select-none rounded;
+  }
+  .filter-badge-btn {
+    @apply w-6 h-6 text-pale-brown hover:after:bg-bone hover:text-chestnut-brown;
+  }
   /* End of Global styles */
 }
 
