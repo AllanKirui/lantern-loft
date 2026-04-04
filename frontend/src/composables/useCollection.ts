@@ -167,17 +167,12 @@ export function useCollection<T>(
     applyChanges({ query: { category: route.query.category, page } })
   }
 
-  let lastKey = ""
-
-  // When the query or internal filters change, fetch items
   watch(
-    params,
-    (p) => {
-      const key = JSON.stringify(p)
+    () => route.query,
+    () => {
+      if (route.name !== "collections") return
 
-      if (key === lastKey) return
-      lastKey = key
-
+      filters.value = { ...pendingFilters }
       load()
     },
     { immediate: true }
