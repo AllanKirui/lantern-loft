@@ -6,15 +6,25 @@ import CollectionsHeader from "@/components/productlistview/CollectionsHeader.vu
 import CollectionsMain from "@/components/productlistview/CollectionsMain.vue"
 import ProductsGrid from "@/components/organisms/ProductsGrid.vue"
 import Pagination from "@/components/common/Pagination.vue"
+import ActiveFilters from "@/components/common/ActiveFilters.vue"
 
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
 
-const { items: products, meta, isLoading, error, setPage } = collection
+const {
+  items: products,
+  meta,
+  isLoading,
+  error,
+  setPage,
+  hasFilters
+} = collection
 </script>
 
 <template>
   <div class="wrapper px-3.5">
     <CollectionsHeader :meta="meta" :is-loading="isLoading" :error="error" />
+
+    <ActiveFilters v-if="!isLoading && hasFilters" />
 
     <CollectionsMain>
       <ProductsGrid :is-loading="isLoading" :products="products" />
