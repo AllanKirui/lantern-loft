@@ -2,6 +2,7 @@
 import { provide } from "vue"
 import { useRoute } from "vue-router"
 import { useCollection } from "@/composables/useCollection"
+import { useFiltersMeta } from "@/composables/useFiltersMeta"
 import { productService } from "@/services/productService"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import StorefrontNav from "@/components/layout/storefront/StorefrontNav.vue"
@@ -17,6 +18,12 @@ const collection = useCollection<ProductCardExtended>(productService.fetchAll)
 
 // Provide the collection instance to child components
 provide("collection", collection)
+
+// Provide the filtersMeta instance to child components
+const filtersMeta = useFiltersMeta()
+filtersMeta.loadFilters()
+
+provide("filtersMeta", filtersMeta)
 </script>
 
 <template>
