@@ -30,7 +30,8 @@ const activeFilters = computed(() => {
   if (minPrice.value || maxPrice.value) {
     list.push({
       type: "price",
-      label: `KES ${minPrice.value ?? "0"} - ${maxPrice.value ?? "∞"}`
+      label: `${(minPrice.value ?? roundedMin.value).toLocaleString()} - 
+      ${(maxPrice.value ?? roundedMax.value).toLocaleString()}`
     })
   }
 
