@@ -42,14 +42,21 @@ const activeFilters = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-2 mt-3 animate-fade-in-down">
+  <div class="flex flex-wrap gap-2 mt-3">
     <span
       v-for="(f, index) in activeFilters"
       :key="f.type"
       class="filter-badge animate-fade-in-down"
       :style="{ animationDelay: `${index * 0.1}s` }"
     >
-      <span>{{ capitalizeWords(f.label) }}</span>
+      <span v-if="f.type === 'price'">
+        <span class="mr-0.5 text-sm">kes</span>
+        <span>
+          {{ f.label }}
+        </span>
+      </span>
+      <span v-else>{{ capitalizeWords(f.label) }}</span>
+
       <BaseCloseButton
         class="filter-badge-btn"
         title="Remove filter"
