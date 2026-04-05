@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { computed, inject } from "vue"
 import type { CollectionContext } from "@/types/collection"
+import type { FiltersMetaContext } from "@/types/filters-meta"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import { capitalizeWords } from "@/utils/capitalizeWords"
 import BaseCloseButton from "../base/BaseCloseButton.vue"
+
+const meta = inject<FiltersMetaContext>("filtersMeta")!
+const { roundedMax, roundedMin } = meta
 
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
 
