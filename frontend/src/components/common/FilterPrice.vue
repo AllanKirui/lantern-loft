@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { reactive, watch } from "vue"
-import type { priceRanges } from "@/types/products/product-filters"
+import { snapToStep } from "@/utils/price"
 
 interface Props {
-  price: priceRanges
+  roundedMin: number
+  roundedMax: number
+  step: number
   draftFilters: Record<string, any>
   hasCleared: boolean
 }
@@ -13,15 +15,10 @@ const emit = defineEmits<{
   (e: "priceChange", value: Record<string, number>): void
 }>()
 
-const range = props.price.max - props.price.min
-const STEP = range < 5000 ? 100 : range < 20000 ? 200 : 500 // dynamic step value
-const roundedMin = roundDown(props.price.min, STEP)
-const roundedMax = roundUp(props.price.max, STEP)
-
 const state = reactive({
   filters: {
-    priceMin: Number(props.draftFilters.min_price) || roundedMin,
-    priceMax: Number(props.draftFilters.max_price) || roundedMax
+    priceMin: Number(props.draftFilters.min_price) || props.roundedMin,
+    priceMax: Number(props.draftFilters.max_price) || props.roundedMax
   }
 })
 
@@ -29,14 +26,14 @@ watch(
   () => props.hasCleared,
   (newVal) => {
     if (newVal) {
-      state.filters.priceMin = roundedMin
-      state.filters.priceMax = roundedMax
+      state.filters.priceMin = props.roundedMin
+      state.filters.priceMax = props.roundedMax
     }
   }
 )
 
 function handleMinChange() {
-  const snapped = snapToStep(state.filters.priceMin, STEP)
+  const snapped = snapToStep(state.filters.priceMin, props.step)
 
   // prevent the min value from crossing the selected max price
   if (snapped > state.filters.priceMax) return
@@ -47,7 +44,7 @@ function handleMinChange() {
 }
 
 function handleMaxChange() {
-  const snapped = snapToStep(state.filters.priceMax, STEP)
+  const snapped = snapToStep(state.filters.priceMax, props.step)
 
   // prevent the max value from crossing the selected min price
   if (snapped < state.filters.priceMin) return
@@ -55,19 +52,6 @@ function handleMaxChange() {
   state.filters.priceMax = snapped
 
   emit("priceChange", { max_price: state.filters.priceMax })
-}
-
-// Helpers
-function roundDown(value: number, step: number) {
-  return Math.floor(value / step) * step
-}
-
-function roundUp(value: number, step: number) {
-  return Math.ceil(value / step) * step
-}
-
-function snapToStep(value: number, step: number) {
-  return Math.round(value / step) * step
 }
 </script>
 
@@ -82,7 +66,7 @@ function snapToStep(value: number, step: number) {
           type="range"
           :min="roundedMin"
           :max="roundedMax"
-          :step="STEP"
+          :step="step"
           v-model.number="state.filters.priceMin"
           @change="handleMinChange"
           class="w-full mt-1"
@@ -97,7 +81,7 @@ function snapToStep(value: number, step: number) {
           type="range"
           :min="roundedMin"
           :max="roundedMax"
-          :step="STEP"
+          :step="step"
           v-model.number="state.filters.priceMax"
           @change="handleMaxChange"
           class="w-full mt-1"
