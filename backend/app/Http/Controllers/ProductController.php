@@ -88,7 +88,7 @@ class ProductController extends Controller
         return response()->json([
             'categories' => $categories,
             'price' => [
-                'min' => Product::min('price'),
+                'min' => Product::min('discount_price') ?? Product::min('price'),
                 'max' => Product::max('price')
             ]
         ]);
