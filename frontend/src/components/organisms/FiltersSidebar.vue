@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref, watch, inject } from "vue"
+import { computed, reactive, ref, watch, inject } from "vue"
 import { useFiltersStore } from "@/stores/filters"
-import { productService } from "@/services/productService"
-import type { ProductFilters } from "@/types/products/product-filters"
 import type { CollectionContext } from "@/types/collection"
+import type { FiltersMetaContext } from "@/types/filters-meta"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import FiltersHeader from "../common/FiltersHeader.vue"
 import FilterAccordion from "../common/FilterAccordion.vue"
@@ -26,23 +25,9 @@ function toggleAccordion(i: number) {
   openAccordions[i] = !openAccordions[i]
 }
 
-const isLoading = ref(false)
-const error = ref<string | null>(null)
-const filtersMeta = ref<ProductFilters | null>(null)
-
-async function loadFilters() {
-  try {
-    isLoading.value = true
-    error.value = null
-    filtersMeta.value = await productService.fetchFilters()
-  } catch (err) {
-    error.value = "Failed to load filters"
-  } finally {
-    isLoading.value = false
-  }
-}
-
-onMounted(loadFilters)
+// Inject the filtersMeta instance coming from parent (StorefrontLayout.vue)
+const filtersMeta = inject<FiltersMetaContext>("filtersMeta")!
+const { meta, roundedMax, roundedMin, sliderStep } = filtersMeta
 
 // Inject the collection instance coming from parent (StorefrontLayout.vue)
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
@@ -119,7 +104,7 @@ function clearFilters() {
 
     <!-- Accordion filter groups -->
     <FilterAccordion
-      v-if="filtersMeta"
+      v-if="meta"
       v-for="(group, index) in filterGroups"
       :key="group.key"
     >
@@ -139,7 +124,7 @@ function clearFilters() {
       <div v-show="openAccordions[index]" class="px-5 pb-4">
         <template v-if="group.key === 'category'">
           <FilterCategory
-            :categories="filtersMeta.categories"
+            :categories="meta.categories"
             :draft-filters="draftFilters"
             @click="(value) => (draftFilters.category = value)"
           />
@@ -147,7 +132,9 @@ function clearFilters() {
 
         <template v-if="group.key === 'price'">
           <FilterPrice
-            :price="filtersMeta.price"
+            :roundedMin="roundedMin"
+            :roundedMax="roundedMax"
+            :step="sliderStep"
             :draft-filters="draftFilters"
             :has-cleared="hasCleared"
             @price-change="handlePriceChange"
