@@ -77,7 +77,7 @@ function applyFilters() {
   })
 }
 
-const hasFilters = computed(() => {
+const hasDraftFilters = computed(() => {
   const selectedFilters = Object.values(draftFilters).map((val) =>
     val ? true : false
   )
@@ -147,7 +147,7 @@ function clearFilters() {
 
     <FiltersFooter
       :applied-count="appliedCount"
-      :has-filters="hasFilters"
+      :has-filters="hasDraftFilters"
       @apply="applyFilters"
       @clear="clearFilters"
     />
