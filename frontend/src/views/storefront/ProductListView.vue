@@ -51,7 +51,7 @@ const {
         </NoItemsFound>
       </template>
 
-      <template v-if="meta && hasProducts">
+      <template v-if="meta && meta.lastPage > 1 && hasProducts">
         <Pagination
           v-show="!isLoading && !error"
           :current-page="meta.currentPage"
