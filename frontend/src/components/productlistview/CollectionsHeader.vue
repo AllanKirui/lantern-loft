@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue"
+import { useRoute } from "vue-router"
 import CollectionsToolbar from "./CollectionsToolbar.vue"
 import LayoutButton from "../common/LayoutButton.vue"
 import FiltersSidebarToggle from "../common/FiltersSidebarToggle.vue"
@@ -18,6 +19,32 @@ const message = computed(() => {
   if (props.isLoading) return "Good things take time to shine…"
   if (props.error) return "Something dimmed the glow. Refresh to retry."
 })
+
+const route = useRoute()
+
+const totalItems = computed(() => Number(props.meta?.total))
+
+const subHeading = computed(() => {
+  let heading = `${totalItems.value} `
+  const category = route.query.category as string
+
+  if (category) {
+    // replace slug's hyphens with spaces
+    const catString = category.split("-").join(" ")
+
+    // handle singular/plural forms e.g table lamp(s)
+    return (heading +=
+      totalItems.value > 1 ? catString : catString.slice(0, -1))
+  } else {
+    return (heading += totalItems.value > 1 ? "products" : "product")
+  }
+})
+
+const displayText = computed(() =>
+  totalItems.value > 1
+    ? `Displaying ${props.meta?.from}-${props.meta?.to} of ${totalItems.value} products`
+    : `Displaying ${totalItems.value} product`
+)
 </script>
 
 <template>
@@ -58,13 +85,11 @@ const message = computed(() => {
       <!-- Products meta -->
       <div v-else-if="hasProducts">
         <h3 class="fs-h3 font-semibold leading-none">
-          {{ `${meta?.total} products` }}
+          {{ subHeading }}
         </h3>
         <span
           class="fs-items-count text-pale-brown block mt-2 md:mt-[10px] font-medium leading-none"
-          >{{
-            `Displaying ${meta?.from}-${meta?.to} of ${meta?.total} products`
-          }}</span
+          >{{ displayText }}</span
         >
       </div>
 
