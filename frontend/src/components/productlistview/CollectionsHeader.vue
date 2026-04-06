@@ -76,7 +76,7 @@ const message = computed(() => {
       </div>
 
       <!-- Sort & filter controls -->
-      <CollectionsToolbar>
+      <CollectionsToolbar v-show="!isLoading && !error">
         <div class="flex items-center gap-3">
           <FiltersSidebarToggle />
           <LayoutButton />
