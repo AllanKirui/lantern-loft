@@ -59,6 +59,8 @@ export function useCollection<T>(
     return hasCategory || hasPrice
   })
 
+  const hasItems = computed(() => (items.value.length > 0 ? true : false))
+
   let currentRequest = 0
 
   async function load() {
@@ -196,6 +198,7 @@ export function useCollection<T>(
     query,
     filters,
     hasFilters,
+    hasItems,
     resetFilters,
     removeFilter,
     setPage,
