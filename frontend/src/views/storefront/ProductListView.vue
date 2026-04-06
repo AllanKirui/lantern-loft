@@ -36,20 +36,18 @@ const {
     <CollectionsMain>
       <ProductsGrid :is-loading="isLoading" :products="products" />
 
-      <template v-if="!isLoading && !hasProducts">
-        <NoItemsFound>
-          <template #message>
-            <div v-if="hasFilters && !error">
-              <p>That combination didn't light up anything.</p>
-              <p class="mt-2">Try another.</p>
-            </div>
-            <div v-else>
-              <p>Looks like the lights flickered.</p>
-              <p class="mt-2">Try again.</p>
-            </div>
-          </template>
-        </NoItemsFound>
-      </template>
+      <NoItemsFound v-if="!isLoading && !hasProducts">
+        <template #message>
+          <div v-if="hasFilters && !error">
+            <p>That combination didn't light up anything.</p>
+            <p class="mt-2">Try another.</p>
+          </div>
+          <div v-else>
+            <p>Looks like the lights flickered.</p>
+            <p class="mt-2">Try again.</p>
+          </div>
+        </template>
+      </NoItemsFound>
 
       <template v-if="meta && meta.lastPage > 1 && hasProducts">
         <Pagination
