@@ -9,6 +9,7 @@ interface Props {
   meta: LaravelPaginationMeta | null
   isLoading: boolean
   error: string | null
+  hasProducts: boolean
 }
 
 const props = defineProps<Props>()
@@ -45,14 +46,17 @@ const message = computed(() => {
     </div>
 
     <div
-      class="sp-mt-section-sub-heading flex flex-col flex-wrap md:flex-row md:justify-between md:gap-2"
+      class="sp-mt-section-sub-heading flex flex-col justify-center flex-wrap md:flex-row md:justify-between md:items-center min-h-[34px]"
     >
+      <!-- Loading & error message -->
       <div v-if="isLoading || error">
         <h3 class="fs-h3 font-semibold leading-none">
           {{ message }}
         </h3>
       </div>
-      <div v-else>
+
+      <!-- Products meta -->
+      <div v-else-if="hasProducts">
         <h3 class="fs-h3 font-semibold leading-none">
           {{ `${meta?.total} products` }}
         </h3>
@@ -62,6 +66,13 @@ const message = computed(() => {
             `Displaying ${meta?.from}-${meta?.to} of ${meta?.total} products`
           }}</span
         >
+      </div>
+
+      <!-- No products found message for filters  -->
+      <div v-else>
+        <h3 class="fs-h3 font-semibold leading-none">
+          No matches, but great taste!
+        </h3>
       </div>
 
       <!-- Sort & filter controls -->
