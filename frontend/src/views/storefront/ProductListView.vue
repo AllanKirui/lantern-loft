@@ -31,7 +31,7 @@ const {
       :has-products="hasProducts"
     />
 
-    <ActiveFilters v-if="!isLoading && hasFilters" />
+    <ActiveFilters v-if="!isLoading && !error && hasFilters" />
 
     <CollectionsMain>
       <ProductsGrid :is-loading="isLoading" :products="products" />
