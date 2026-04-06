@@ -7,6 +7,7 @@ import { productService } from "@/services/productService"
 import NewProductCard from "../organisms/NewProductCard.vue"
 import SectionHeader from "../common/SectionHeader.vue"
 import ProductSkeleton from "../common/ProductSkeleton.vue"
+import NoItemsFound from "../common/NoItemsFound.vue"
 
 const products = ref<ProductCardBase[]>([])
 const isLoading = ref(false)
@@ -127,5 +128,14 @@ function onGrabEnd() {
         </SwiperSlide>
       </template>
     </Swiper>
+
+    <NoItemsFound v-if="error">
+      <template #message>
+        <div>
+          <p>Looks like the lights flickered.</p>
+          <p class="mt-2">Try again.</p>
+        </div>
+      </template>
+    </NoItemsFound>
   </section>
 </template>

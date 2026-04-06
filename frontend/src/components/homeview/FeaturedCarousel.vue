@@ -7,6 +7,7 @@ import { productService } from "@/services/productService"
 import SectionHeader from "../common/SectionHeader.vue"
 import ProductCard from "../organisms/ProductCard.vue"
 import ProductSkeleton from "../common/ProductSkeleton.vue"
+import NoItemsFound from "../common/NoItemsFound.vue"
 
 const products = ref<ProductCardExtended[]>([])
 const isLoading = ref(false)
@@ -115,5 +116,14 @@ const sectionHeaderData = computed(() => ({
         </SwiperSlide>
       </template>
     </Swiper>
+
+    <NoItemsFound v-if="error">
+      <template #message>
+        <div>
+          <p>Looks like the lights flickered.</p>
+          <p class="mt-2">Try again.</p>
+        </div>
+      </template>
+    </NoItemsFound>
   </section>
 </template>
