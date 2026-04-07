@@ -68,17 +68,32 @@ const appliedCount = computed(() => {
 })
 
 function applyFilters() {
-  // TODO add rating
+  filtersStore.close()
 
+  // return if the draft min-max prices equal the min-max prices from the API
+  if (
+    !draftFilters.category &&
+    (draftFilters.min_price === roundedMin.value ||
+      draftFilters.max_price === roundedMax.value)
+  ) {
+    clearDraftFilters()
+    return
+  }
+
+  // pass `null` as the filters price values if the draft min-max prices equal the min-max prices from the API
   applyChanges({
     filters: {
-      min_price: draftFilters.min_price,
-      max_price: draftFilters.max_price
+      min_price:
+        draftFilters.min_price === roundedMin.value
+          ? null
+          : draftFilters.min_price,
+      max_price:
+        draftFilters.max_price === roundedMax.value
+          ? null
+          : draftFilters.max_price
     },
     query: { category: draftFilters.category, page: 1 }
   })
-
-  filtersStore.close()
 }
 
 const hasDraftFilters = computed(() => {
