@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide, watch } from "vue"
+import { provide, watch, computed } from "vue"
 import { useRoute } from "vue-router"
 import { useCollection } from "@/composables/useCollection"
 import { useFiltersMeta } from "@/composables/useFiltersMeta"
@@ -32,6 +32,8 @@ watch(
     }
   }
 )
+
+const showFilters = computed(() => route.name === "collections")
 </script>
 
 <template>
@@ -49,7 +51,7 @@ watch(
 
     <BackToTop />
     <StorefrontFooter />
-    <FiltersSidebar v-if="route.name === 'collections'" />
+    <FiltersSidebar v-if="showFilters" />
     <BaseOverlay />
   </div>
 </template>
