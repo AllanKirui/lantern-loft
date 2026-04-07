@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject } from "vue"
+import { inject, computed } from "vue"
 import type { CollectionContext } from "@/types/collection"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import CollectionsHeader from "@/components/productlistview/CollectionsHeader.vue"
@@ -20,6 +20,18 @@ const {
   hasFilters,
   hasItems: hasProducts
 } = collection
+
+const showPagination = computed(() => {
+  if (!meta.value) return false
+
+  return (
+    !!meta.value &&
+    meta.value.lastPage > 1 &&
+    hasProducts.value &&
+    !isLoading.value &&
+    !error.value
+  )
+})
 </script>
 
 <template>
@@ -49,14 +61,12 @@ const {
         </template>
       </NoItemsFound>
 
-      <template v-if="meta && meta.lastPage > 1 && hasProducts">
-        <Pagination
-          v-show="!isLoading && !error"
-          :current-page="meta.currentPage"
-          :total-pages="meta.lastPage"
-          @page-change="setPage"
-        />
-      </template>
+      <Pagination
+        v-if="showPagination"
+        :current-page="meta!.currentPage"
+        :total-pages="meta!.lastPage"
+        @page-change="setPage"
+      />
     </CollectionsMain>
   </div>
 </template>
