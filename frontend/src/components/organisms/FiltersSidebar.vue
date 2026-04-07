@@ -34,7 +34,7 @@ onMounted(loadFilters)
 // Inject the collection instance coming from parent (StorefrontLayout.vue)
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
 
-const { query, filters, resetFilters, applyChanges } = collection
+const { query, filters, hasFilters, resetFilters, applyChanges } = collection
 
 const draftFilters = reactive({
   category: query.value.category ?? null,
@@ -95,7 +95,19 @@ const hasCleared = ref(false)
 function clearFilters() {
   hasCleared.value = true
 
+  if (!hasFilters.value) {
+    clearDraftFilters()
+    return
+  }
+
   resetFilters()
+  filtersStore.close()
+}
+
+function clearDraftFilters() {
+  draftFilters.category = null
+  draftFilters.min_price = null
+  draftFilters.max_price = null
 }
 </script>
 
