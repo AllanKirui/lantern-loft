@@ -190,6 +190,12 @@ export function useCollection<T>(
     { immediate: true }
   )
 
+  const filterCount = ref(0)
+
+  function setFilterCount(count: number) {
+    filterCount.value = count
+  }
+
   return {
     items,
     meta,
@@ -199,9 +205,11 @@ export function useCollection<T>(
     filters,
     hasFilters,
     hasItems,
+    filterCount,
     resetFilters,
     removeFilter,
     setPage,
-    applyChanges
+    applyChanges,
+    setFilterCount
   }
 }

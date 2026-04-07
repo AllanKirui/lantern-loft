@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject } from "vue"
+import { computed, inject, onBeforeUnmount, watch } from "vue"
 import type { CollectionContext } from "@/types/collection"
 import type { FiltersMetaContext } from "@/types/filters-meta"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
@@ -11,7 +11,7 @@ const { roundedMax, roundedMin } = meta
 
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
 
-const { filters, query, removeFilter } = collection
+const { filters, query, removeFilter, setFilterCount } = collection
 
 const minPrice = computed(() => filters.value.min_price)
 const maxPrice = computed(() => filters.value.max_price)
@@ -38,6 +38,19 @@ const activeFilters = computed(() => {
   // TODO add rating
 
   return list
+})
+
+watch(
+  () => activeFilters.value.length,
+  () => {
+    setFilterCount(activeFilters.value.length)
+  },
+  { immediate: true }
+)
+
+onBeforeUnmount(() => {
+  // reset the count before component unmounts
+  if (activeFilters.value.length === 0) setFilterCount(0)
 })
 </script>
 

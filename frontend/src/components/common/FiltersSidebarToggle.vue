@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { inject } from "vue"
 import { useFiltersStore } from "@/stores/filters"
+import type { CollectionContext } from "@/types/collection"
+import type { ProductCardExtended } from "@/types/products/product-card-extended"
 
 const filtersStore = useFiltersStore()
+
+// Inject the collection instance coming from layout (StorefrontLayout.vue)
+const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
 </script>
 
 <template>
@@ -11,8 +17,10 @@ const filtersStore = useFiltersStore()
   >
     <BaseIcon name="filter" class="w-4 h-4" />
     <span class="hidden md:flex"
-      >{{ filtersStore.sidebarVisible ? "Hide" : "Show" }} filters (0)</span
+      >{{ filtersStore.sidebarVisible ? "Hide" : "Show" }} filters ({{
+        collection.filterCount
+      }})</span
     >
-    <span class="flex md:hidden">Filters (0)</span>
+    <span class="flex md:hidden">Filters ({{ collection.filterCount }})</span>
   </button>
 </template>
