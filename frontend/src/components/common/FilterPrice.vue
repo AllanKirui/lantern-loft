@@ -56,11 +56,15 @@ function handleMaxChange() {
 </script>
 
 <template>
-  <div class="mt-2">
+  <div class="flex flex-col mt-2">
     <!-- Price range sliders -->
-    <div class="flex items-center gap-2">
+    <div class="order-2 sm:order-none flex items-center gap-2">
       <div class="flex flex-col w-1/2 bg-red-100/0">
-        <label for="min" class="text-sm select-none">Min price</label>
+        <label
+          for="min"
+          class="order-2 sm:order-none mt-1 sm:mt-0 text-sm select-none"
+          >Min price</label
+        >
         <input
           id="min"
           type="range"
@@ -69,11 +73,13 @@ function handleMaxChange() {
           :step="step"
           v-model.number="state.filters.priceMin"
           @change="handleMinChange"
-          class="w-full mt-1"
+          class="order-1 sm:order-none w-full mt-1"
         />
       </div>
       <div class="flex flex-col w-1/2 bg-red-100/0">
-        <label for="max" class="text-sm text-right select-none"
+        <label
+          for="max"
+          class="order-2 sm:order-none mt-1 sm:mt-0 text-sm text-right select-none"
           >Max price</label
         >
         <input
@@ -84,13 +90,13 @@ function handleMaxChange() {
           :step="step"
           v-model.number="state.filters.priceMax"
           @change="handleMaxChange"
-          class="w-full mt-1"
+          class="order-1 sm:order-none w-full mt-1"
         />
       </div>
     </div>
 
     <div
-      class="mt-1 flex justify-between text-pale-brown font-medium select-none"
+      class="order-1 sm:order-none sm:mt-1 flex justify-between text-pale-brown font-medium select-none"
     >
       <div>
         <span class="mr-0.5 text-sm">kes</span>
