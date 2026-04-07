@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide } from "vue"
+import { provide, watch } from "vue"
 import { useRoute } from "vue-router"
 import { useCollection } from "@/composables/useCollection"
 import { useFiltersMeta } from "@/composables/useFiltersMeta"
@@ -24,6 +24,16 @@ const filtersMeta = useFiltersMeta()
 filtersMeta.loadFilters()
 
 provide("filtersMeta", filtersMeta)
+
+// clear filters when leaving the '/collections' route
+watch(
+  () => route.name,
+  (newName, oldName) => {
+    if (oldName === "collections" && newName !== "collections") {
+      if (collection.hasFilters.value) collection.resetFilters()
+    }
+  }
+)
 </script>
 
 <template>
