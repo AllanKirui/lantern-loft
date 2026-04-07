@@ -27,12 +27,14 @@ defineEmits(["apply", "clear"])
       >
     </div>
 
-    <button
-      v-if="hasFilters"
-      class="btn-secondary mt-3 py-[9px] w-full animate-fade-in-down"
-      @click="$emit('clear')"
-    >
-      Clear All
-    </button>
+    <div class="mt-3 animate-fade-in-down">
+      <button
+        v-if="hasFilters"
+        class="btn-secondary py-[9px] w-full"
+        @click="$emit('clear')"
+      >
+        Clear All
+      </button>
+    </div>
   </div>
 </template>
