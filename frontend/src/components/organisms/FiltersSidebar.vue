@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref, watch, inject } from "vue"
+import { computed, reactive, ref, watch, inject, onMounted } from "vue"
 import { useFiltersStore } from "@/stores/filters"
 import type { CollectionContext } from "@/types/collection"
 import type { FiltersMetaContext } from "@/types/filters-meta"
@@ -27,7 +27,9 @@ function toggleAccordion(i: number) {
 
 // Inject the filtersMeta instance coming from parent (StorefrontLayout.vue)
 const filtersMeta = inject<FiltersMetaContext>("filtersMeta")!
-const { meta, roundedMax, roundedMin, sliderStep } = filtersMeta
+const { meta, roundedMax, roundedMin, sliderStep, loadFilters } = filtersMeta
+
+onMounted(loadFilters)
 
 // Inject the collection instance coming from parent (StorefrontLayout.vue)
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!

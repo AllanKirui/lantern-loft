@@ -21,8 +21,6 @@ provide("collection", collection)
 
 // Provide the filtersMeta instance to child components
 const filtersMeta = useFiltersMeta()
-filtersMeta.loadFilters()
-
 provide("filtersMeta", filtersMeta)
 
 // clear filters when leaving the '/collections' route
