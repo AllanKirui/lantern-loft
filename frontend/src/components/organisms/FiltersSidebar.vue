@@ -77,6 +77,8 @@ function applyFilters() {
     },
     query: { category: draftFilters.category, page: 1 }
   })
+
+  filtersStore.close()
 }
 
 const hasDraftFilters = computed(() => {
