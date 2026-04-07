@@ -5,7 +5,9 @@ import MainHome from "@/components/homeview/MainHome.vue"
 </script>
 
 <template>
-  <HeroSection />
-  <MainHome />
-  <CategoriesSection />
+  <div>
+    <HeroSection />
+    <MainHome />
+    <CategoriesSection />
+  </div>
 </template>
