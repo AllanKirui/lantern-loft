@@ -66,11 +66,11 @@ defineProps<Props>()
           />
         </div>
         <div v-if="data.link">
-          <a
-            :href="data.link?.to"
+          <RouterLink
+            :to="data.link?.to"
             :data-replace="data.link?.text"
             class="link-hover fs-shop-link font-medium"
-            ><span>{{ data.link?.text }}</span></a
+            ><span>{{ data.link?.text }}</span></RouterLink
           >
         </div>
       </div>

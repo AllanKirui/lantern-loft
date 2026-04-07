@@ -109,11 +109,11 @@ const footerLinks = [
           <div class="mt-8 md:mt-0 flex flex-col items-center">
             <p>
               Check out our
-              <a
-                href="/reviews"
+              <RouterLink
+                to="/reviews"
                 data-replace="1,234"
                 class="link-hover font-semibold text-bone"
-                ><span>1,234</span></a
+                ><span>1,234</span></RouterLink
               >
               reviews
             </p>
@@ -135,11 +135,11 @@ const footerLinks = [
 
             <p class="sp-mt-footer-sign-in">
               Already a customer?
-              <a
-                href="/account/sign-in"
+              <RouterLink
+                to="/account/sign-in"
                 data-replace="Sign in"
                 class="link-hover text-bone"
-                ><span>Sign in</span></a
+                ><span>Sign in</span></RouterLink
               >
             </p>
           </div>

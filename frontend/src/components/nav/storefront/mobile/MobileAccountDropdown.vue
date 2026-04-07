@@ -35,8 +35,8 @@ const DELAY = 40 // Transition delay
         :key="index"
         :style="{ transitionDelay: `${index * DELAY}ms` }"
       >
-        <a
-          href="#"
+        <RouterLink
+          to="#"
           class="btn-hover flex items-center gap-3 py-[10px] px-3 leading-none hover:after:bg-cream"
         >
           <BaseIcon :name="link.icon" class="w-6 h-6" :stroke-width="3.5" />
@@ -47,7 +47,7 @@ const DELAY = 40 // Transition delay
               link.about
             }}</span>
           </div>
-        </a>
+        </RouterLink>
 
         <!-- Horizontal divider -->
         <span
@@ -63,14 +63,16 @@ const DELAY = 40 // Transition delay
       :style="{ transitionDelay: `${accountLinks.length * DELAY}ms` }"
     >
       <!-- Auth Links -->
-      <a href="/account/create" class="btn-primary sm:max-w-96 sm:mx-auto"
-        >Create Account</a
+      <RouterLink
+        to="/account/create"
+        class="btn-primary sm:max-w-96 sm:mx-auto"
+        >Create Account</RouterLink
       >
-      <a
-        href="/account/sign-in"
+      <RouterLink
+        to="/account/sign-in"
         data-replace="Sign In"
         class="link-hover block my-3 mx-auto w-fit font-medium"
-        ><span>Sign In</span></a
+        ><span>Sign In</span></RouterLink
       >
     </div>
   </BaseMobileDropdown>

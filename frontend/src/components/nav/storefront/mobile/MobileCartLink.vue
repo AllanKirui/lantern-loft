@@ -1,5 +1,5 @@
 <template>
-  <a href="/cart" class="mobile-nav-button">
+  <RouterLink to="/cart" class="mobile-nav-button">
     <div class="relative w-auto h-6">
       <BaseIcon name="cart" class="w-5 h-5 sm:w-6 sm:h-6" :stroke-width="3.5" />
       <!-- Items Count -->
@@ -11,5 +11,5 @@
     </div>
 
     <span class="fs-nav-sm uppercase leading-none">Cart</span>
-  </a>
+  </RouterLink>
 </template>

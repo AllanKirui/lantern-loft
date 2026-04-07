@@ -44,10 +44,10 @@ const DELAY = 40 // Transition delay
         :id="index === 0 ? 'target' : ''"
         :style="{ transitionDelay: `${index * DELAY}ms` }"
       >
-        <a
+        <RouterLink
           class="btn-hover block p-3 text-lg leading-snug font-semibold hover:after:bg-cream"
-          :href="link.href"
-          >{{ link.text }}</a
+          :to="link.href"
+          >{{ link.text }}</RouterLink
         >
       </li>
     </ul>
@@ -57,12 +57,12 @@ const DELAY = 40 // Transition delay
       class="mt-auto"
       :style="{ transitionDelay: `${menuLinks.length * DELAY}ms` }"
     >
-      <a
-        href="#"
+      <RouterLink
+        to="#"
         class="btn-hover flex gap-2 mt-3 px-3 py-[14px] font-medium hover:after:bg-cream"
       >
         <BaseIcon name="bulb-off" class="w-5 h-5 -mx-[3px]" :stroke-width="2" />
-        <span>The Workshop</span></a
+        <span>The Workshop</span></RouterLink
       >
 
       <!-- Horizontal divider -->
@@ -91,21 +91,21 @@ const DELAY = 40 // Transition delay
 
         <!-- Legal Links -->
         <div class="relative flex items-center gap-[10px]">
-          <a
-            href="#"
+          <RouterLink
+            to="#"
             data-replace="Privacy Policy"
             class="link-hover text-sm font-medium"
-            ><span>Privacy Policy</span></a
+            ><span>Privacy Policy</span></RouterLink
           >
 
           <!-- Vertical divider -->
           <span class="w-[1px] h-5 bg-pale-brown" />
 
-          <a
-            href="#"
+          <RouterLink
+            to="#"
             data-replace="Conditions of Use"
             class="link-hover text-sm font-medium"
-            ><span>Conditions of Use</span></a
+            ><span>Conditions of Use</span></RouterLink
           >
         </div>
       </div>

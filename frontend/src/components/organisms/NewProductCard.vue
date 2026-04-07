@@ -32,13 +32,13 @@ defineProps<Props>()
         {{ product.name }}
       </h4>
       <p class="max-w-xs mx-auto mt-3">{{ product.shortDescription }}</p>
-      <a
-        :href="`/collections/${product.slug}`"
+      <RouterLink
+        :to="`/collections/${product.slug}`"
         class="link-hover font-medium mt-3 md:mt-4"
         data-replace="Explore"
       >
         <span>Explore</span>
-      </a>
+      </RouterLink>
     </div>
   </article>
 </template>

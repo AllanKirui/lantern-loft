@@ -5,7 +5,7 @@ withDefaults(defineProps<{ href: string; height?: string }>(), {
 </script>
 
 <template>
-  <a :href="href" class="relative">
+  <RouterLink :to="href" class="relative">
     <!-- Logo fallback text -->
     <span
       class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 font-medium fs-logo-fallback whitespace-nowrap text-cosmic-latte"
@@ -21,5 +21,5 @@ withDefaults(defineProps<{ href: string; height?: string }>(), {
         :class="['w-auto', height]"
       />
     </div>
-  </a>
+  </RouterLink>
 </template>

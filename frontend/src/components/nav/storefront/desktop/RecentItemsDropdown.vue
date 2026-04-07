@@ -20,23 +20,23 @@ import BaseDropdown from "./BaseDropdown.vue"
         Looks like we don't have anything recent for you.
       </p>
 
-      <a href="/collections" class="btn-primary mt-5 mx-auto max-w-96"
-        >Go Shopping</a
+      <RouterLink to="/collections" class="btn-primary mt-5 mx-auto max-w-96"
+        >Go Shopping</RouterLink
       >
 
       <p class="mt-5 mb-3">
-        <a
-          href="/account/sign-in"
+        <RouterLink
+          to="/account/sign-in"
           data-replace="Sign in"
           class="link-hover font-medium"
-          ><span>Sign in</span></a
+          ><span>Sign in</span></RouterLink
         >
         or
-        <a
-          href="/account/create"
+        <RouterLink
+          to="/account/create"
           data-replace="create an account"
           class="link-hover font-medium"
-          ><span>create an account</span></a
+          ><span>create an account</span></RouterLink
         >
         to see your stuff on all your devices.
       </p>

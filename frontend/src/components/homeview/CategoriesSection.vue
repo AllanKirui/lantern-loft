@@ -59,10 +59,10 @@ const categoryData = [
 
       <!-- Category links -->
       <div class="flex gap-4">
-        <a
+        <RouterLink
           v-for="category in categoryData"
           :key="category.link.to"
-          :href="category.link.to"
+          :to="category.link.to"
           class="card-hover bg-cream/75 rounded-md"
         >
           <figure
@@ -78,7 +78,7 @@ const categoryData = [
           <div class="p-3 text-center font-medium capitalize">
             {{ category.link.text }}
           </div>
-        </a>
+        </RouterLink>
       </div>
     </div>
   </section>

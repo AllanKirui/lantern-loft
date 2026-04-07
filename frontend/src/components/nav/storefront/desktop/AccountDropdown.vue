@@ -23,8 +23,8 @@ const DELAY = 60 // Transition delay
     class="absolute -right-1/2 lg:right-0 w-72 text-chestnut-brown custom-shadow bg-cosmic-latte overflow-hidden rounded-b-md"
   >
     <li v-for="(link, index) in accountLinks" :key="link.href">
-      <a
-        :href="link.href"
+      <RouterLink
+        :to="link.href"
         class="btn-hover flex gap-2 px-4 py-2 hover:after:bg-cream"
         :style="{ transitionDelay: `${index * DELAY}ms` }"
       >
@@ -39,24 +39,26 @@ const DELAY = 60 // Transition delay
             link.description
           }}</span>
         </div>
-      </a>
+      </RouterLink>
     </li>
     <li
       class="my-2 px-[14px]"
       :style="{ transitionDelay: `${accountLinks.length * DELAY}ms` }"
     >
-      <a href="/account/create" class="btn-primary">Create Account</a>
+      <RouterLink to="/account/create" class="btn-primary"
+        >Create Account</RouterLink
+      >
     </li>
     <!-- Delay the second element by adding +1 -->
     <li
       class="my-2"
       :style="{ transitionDelay: `${(accountLinks.length + 1) * DELAY}ms` }"
     >
-      <a
-        href="/account/sign-in"
+      <RouterLink
+        to="/account/sign-in"
         data-replace="Sign In"
         class="link-hover block my-3 mx-auto w-fit font-medium"
-        ><span>Sign In</span></a
+        ><span>Sign In</span></RouterLink
       >
     </li>
   </ul>

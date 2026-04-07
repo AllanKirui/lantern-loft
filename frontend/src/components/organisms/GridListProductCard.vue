@@ -39,8 +39,8 @@ const { truncated: truncatedDescription } = useResponsiveTruncate(
     :aria-labelledby="`product-${product.id}`"
     class="m-[2px]"
   >
-    <a
-      :href="`/collections/${product.slug}`"
+    <RouterLink
+      :to="`/collections/${product.slug}`"
       :title="`Explore the ${product.name}`"
       class="group block"
     >
@@ -112,6 +112,6 @@ const { truncated: truncatedDescription } = useResponsiveTruncate(
           />
         </div>
       </div>
-    </a>
+    </RouterLink>
   </article>
 </template>

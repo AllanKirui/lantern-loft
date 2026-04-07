@@ -19,16 +19,16 @@ import BaseDropdown from "./BaseDropdown.vue"
         Your wishlist could use a little light — keep browsing and save your
         favorites!
       </p>
-      <a href="/collections" class="btn-primary mt-5 mx-auto max-w-96"
-        >Go Shopping</a
+      <RouterLink to="/collections" class="btn-primary mt-5 mx-auto max-w-96"
+        >Go Shopping</RouterLink
       >
       <p class="mt-5 mb-3">
         Not seeing your saved items from other logged in devices or past visits?
-        <a
-          href="/account/sign-in"
+        <RouterLink
+          to="/account/sign-in"
           data-replace="Sign in"
           class="link-hover font-medium"
-          ><span>Sign in</span></a
+          ><span>Sign in</span></RouterLink
         >.
       </p>
     </div>

@@ -26,8 +26,11 @@ const desktopNavStore = useDesktopNavStore()
         <!-- Vertical divider -->
         <span class="w-[1px] h-5 bg-pale-brown" />
 
-        <a :href="manageHref" data-replace="Manage items" class="link-hover"
-          ><span>Manage items</span></a
+        <RouterLink
+          :to="manageHref"
+          data-replace="Manage items"
+          class="link-hover"
+          ><span>Manage items</span></RouterLink
         >
       </div>
 

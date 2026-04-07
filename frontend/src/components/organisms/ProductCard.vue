@@ -18,8 +18,8 @@ defineProps<Props>()
     :aria-labelledby="`product-card-item-${product.id}`"
     class="card-hover rounded-md m-[2px]"
   >
-    <a
-      :href="`/collections/${product.slug}`"
+    <RouterLink
+      :to="`/collections/${product.slug}`"
       :title="`Explore the ${product.name}`"
       class="group block"
     >
@@ -75,6 +75,6 @@ defineProps<Props>()
           :sale-price="product.discountPrice"
         />
       </div>
-    </a>
+    </RouterLink>
   </article>
 </template>

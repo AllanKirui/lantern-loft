@@ -15,19 +15,22 @@ import MobileNav from "./mobile/MobileNav.vue"
 
     <!-- Center links - Desktop -->
     <nav class="hidden md:flex gap-6">
-      <a href="/" data-replace="Home" class="fs-nav-lg link-hover"
-        ><span>Home</span></a
+      <RouterLink to="/" data-replace="Home" class="fs-nav-lg link-hover"
+        ><span>Home</span></RouterLink
       >
-      <a href="/collections" data-replace="Shop" class="fs-nav-lg link-hover"
-        ><span>Shop</span></a
+      <RouterLink
+        to="/collections"
+        data-replace="Shop"
+        class="fs-nav-lg link-hover"
+        ><span>Shop</span></RouterLink
       >
     </nav>
 
     <!-- Right buttons - Desktop -->
     <div class="hidden md:flex items-center gap-4">
       <!-- Cart -->
-      <a
-        href="/cart"
+      <RouterLink
+        to="/cart"
         class="flex items-center gap-[10px] hover:text-bone duration-200"
       >
         <div class="relative">
@@ -39,7 +42,7 @@ import MobileNav from "./mobile/MobileNav.vue"
           </div>
         </div>
         <span class="fs-nav-lg">Cart</span>
-      </a>
+      </RouterLink>
 
       <!-- Vertical divider -->
       <span class="w-[1px] h-5 bg-crayola" />
