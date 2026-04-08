@@ -130,7 +130,7 @@ function clearDraftFilters() {
   <transition name="filters-sidebar">
     <aside
       v-if="filtersStore.sidebarVisible"
-      class="fixed left-0 top-0 w-5/6 md:w-96 h-screen bg-cosmic-latte z-[101] overflow-y-auto"
+      class="fixed left-0 top-0 w-5/6 sm:w-96 h-screen bg-cosmic-latte z-[101] overflow-y-auto"
     >
       <FiltersHeader />
 
