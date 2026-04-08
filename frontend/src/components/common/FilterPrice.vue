@@ -59,10 +59,10 @@ function handleMaxChange() {
   <div class="flex flex-col mt-2">
     <!-- Price range sliders -->
     <div class="order-2 sm:order-none flex items-center gap-2">
-      <div class="flex flex-col w-1/2 bg-red-100/0">
+      <div class="flex flex-col w-1/2">
         <label
           for="min"
-          class="order-2 sm:order-none mt-1 sm:mt-0 text-sm select-none"
+          class="order-2 sm:order-none mt-2.5 sm:mt-0 text-sm select-none"
           >Min price</label
         >
         <input
@@ -73,13 +73,13 @@ function handleMaxChange() {
           :step="step"
           v-model.number="state.filters.priceMin"
           @change="handleMinChange"
-          class="order-1 sm:order-none w-full mt-1"
+          class="order-1 sm:order-none w-full range-slider"
         />
       </div>
-      <div class="flex flex-col w-1/2 bg-red-100/0">
+      <div class="flex flex-col w-1/2">
         <label
           for="max"
-          class="order-2 sm:order-none mt-1 sm:mt-0 text-sm text-right select-none"
+          class="order-2 sm:order-none mt-2.5 sm:mt-0 text-sm text-right select-none"
           >Max price</label
         >
         <input
@@ -90,13 +90,13 @@ function handleMaxChange() {
           :step="step"
           v-model.number="state.filters.priceMax"
           @change="handleMaxChange"
-          class="order-1 sm:order-none w-full mt-1"
+          class="order-1 sm:order-none w-full range-slider"
         />
       </div>
     </div>
 
     <div
-      class="order-1 sm:order-none sm:mt-1 flex justify-between text-pale-brown font-medium select-none"
+      class="order-1 sm:order-none sm:mt-2.5 flex justify-between text-pale-brown font-medium select-none"
     >
       <div>
         <span class="mr-0.5 text-sm">kes</span>
@@ -109,3 +109,33 @@ function handleMaxChange() {
     </div>
   </div>
 </template>
+
+<style scoped>
+.range-slider {
+  appearance: none;
+  background: transparent;
+}
+
+/* Track */
+.range-slider::-webkit-slider-runnable-track {
+  margin-top: 10px;
+  height: 6px;
+  background: #e7d9cc;
+  border-radius: 9999px;
+}
+
+/* Thumb */
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background: #7a6153;
+  margin-top: -5px; /* centers thumb */
+  cursor: grab;
+}
+
+.range-slider:active::-webkit-slider-thumb {
+  cursor: grabbing;
+}
+</style>
