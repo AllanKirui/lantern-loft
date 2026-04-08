@@ -127,60 +127,81 @@ function clearDraftFilters() {
 </script>
 
 <template>
-  <aside
-    v-if="filtersStore.sidebarVisible"
-    class="fixed left-0 top-0 w-5/6 md:w-96 h-screen bg-cosmic-latte z-[101] overflow-y-auto"
-  >
-    <FiltersHeader />
-
-    <!-- Accordion filter groups -->
-    <FilterAccordion
-      v-if="meta"
-      v-for="(group, index) in filterGroups"
-      :key="group.key"
+  <transition name="filters-sidebar">
+    <aside
+      v-if="filtersStore.sidebarVisible"
+      class="fixed left-0 top-0 w-5/6 md:w-96 h-screen bg-cosmic-latte z-[101] overflow-y-auto"
     >
-      <FilterAccordionToggle
-        :label="group.label"
-        @toggle="() => toggleAccordion(index)"
+      <FiltersHeader />
+
+      <!-- Accordion filter groups -->
+      <FilterAccordion
+        v-if="meta"
+        v-for="(group, index) in filterGroups"
+        :key="group.key"
       >
-        <BaseIcon
-          name="chevron-alt"
-          :class="[
-            'w-[22px] h-[22px] duration-200',
-            openAccordions[index] ? 'rotate-0' : 'rotate-180'
-          ]"
-        />
-      </FilterAccordionToggle>
-
-      <div v-show="openAccordions[index]" class="px-5 pb-4">
-        <template v-if="group.key === 'category'">
-          <FilterCategory
-            :categories="meta.categories"
-            :draft-filters="draftFilters"
-            @click="(value) => (draftFilters.category = value)"
+        <FilterAccordionToggle
+          :label="group.label"
+          @toggle="() => toggleAccordion(index)"
+        >
+          <BaseIcon
+            name="chevron-alt"
+            :class="[
+              'w-[22px] h-[22px] duration-200',
+              openAccordions[index] ? 'rotate-0' : 'rotate-180'
+            ]"
           />
-        </template>
+        </FilterAccordionToggle>
 
-        <template v-if="group.key === 'price'">
-          <FilterPrice
-            :roundedMin="roundedMin"
-            :roundedMax="roundedMax"
-            :step="sliderStep"
-            :draft-filters="draftFilters"
-            :has-cleared="hasCleared"
-            @price-change="handlePriceChange"
-          />
-        </template>
-      </div>
-    </FilterAccordion>
+        <div v-show="openAccordions[index]" class="px-5 pb-4">
+          <template v-if="group.key === 'category'">
+            <FilterCategory
+              :categories="meta.categories"
+              :draft-filters="draftFilters"
+              @click="(value) => (draftFilters.category = value)"
+            />
+          </template>
 
-    <!-- TODO handle v-else case -->
+          <template v-if="group.key === 'price'">
+            <FilterPrice
+              :roundedMin="roundedMin"
+              :roundedMax="roundedMax"
+              :step="sliderStep"
+              :draft-filters="draftFilters"
+              :has-cleared="hasCleared"
+              @price-change="handlePriceChange"
+            />
+          </template>
+        </div>
+      </FilterAccordion>
 
-    <FiltersFooter
-      :applied-count="appliedCount"
-      :has-filters="hasDraftFilters"
-      @apply="applyFilters"
-      @clear="clearFilters"
-    />
-  </aside>
+      <!-- TODO handle v-else case -->
+
+      <FiltersFooter
+        :applied-count="appliedCount"
+        :has-filters="hasDraftFilters"
+        @apply="applyFilters"
+        @clear="clearFilters"
+      />
+    </aside>
+  </transition>
 </template>
+
+<style scoped>
+.filters-sidebar-leave-to,
+.filters-sidebar-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.filters-sidebar-leave-from,
+.filters-sidebar-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+.filters-sidebar-enter-active {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+.filters-sidebar-leave-active {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+</style>
