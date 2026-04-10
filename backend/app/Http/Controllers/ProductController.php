@@ -23,7 +23,8 @@ class ProductController extends Controller
                 fn($q) => $q->category($request->category)
             )
             ->price($request->min_price, $request->max_price)
-            ->paginate(12)
+            ->sort($request->sort)
+            ->paginate($request->per_page ?? 12)
             ->withQueryString();
 
         return ProductCardExtendedResource::collection($products);
