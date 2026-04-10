@@ -5,6 +5,8 @@ import CollectionsToolbar from "./CollectionsToolbar.vue"
 import LayoutButton from "../common/LayoutButton.vue"
 import FiltersSidebarToggle from "../common/FiltersSidebarToggle.vue"
 import type { LaravelPaginationMeta } from "@/types/api/laravel"
+import SortSelect from "../common/SortSelect.vue"
+import ItemsPerPageSelect from "../common/ItemsPerPageSelect.vue"
 
 interface Props {
   meta: LaravelPaginationMeta | null
@@ -102,6 +104,12 @@ const displayText = computed(() =>
 
       <!-- Sort & filter controls -->
       <CollectionsToolbar v-show="!isLoading && !error">
+        <!-- Desktop sort options -->
+        <div class="hidden md:flex items-center gap-3">
+          <SortSelect />
+          <ItemsPerPageSelect />
+        </div>
+
         <div class="flex items-center gap-3">
           <FiltersSidebarToggle />
           <LayoutButton />
