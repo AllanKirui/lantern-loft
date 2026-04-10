@@ -78,4 +78,17 @@ class Product extends Model
             }
         );
     }
+
+    public function scopeSort(Builder $query, $sort): Builder
+    {
+        $effectivePrice = 'COALESCE(discount_price, price)'; // use discount_price if it exists
+
+        return match ($sort) {
+            'price_asc' => $query->orderByRaw("$effectivePrice ASC"),
+            'price_desc' => $query->orderByRaw("$effectivePrice DESC"),
+            'alpha_asc' => $query->orderBy('name', 'asc'),
+            'alpha_desc' => $query->orderBy('name', 'desc'),
+            default => $query->latest(),
+        };
+    }
 }
