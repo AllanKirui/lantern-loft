@@ -40,10 +40,23 @@ export function useCollection<T>(
   // Enable persistence after hydration
   isHydrated = true
 
+  // Internal sort options for API requests, not shown in URL
+  const sort = ref<string>("newest")
+  const perPage = ref<number>(12)
+
+  // Check for stored sort options when the composable initializes
+  const storedSort = localStorage.getItem("sort")
+  if (storedSort) sort.value = storedSort
+
+  const storedPerPage = localStorage.getItem("perPage")
+  if (storedPerPage) perPage.value = Number(storedPerPage)
+
   // API params
   const params = computed(() => ({
     ...query.value,
-    ...filters.value
+    ...filters.value,
+    sort: sort.value,
+    per_page: perPage.value
   }))
 
   const hasFilters = computed(() => {
@@ -120,10 +133,14 @@ export function useCollection<T>(
   // Batch updates to avoid sending multiple requests when filters and the query changes
   function applyChanges({
     query: newQuery,
-    filters: newFilters
+    filters: newFilters,
+    sort: newSort,
+    perPage: newPerPage
   }: {
     query?: Record<string, any>
     filters?: Record<string, any>
+    sort?: string
+    perPage?: number
   }) {
     const nextQuery: Record<string, any> = {}
 
@@ -148,6 +165,16 @@ export function useCollection<T>(
       }
     }
 
+    // Handle sort
+    if (newSort !== undefined) {
+      sort.value = newSort
+    }
+
+    // Handle per page
+    if (newPerPage !== undefined) {
+      perPage.value = newPerPage
+    }
+
     // Avoid unnecessary router pushes by comparing the current and next queries
     const current = JSON.stringify(route.query)
     const next = JSON.stringify(nextQuery)
@@ -164,7 +191,7 @@ export function useCollection<T>(
     router.push({ query: nextQuery })
   }
 
-  // Watch filters for changes and persist to local storage
+  // Watch filters and sort options for changes and persist to local storage
   watch(
     filters,
     (f) => {
@@ -173,6 +200,15 @@ export function useCollection<T>(
     },
     { deep: true }
   )
+
+  watch(sort, (value) => {
+    localStorage.setItem("sort", value)
+    applyChanges({ sort: value, query: { page: 1 } })
+  })
+
+  watch(perPage, (value) => {
+    localStorage.setItem("perPage", String(value))
+  })
 
   function setPage(page: number) {
     if (page === query.value.page) return
@@ -203,6 +239,8 @@ export function useCollection<T>(
     error,
     query,
     filters,
+    sort,
+    perPage,
     hasFilters,
     hasItems,
     filterCount,
