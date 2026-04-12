@@ -195,6 +195,24 @@
   .filter-badge-btn {
     @apply w-6 h-6 text-pale-brown hover:after:bg-bone hover:text-chestnut-brown;
   }
+  .bottom-sheet {
+    @apply fixed left-4 right-4 bottom-4 z-[100] bg-cosmic-latte rounded-lg p-3.5;
+  }
+  .bottom-sheet .sort-title {
+    @apply mb-6 text-lg font-semibold text-center;
+  }
+  .bottom-sheet .sort-option {
+    @apply flex justify-between items-center p-3 rounded-lg cursor-pointer btn-hover hover:after:bg-cream;
+  }
+  .bottom-sheet .sort-option .selected-indicator {
+    @apply w-[18px] h-[18px] rounded-full border border-chestnut-brown flex items-center justify-center;
+  }
+  .bottom-sheet .sort-option .selected-indicator .active {
+    @apply w-3 h-3 bg-chestnut-brown rounded-full;
+  }
+  .mobile-sort-button {
+    @apply inline-flex gap-0.5 items-center py-[5px] px-2 font-medium rounded btn-hover hover:after:bg-cream fs-mobile-sort-controls;
+  }
   /* End of Global styles */
 }
 
