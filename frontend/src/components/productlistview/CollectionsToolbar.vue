@@ -1,7 +1,7 @@
 <template>
   <!-- Sort and Filter controls -->
   <div
-    class="flex items-center justify-between gap-3 animate-fade-in-down custom-width"
+    class="flex items-center justify-between flex-wrap gap-3 animate-fade-in-down custom-width"
   >
     <slot />
   </div>
