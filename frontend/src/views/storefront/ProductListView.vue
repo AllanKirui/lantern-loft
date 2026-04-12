@@ -2,12 +2,15 @@
 import { inject, computed } from "vue"
 import type { CollectionContext } from "@/types/collection"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
+import { useMobileSheets } from "@/composables/useMobileSheets"
 import CollectionsHeader from "@/components/productlistview/CollectionsHeader.vue"
 import CollectionsMain from "@/components/productlistview/CollectionsMain.vue"
 import ProductsGrid from "@/components/organisms/ProductsGrid.vue"
 import Pagination from "@/components/common/Pagination.vue"
 import ActiveFilters from "@/components/common/ActiveFilters.vue"
 import NoItemsFound from "@/components/common/NoItemsFound.vue"
+import SortSheet from "@/components/common/mobile/SortSheet.vue"
+import PerPageSheet from "@/components/common/mobile/PerPageSheet.vue"
 
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
 
@@ -32,6 +35,8 @@ const showPagination = computed(() => {
     !error.value
   )
 })
+
+const { sortOpen, perPageOpen, closeSort, closePerPage } = useMobileSheets()
 </script>
 
 <template>
@@ -68,5 +73,8 @@ const showPagination = computed(() => {
         @page-change="setPage"
       />
     </CollectionsMain>
+
+    <SortSheet :open="sortOpen" @close="closeSort" />
+    <PerPageSheet :open="perPageOpen" @close="closePerPage" />
   </div>
 </template>
