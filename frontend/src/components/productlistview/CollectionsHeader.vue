@@ -7,6 +7,7 @@ import FiltersSidebarToggle from "../common/FiltersSidebarToggle.vue"
 import type { LaravelPaginationMeta } from "@/types/api/laravel"
 import SortSelect from "../common/SortSelect.vue"
 import ItemsPerPageSelect from "../common/ItemsPerPageSelect.vue"
+import MobileSortControls from "../common/mobile/MobileSortControls.vue"
 
 interface Props {
   meta: LaravelPaginationMeta | null
@@ -108,6 +109,10 @@ const displayText = computed(() =>
         <div class="hidden md:flex items-center gap-3">
           <SortSelect />
           <ItemsPerPageSelect />
+        </div>
+
+        <div class="flex md:hidden">
+          <MobileSortControls />
         </div>
 
         <div class="flex items-center gap-3">
