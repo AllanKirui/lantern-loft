@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch } from "vue"
+import { onBeforeUnmount, watch } from "vue"
 import { useOverlayStore } from "@/stores/overlay"
 import BaseCloseButton from "@/components/base/BaseCloseButton.vue"
 
@@ -13,6 +13,7 @@ const emit = defineEmits<{
 
 const overlayStore = useOverlayStore()
 
+// TODO add the listener functions here
 // when sheet opens, activate overlay
 watch(
   () => props.open,
@@ -34,6 +35,29 @@ watch(
     }
   }
 )
+
+// close the sheet when it goes above 768px
+function handleScreenResize() {
+  if (window.innerWidth > 767) overlayStore.close()
+}
+
+function addResizeListener() {
+  window.addEventListener("resize", handleScreenResize)
+}
+
+function removeResizeListener() {
+  window.removeEventListener("resize", handleScreenResize)
+}
+
+watch(
+  () => props.open,
+  (newVal) => {
+    if (newVal) addResizeListener()
+    else removeResizeListener()
+  }
+)
+
+onBeforeUnmount(removeResizeListener)
 </script>
 
 <template>
