@@ -13,24 +13,25 @@ const emit = defineEmits<{
 
 const overlayStore = useOverlayStore()
 
-// TODO add the listener functions here
+const SHEET_ID = "sort-sheet"
+
 // when sheet opens, activate overlay
 watch(
   () => props.open,
   (val) => {
     if (val) {
-      overlayStore.open()
+      overlayStore.open(SHEET_ID)
     } else {
-      overlayStore.close()
+      overlayStore.close(SHEET_ID)
     }
   }
 )
 
-// when overlay is clicked, close sheet
+// close the bottom sheet if it's top
 watch(
-  () => overlayStore.isActive,
-  (active) => {
-    if (!active && props.open) {
+  () => overlayStore.stack,
+  () => {
+    if (!overlayStore.isTop(SHEET_ID) && props.open) {
       emit("close")
     }
   }
