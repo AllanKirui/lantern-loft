@@ -10,7 +10,7 @@ const overlayStore = useOverlayStore()
       <div
         v-if="overlayStore.isActive"
         class="fixed inset-0 bg-black/75 z-[99]"
-        @click="overlayStore.close"
+        @click="() => overlayStore.close()"
       ></div>
     </transition>
   </Teleport>
