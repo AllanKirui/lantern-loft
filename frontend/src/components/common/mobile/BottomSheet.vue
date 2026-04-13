@@ -15,28 +15,6 @@ const overlayStore = useOverlayStore()
 
 const SHEET_ID = "sort-sheet"
 
-// when sheet opens, activate overlay
-watch(
-  () => props.open,
-  (val) => {
-    if (val) {
-      overlayStore.open(SHEET_ID)
-    } else {
-      overlayStore.close(SHEET_ID)
-    }
-  }
-)
-
-// close the bottom sheet if it's top
-watch(
-  () => overlayStore.stack,
-  () => {
-    if (!overlayStore.isTop(SHEET_ID) && props.open) {
-      emit("close")
-    }
-  }
-)
-
 // close the sheet when it goes above 768px
 function handleScreenResize() {
   if (window.innerWidth > 767) overlayStore.close()
@@ -50,11 +28,27 @@ function removeResizeListener() {
   window.removeEventListener("resize", handleScreenResize)
 }
 
+// when sheet opens, activate overlay
 watch(
   () => props.open,
-  (newVal) => {
-    if (newVal) addResizeListener()
-    else removeResizeListener()
+  (val) => {
+    if (val) {
+      overlayStore.open(SHEET_ID)
+      addResizeListener()
+    } else {
+      overlayStore.close(SHEET_ID)
+      removeResizeListener()
+    }
+  }
+)
+
+// close the bottom sheet if it's top
+watch(
+  () => overlayStore.stack,
+  () => {
+    if (!overlayStore.isTop(SHEET_ID) && props.open) {
+      emit("close")
+    }
   }
 )
 
