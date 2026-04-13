@@ -3,6 +3,8 @@ import { ref } from "vue"
 import { useOverlayStore } from "./overlay"
 
 export const useFiltersStore = defineStore("filters", () => {
+  const STORE_ID = "filters"
+
   const overlayStore = useOverlayStore()
   const sidebarVisible = ref(false)
 
@@ -13,7 +15,7 @@ export const useFiltersStore = defineStore("filters", () => {
 
   function close() {
     sidebarVisible.value = false
-    overlayStore.close()
+    overlayStore.close(STORE_ID)
   }
 
   return { sidebarVisible, toggleSidebar, close }

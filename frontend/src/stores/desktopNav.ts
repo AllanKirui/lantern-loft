@@ -5,6 +5,8 @@ import { useOverlayStore } from "./overlay"
 type DropdownName = "account" | "recent" | "wishlist"
 
 export const useDesktopNavStore = defineStore("desktopNav", () => {
+  const STORE_ID = "desktop-nav"
+
   const overlayStore = useOverlayStore()
   const activeDropdown = ref<DropdownName | null>(null)
   const isAccountOpen = ref(false)
@@ -14,7 +16,7 @@ export const useDesktopNavStore = defineStore("desktopNav", () => {
   function toggleDropdown(menu: DropdownName) {
     const isSame = activeDropdown.value === menu
     activeDropdown.value = isSame ? null : menu
-    overlayStore[isSame ? "close" : "open"]()
+    overlayStore[isSame ? "close" : "open"](STORE_ID)
 
     isAccountOpen.value = activeDropdown.value === "account" && true
     isRecentOpen.value = activeDropdown.value === "recent" && true
