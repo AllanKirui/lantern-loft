@@ -9,7 +9,13 @@ export const useFiltersStore = defineStore("filters", () => {
   const sidebarVisible = ref(false)
 
   function toggleSidebar() {
-    overlayStore[sidebarVisible.value ? "close" : "open"]()
+    if (sidebarVisible.value) {
+      overlayStore.close(STORE_ID)
+    } else {
+      overlayStore.setZIndex(100)
+      overlayStore.open(STORE_ID)
+    }
+
     sidebarVisible.value = !sidebarVisible.value
   }
 

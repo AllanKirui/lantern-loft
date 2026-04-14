@@ -15,7 +15,13 @@ export const useMobileNavStore = defineStore("mobileNav", () => {
   function toggleDropdown(menu: DropdownName) {
     const isSame = activeDropdown.value === menu
     activeDropdown.value = isSame ? null : menu
-    overlayStore[isSame ? "close" : "open"](STORE_ID)
+
+    if (isSame) {
+      overlayStore.close(STORE_ID)
+    } else {
+      overlayStore.setZIndex(99)
+      overlayStore.open(STORE_ID)
+    }
 
     isMenuOpen.value = activeDropdown.value === "menu" && true
     isAccountOpen.value = activeDropdown.value === "account" && true

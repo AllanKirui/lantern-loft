@@ -10,8 +10,8 @@ export const useOverlayStore = defineStore("overlay", () => {
   const filtersStore = useFiltersStore()
 
   const stack = ref<string[]>([])
-
   const isActive = computed(() => stack.value.length > 0)
+  const z_index = ref(99) // z-index of BaseOverlay.vue
 
   function open(id: string) {
     if (!stack.value.includes(id)) {
@@ -39,6 +39,10 @@ export const useOverlayStore = defineStore("overlay", () => {
     return stack.value[stack.value.length - 1] === id
   }
 
+  function setZIndex(z: number) {
+    z_index.value = z
+  }
+
   // Disable body scroll when overlay is active
   watch(
     isActive,
@@ -58,5 +62,5 @@ export const useOverlayStore = defineStore("overlay", () => {
     { immediate: true }
   )
 
-  return { stack, isActive, open, close, isTop }
+  return { stack, isActive, z_index, open, close, isTop, setZIndex }
 })

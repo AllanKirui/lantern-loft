@@ -33,6 +33,7 @@ watch(
   () => props.open,
   (val) => {
     if (val) {
+      overlayStore.setZIndex(100)
       overlayStore.open(SHEET_ID)
       addResizeListener()
     } else {

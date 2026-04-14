@@ -196,7 +196,7 @@
     @apply w-6 h-6 text-pale-brown hover:after:bg-bone hover:text-chestnut-brown;
   }
   .bottom-sheet {
-    @apply fixed left-4 right-4 bottom-4 sm_plus:max-w-xl sm_plus:mx-auto z-[100] bg-cosmic-latte rounded-lg p-3.5;
+    @apply fixed left-4 right-4 bottom-4 sm_plus:max-w-xl sm_plus:mx-auto z-[101] bg-cosmic-latte rounded-lg p-3.5;
   }
   .bottom-sheet .sort-title {
     @apply mb-6 text-lg font-semibold text-center;

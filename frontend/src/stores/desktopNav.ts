@@ -16,7 +16,13 @@ export const useDesktopNavStore = defineStore("desktopNav", () => {
   function toggleDropdown(menu: DropdownName) {
     const isSame = activeDropdown.value === menu
     activeDropdown.value = isSame ? null : menu
-    overlayStore[isSame ? "close" : "open"](STORE_ID)
+
+    if (isSame) {
+      overlayStore.close(STORE_ID)
+    } else {
+      overlayStore.setZIndex(99)
+      overlayStore.open(STORE_ID)
+    }
 
     isAccountOpen.value = activeDropdown.value === "account" && true
     isRecentOpen.value = activeDropdown.value === "recent" && true
