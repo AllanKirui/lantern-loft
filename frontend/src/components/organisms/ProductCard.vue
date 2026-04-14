@@ -4,6 +4,7 @@ import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
 import PriceBlock from "../common/PriceBlock.vue"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
+import { capitalizeWords } from "@/utils/capitalizeWords"
 
 interface Props {
   product: ProductCardExtended
@@ -20,7 +21,7 @@ defineProps<Props>()
   >
     <RouterLink
       :to="`/collections/${product.slug}`"
-      :title="`Explore the ${product.name}`"
+      :title="`Explore the ${capitalizeWords(product.name)}`"
       class="group block"
     >
       <!-- Product Image -->

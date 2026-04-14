@@ -3,6 +3,7 @@ import { computed } from "vue"
 import { useLayoutStore } from "@/stores/layout"
 import { useResponsiveTruncate } from "@/composables/useResponsiveTruncate"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
+import { capitalizeWords } from "@/utils/capitalizeWords"
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
 import PriceBlock from "../common/PriceBlock.vue"
@@ -41,7 +42,7 @@ const { truncated: truncatedDescription } = useResponsiveTruncate(
   >
     <RouterLink
       :to="`/collections/${product.slug}`"
-      :title="`Explore the ${product.name}`"
+      :title="`Explore the ${capitalizeWords(product.name)}`"
       class="group block"
     >
       <div
