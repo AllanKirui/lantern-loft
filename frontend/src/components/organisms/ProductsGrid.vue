@@ -20,7 +20,6 @@ const layoutStore = useLayoutStore()
     <!-- Products grid -->
     <div
       :class="[
-        'sp-mt-swiper-wrapper',
         layoutStore.layout === 'grid'
           ? 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4'
           : 'space-y-4'
