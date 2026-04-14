@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, watch, defineAsyncComponent } from "vue"
+import {
+  onMounted,
+  onBeforeUnmount,
+  watch,
+  defineAsyncComponent,
+  ref
+} from "vue"
 import { useMobileNavStore } from "@/stores/mobileNav"
 import MobileAccountButton from "./MobileAccountButton.vue"
 import MobileCartLink from "./MobileCartLink.vue"
@@ -37,8 +43,26 @@ watch(
 
 onBeforeUnmount(removeResizeListener)
 
+const mobileNavRef = ref<HTMLDivElement | null>(null)
+
+const visibleNavHeight = ref(80) // nav starts out with a height of 80px
+
+watch(
+  () => mobileNavStore.activeDropdown,
+  (active) => {
+    if (active) {
+      // get the height of the visible part of the nav on screen, even if it's partially visible
+      visibleNavHeight.value = Math.round(
+        Number(mobileNavRef.value?.getBoundingClientRect().bottom)
+      )
+
+      calculateMobileNavDropdownHeight()
+    }
+  }
+)
+
 function calculateMobileNavDropdownHeight() {
-  const dropdownHeight = window.innerHeight - 80 // Minus 80px for the nav height
+  const dropdownHeight = window.innerHeight - visibleNavHeight.value // minus the height of visible part of the nav
   document.documentElement.style.setProperty(
     "--mobile-nav-dropdown-height",
     `${dropdownHeight}px`
@@ -51,6 +75,7 @@ onMounted(calculateMobileNavDropdownHeight)
 <template>
   <div
     class="relative md:hidden w-full h-full flex justify-between overflow-hidden"
+    ref="mobileNavRef"
   >
     <!-- Left buttons - Mobile -->
     <div class="flex items-center gap-mobile-nav-buttons">
