@@ -176,6 +176,8 @@ function onAfterEnter(el: Element) {
       >
         <FilterAccordionToggle
           :label="group.label"
+          :aria-expanded="openAccordions[index]"
+          :aria-controls="`accordion-panel-${index}`"
           @toggle="() => toggleAccordion(index)"
         >
           <BaseIcon
@@ -193,7 +195,11 @@ function onAfterEnter(el: Element) {
           @after-enter="onAfterEnter"
           @leave="onLeave"
         >
-          <div v-if="openAccordions[index]" class="accordion-content">
+          <div
+            :id="`accordion-panel-${index}`"
+            v-if="openAccordions[index]"
+            class="accordion-content"
+          >
             <template v-if="group.key === 'category'">
               <FilterCategory
                 :categories="meta.categories"
