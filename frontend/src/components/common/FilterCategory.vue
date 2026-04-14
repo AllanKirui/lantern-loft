@@ -13,7 +13,7 @@ defineEmits<{
 </script>
 
 <template>
-  <div class="space-y-1 mt-2">
+  <div class="space-y-1 mt-2 mb-4 px-5">
     <button
       v-for="cat in categories"
       :key="cat.slug"

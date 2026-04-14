@@ -124,6 +124,40 @@ function clearDraftFilters() {
   draftFilters.min_price = null
   draftFilters.max_price = null
 }
+
+// animate accordion height
+function onEnter(el: Element) {
+  const element = el as HTMLElement
+
+  element.style.height = "0"
+  element.style.opacity = "0"
+  element.style.transform = "translateY(-8px)"
+
+  requestAnimationFrame(() => {
+    element.style.height = element.scrollHeight + "px"
+    element.style.opacity = "1"
+    element.style.transform = "translateY(0)"
+  })
+}
+
+function onLeave(el: Element) {
+  const element = el as HTMLElement
+
+  element.style.height = element.scrollHeight + "px"
+  element.style.opacity = "1"
+
+  requestAnimationFrame(() => {
+    element.style.height = "0"
+    element.style.opacity = "0"
+    element.style.transform = "translateY(-8px)"
+  })
+}
+
+// reset the height after animation finishes
+function onAfterEnter(el: Element) {
+  const element = el as HTMLElement
+  element.style.height = "auto"
+}
 </script>
 
 <template>
@@ -153,26 +187,33 @@ function clearDraftFilters() {
           />
         </FilterAccordionToggle>
 
-        <div v-show="openAccordions[index]" class="px-5 pb-4">
-          <template v-if="group.key === 'category'">
-            <FilterCategory
-              :categories="meta.categories"
-              :draft-filters="draftFilters"
-              @click="(value) => (draftFilters.category = value)"
-            />
-          </template>
+        <transition
+          name="accordion"
+          @enter="onEnter"
+          @after-enter="onAfterEnter"
+          @leave="onLeave"
+        >
+          <div v-if="openAccordions[index]" class="accordion-content">
+            <template v-if="group.key === 'category'">
+              <FilterCategory
+                :categories="meta.categories"
+                :draft-filters="draftFilters"
+                @click="(value) => (draftFilters.category = value)"
+              />
+            </template>
 
-          <template v-if="group.key === 'price'">
-            <FilterPrice
-              :roundedMin="roundedMin"
-              :roundedMax="roundedMax"
-              :step="sliderStep"
-              :draft-filters="draftFilters"
-              :has-cleared="hasCleared"
-              @price-change="handlePriceChange"
-            />
-          </template>
-        </div>
+            <template v-if="group.key === 'price'">
+              <FilterPrice
+                :roundedMin="roundedMin"
+                :roundedMax="roundedMax"
+                :step="sliderStep"
+                :draft-filters="draftFilters"
+                :has-cleared="hasCleared"
+                @price-change="handlePriceChange"
+              />
+            </template>
+          </div>
+        </transition>
       </FilterAccordion>
 
       <!-- TODO handle v-else case -->
@@ -203,5 +244,13 @@ function clearDraftFilters() {
 }
 .filters-sidebar-leave-active {
   transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+.accordion-content {
+  overflow: hidden;
+}
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 </style>

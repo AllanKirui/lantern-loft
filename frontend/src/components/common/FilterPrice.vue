@@ -92,7 +92,7 @@ const trackStyleMax = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-2">
+  <div class="flex flex-col mt-2 mb-4 px-5">
     <!-- Price range sliders -->
     <div class="order-2 sm:order-none flex items-center gap-2">
       <div class="flex flex-col w-1/2">
