@@ -10,7 +10,7 @@ const sectionHeaderData = {
 const categoryData = [
   {
     link: {
-      to: "/collections/table-lamps",
+      to: "/collections?category=table-lamps",
       text: "Shop table lamps"
     },
     image: {
@@ -20,7 +20,7 @@ const categoryData = [
   },
   {
     link: {
-      to: "/collections/floor-lamps",
+      to: "/collections?category=floor-lamps",
       text: "Shop floor lamps"
     },
     image: {
