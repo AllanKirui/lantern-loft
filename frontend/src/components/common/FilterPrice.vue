@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, watch } from "vue"
+import { reactive, computed, watch } from "vue"
 import { snapToStep } from "@/utils/price"
 
 interface Props {
@@ -53,6 +53,42 @@ function handleMaxChange() {
 
   emit("priceChange", { max_price: state.filters.priceMax })
 }
+
+const rangePercentMin = computed(() => {
+  const min = props.roundedMin
+  const max = props.roundedMax
+  return ((state.filters.priceMin - min) / (max - min)) * 100
+})
+
+const rangePercentMax = computed(() => {
+  const min = props.roundedMin
+  const max = props.roundedMax
+  return ((state.filters.priceMax - min) / (max - min)) * 100
+})
+
+const trackStyleMin = computed(() => {
+  return {
+    background: `linear-gradient(
+      to right,
+      rgb(122 97 83 / 0.75) 0%,
+      #7a6153 ${rangePercentMin.value}%,
+      #e7d9cc ${rangePercentMin.value}%,
+      #e7d9cc 100%
+    )`
+  }
+})
+
+const trackStyleMax = computed(() => {
+  return {
+    background: `linear-gradient(
+      to right,
+      #e7d9cc 0%,
+      #e7d9cc ${rangePercentMax.value}%,
+      #7a6153 ${rangePercentMax.value}%,
+      rgb(122 97 83 / 0.75) 100%
+    )`
+  }
+})
 </script>
 
 <template>
@@ -74,6 +110,7 @@ function handleMaxChange() {
           v-model.number="state.filters.priceMin"
           @change="handleMinChange"
           class="order-1 sm:order-none w-full range-slider"
+          :style="trackStyleMin"
         />
       </div>
       <div class="flex flex-col w-1/2">
@@ -91,6 +128,7 @@ function handleMaxChange() {
           v-model.number="state.filters.priceMax"
           @change="handleMaxChange"
           class="order-1 sm:order-none w-full range-slider"
+          :style="trackStyleMax"
         />
       </div>
     </div>
@@ -113,15 +151,15 @@ function handleMaxChange() {
 <style scoped>
 .range-slider {
   appearance: none;
-  background: transparent;
+  background: #f11;
+  height: 6px;
+  margin-top: 10px;
+  border-radius: 9999px;
 }
 
 /* Track */
 .range-slider::-webkit-slider-runnable-track {
-  margin-top: 10px;
-  height: 6px;
-  background: #e7d9cc;
-  border-radius: 9999px;
+  cursor: pointer;
 }
 
 /* Thumb */
@@ -131,7 +169,6 @@ function handleMaxChange() {
   width: 16px;
   border-radius: 9999px;
   background: #7a6153;
-  margin-top: -5px; /* centers thumb */
   cursor: grab;
 }
 
