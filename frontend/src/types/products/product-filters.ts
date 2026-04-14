@@ -1,13 +1,14 @@
 // Mirrors the JSON response returned by ProductController's filters() method
-export type categories = {
+export type Categories = {
   id: number
   name: string
   slug: string
   productsCount: number
 }[]
-export type priceRanges = { min: number; max: number }
+
+type PriceRanges = { min: number; max: number }
 
 export interface ProductFilters {
-  categories: categories
-  price: priceRanges
+  categories: Categories
+  price: PriceRanges
 }

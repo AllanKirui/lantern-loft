@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { categories } from "@/types/products/product-filters"
+import type { Categories } from "@/types/products/product-filters"
 
 interface Props {
-  categories: categories
+  categories: Categories
   draftFilters: Record<string, any>
 }
 
