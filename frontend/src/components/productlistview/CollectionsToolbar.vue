@@ -8,13 +8,13 @@
 </template>
 
 <style scoped>
-@media (max-width: 839px) {
+@media (max-width: 849px) {
   .custom-width {
     width: 100%;
     margin-top: 14px;
   }
 }
-@media (min-width: 840px) {
+@media (min-width: 850px) {
   .custom-width {
     width: unset;
   }
