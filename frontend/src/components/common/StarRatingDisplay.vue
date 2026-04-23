@@ -33,8 +33,8 @@ const gradientId = useUniqueId()
         viewBox="0 0 64 64"
         stroke="currentColor"
         fill="currentColor"
-        :class="[`w-[${size}px] h-[${size}px] -mx-[1px]`]"
-        style="stroke-width: 2"
+        :style="{ strokeWidth: 2, width: `${size}px`, height: `${size}px` }"
+        class="-mx-[1px]"
       >
         <!-- Full Star -->
         <path
@@ -47,8 +47,8 @@ const gradientId = useUniqueId()
         viewBox="0 0 64 64"
         stroke="currentColor"
         fill="none"
-        :class="[`w-[${size}px] h-[${size}px] -mx-[1px]`]"
-        style="stroke-width: 2"
+        :style="{ strokeWidth: 2, width: `${size}px`, height: `${size}px` }"
+        class="-mx-[1px]"
       >
         <!-- Partially Filled Star -->
         <defs>
@@ -68,8 +68,8 @@ const gradientId = useUniqueId()
         viewBox="0 0 64 64"
         stroke="currentColor"
         fill="none"
-        :class="[`w-[${size}px] h-[${size}px] -mx-[1px]`]"
-        style="stroke-width: 2"
+        :style="{ strokeWidth: 2, width: `${size}px`, height: `${size}px` }"
+        class="-mx-[1px]"
       >
         <!-- Empty Star -->
         <path
