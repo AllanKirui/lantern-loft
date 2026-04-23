@@ -28,7 +28,7 @@ function onGrabEnd() {
     <!-- Previous image button -->
     <div class="hidden sm_plus:flex">
       <BaseCarouselNavButton
-        :product-type="CAROUSEL_TYPE"
+        :carousel-type="CAROUSEL_TYPE"
         direction="left"
         class="bg-cream w-9 h-9"
       />
@@ -91,7 +91,7 @@ function onGrabEnd() {
     <!-- Next image button -->
     <div class="hidden sm_plus:flex">
       <BaseCarouselNavButton
-        :product-type="CAROUSEL_TYPE"
+        :carousel-type="CAROUSEL_TYPE"
         direction="right"
         class="bg-cream w-9 h-9"
       />

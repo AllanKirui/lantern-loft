@@ -2,7 +2,7 @@
 import { ref } from "vue"
 
 interface Props {
-  productType?: "new" | "featured" | "detail" | "viewer"
+  carouselType?: "new" | "featured" | "detail" | "viewer"
   direction: "left" | "right"
 }
 
@@ -23,7 +23,7 @@ function handleClick() {
   <button
     class="btn-rounded rounded-md has-ripple-primary hover:after:bg-cream text-chestnut-brown disabled:pointer-events-none disabled:text-chestnut-brown/30"
     :class="[
-      direction === 'left' ? `${productType}-prev` : `${productType}-next`
+      direction === 'left' ? `${carouselType}-prev` : `${carouselType}-next`
     ]"
     disabled
     :title="direction === 'left' ? 'Previous' : 'Next'"

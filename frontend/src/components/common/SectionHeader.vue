@@ -57,11 +57,11 @@ defineProps<Props>()
       <div class="flex md:items-center gap-3 h-fit">
         <div v-if="data.withNavigation" class="hidden md:flex gap-1">
           <BaseCarouselNavButton
-            :product-type="data.productType"
+            :carousel-type="data.productType"
             direction="left"
           />
           <BaseCarouselNavButton
-            :product-type="data.productType"
+            :carousel-type="data.productType"
             direction="right"
           />
         </div>
