@@ -2,7 +2,7 @@
 import { ref } from "vue"
 
 interface Props {
-  productType?: "new" | "featured"
+  productType?: "new" | "featured" | "detail" | "viewer"
   direction: "left" | "right"
 }
 
