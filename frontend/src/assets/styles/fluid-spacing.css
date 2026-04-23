@@ -35,6 +35,9 @@
   --gap-12-16-min: clamp(0.75rem, 0.5714rem + 0.8929vw, 1rem);
   --space-14-16-min: clamp(0.875rem, 0.7857rem + 0.4464vw, 1rem);
   --space-24-32-min: clamp(1.5rem, 1.1429rem + 1.7857vw, 2rem);
+
+  /* Fluid spacing for large screens (768px-1280px, -mid) */
+  --space-16-20-mid: clamp(1rem, 0.625rem + 0.7813vw, 1.25rem);
 }
 
 /* Storefront Header Styles */
@@ -95,4 +98,7 @@
 }
 .gap-categories-section {
   gap: var(--space-32-56-full);
+}
+.sp-p-pdp-overview {
+  padding: var(--space-16-20-mid);
 }
