@@ -106,6 +106,7 @@
   .btn-rounded {
     @apply btn-hover flex items-center justify-center w-8 h-8 rounded-full;
   }
+  .link-hover-alt,
   .link-hover {
     /* Original Hover Effect - https://codepen.io/team/css-tricks/pen/jOarVmy */
     position: relative;
@@ -113,6 +114,8 @@
     overflow: hidden;
     vertical-align: top;
   }
+  .link-hover-alt::before,
+  .link-hover-alt::after,
   .link-hover::before,
   .link-hover::after {
     content: "";
@@ -121,14 +124,21 @@
     left: 0;
     will-change: transform;
   }
+  .link-hover-alt::before,
   .link-hover::before {
     bottom: 0;
     height: 0;
-    box-shadow: 0 0 0 0.7px;
+    box-shadow: 0 0 0 0.8px;
     transform-origin: 100% 50%;
-    transform: scaleX(0);
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
   }
+  .link-hover-alt::before {
+    transform: scaleX(1);
+  }
+  .link-hover::before {
+    transform: scaleX(0);
+  }
+  .link-hover-alt::after,
   .link-hover::after {
     content: attr(data-replace);
     height: 100%;
@@ -141,15 +151,22 @@
     transform-origin: 0% 50%;
     transform: scaleX(1);
   }
+  .link-hover-alt:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(0);
+  }
+  .link-hover-alt:hover::after,
   .link-hover:hover::after {
     transform: translate3d(0, 0, 0);
   }
+  .link-hover-alt span,
   .link-hover span {
     /* Span sliding animation */
     display: inline-block;
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
     will-change: transform;
   }
+  .link-hover-alt:hover span,
   .link-hover:hover span {
     transform: translate3d(-200%, 0, 0);
   }
