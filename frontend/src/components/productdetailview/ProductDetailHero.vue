@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import ProductOverviewTop from "./ProductOverviewTop.vue"
+import ProductThumbnailList from "./ProductThumbnailList.vue"
+import ProductGallery from "./ProductGallery.vue"
 import ProductOverview from "./ProductOverview.vue"
 import ProductOverviewBottom from "./ProductOverviewBottom.vue"
 </script>
@@ -10,6 +12,20 @@ import ProductOverviewBottom from "./ProductOverviewBottom.vue"
       <!-- Product Overview Mobile: Name and Ratings -->
       <div class="md:hidden">
         <ProductOverviewTop />
+      </div>
+
+      <!-- Thumbnails container for large screens -->
+      <div class="hidden lg:flex flex-col gap-3">
+        <ProductThumbnailList />
+      </div>
+
+      <div class="overflow-hidden flex gap-4">
+        <!-- Thumbnails container shown between 640px and 768px -->
+        <div class="hidden sm_plus:flex flex-col gap-3 md:hidden">
+          <ProductThumbnailList />
+        </div>
+
+        <ProductGallery />
       </div>
 
       <!-- Product Overview Mobile: Price and Add to Cart -->
