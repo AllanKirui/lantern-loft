@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
+import ProductThumbnailList from "./ProductThumbnailList.vue"
 
 const CAROUSEL_TYPE = "detail"
 
@@ -80,6 +81,11 @@ function onGrabEnd() {
       <small class="hidden md:block italic text-center mt-2"
         >Click on image to open a zoomable view</small
       >
+
+      <!-- Thumbnails container for medium screens -->
+      <div class="hidden md:flex gap-3 mt-2 lg:hidden">
+        <ProductThumbnailList />
+      </div>
     </div>
 
     <!-- Next image button -->
