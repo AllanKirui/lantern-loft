@@ -16,6 +16,11 @@ const routes = [
         path: "collections",
         name: "collections",
         component: () => import("@/views/storefront/ProductListView.vue")
+      },
+      {
+        path: "collections/:slug",
+        name: "collections.show",
+        component: () => import("@/views/storefront/ProductDetailView.vue")
       }
     ]
   }
