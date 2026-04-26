@@ -37,6 +37,12 @@ class Product extends Model
         'is_new' => 'boolean',
     ];
 
+    public function getRouteKeyName(): string
+    {
+        // use 'slug' instead of the default 'id' globally for this model
+        return 'slug';
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
