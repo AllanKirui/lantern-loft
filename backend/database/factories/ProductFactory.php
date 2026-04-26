@@ -54,6 +54,8 @@ class ProductFactory extends Factory
             'description' => $this->faker->sentences(random_int(5, 12), true),
             'short_description' => $this->faker->optional(0.7)->sentences(3, true),
             'tagline' => $this->faker->words(random_int(4, 6), true),
+            'details' => $this->generateDetails(),
+            'specs' => $this->generateSpecs(),
             'images' => collect(range(1, random_int(2, 5)))->map(fn($i) => [
                 'url' => $this->faker->imageUrl(512, 512, 'lamp', true),
                 'alt' => $name . ' image ' . $i,
@@ -63,8 +65,43 @@ class ProductFactory extends Factory
             'is_new' => $this->faker->boolean(40),
             'stock_quantity' => $this->faker->numberBetween(0, 40),
             'model_code' => $modelCode,
-            'sku' => strtoupper('SKU-' . $this->faker->bothify('LMP-###??')),
+            'sku' => strtoupper($this->faker->bothify('LMP-###??')),
             'status' => $this->faker->randomElement($statuses),
+        ];
+    }
+
+    private function generateDetails()
+    {
+        $possibleDetails = [
+            'Handmade shade',
+            'Dimmable (with compatible bulb and dimmer)',
+            'Includes 1 x E26 socket',
+            'Energy efficient design',
+            'Perfect for bedside or desk use',
+            'Soft ambient lighting',
+            'Easy to assemble',
+            'Durable metal base',
+            'Premium fabric shade',
+            'Minimalist modern design'
+        ];
+
+        return $this->faker
+            ->randomElements($possibleDetails, rand(3, 6));
+    }
+
+    private function generateSpecs(): array
+    {
+        return [
+            'bulb_type' => $this->faker->randomElement([
+                'E26 - standard',
+                'E27 - standard',
+                'GU10',
+            ]),
+            'bulbs_included' => $this->faker->randomElement(['Yes', 'No']),
+            'bulb_count' => (string) $this->faker->numberBetween(1, 3),
+            'dimmable' => $this->faker->boolean(30),
+            'power_cord_length' => $this->faker->numberBetween(120, 250) . ' cm',
+            'weight' => $this->faker->randomFloat(1, 0.5, 3.0) . ' kg',
         ];
     }
 }
