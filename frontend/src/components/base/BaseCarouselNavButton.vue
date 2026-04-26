@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { computed, ref } from "vue"
 
 interface Props {
   carouselType?: "new" | "featured" | "detail" | "viewer"
   direction: "left" | "right"
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const showRipple = ref(false)
 
@@ -17,6 +17,24 @@ function handleClick() {
     showRipple.value = false
   }, 320) // Set it to the duration of the circle-scale-up animation in index.css
 }
+
+const baseIconClasses = computed(() => {
+  let classes = "relative z-10 "
+
+  if (props.carouselType === "detail" || props.carouselType === "viewer") {
+    classes += "w-[14px] h-[8.6px] "
+  } else {
+    classes += "w-[12px] h-[7.4px] "
+  }
+
+  if (props.direction === "left") {
+    classes += "right-[1px] rotate-90 "
+  } else {
+    classes += "left-[1px] -rotate-90 "
+  }
+
+  return classes
+})
 </script>
 
 <template>
@@ -29,12 +47,7 @@ function handleClick() {
     :title="direction === 'left' ? 'Previous' : 'Next'"
     @click="handleClick"
   >
-    <BaseIcon
-      name="chevron"
-      class="relative w-[12px] h-[7.4px] z-10"
-      :class="[direction === 'left' ? 'right-[1px] rotate-90' : '-rotate-90']"
-      :stroke-width="6"
-    />
+    <BaseIcon name="chevron" :class="baseIconClasses" :stroke-width="6" />
     <span class="sr-only">{{
       direction === "left" ? "Previous" : "Next"
     }}</span>
