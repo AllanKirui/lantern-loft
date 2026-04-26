@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Termwind\Components\Raw;
 use App\Http\Resources\Product\ProductCardBaseResource;
 use App\Http\Resources\Product\ProductCardExtendedResource;
+use App\Http\Resources\Product\ProductDetailResource;
 
 class ProductController extends Controller
 {
@@ -41,9 +42,15 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
-        //
+        // eager load the relationship to include reviews data
+        $product->load([
+            'reviews' => fn($q) => $q->latest()->take(7)
+        ])->loadCount('reviews')
+            ->loadAvg('reviews', 'rating');
+
+        return new ProductDetailResource($product);
     }
 
     /**
