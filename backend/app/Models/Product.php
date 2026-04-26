@@ -32,6 +32,8 @@ class Product extends Model
 
     protected $casts = [
         'images' => 'array', // Cast JSON column to PHP array
+        'details' => 'array',
+        'specs' => 'array',
         'price' => 'decimal:2',
         'discount_price' => 'decimal:2',
         'is_featured' => 'boolean',
