@@ -72,7 +72,7 @@ export function useCollection<T>(
     return hasCategory || hasPrice
   })
 
-  const hasItems = computed(() => (items.value.length > 0 ? true : false))
+  const hasItems = computed(() => items.value.length > 0)
 
   let currentRequest = 0
 
