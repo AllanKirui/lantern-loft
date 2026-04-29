@@ -19,6 +19,13 @@ export const productService = {
     return res.data
   },
 
+  async fetchBySlug(slug: string) {
+    const res = await apiClient.get<LaravelApiResource<Product>>(
+      `/products/${slug}`
+    )
+    return res.data.data
+  },
+
   async fetchNewArrivals() {
     const res = await apiClient.get<LaravelApiResponse<ProductCardBase>>(
       "/products/new-arrivals"
