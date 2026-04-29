@@ -1,4 +1,10 @@
-export interface LaravelApiResponse<T> {
+// single resource
+export interface LaravelApiResource<T> {
+  data: T
+}
+
+// a collection of resources
+export interface LaravelApiCollection<T> {
   data: T[]
 }
 
@@ -19,7 +25,7 @@ export interface LaravelPaginationLinks {
   next: string | null
 }
 
-export interface LaravelPaginatedResponse<T> extends LaravelApiResponse<T> {
+export interface LaravelPaginatedResponse<T> extends LaravelApiCollection<T> {
   links: LaravelPaginationLinks
   meta: LaravelPaginationMeta
 }
