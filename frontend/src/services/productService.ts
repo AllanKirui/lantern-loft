@@ -3,9 +3,13 @@ import type {
   LaravelApiResponse,
   LaravelPaginatedResponse
 } from "@/types/api/laravel"
-import type { ProductCardBase } from "@/types/products/product-card-base"
-import type { ProductCardExtended } from "@/types/products/product-card-extended"
-import type { ProductFilters } from "@/types/products/product-filters"
+
+import type {
+  ProductCardBase,
+  ProductCardExtended,
+  ProductFilters,
+  Product
+} from "@/types/products"
 
 export const productService = {
   async fetchAll(params: Record<string, any>) {
