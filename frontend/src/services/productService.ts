@@ -1,6 +1,7 @@
 import apiClient from "./api"
 import type {
-  LaravelApiResponse,
+  LaravelApiResource,
+  LaravelApiCollection,
   LaravelPaginatedResponse
 } from "@/types/api/laravel"
 
@@ -27,14 +28,14 @@ export const productService = {
   },
 
   async fetchNewArrivals() {
-    const res = await apiClient.get<LaravelApiResponse<ProductCardBase>>(
+    const res = await apiClient.get<LaravelApiCollection<ProductCardBase>>(
       "/products/new-arrivals"
     )
     return res.data.data
   },
 
   async fetchFeatured() {
-    const res = await apiClient.get<LaravelApiResponse<ProductCardExtended>>(
+    const res = await apiClient.get<LaravelApiCollection<ProductCardExtended>>(
       "/products/featured"
     )
     return res.data.data
