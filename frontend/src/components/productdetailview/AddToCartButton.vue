@@ -1,5 +1,10 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ showPrice?: boolean }>(), {
+interface Props {
+  showPrice?: boolean
+  price?: number
+}
+
+withDefaults(defineProps<Props>(), {
   showPrice: false
 })
 </script>
@@ -10,13 +15,13 @@ withDefaults(defineProps<{ showPrice?: boolean }>(), {
   >
     Add to Cart
 
-    <div v-if="showPrice" class="flex items-center gap-2.5">
+    <div v-if="showPrice && price" class="flex items-center gap-2.5">
       <!-- Vertical Divider -->
       <span class="w-[1px] h-5 bg-crayola/75" />
 
       <div>
         <span class="mr-[2px] text-sm leading-none">kes</span>
-        <span class="leading-none">{{ (5345).toLocaleString() }}</span>
+        <span class="leading-none">{{ price.toLocaleString() }}</span>
       </div>
     </div>
   </button>
