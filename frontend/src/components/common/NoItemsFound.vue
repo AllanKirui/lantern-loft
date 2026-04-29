@@ -9,7 +9,7 @@
     </div>
 
     <div
-      class="mt-5 fs-no-items-found text-center animate-fade-in-down"
+      class="mt-5 w-full fs-no-items-found text-center animate-fade-in-down"
       :style="{ animationDelay: '0.2s' }"
     >
       <slot name="message" />
