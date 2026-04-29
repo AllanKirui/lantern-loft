@@ -1,12 +1,26 @@
 <script setup lang="ts">
+import { computed, inject } from "vue"
+import type { ProductDetailContext } from "@/types/product-detail"
+import type { Product } from "@/types/products"
 import PriceBlock from "../common/PriceBlock.vue"
 import AddToCartButton from "./AddToCartButton.vue"
+
+// inject the productDetail instance coming from ProductDetailView.vue
+const { product } = inject<ProductDetailContext<Product>>("productDetail")!
+
+const effectivePrice = computed(
+  () => product.value.discountPrice ?? product.value.price
+)
 </script>
 
 <template>
   <div class="mt-4">
     <!-- Pricing -->
-    <PriceBlock :price="12345" :sale-price="null" :make-larger="true" />
+    <PriceBlock
+      :price="product.price"
+      :sale-price="product.discountPrice"
+      :make-larger="true"
+    />
 
     <!-- Availability -->
     <div class="mt-2">
@@ -27,7 +41,11 @@ import AddToCartButton from "./AddToCartButton.vue"
     <!-- Add to Cart -->
     <div class="mt-5">
       <AddToCartButton class="hidden md:flex" />
-      <AddToCartButton :show-price="true" class="flex md:hidden" />
+      <AddToCartButton
+        :show-price="true"
+        :price="effectivePrice"
+        class="flex md:hidden"
+      />
 
       <small class="block italic text-center mt-2">Cart coming soon.</small>
     </div>
