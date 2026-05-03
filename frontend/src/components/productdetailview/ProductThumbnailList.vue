@@ -1,43 +1,40 @@
 <script setup lang="ts">
-import { ref, computed } from "vue"
+import { computed } from "vue"
 
-const product = ref({
-  images: [
-    { src: "/images/lamps/aurora-1.jpg", alt: "Aurora front" },
-    { src: "/images/lamps/aurora-2.jpg", alt: "Aurora side" },
-    { src: "/images/lamps/aurora-3.jpg", alt: "Aurora close up" },
-    { src: "/images/lamps/aurora-4.jpg", alt: "Aurora in room" },
-    { src: "/images/lamps/aurora-5.jpg", alt: "Aurora packaging" }
-  ],
-  imagesExtra: 0,
-  imagesVisible: [] as any
+const props = withDefaults(defineProps<{ showPartials?: boolean }>(), {
+  showPartials: true
 })
+
+// TODO replace with real API data that should come from useProductDetail composable
+const images = [
+  { src: "/images/lamps/aurora-1.jpg", alt: "Aurora front" },
+  { src: "/images/lamps/aurora-2.jpg", alt: "Aurora side" },
+  { src: "/images/lamps/aurora-3.jpg", alt: "Aurora close up" },
+  { src: "/images/lamps/aurora-4.jpg", alt: "Aurora in room" },
+  { src: "/images/lamps/aurora-5.jpg", alt: "Aurora packaging" }
+]
 
 // control how many thumbnails are visible in the preview pane
-const thumbsVisible = ref(3) // visible count for large screens
+const thumbsVisible = computed(() => (props.showPartials ? 3 : images.length))
 
-const imagesVisible = computed(() => {
-  // show only the first `thumbsVisible` thumbnails
-  return product.value.images.slice(0, thumbsVisible.value)
-})
+// show only the first `thumbsVisible` thumbnails
+const imagesVisible = computed(() => images.slice(0, thumbsVisible.value))
 
 const imagesExtra = computed(() => {
-  const extra = product.value.images.length - thumbsVisible.value
+  const extra = images.length - thumbsVisible.value
   return extra > 0 ? extra : 0
 })
-
-// expose the computed image data used in template
-product.value.imagesVisible = imagesVisible.value
-product.value.imagesExtra = imagesExtra.value
 </script>
 
 <template>
-  <template
-    v-for="(img, index) in product.imagesVisible"
-    :key="img.src + index"
-  >
+  <template v-for="(img, index) in imagesVisible" :key="img.src + index">
     <button
-      class="sm_plus:w-16 md:w-[4.5rem] lg:w-20 relative rounded overflow-hidden border-2 border-pale-brown/30 focus:border-chestnut-brown group"
+      class="relative rounded overflow-hidden border-2 border-pale-brown/30 focus:border-chestnut-brown group"
+      :class="[
+        showPartials
+          ? 'sm_plus:w-16 md:w-[4.5rem] lg:w-20'
+          : 'w-20 sm_plus:w-16 flex-shrink-0'
+      ]"
       :aria-label="`Show image ${index + 1}`"
     >
       <!-- TODO use dynamic image data, src and alt -->
@@ -50,14 +47,14 @@ product.value.imagesExtra = imagesExtra.value
       </figure>
 
       <!-- overlay for last visible thumb if there are extras -->
-      <div
-        v-if="
-          index === product.imagesVisible.length - 1 && product.imagesExtra > 0
-        "
-        class="absolute inset-0 flex items-center justify-center bg-black/55 group-hover:bg-black/35 duration text-cosmic-latte text-xl font-semibold"
-      >
-        {{ product.imagesExtra }}+
-      </div>
+      <template v-if="showPartials">
+        <div
+          v-if="index === imagesVisible.length - 1 && imagesExtra > 0"
+          class="absolute inset-0 flex items-center justify-center bg-black/55 group-hover:bg-black/35 duration text-cosmic-latte text-xl font-semibold"
+        >
+          {{ imagesExtra }}+
+        </div>
+      </template>
     </button>
   </template>
 </template>
