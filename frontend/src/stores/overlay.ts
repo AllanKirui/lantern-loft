@@ -3,11 +3,13 @@ import { ref, computed, watch } from "vue"
 import { useDesktopNavStore } from "./desktopNav"
 import { useMobileNavStore } from "./mobileNav"
 import { useFiltersStore } from "./filters"
+import { useModalStore } from "./modal"
 
 export const useOverlayStore = defineStore("overlay", () => {
   const desktopNavStore = useDesktopNavStore()
   const mobileNavStore = useMobileNavStore()
   const filtersStore = useFiltersStore()
+  const modalStore = useModalStore()
 
   const stack = ref<string[]>([])
   const isActive = computed(() => stack.value.length > 0)
@@ -32,6 +34,7 @@ export const useOverlayStore = defineStore("overlay", () => {
       if (desktopNavStore.activeDropdown) desktopNavStore.closeAll()
       if (mobileNavStore.activeDropdown) mobileNavStore.closeAll()
       if (filtersStore.sidebarVisible) filtersStore.close()
+      if (modalStore.activeModal) modalStore.close()
     }
   }
 
