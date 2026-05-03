@@ -35,9 +35,6 @@ watch(
     id="main-content"
     class="wrapper px-3.5"
   >
-    <RouterLink to="/collections/at-iure-voluptatibus-195"
-      >At iure voluptatibus</RouterLink
-    >
     <!-- TODO add breadcrumbs here -->
     <ProductDetailHero />
   </main>
