@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { inject, ref } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
+import type { ViewerContext } from "@/types/image-viewer"
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
 import ProductThumbnailList from "./ProductThumbnailList.vue"
@@ -9,7 +10,7 @@ import ProductThumbnailList from "./ProductThumbnailList.vue"
 const CAROUSEL_TYPE = "detail"
 
 const mainSwiperRef = ref<any | null>(null)
-
+// TODO could move this to a composable
 function onGrabStart() {
   const el = mainSwiperRef.value.$el
   el.classList.add("cursor-grabbing")
@@ -20,6 +21,22 @@ function onGrabEnd() {
   const el = mainSwiperRef.value.$el
   el.classList.add("cursor-grab")
   el.classList.remove("cursor-grabbing")
+}
+
+// inject the viewer instance coming from parent (ProductDetailHero.vue)
+const viewer = inject<ViewerContext>("viewer")!
+
+// TODO replace with real API data that should come from useProductDetail composable
+const images = [
+  { src: "/images/lamps/aurora-1.jpg", alt: "Aurora front" },
+  { src: "/images/lamps/aurora-2.jpg", alt: "Aurora side" },
+  { src: "/images/lamps/aurora-3.jpg", alt: "Aurora close up" },
+  { src: "/images/lamps/aurora-4.jpg", alt: "Aurora in room" },
+  { src: "/images/lamps/aurora-5.jpg", alt: "Aurora packaging" }
+]
+
+function openViewer(i: number) {
+  viewer.open(images, i)
 }
 </script>
 
@@ -72,6 +89,7 @@ function onGrabEnd() {
                 src="@/assets/img/storefront/products/4-recopyright.png"
                 alt="img.alt || product.name + ' image ' + (idx + 1)"
                 class="w-full md:max-w-lg h-auto object-contain"
+                @click="openViewer(index)"
               />
             </figure>
           </SwiperSlide>
