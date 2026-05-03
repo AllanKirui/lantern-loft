@@ -1,9 +1,16 @@
 <script setup lang="ts">
+import { provide } from "vue"
+import { useImageViewer } from "@/composables/useImageViewer"
 import ProductOverviewTop from "./ProductOverviewTop.vue"
 import ProductThumbnailList from "./ProductThumbnailList.vue"
 import ProductGallery from "./ProductGallery.vue"
 import ProductOverview from "./ProductOverview.vue"
 import ProductOverviewBottom from "./ProductOverviewBottom.vue"
+import ImageViewer from "./viewer/ImageViewer.vue"
+
+// create a single shared instance of useImageViewer and provide it to child components
+const viewer = useImageViewer()
+provide("viewer", viewer)
 </script>
 
 <template>
@@ -40,5 +47,7 @@ import ProductOverviewBottom from "./ProductOverviewBottom.vue"
       <ProductOverviewTop />
       <ProductOverviewBottom />
     </ProductOverview>
+
+    <ImageViewer />
   </div>
 </template>
