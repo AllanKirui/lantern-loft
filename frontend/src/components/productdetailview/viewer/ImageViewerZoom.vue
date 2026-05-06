@@ -2,6 +2,7 @@
 import { inject, ref, computed } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
+import { useSyncedSwiper } from "@/composables/useSyncedSwiper"
 import type { ViewerContext } from "@/types/image-viewer"
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
@@ -53,6 +54,14 @@ function movePan(e: MouseEvent) {
 function stopPan() {
   isPanning.value = false
 }
+
+// keep Swiper and viewer in sync
+const { setSwiper, onSlideChange } = useSyncedSwiper(viewer)
+
+function onSwiper(swiper: any) {
+  setSwiper(swiper)
+  viewer.registerZoomSwiper(swiper)
+}
 </script>
 
 <template>
@@ -92,6 +101,8 @@ function stopPan() {
           :allow-touch-move="viewer.scale.value === 1"
           :no-swiping="viewer.scale.value > 1"
           :no-swiping-class="'swiper-no-swiping'"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
           class="sm_plus:max-w-sm"
         >
           <SwiperSlide
