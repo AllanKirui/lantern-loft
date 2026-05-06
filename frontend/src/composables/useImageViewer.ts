@@ -1,4 +1,4 @@
-import { ref } from "vue"
+import { ref, computed, watch } from "vue"
 import { useModalStore } from "@/stores/modal"
 
 type Image = { src: string; alt: string }
@@ -6,6 +6,7 @@ type Image = { src: string; alt: string }
 export function useImageViewer() {
   const modalStore = useModalStore()
 
+  const isOpen = computed(() => modalStore.activeModal === "imageViewer")
   const images = ref<Image[]>([])
   const currentIndex = ref(0)
 
@@ -51,7 +52,56 @@ export function useImageViewer() {
     resetPan()
   }
 
+  // Swiper instances
+  const gallerySwiper = ref<any | null>(null)
+  const zoomSwiper = ref<any | null>(null)
+
+  function registerGallerySwiper(swiper: any) {
+    gallerySwiper.value = swiper
+    syncKeyboardControl()
+  }
+
+  function registerZoomSwiper(swiper: any) {
+    zoomSwiper.value = swiper
+    syncKeyboardControl()
+  }
+
+  function unregisterGallerySwiper() {
+    gallerySwiper.value = null
+  }
+
+  function unregisterZoomSwiper() {
+    zoomSwiper.value = null
+  }
+
+  function isValidSwiper(swiper: any) {
+    return swiper && !swiper.destroyed
+  }
+
+  function syncKeyboardControl() {
+    if (isValidSwiper(gallerySwiper.value)) {
+      if (isOpen.value) {
+        gallerySwiper.value.keyboard.disable()
+      } else {
+        gallerySwiper.value.keyboard.enable()
+      }
+    }
+
+    if (isValidSwiper(zoomSwiper.value)) {
+      if (isOpen.value) {
+        zoomSwiper.value.keyboard.enable()
+      } else {
+        zoomSwiper.value.keyboard.disable()
+      }
+    }
+  }
+
+  watch(isOpen, () => {
+    syncKeyboardControl()
+  })
+
   return {
+    isOpen,
     images,
     currentIndex,
 
@@ -64,6 +114,10 @@ export function useImageViewer() {
     goTo,
     zoomIn,
     zoomOut,
-    resetZoom
+    resetZoom,
+    registerGallerySwiper,
+    registerZoomSwiper,
+    unregisterGallerySwiper,
+    unregisterZoomSwiper
   }
 }
