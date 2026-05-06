@@ -2,6 +2,7 @@
 import { inject, ref, computed } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
+import { useSyncedSwiper } from "@/composables/useSyncedSwiper"
 import type { ViewerContext } from "@/types/image-viewer"
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
@@ -42,6 +43,14 @@ const imageCount = computed(
 function openViewer(i: number) {
   viewer.open(images, i)
 }
+
+// keep Swiper and viewer in sync
+const { setSwiper, onSlideChange } = useSyncedSwiper(viewer)
+
+function onSwiper(swiper: any) {
+  setSwiper(swiper)
+  viewer.registerGallerySwiper(swiper)
+}
 </script>
 
 <template>
@@ -81,6 +90,8 @@ function openViewer(i: number) {
           :space-between="10"
           @touchStart="onGrabStart"
           @touchEnd="onGrabEnd"
+          @swiper="onSwiper"
+          @slideChange="onSlideChange"
           class="md:max-w-lg rounded-lg cursor-grab"
         >
           <!-- TODO use dynamic image data, src and alt -->
