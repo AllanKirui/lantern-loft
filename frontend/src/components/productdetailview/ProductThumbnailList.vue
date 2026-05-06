@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue"
+import { inject, computed } from "vue"
+import type { ViewerContext } from "@/types/image-viewer"
 
 const props = withDefaults(defineProps<{ showPartials?: boolean }>(), {
   showPartials: true
 })
+
+// inject the viewer instance coming from ProductDetailHero.vue
+const viewer = inject<ViewerContext>("viewer")!
 
 // TODO replace with real API data that should come from useProductDetail composable
 const images = [
@@ -24,18 +28,33 @@ const imagesExtra = computed(() => {
   const extra = images.length - thumbsVisible.value
   return extra > 0 ? extra : 0
 })
+
+function setThumbClasses(index: number) {
+  let classes =
+    "relative rounded overflow-hidden border-2 focus:border-chestnut-brown group "
+
+  if (props.showPartials) {
+    classes += "sm_plus:w-16 md:w-[4.5rem] lg:w-20 "
+  } else {
+    classes += "w-20 sm_plus:w-16 flex-shrink-0 "
+  }
+
+  if (viewer?.currentIndex.value === index) {
+    classes += "border-cosmic-latte sm_plus:border-chestnut-brown border-[3px] "
+  } else {
+    classes += "border-pale-brown/30 focus:outline-none "
+  }
+
+  return classes
+}
 </script>
 
 <template>
   <template v-for="(img, index) in imagesVisible" :key="img.src + index">
     <button
-      class="relative rounded overflow-hidden border-2 border-pale-brown/30 focus:border-chestnut-brown group"
-      :class="[
-        showPartials
-          ? 'sm_plus:w-16 md:w-[4.5rem] lg:w-20'
-          : 'w-20 sm_plus:w-16 flex-shrink-0'
-      ]"
+      :class="setThumbClasses(index)"
       :aria-label="`Show image ${index + 1}`"
+      @click="viewer?.goTo(index)"
     >
       <!-- TODO use dynamic image data, src and alt -->
       <figure class="aspect-square">
