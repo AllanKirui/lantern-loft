@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, ref } from "vue"
+import { inject, ref, computed } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import type { ViewerContext } from "@/types/image-viewer"
@@ -10,7 +10,7 @@ import ProductThumbnailList from "./ProductThumbnailList.vue"
 const CAROUSEL_TYPE = "detail"
 
 const mainSwiperRef = ref<any | null>(null)
-// TODO could move this to a composable
+
 function onGrabStart() {
   const el = mainSwiperRef.value.$el
   el.classList.add("cursor-grabbing")
@@ -35,6 +35,10 @@ const images = [
   { src: "/images/lamps/aurora-5.jpg", alt: "Aurora packaging" }
 ]
 
+const imageCount = computed(
+  () => `${viewer.currentIndex.value + 1}/${images.length}`
+)
+
 function openViewer(i: number) {
   viewer.open(images, i)
 }
@@ -57,13 +61,14 @@ function openViewer(i: number) {
         <ImageAnchoredInfo x-position="right" y-position="top" class="px-1.5">
           <div class="flex items-center gap-1">
             <BaseIcon name="photo" class="w-3.5 h-3.5" />
-            <span>2/4</span>
+            <span>{{ imageCount }}</span>
           </div>
         </ImageAnchoredInfo>
 
         <Swiper
           ref="mainSwiperRef"
           :modules="[Navigation, Keyboard]"
+          :initial-slide="viewer.currentIndex.value"
           :navigation="{
             prevEl: `.${CAROUSEL_TYPE}-prev`,
             nextEl: `.${CAROUSEL_TYPE}-next`
@@ -80,7 +85,7 @@ function openViewer(i: number) {
         >
           <!-- TODO use dynamic image data, src and alt -->
           <SwiperSlide
-            v-for="(_, index) in 4"
+            v-for="(_, index) in 5"
             :key="index"
             class="animate-fade-in-down"
           >
