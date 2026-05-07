@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, ref, computed } from "vue"
+import { onMounted, onBeforeUnmount, inject, ref, computed } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import { useSyncedSwiper } from "@/composables/useSyncedSwiper"
@@ -47,8 +47,7 @@ function movePan(e: MouseEvent) {
   e.preventDefault()
   e.stopPropagation() // allow panning when zoomed
 
-  viewer.offsetX.value = e.clientX - startX
-  viewer.offsetY.value = e.clientY - startY
+  viewer.setPan(e.clientX - startX, e.clientY - startY)
 }
 
 function stopPan() {
@@ -56,12 +55,53 @@ function stopPan() {
 }
 
 // keep Swiper and viewer in sync
-const { setSwiper, onSlideChange } = useSyncedSwiper(viewer)
+const { setSwiper, getSwiper, onSlideChange } = useSyncedSwiper(viewer)
 
 function onSwiper(swiper: any) {
   setSwiper(swiper)
   viewer.registerZoomSwiper(swiper)
+
+  updateContainerSize(swiper)
 }
+
+function handleSlideChange(swiper: any) {
+  onSlideChange(swiper)
+  updateContainerSize(swiper)
+}
+
+function updateContainerSize(swiper?: any) {
+  const activeSwiper = swiper || getSwiper()
+  if (!activeSwiper || activeSwiper.destroyed) return
+
+  const activeSlide = activeSwiper.slides[activeSwiper.activeIndex]
+  if (!activeSlide) return
+
+  const figure = activeSlide.querySelector("figure")
+  if (!figure) return
+
+  const rect = figure.getBoundingClientRect()
+  viewer.setContainerSize(rect.width, rect.height)
+}
+
+// update container size on resize
+// throttle the resize listener
+let resizeFrame: number | null = null
+
+function handleResize() {
+  if (resizeFrame) cancelAnimationFrame(resizeFrame)
+
+  resizeFrame = requestAnimationFrame(() => {
+    updateContainerSize()
+  })
+}
+
+onMounted(() => {
+  window.addEventListener("resize", handleResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", handleResize)
+})
 </script>
 
 <template>
@@ -102,7 +142,7 @@ function onSwiper(swiper: any) {
           :no-swiping="viewer.scale.value > 1"
           :no-swiping-class="'swiper-no-swiping'"
           @swiper="onSwiper"
-          @slideChange="onSlideChange"
+          @slideChange="handleSlideChange"
           class="sm_plus:max-w-sm"
         >
           <SwiperSlide

@@ -52,6 +52,43 @@ export function useImageViewer() {
     resetPan()
   }
 
+  // set pan boundaries to prevent zoomed image from drifting into empty space
+  const containerWidth = ref(0)
+  const containerHeight = ref(0)
+
+  function setContainerSize(width: number, height: number) {
+    containerWidth.value = width
+    containerHeight.value = height
+  }
+
+  // calculate pan boundaries
+  const maxOffsetX = computed(() => {
+    return ((scale.value - 1) * containerWidth.value) / 2
+  })
+
+  const maxOffsetY = computed(() => {
+    return ((scale.value - 1) * containerHeight.value) / 2
+  })
+
+  function setPan(x: number, y: number) {
+    offsetX.value = clamp(x, -maxOffsetX.value, maxOffsetX.value)
+
+    offsetY.value = clamp(y, -maxOffsetY.value, maxOffsetY.value)
+  }
+
+  function clamp(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max)
+  }
+
+  // set new pan boundaries when zoom changes
+  watch(scale, () => {
+    setPan(offsetX.value, offsetY.value)
+
+    if (scale.value === 1) {
+      resetPan()
+    }
+  })
+
   // Swiper instances
   const gallerySwiper = ref<any | null>(null)
   const zoomSwiper = ref<any | null>(null)
@@ -108,6 +145,8 @@ export function useImageViewer() {
     scale,
     offsetX,
     offsetY,
+    maxOffsetX,
+    maxOffsetY,
 
     open,
     close,
@@ -118,6 +157,8 @@ export function useImageViewer() {
     registerGallerySwiper,
     registerZoomSwiper,
     unregisterGallerySwiper,
-    unregisterZoomSwiper
+    unregisterZoomSwiper,
+    setContainerSize,
+    setPan
   }
 }
