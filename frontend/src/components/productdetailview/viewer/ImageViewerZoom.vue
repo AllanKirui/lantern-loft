@@ -153,27 +153,34 @@ onBeforeUnmount(() => {
           >
             <div :class="{ 'swiper-no-swiping': viewer.scale.value > 1 }">
               <figure class="aspect-square bg-cream overflow-hidden">
-                <!-- TODO use dynamic image data, src and alt -->
-                <img
-                  src="@/assets/img/storefront/products/4-recopyright.png"
-                  alt="img.alt || product.name + ' image ' + (idx + 1)"
-                  class="w-full h-auto object-contain select-none"
+                <div
                   :style="{
-                    transform: `translate(${viewer.offsetX.value}px, ${viewer.offsetY.value}px) scale(${viewer.scale.value})`,
-                    cursor:
-                      viewer.scale.value > 1
-                        ? isPanning
-                          ? 'grabbing'
-                          : 'grab'
-                        : 'default'
+                    transform: `translate(${viewer.offsetX.value}px, ${viewer.offsetY.value}px)`
                   }"
-                  draggable="false"
-                  @wheel="onWheel"
-                  @mousedown="startPan"
-                  @mousemove="movePan"
-                  @mouseup="stopPan"
-                  @mouseleave="stopPan"
-                />
+                  class="w-full h-full"
+                >
+                  <img
+                    src="@/assets/img/storefront/products/4-recopyright.png"
+                    alt="img.alt || product.name + ' image ' + (idx + 1)"
+                    class="w-full h-auto object-contain select-none"
+                    :style="{
+                      transform: `scale(${viewer.scale.value})`,
+                      transition: isPanning ? 'none' : 'transform 250ms ease',
+                      cursor:
+                        viewer.scale.value > 1
+                          ? isPanning
+                            ? 'grabbing'
+                            : 'grab'
+                          : 'default'
+                    }"
+                    draggable="false"
+                    @wheel="onWheel"
+                    @mousedown="startPan"
+                    @mousemove="movePan"
+                    @mouseup="stopPan"
+                    @mouseleave="stopPan"
+                  />
+                </div>
               </figure>
             </div>
           </SwiperSlide>
