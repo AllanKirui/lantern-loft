@@ -1,12 +1,15 @@
 import { ref, watch } from "vue"
 import type { ViewerContext } from "@/types/image-viewer"
 
-// export function useSyncedSwiper(currentIndex: Ref<number>) {
 export function useSyncedSwiper(viewer: ViewerContext) {
   const swiperInstance = ref<any | null>(null)
 
   function setSwiper(swiper: any) {
     swiperInstance.value = swiper
+  }
+
+  function getSwiper() {
+    return swiperInstance.value
   }
 
   // sync Swiper with viewer
@@ -36,6 +39,7 @@ export function useSyncedSwiper(viewer: ViewerContext) {
   return {
     swiperInstance,
     setSwiper,
+    getSwiper,
     onSlideChange
   }
 }
