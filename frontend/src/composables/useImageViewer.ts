@@ -91,6 +91,25 @@ export function useImageViewer() {
     resetPan()
   }
 
+  const showZoomHud = ref(false)
+  let zoomHudTimeout: number | null = null
+
+  function triggerZoomHud() {
+    showZoomHud.value = true
+
+    if (zoomHudTimeout) {
+      clearTimeout(zoomHudTimeout)
+    }
+
+    zoomHudTimeout = window.setTimeout(() => {
+      showZoomHud.value = false
+    }, 1000)
+  }
+
+  const zoomPercentage = computed(() => {
+    return `${Math.round(scale.value * 100)}%`
+  })
+
   // set pan boundaries to prevent zoomed image from drifting into empty space
   const containerWidth = ref(0)
   const containerHeight = ref(0)
@@ -149,6 +168,8 @@ export function useImageViewer() {
 
   // set new pan boundaries when zoom changes
   watch(scale, () => {
+    triggerZoomHud()
+
     clampPanToBounds()
 
     if (scale.value === 1) {
@@ -214,6 +235,8 @@ export function useImageViewer() {
     offsetY,
     maxOffsetX,
     maxOffsetY,
+    showZoomHud,
+    zoomPercentage,
 
     open,
     close,
@@ -228,6 +251,7 @@ export function useImageViewer() {
     setContainerSize,
     setPan,
     clampPanToBounds,
-    zoomToPoint
+    zoomToPoint,
+    triggerZoomHud
   }
 }

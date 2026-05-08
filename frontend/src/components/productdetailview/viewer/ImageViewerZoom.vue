@@ -142,6 +142,19 @@ onBeforeUnmount(() => {
           </div>
         </ImageAnchoredInfo>
 
+        <transition name="zoom-hud">
+          <ImageAnchoredInfo
+            v-if="viewer.showZoomHud.value"
+            x-position="left"
+            y-position="top"
+            class="px-1.5"
+          >
+            <div class="pointer-events-none backdrop-blur-sm">
+              {{ viewer.zoomPercentage.value }}
+            </div>
+          </ImageAnchoredInfo>
+        </transition>
+
         <Swiper
           :modules="[Navigation, Keyboard]"
           :initial-slide="viewer.currentIndex.value"
@@ -219,3 +232,16 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.zoom-hud-enter-active,
+.zoom-hud-leave-active {
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.zoom-hud-enter-from,
+.zoom-hud-leave-to {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+</style>
