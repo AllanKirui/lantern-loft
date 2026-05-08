@@ -42,6 +42,45 @@ export function useImageViewer() {
     if (scale.value === 1) resetPan()
   }
 
+  function zoomToPoint(
+    clientX: number,
+    clientY: number,
+    newScale: number,
+    rect: DOMRect
+  ) {
+    const oldScale = scale.value
+
+    // clamp scale
+    newScale = clamp(newScale, 1, 4)
+
+    // no-op
+    if (newScale === oldScale) return
+
+    // cursor position relative to container center
+    const pointX = clientX - rect.left - rect.width / 2
+    const pointY = clientY - rect.top - rect.height / 2
+
+    // scale ratio
+    const scaleRatio = newScale / oldScale
+
+    // Recalculate offsets so the clicked point visually stays in the same place.
+    const nextOffsetX = pointX - (pointX - offsetX.value) * scaleRatio
+    const nextOffsetY = pointY - (pointY - offsetY.value) * scaleRatio
+
+    scale.value = newScale
+
+    // apply pan with resistance
+    setPan(nextOffsetX, nextOffsetY)
+
+    // prevent tiny gaps after zooming out
+    clampPanToBounds()
+
+    // fully reset when returning to scale 1
+    if (newScale === 1) {
+      resetPan()
+    }
+  }
+
   function resetPan() {
     offsetX.value = 0
     offsetY.value = 0
@@ -188,6 +227,7 @@ export function useImageViewer() {
     unregisterZoomSwiper,
     setContainerSize,
     setPan,
-    clampPanToBounds
+    clampPanToBounds,
+    zoomToPoint
   }
 }

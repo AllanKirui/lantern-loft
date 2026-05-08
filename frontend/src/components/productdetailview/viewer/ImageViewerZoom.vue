@@ -25,8 +25,13 @@ let startY = 0
 
 function onWheel(e: WheelEvent) {
   e.preventDefault()
+
+  const target = e.currentTarget as HTMLElement
+  const rect = target.getBoundingClientRect()
+
   const delta = e.deltaY > 0 ? -0.2 : 0.2
-  viewer.scale.value = Math.min(Math.max(viewer.scale.value + delta, 1), 4)
+
+  viewer.zoomToPoint(e.clientX, e.clientY, viewer.scale.value + delta, rect)
 }
 
 function startPan(e: MouseEvent) {
@@ -55,6 +60,15 @@ function stopPan() {
 
   // trigger snap back when user stops panning
   viewer.clampPanToBounds()
+}
+
+function onDoubleClick(e: MouseEvent) {
+  const target = e.currentTarget as HTMLElement
+  const rect = target.getBoundingClientRect()
+
+  const nextScale = viewer.scale.value > 1 ? 1 : 2.5
+
+  viewer.zoomToPoint(e.clientX, e.clientY, nextScale, rect)
 }
 
 // keep Swiper and viewer in sync
@@ -185,6 +199,7 @@ onBeforeUnmount(() => {
                     @mousemove="movePan"
                     @mouseup="stopPan"
                     @mouseleave="stopPan"
+                    @dblclick.prevent="onDoubleClick"
                   />
                 </div>
               </figure>
