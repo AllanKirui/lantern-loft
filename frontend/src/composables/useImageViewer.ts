@@ -71,18 +71,46 @@ export function useImageViewer() {
   })
 
   function setPan(x: number, y: number) {
-    offsetX.value = clamp(x, -maxOffsetX.value, maxOffsetX.value)
+    offsetX.value = applyResistance(x, -maxOffsetX.value, maxOffsetX.value)
 
-    offsetY.value = clamp(y, -maxOffsetY.value, maxOffsetY.value)
+    offsetY.value = applyResistance(y, -maxOffsetY.value, maxOffsetY.value)
+  }
+
+  // snap back to boundaries when image is panned past it's boundaries
+  function clampPanToBounds() {
+    offsetX.value = clamp(offsetX.value, -maxOffsetX.value, maxOffsetX.value)
+
+    offsetY.value = clamp(offsetY.value, -maxOffsetY.value, maxOffsetY.value)
   }
 
   function clamp(value: number, min: number, max: number) {
     return Math.min(Math.max(value, min), max)
   }
 
+  // elastic resistance when image is panned past it's boundary
+  function applyResistance(
+    value: number,
+    min: number,
+    max: number,
+    resistance = 0.35
+  ) {
+    // inside bounds
+    if (value >= min && value <= max) {
+      return value
+    }
+
+    // overscrolling left/top
+    if (value < min) {
+      return min + (value - min) * resistance
+    }
+
+    // overscrolling right/bottom
+    return max + (value - max) * resistance
+  }
+
   // set new pan boundaries when zoom changes
   watch(scale, () => {
-    setPan(offsetX.value, offsetY.value)
+    clampPanToBounds()
 
     if (scale.value === 1) {
       resetPan()
@@ -159,6 +187,7 @@ export function useImageViewer() {
     unregisterGallerySwiper,
     unregisterZoomSwiper,
     setContainerSize,
-    setPan
+    setPan,
+    clampPanToBounds
   }
 }

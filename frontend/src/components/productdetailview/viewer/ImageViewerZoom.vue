@@ -52,6 +52,9 @@ function movePan(e: MouseEvent) {
 
 function stopPan() {
   isPanning.value = false
+
+  // trigger snap back when user stops panning
+  viewer.clampPanToBounds()
 }
 
 // keep Swiper and viewer in sync
@@ -155,7 +158,10 @@ onBeforeUnmount(() => {
               <figure class="aspect-square bg-cream overflow-hidden">
                 <div
                   :style="{
-                    transform: `translate(${viewer.offsetX.value}px, ${viewer.offsetY.value}px)`
+                    transform: `translate(${viewer.offsetX.value}px, ${viewer.offsetY.value}px)`,
+                    transition: isPanning
+                      ? 'none'
+                      : 'transform 220ms cubic-bezier(0.22, 1, 0.36, 1)'
                   }"
                   class="w-full h-full"
                 >
