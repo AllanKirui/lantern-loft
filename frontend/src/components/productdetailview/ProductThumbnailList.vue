@@ -31,7 +31,7 @@ const imagesExtra = computed(() => {
 
 function setThumbClasses(index: number) {
   let classes =
-    "relative rounded overflow-hidden border-2 focus:border-chestnut-brown group "
+    "relative rounded overflow-hidden border-2 sm_plus:focus:border-chestnut-brown group "
 
   if (props.showPartials) {
     classes += "sm_plus:w-16 md:w-[4.5rem] lg:w-20 "
