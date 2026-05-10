@@ -5,6 +5,7 @@ import { useProductDetail } from "@/composables/useProductDetail"
 import { productService } from "@/services/productService"
 import type { Product } from "@/types/products"
 import ProductDetailHero from "@/components/productdetailview/ProductDetailHero.vue"
+import ProductDescription from "@/components/productdetailview/ProductDescription.vue"
 import NoItemsFound from "@/components/common/NoItemsFound.vue"
 
 const route = useRoute()
@@ -37,6 +38,7 @@ watch(
   >
     <!-- TODO add breadcrumbs here -->
     <ProductDetailHero />
+    <ProductDescription />
   </main>
 
   <NoItemsFound v-else class="h-[65vh]">
