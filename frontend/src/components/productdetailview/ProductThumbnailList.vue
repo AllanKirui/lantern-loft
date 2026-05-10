@@ -56,6 +56,7 @@ function setThumbClasses(index: number) {
       :aria-label="`Show image ${index + 1}`"
       @click="viewer?.goTo(index)"
     >
+      <span class="absolute top-0 left-0 w-full h-full z-10"></span>
       <!-- TODO use dynamic image data, src and alt -->
       <figure class="aspect-square">
         <img

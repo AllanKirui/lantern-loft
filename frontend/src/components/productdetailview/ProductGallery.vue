@@ -100,12 +100,15 @@ function onSwiper(swiper: any) {
             :key="index"
             class="animate-fade-in-down"
           >
+            <span
+              class="absolute top-0 left-0 w-full h-full z-10"
+              @click="openViewer(index)"
+            ></span>
             <figure class="aspect-square bg-cream rounded-lg overflow-hidden">
               <img
                 src="@/assets/img/storefront/products/4-recopyright.png"
                 alt="img.alt || product.name + ' image ' + (idx + 1)"
                 class="w-full md:max-w-lg h-auto object-contain"
-                @click="openViewer(index)"
               />
             </figure>
           </SwiperSlide>
