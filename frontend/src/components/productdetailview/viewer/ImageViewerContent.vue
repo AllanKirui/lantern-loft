@@ -44,7 +44,7 @@ const activeImage = computed(
           + <span class="text-xs">Zoom in</span>
         </button>
         <button
-          class="px-2 py-0.5 font-medium uppercase rounded btn-hover hover:after:bg-bone/50 disabled:text-chestnut-brown/30 hover:after:disabled:bg-transparent"
+          class="px-2 py-0.5 font-medium uppercase rounded btn-hover hover:after:bg-bone/50 disabled:text-chestnut-brown/30 hover:after:disabled:bg-transparent duration-200"
           @click="viewer.zoomOut"
           :disabled="viewer.scale.value === 1"
         >
