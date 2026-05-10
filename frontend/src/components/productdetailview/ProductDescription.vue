@@ -11,7 +11,7 @@ const { product } = inject<ProductDetailContext<Product>>("productDetail")!
   <section class="sp-mt-storefront-section max-w-4xl mx-auto">
     <h2 class="font-semibold text-lg">About this item</h2>
     <div>
-      <p class="mt-3">
+      <p class="mt-3 leading-normal">
         {{ product.description }}
       </p>
     </div>
