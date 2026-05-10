@@ -173,7 +173,7 @@ onBeforeUnmount(() => {
           :no-swiping-class="'swiper-no-swiping'"
           @swiper="onSwiper"
           @slideChange="handleSlideChange"
-          class="sm_plus:max-w-sm"
+          class="sm_plus:max-w-sm xl:max-w-md"
         >
           <SwiperSlide
             v-for="(_, index) in 5"

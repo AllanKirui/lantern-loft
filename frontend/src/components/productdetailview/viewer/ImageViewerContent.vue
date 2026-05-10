@@ -15,7 +15,7 @@ const activeImage = computed(
 
 <template>
   <div
-    class="flex flex-col sm_plus:px-4 sm_plus:py-2 w-full h-full sm_plus:w-[56rem] sm_plus:max-w-[90vw] sm_plus:max-h-[90vh] sm_plus:bg-cosmic-latte"
+    class="flex flex-col sm_plus:px-4 sm_plus:py-2 w-full h-full sm_plus:w-[56rem] sm_plus:max-w-[90vw] sm_plus:max-h-[90vh] xl:w-[64rem] sm_plus:bg-cosmic-latte"
   >
     <header
       class="flex items-center justify-end sm_plus:justify-between w-full px-2 pb-2 h-20 sm_plus:h-auto mb-auto"
