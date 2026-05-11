@@ -91,6 +91,8 @@ class ProductFactory extends Factory
 
     private function generateSpecs(): array
     {
+        $isDimmable = $this->faker->boolean(30);
+
         return [
             'bulb_type' => $this->faker->randomElement([
                 'E26 - standard',
@@ -99,7 +101,7 @@ class ProductFactory extends Factory
             ]),
             'bulbs_included' => $this->faker->randomElement(['Yes', 'No']),
             'bulb_count' => (string) $this->faker->numberBetween(1, 3),
-            'dimmable' => $this->faker->boolean(30),
+            'dimmable' => $isDimmable ? 'Yes' : 'No',
             'power_cord_length' => $this->faker->numberBetween(120, 250) . ' cm',
             'weight' => $this->faker->randomFloat(1, 0.5, 3.0) . ' kg',
         ];
