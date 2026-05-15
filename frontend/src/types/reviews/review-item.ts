@@ -6,4 +6,5 @@ export interface ReviewItem {
   authorName: string
   recommends: boolean
   isVerified: boolean
+  expanded: boolean
 }
