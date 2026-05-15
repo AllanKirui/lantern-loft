@@ -22,6 +22,7 @@ class ReviewResource extends JsonResource
             'author_name'  => $this->author_name,
             'recommends'  => $this->recommends,
             'is_verified'  => $this->is_verified,
+            'expanded'  => $this->expanded,
         ];
     }
 }
