@@ -27,6 +27,7 @@ export default {
         bone: "#e7d9cc",
         cream: "#f5eddb",
         crayola: "#f6c96e",
+        esmerald: "#37c871",
         "eerie-black": "#1a1a1a",
         "cosmic-latte": "#fefaea",
         "chestnut-brown": "#5f4235",
