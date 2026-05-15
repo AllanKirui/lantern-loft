@@ -1,7 +1,12 @@
 // Mirrors what's returned by ProductDetailResource.php
+
+import type { ReviewItem } from "../reviews/review-item"
+import type { ReviewsMeta } from "../reviews/reviews-meta"
+
 export interface Product {
   id: number
   name: string
+  slug: string
   tagline: string
   price: number
   discountPrice: number | null
@@ -19,16 +24,7 @@ export interface Product {
     weight: string
   }
   reviews: {
-    items: {
-      id: number
-      rating: number
-      reviewTitle: string | null
-      comment: string
-      authorName: string
-      recommends: boolean
-      isVerified: boolean
-    }[]
-    count: number
-    averageRating: number
+    items: ReviewItem[]
+    meta: ReviewsMeta
   }
 }
