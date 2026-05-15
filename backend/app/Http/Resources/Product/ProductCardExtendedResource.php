@@ -15,7 +15,6 @@ class ProductCardExtendedResource extends ProductCardBaseResource
     public function toArray(Request $request): array
     {
         // TODO Replace fake data with data from reviews and finishes
-        $hasNoReviews = fake()->boolean(40);
         $hasNoFinish = fake()->boolean(60);
 
         // Merge the return array from ProductCardBaseResource with these additional fields
@@ -25,8 +24,8 @@ class ProductCardExtendedResource extends ProductCardBaseResource
             'discount_price' => $this->discount_price ? round(floatVal($this->discount_price)) : null,
             'tagline' => $this->tagline,
             'is_new' => $this->is_new,
-            'rating' => $hasNoReviews ? 0 : round(fake()->randomFloat(1, 3.5, 5), 1),
-            'review_count' => $hasNoReviews ? 0 : random_int(0, 500),
+            'rating' => $this->reviews_avg_rating ? round($this->reviews_avg_rating, 1) : 0,
+            'review_count' => $this->reviews_count,
             'finishes_count' => $hasNoFinish ? 0 : random_int(0, 100),
         ]);
     }
