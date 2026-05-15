@@ -25,6 +25,7 @@
   --space-12-16-full: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
   --space-14-16-full: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
   --space-16-20-full: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
+  --space-16-24-full: clamp(1rem, 0.8333rem + 0.8333vw, 1.5rem);
   --space-16-32-full: clamp(1rem, 0.6667rem + 1.6667vw, 2rem);
   --space-20-44-full: clamp(1.25rem, 0.75rem + 2.5vw, 2.75rem);
   --space-24-32-full: clamp(1.5rem, 1.3333rem + 0.8333vw, 2rem);
@@ -63,6 +64,8 @@
 .sp-mt-footer {
   margin-top: var(--space-32-56-full);
 }
+.sp-mt-pdp-view-more-reviews-text,
+.sp-mt-pdp-review-list,
 .sp-mt-pdp-hero,
 .sp-mt-collections-main,
 .sp-mt-collections-header,
@@ -94,11 +97,14 @@
   margin-top: var(--space-16-32-full);
 }
 .sp-mt-section-sub-heading {
-  margin-top: var(--space-14-16-full);
+  margin-top: 1.125rem;
 }
 .gap-categories-section {
   gap: var(--space-32-56-full);
 }
 .sp-p-pdp-overview {
   padding: var(--space-16-20-mid);
+}
+.sp-mt-pdp-ratings-distribution {
+  margin-top: var(--space-16-24-full);
 }
