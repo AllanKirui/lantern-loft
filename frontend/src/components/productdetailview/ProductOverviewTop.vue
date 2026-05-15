@@ -13,12 +13,12 @@ const tagline = computed(() => {
   return p.tagline.charAt(0).toUpperCase() + p.tagline.slice(1)
 })
 
-const rating = computed(() => product.value.reviews.averageRating)
+const rating = computed(() => product.value.reviews.meta.averageRating)
 
-const hasReviews = computed(() => product.value.reviews.count > 0)
+const hasReviews = computed(() => product.value.reviews.meta.count > 0)
 
 const reviewsLinkText = computed(() => {
-  const count = product.value.reviews.count
+  const count = product.value.reviews.meta.count
   return count > 1 ? `${count.toLocaleString()} reviews` : `${count} review`
 })
 </script>
@@ -64,7 +64,7 @@ const reviewsLinkText = computed(() => {
     <div class="flex items-center gap-4 flex-wrap mt-2 md:mt-3">
       <div class="flex items-center gap-2">
         <span class="font-medium fs-pdp-rating leading-none">
-          {{ rating }}</span
+          {{ rating.toFixed(1) }}</span
         >
         <StarRatingDisplay :rating="rating" :size="22" class="md:hidden" />
         <StarRatingDisplay :rating="rating" :size="24" class="hidden md:flex" />
