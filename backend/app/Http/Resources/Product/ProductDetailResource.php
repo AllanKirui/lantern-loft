@@ -18,6 +18,7 @@ class ProductDetailResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'slug' => $this->slug,
             'tagline' => $this->tagline,
             'price' => round(floatVal($this->price)),
             'discount_price' => $this->discount_price ? round(floatVal($this->discount_price)) : null,
