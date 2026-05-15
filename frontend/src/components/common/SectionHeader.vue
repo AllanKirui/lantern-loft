@@ -39,6 +39,8 @@ defineProps<Props>()
       </h2>
     </div>
 
+    <slot name="extras" />
+
     <div
       v-if="data.title"
       class="sp-mt-section-sub-heading flex justify-between"
