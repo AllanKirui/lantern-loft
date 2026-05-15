@@ -29,14 +29,7 @@ class ProductDetailResource extends JsonResource
             'specs' => $this->specs,
             'reviews' => [
                 'items' => ReviewResource::collection($this->whenLoaded('reviews')),
-                'count' => $this->whenLoaded('reviews', function () {
-                    return $this->reviews_count;
-                }),
-                'average_rating' => $this->whenLoaded('reviews', function () {
-                    return $this->reviews_avg_rating
-                        ? round($this->reviews_avg_rating, 1)
-                        : null;
-                })
+                'meta' => $this->reviews_meta
             ]
         ];
     }
