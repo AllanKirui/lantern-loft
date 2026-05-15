@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('author_name', 100);
             $table->boolean('recommends')->default(false);
             $table->boolean('is_verified')->default(false);
+            $table->boolean('expanded')->default(false);
             $table->timestamps();
         });
     }
