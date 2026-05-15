@@ -18,6 +18,7 @@ class Review extends Model
         'rating' => 'integer',
         'recommends' => 'boolean',
         'is_verified' => 'boolean',
+        'expanded' => 'boolean',
     ];
 
     // Relationships
