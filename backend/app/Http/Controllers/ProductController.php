@@ -19,6 +19,8 @@ class ProductController extends Controller
     {
         // Eager-load the relationship to include category data
         $products = Product::with('category')
+            ->withCount('reviews')
+            ->withAvg('reviews', 'rating')
             ->when(
                 $request->category,
                 fn($q) => $q->category($request->category)
@@ -47,8 +49,42 @@ class ProductController extends Controller
         // eager load the relationship to include reviews data
         $product->load([
             'reviews' => fn($q) => $q->latest()->take(7)
-        ])->loadCount('reviews')
-            ->loadAvg('reviews', 'rating');
+        ]);
+
+        // aggregate review stats
+        $product->loadCount('reviews')->loadAvg('reviews', 'rating');
+
+        // recommendation percentage
+        $recommendationPercentage = $product->reviews()->where('recommends', true)->count();
+
+        $recommendationPercentage = $product->reviews_count > 0
+            ? round(($recommendationPercentage / $product->reviews_count) * 100)
+            : 0;
+
+        // rating distributions
+        $distributions = $product->reviews()
+            ->selectRaw('rating, COUNT(*) as count')
+            ->groupBy('rating')
+            ->pluck('count', 'rating');
+
+        // attach computed meta
+        $product->reviews_meta = [
+            'count' => $product->reviews_count,
+
+            'average_rating' => $product->reviews_avg_rating
+                ? round($product->reviews_avg_rating, 1)
+                : null,
+
+            'recommendation_percentage' => $recommendationPercentage,
+
+            'distributions' => [
+                ['star' => 5, 'count' => $distributions[5] ?? 0],
+                ['star' => 4, 'count' => $distributions[4] ?? 0],
+                ['star' => 3, 'count' => $distributions[3] ?? 0],
+                ['star' => 2, 'count' => $distributions[2] ?? 0],
+                ['star' => 1, 'count' => $distributions[1] ?? 0],
+            ]
+        ];
 
         return new ProductDetailResource($product);
     }
@@ -76,7 +112,12 @@ class ProductController extends Controller
 
     public function featured()
     {
-        return ProductCardExtendedResource::collection(Product::featured()->get());
+        $products = Product::featured()
+            ->withCount('reviews')
+            ->withAvg('reviews', 'rating')
+            ->get();
+
+        return ProductCardExtendedResource::collection($products);
     }
 
     public function filters(Request $request)
