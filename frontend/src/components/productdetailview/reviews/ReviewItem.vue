@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "vue"
 import type { ReviewItem } from "@/types/reviews/review-item"
 import StarRatingDisplay from "@/components/common/StarRatingDisplay.vue"
 
@@ -21,6 +22,8 @@ function simplifyName(names: string) {
 
   return firstName + " " + lastName.charAt(0) + "."
 }
+
+const isLengthy = computed(() => props.review.comment.length > 300)
 </script>
 
 <template>
@@ -59,9 +62,30 @@ function simplifyName(names: string) {
       <div>Purchased on May 13, 2025</div>
     </div> -->
 
-    <p class="mt-3 leading-normal">
+    <p
+      class="mt-3 leading-normal review-text"
+      :class="{
+        expanded: review.expanded,
+        blurred: isLengthy
+      }"
+    >
       {{ review.comment }}
     </p>
+
+    <!-- Read more button -->
+    <div v-if="isLengthy && !review.expanded" class="mt-2">
+      <button
+        @click="review.expanded = true"
+        class="inline-flex items-center px-1.5 py-1 text-[15px] font-medium rounded btn-hover hover:after:bg-bone/50 duration-200"
+      >
+        Show more
+        <BaseIcon
+          name="chevron-alt"
+          class="w-[18px] h-[18px] rotate-180"
+          :stroke-width="7"
+        />
+      </button>
+    </div>
 
     <div v-if="review.recommends" class="flex items-center gap-1 mt-3">
       <BaseIcon name="round-check" class="w-3.5 h-3.5" />
@@ -78,3 +102,31 @@ function simplifyName(names: string) {
     />
   </li>
 </template>
+
+<style scoped>
+.review-text {
+  max-height: 6rem;
+  overflow: hidden;
+  position: relative;
+}
+.review-text.expanded {
+  max-height: none;
+}
+.review-text.blurred::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(254, 250, 234, 0) 0%,
+    rgba(254, 250, 234, 1) 80%
+  );
+}
+.review-text.expanded::after {
+  display: none;
+}
+</style>
