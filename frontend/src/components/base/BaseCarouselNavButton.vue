@@ -2,7 +2,7 @@
 import { computed, ref } from "vue"
 
 interface Props {
-  carouselType?: "new" | "featured" | "detail" | "viewer"
+  carouselType?: "new" | "featured" | "recommended" | "detail" | "viewer"
   direction: "left" | "right"
 }
 
