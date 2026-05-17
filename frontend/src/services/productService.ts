@@ -41,6 +41,13 @@ export const productService = {
     return res.data.data
   },
 
+  async fetchRecommended(slug: string) {
+    const res = await apiClient.get<LaravelApiCollection<ProductCardExtended>>(
+      `/products/${slug}/recommended`
+    )
+    return res.data.data
+  },
+
   async fetchFilters() {
     const res = await apiClient.get<ProductFilters>("/products/filters")
     return res.data
