@@ -27,6 +27,7 @@
   --space-16-20-full: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
   --space-16-24-full: clamp(1rem, 0.8333rem + 0.8333vw, 1.5rem);
   --space-16-32-full: clamp(1rem, 0.6667rem + 1.6667vw, 2rem);
+  --space-18-24-full: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
   --space-20-44-full: clamp(1.25rem, 0.75rem + 2.5vw, 2.75rem);
   --space-24-32-full: clamp(1.5rem, 1.3333rem + 0.8333vw, 2rem);
   --space-24-56-full: clamp(1.5rem, 0.8333rem + 3.3333vw, 3.5rem);
@@ -107,4 +108,7 @@
 }
 .sp-mt-pdp-ratings-distribution {
   margin-top: var(--space-16-24-full);
+}
+.sp-mt-pdp-no-reviews-section {
+  margin-top: var(--space-18-24-full);
 }
