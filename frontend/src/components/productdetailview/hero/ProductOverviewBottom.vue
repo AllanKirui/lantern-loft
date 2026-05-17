@@ -2,8 +2,8 @@
 import { computed, inject } from "vue"
 import type { ProductDetailContext } from "@/types/product-detail"
 import type { Product } from "@/types/products"
-import PriceBlock from "../common/PriceBlock.vue"
-import AddToCartButton from "./AddToCartButton.vue"
+import PriceBlock from "@/components/common/PriceBlock.vue"
+import AddToCartButton from "../AddToCartButton.vue"
 
 // inject the productDetail instance coming from ProductDetailView.vue
 const { product } = inject<ProductDetailContext<Product>>("productDetail")!

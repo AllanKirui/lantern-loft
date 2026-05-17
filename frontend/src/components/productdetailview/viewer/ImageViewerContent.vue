@@ -3,7 +3,7 @@ import { inject, computed } from "vue"
 import type { ViewerContext } from "@/types/image-viewer"
 import BaseCloseButton from "@/components/base/BaseCloseButton.vue"
 import ImageViewerZoom from "./ImageViewerZoom.vue"
-import ProductThumbnailList from "../ProductThumbnailList.vue"
+import ProductThumbnailList from "../hero/ProductThumbnailList.vue"
 
 // inject the viewer instance coming from ProductDetailHero.vue
 const viewer = inject<ViewerContext>("viewer")!
