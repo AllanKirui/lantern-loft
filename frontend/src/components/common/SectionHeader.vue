@@ -1,18 +1,6 @@
 <script setup lang="ts">
+import type { SectionHeaderOptions } from "@/types/section-header-options"
 import BaseCarouselNavButton from "../base/BaseCarouselNavButton.vue"
-
-interface SectionHeaderOptions {
-  tagline: string
-  headingId: string
-  title?: string
-  subtitle?: string
-  link?: {
-    to: string
-    text: string
-  }
-  productType?: "new" | "featured"
-  withNavigation?: boolean
-}
 
 interface Props {
   data: SectionHeaderOptions
