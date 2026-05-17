@@ -67,6 +67,11 @@ class Product extends Model
         return $query->where('is_featured', true)->latest()->take(8);
     }
 
+    public function scopeRecommended(Builder $query, int $excludedProductId): Builder
+    {
+        return $query->where('id', '!=', $excludedProductId)->inRandomOrder()->take(8);
+    }
+
     public function scopeCategory(Builder $query, $slug): Builder
     {
         return $query->whereHas(
