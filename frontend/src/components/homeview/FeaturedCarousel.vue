@@ -1,37 +1,27 @@
 <script setup lang="ts">
-import { onMounted, computed, ref } from "vue"
-import { Swiper, SwiperSlide } from "swiper/vue"
-import { Navigation, Keyboard } from "swiper/modules"
-import type { ProductCardExtended } from "@/types/products/product-card-extended"
+import { computed } from "vue"
 import { productService } from "@/services/productService"
-import SectionHeader from "../common/SectionHeader.vue"
+import { useCarouselFetch } from "@/composables/useCarouselFetch"
+import type { ProductCardExtended } from "@/types/products/product-card-extended"
+import BaseCarousel from "../base/BaseCarousel.vue"
 import ProductCard from "../organisms/ProductCard.vue"
-import ProductSkeleton from "../common/ProductSkeleton.vue"
-import NoItemsFound from "../common/NoItemsFound.vue"
 
-const products = ref<ProductCardExtended[]>([])
-const isLoading = ref(false)
-const error = ref<string | null>(null)
-
-async function fetchFeaturedProducts() {
-  try {
-    isLoading.value = true
-    products.value = await productService.fetchFeatured()
-  } catch (err) {
-    error.value = "Failed to load featured products"
-    console.error(err)
-  } finally {
-    isLoading.value = false
-  }
-}
-
-onMounted(fetchFeaturedProducts)
+const {
+  items: products,
+  isLoading,
+  error
+} = useCarouselFetch<ProductCardExtended>(
+  productService.fetchFeatured,
+  "Failed to load featured products"
+)
 
 const subtitle = computed(() => {
   if (isLoading.value) return "Polishing the bulbs…"
+
   if (error.value) return "Something dimmed the glow. Refresh to retry."
-  return `${products.value.length} ${
-    products.value.length === 1 ? "item" : "items"
+
+  return `${products.value.length} curated ${
+    products.value.length === 1 ? "pick" : "picks"
   }`
 })
 
@@ -44,86 +34,53 @@ const sectionHeaderData = computed(() => ({
     to: "/collections",
     text: "Shop all"
   },
-  productType: "featured" as "featured",
+  productType: "featured" as const,
   withNavigation: true
 }))
 </script>
 
 <template>
   <!-- Featured Products -->
-  <section
-    :aria-labelledby="sectionHeaderData.headingId"
-    class="sp-mt-storefront-section px-[14px]"
+  <BaseCarousel
+    :items="products"
+    :is-loading="isLoading"
+    :error="error"
+    :section-header-data="sectionHeaderData"
+    navigation-prefix="featured"
+    :slides-per-view="1.5"
+    :space-between="16"
+    :centered-slides="true"
+    :skeleton-count="4"
+    :breakpoints="{
+      640: {
+        slidesPerView: 2.75,
+        centeredSlides: false,
+        spaceBetween: 12
+      },
+      768: {
+        slidesPerView: 3,
+        centeredSlides: false,
+        spaceBetween: 14
+      },
+      976: {
+        slidesPerView: 3.5,
+        centeredSlides: false,
+        spaceBetween: 14
+      },
+      1024: {
+        slidesPerView: 4,
+        centeredSlides: false,
+        spaceBetween: 14
+      }
+    }"
   >
-    <SectionHeader :data="sectionHeaderData">
-      <template #heading>
-        Explore our <br />
-        ever-growing collection
-      </template>
-    </SectionHeader>
+    <template #heading>
+      Lamps your space <br />
+      will thank you for
+    </template>
 
-    <Swiper
-      :modules="[Navigation, Keyboard]"
-      :navigation="{
-        prevEl: '.featured-prev',
-        nextEl: '.featured-next'
-      }"
-      :keyboard="{
-        enabled: true,
-        onlyInViewport: true
-      }"
-      :slides-per-view="1.5"
-      :space-between="16"
-      :centered-slides="true"
-      :centered-slides-bounds="true"
-      :breakpoints="{
-        640: {
-          slidesPerView: 2.75,
-          centeredSlides: false,
-          spaceBetween: 12
-        },
-        768: {
-          slidesPerView: 3,
-          centeredSlides: false,
-          spaceBetween: 14
-        },
-        976: {
-          slidesPerView: 3.5,
-          centeredSlides: false,
-          spaceBetween: 14
-        },
-        1024: {
-          slidesPerView: 4,
-          centeredSlides: false,
-          spaceBetween: 14
-        }
-      }"
-      class="sp-mt-swiper-wrapper"
-    >
-      <template v-if="isLoading">
-        <SwiperSlide v-for="n in 4" :key="n">
-          <ProductSkeleton />
-        </SwiperSlide>
-      </template>
-      <template v-else>
-        <SwiperSlide
-          v-for="(product, index) in products"
-          :key="product.id"
-          class="animate-fade-in-down"
-          :style="{ animationDelay: `${index * 0.1}s` }"
-        >
-          <ProductCard :product="product" />
-        </SwiperSlide>
-      </template>
-    </Swiper>
-
-    <NoItemsFound v-if="error">
-      <template #message>
-        <div>
-          <p>Looks like the lights flickered.</p>
-          <p class="mt-2">Try again.</p>
-        </div>
-      </template>
-    </NoItemsFound>
-  </section>
+    <template #slide="{ item }">
+      <ProductCard :product="item" />
+    </template>
+  </BaseCarousel>
 </template>
