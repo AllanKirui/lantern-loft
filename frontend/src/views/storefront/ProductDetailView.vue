@@ -9,6 +9,7 @@ import ProductDescription from "@/components/productdetailview/ProductDescriptio
 import ProductFeaturesList from "@/components/productdetailview/ProductFeaturesList.vue"
 import ProductSpecsTable from "@/components/productdetailview/ProductSpecsTable.vue"
 import RatingsAndReviews from "@/components/productdetailview/RatingsAndReviews.vue"
+import RecommendedProductsCarousel from "@/components/productdetailview/RecommendedProductsCarousel.vue"
 import NoItemsFound from "@/components/common/NoItemsFound.vue"
 
 const route = useRoute()
@@ -45,6 +46,7 @@ watch(
     <ProductFeaturesList />
     <ProductSpecsTable />
     <RatingsAndReviews />
+    <RecommendedProductsCarousel />
   </main>
 
   <NoItemsFound v-else class="h-[65vh]">
