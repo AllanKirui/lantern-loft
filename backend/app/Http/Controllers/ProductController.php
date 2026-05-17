@@ -120,6 +120,16 @@ class ProductController extends Controller
         return ProductCardExtendedResource::collection($products);
     }
 
+    public function recommended(Product $product)
+    {
+        $products = Product::recommended($product->id)
+            ->withCount('reviews')
+            ->withAvg('reviews', 'rating')
+            ->get();
+
+        return ProductCardExtendedResource::collection($products);
+    }
+
     public function filters(Request $request)
     {
         // Base filtered query (IMPORTANT: reuse filters except category)
