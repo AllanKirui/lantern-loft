@@ -30,5 +30,6 @@ Route::middleware('auth:sanctum')->get('/user', fn(Request $request) => $request
 
 Route::get('/products/new-arrivals', [ProductController::class, 'newArrivals']);
 Route::get('/products/featured', [ProductController::class, 'featured'])->name('products.featured');
+Route::get('/products/{product:slug}/recommended', [ProductController::class, 'recommended']);
 Route::get('/products/filters', [ProductController::class, 'filters']);
 Route::apiResource('products', ProductController::class);
