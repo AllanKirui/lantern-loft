@@ -56,6 +56,7 @@ const viewMoreLink = computed(() => ({
 
 <template>
   <section
+    id="reviews"
     :aria-labelledby="sectionHeaderData.headingId"
     class="sp-mt-storefront-section"
   >

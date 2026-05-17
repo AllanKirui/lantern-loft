@@ -21,6 +21,17 @@ const reviewsLinkText = computed(() => {
   const count = product.value.reviews.meta.count
   return count > 1 ? `${count.toLocaleString()} reviews` : `${count} review`
 })
+
+const scrollToReviews = () => {
+  const reviewsSection = document.getElementById("reviews")
+
+  if (!reviewsSection) return
+
+  reviewsSection.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  })
+}
 </script>
 
 <template>
@@ -70,22 +81,24 @@ const reviewsLinkText = computed(() => {
         <StarRatingDisplay :rating="rating" :size="24" class="hidden md:flex" />
       </div>
 
-      <a
+      <button
         v-if="hasReviews"
-        href="#"
+        type="button"
         class="flex-shrink-0 font-medium fs-pdp-reviews-count link-hover-alt"
         :data-replace="reviewsLinkText"
+        @click="scrollToReviews"
       >
         <span>{{ reviewsLinkText }}</span>
-      </a>
-      <a
+      </button>
+      <button
         v-else
-        href="#"
+        type="button"
         class="font-medium fs-pdp-reviews-count link-hover-alt"
         data-replace="Be the first to leave a review"
+        @click="scrollToReviews"
       >
         <span>Be the first to leave a review</span>
-      </a>
+      </button>
     </div>
   </div>
 </template>
