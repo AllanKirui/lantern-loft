@@ -56,7 +56,7 @@ const navigation = computed(() => ({
 <template>
   <section
     :aria-labelledby="sectionHeaderData.headingId"
-    class="sp-mt-storefront-section px-[14px]"
+    class="sp-mt-storefront-section"
   >
     <SectionHeader :data="sectionHeaderData">
       <template #heading>

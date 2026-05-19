@@ -69,6 +69,7 @@ const sectionHeaderData = computed(() => ({
         spaceBetween: 18
       }
     }"
+    class="px-3.5"
   >
     <template #heading>
       Treat your home <br />

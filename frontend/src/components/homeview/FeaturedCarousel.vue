@@ -73,6 +73,7 @@ const sectionHeaderData = computed(() => ({
         spaceBetween: 14
       }
     }"
+    class="px-3.5"
   >
     <template #heading>
       Lamps your space <br />
