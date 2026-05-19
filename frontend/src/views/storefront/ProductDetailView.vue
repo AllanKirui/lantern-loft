@@ -11,6 +11,7 @@ import ProductSpecsTable from "@/components/productdetailview/ProductSpecsTable.
 import RatingsAndReviews from "@/components/productdetailview/RatingsAndReviews.vue"
 import RecommendedProductsCarousel from "@/components/productdetailview/RecommendedProductsCarousel.vue"
 import NoItemsFound from "@/components/common/NoItemsFound.vue"
+import ProductSkeleton from "@/components/common/ProductSkeleton.vue"
 
 const route = useRoute()
 
@@ -32,13 +33,13 @@ watch(
 </script>
 
 <template>
-  <!-- TODO add a PDP skeleton -->
-  <div v-if="productDetail.isLoading.value">PDP loading...</div>
+  <ProductSkeleton v-if="productDetail.isLoading.value" />
 
   <main
     v-else-if="productDetail.product.value"
     id="main-content"
-    class="wrapper px-3.5"
+    class="wrapper px-3.5 animate-fade-in-down"
+    :style="{ animationDelay: '0.2s' }"
   >
     <!-- TODO add breadcrumbs here -->
     <ProductDetailHero />
