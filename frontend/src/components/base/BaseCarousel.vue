@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import type { SectionHeaderOptions } from "@/types/section-header-options"
 import SectionHeader from "@/components/common/SectionHeader.vue"
-import ProductSkeleton from "@/components/common/ProductSkeleton.vue"
+import ProductCardSkeleton from "../common/ProductCardSkeleton.vue"
 import NoItemsFound from "@/components/common/NoItemsFound.vue"
 
 interface Props {
@@ -84,7 +84,7 @@ const navigation = computed(() => ({
     >
       <template v-if="isLoading">
         <SwiperSlide v-for="n in skeletonCount" :key="n">
-          <ProductSkeleton :is-for-new-products="isForNewProducts" />
+          <ProductCardSkeleton :is-for-new-products="isForNewProducts" />
         </SwiperSlide>
       </template>
 

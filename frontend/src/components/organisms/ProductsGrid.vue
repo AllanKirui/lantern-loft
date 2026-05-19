@@ -2,7 +2,7 @@
 import { useLayoutStore } from "@/stores/layout"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import GridListProductCard from "./GridListProductCard.vue"
-import ProductSkeleton from "../common/ProductSkeleton.vue"
+import ProductCardSkeleton from "../common/ProductCardSkeleton.vue"
 
 interface Props {
   isLoading: boolean
@@ -27,7 +27,11 @@ const layoutStore = useLayoutStore()
       role="list"
     >
       <template v-if="isLoading">
-        <ProductSkeleton v-for="n in 8" :key="n" :use-adaptive-layout="true" />
+        <ProductCardSkeleton
+          v-for="n in 8"
+          :key="n"
+          :use-adaptive-layout="true"
+        />
       </template>
       <template v-else v-for="(product, index) in products">
         <div class="card-hover lg:max-w-3xl lg:mx-auto rounded-md">
