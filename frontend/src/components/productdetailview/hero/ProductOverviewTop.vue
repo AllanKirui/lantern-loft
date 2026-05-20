@@ -42,9 +42,9 @@ const scrollToReviews = () => {
       >New</span
     >
 
-    <div class="flex justify-between gap-3">
+    <div class="flex justify-between gap-3" :class="{ 'mt-1': product.isNew }">
       <div>
-        <h1 class="mt-1 font-semibold fs-pdp-product-name capitalize">
+        <h1 class="font-semibold fs-pdp-product-name capitalize">
           {{ product.name }}
         </h1>
 
