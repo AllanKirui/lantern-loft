@@ -15,12 +15,22 @@ const routes = [
       {
         path: "collections",
         name: "collections",
-        component: () => import("@/views/storefront/ProductListView.vue")
+        component: () => import("@/views/storefront/ProductListView.vue"),
+        meta: {
+          breadcrumb: [{ label: "Home", to: "/" }, { label: "Collections" }]
+        }
       },
       {
         path: "collections/:slug",
         name: "collections.show",
-        component: () => import("@/views/storefront/ProductDetailView.vue")
+        component: () => import("@/views/storefront/ProductDetailView.vue"),
+        meta: {
+          breadcrumb: (route: any) => [
+            { label: "Home", to: "/" },
+            { label: "Collections", to: "/collections" },
+            { label: route.params.slug.replace(/-\d+$/, "").replace(/-/g, " ") }
+          ]
+        }
       }
     ]
   }
