@@ -11,6 +11,7 @@ import ActiveFilters from "@/components/common/ActiveFilters.vue"
 import NoItemsFound from "@/components/common/NoItemsFound.vue"
 import SortSheet from "@/components/common/mobile/SortSheet.vue"
 import PerPageSheet from "@/components/common/mobile/PerPageSheet.vue"
+import Breadcrumbs from "@/components/common/Breadcrumbs.vue"
 
 const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
 
@@ -41,6 +42,8 @@ const { sortOpen, perPageOpen, closeSort, closePerPage } = useMobileSheets()
 
 <template>
   <div class="wrapper px-3.5">
+    <Breadcrumbs class="mt-3" />
+
     <CollectionsHeader
       :meta="meta"
       :is-loading="isLoading"
