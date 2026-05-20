@@ -7,6 +7,7 @@ import ProductGallery from "./hero/ProductGallery.vue"
 import ProductOverview from "./hero/ProductOverview.vue"
 import ProductOverviewBottom from "./hero/ProductOverviewBottom.vue"
 import ImageViewer from "./viewer/ImageViewer.vue"
+import Breadcrumbs from "../common/Breadcrumbs.vue"
 
 // create a single shared instance of useImageViewer and provide it to child components
 const viewer = useImageViewer()
@@ -37,7 +38,7 @@ provide("viewer", viewer)
 
       <!-- Product Overview Mobile: Price and Add to Cart -->
       <div class="md:hidden">
-        <!-- TODO add breadcrumbs here -->
+        <Breadcrumbs class="md:hidden mt-0" />
         <ProductOverviewBottom />
       </div>
     </section>

@@ -12,6 +12,7 @@ import RatingsAndReviews from "@/components/productdetailview/RatingsAndReviews.
 import RecommendedProductsCarousel from "@/components/productdetailview/RecommendedProductsCarousel.vue"
 import NoItemsFound from "@/components/common/NoItemsFound.vue"
 import ProductSkeleton from "@/components/common/ProductSkeleton.vue"
+import Breadcrumbs from "@/components/common/Breadcrumbs.vue"
 
 const route = useRoute()
 
@@ -41,7 +42,7 @@ watch(
     class="wrapper px-3.5 animate-fade-in-down"
     :style="{ animationDelay: '0.2s' }"
   >
-    <!-- TODO add breadcrumbs here -->
+    <Breadcrumbs class="hidden md:flex" />
     <ProductDetailHero />
     <ProductDescription />
     <ProductFeaturesList />
