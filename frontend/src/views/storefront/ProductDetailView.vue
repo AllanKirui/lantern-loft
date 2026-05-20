@@ -42,7 +42,7 @@ watch(
     class="wrapper px-3.5 animate-fade-in-down"
     :style="{ animationDelay: '0.2s' }"
   >
-    <Breadcrumbs class="hidden md:flex" />
+    <Breadcrumbs class="hidden md:flex mt-3" />
     <ProductDetailHero />
     <ProductDescription />
     <ProductFeaturesList />

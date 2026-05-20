@@ -38,7 +38,7 @@ provide("viewer", viewer)
 
       <!-- Product Overview Mobile: Price and Add to Cart -->
       <div class="md:hidden">
-        <Breadcrumbs class="md:hidden mt-0" />
+        <Breadcrumbs class="md:hidden" />
         <ProductOverviewBottom />
       </div>
     </section>

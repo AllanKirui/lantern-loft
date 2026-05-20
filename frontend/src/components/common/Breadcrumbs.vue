@@ -17,7 +17,7 @@ const breadcrumbs: Ref<BreadcrumbItem[]> = computed(() => {
 </script>
 
 <template>
-  <nav aria-label="breadcrumb" class="mt-3 text-sm">
+  <nav aria-label="breadcrumb" class="text-sm">
     <ol class="flex flex-wrap gap-1.5">
       <li v-for="(item, index) in breadcrumbs" :key="index">
         <!-- Link for all except last -->
