@@ -25,7 +25,8 @@ export function useCollection<T>(
   // Internal filters for API requests, not shown in URL
   const filters = ref<Record<string, any>>({
     min_price: null,
-    max_price: null
+    max_price: null,
+    rating: null
   })
   let pendingFilters: Record<string, any>
   let isHydrated = false
@@ -67,9 +68,9 @@ export function useCollection<T>(
     const hasPrice =
       filters.value.min_price !== null || filters.value.max_price !== null
 
-    // TODO add rating
+    const hasRating = filters.value.rating !== null
 
-    return hasCategory || hasPrice
+    return hasCategory || hasPrice || hasRating
   })
 
   const hasItems = computed(() => items.value.length > 0)
@@ -100,11 +101,11 @@ export function useCollection<T>(
   }
 
   function resetFilters() {
-    // TODO add rating
     applyChanges({
       filters: {
         min_price: null,
-        max_price: null
+        max_price: null,
+        rating: null
       },
       query: {
         category: null,
@@ -113,7 +114,7 @@ export function useCollection<T>(
     })
   }
 
-  function removeFilter(type: "category" | "price") {
+  function removeFilter(type: "category" | "price" | "rating") {
     switch (type) {
       case "category":
         applyChanges({ query: { category: null, page: 1 } })
@@ -126,7 +127,11 @@ export function useCollection<T>(
         })
         break
 
-      // TODO add rating
+      case "rating":
+        applyChanges({
+          filters: { rating: null },
+          query: { category: route.query.category ?? null, page: 1 }
+        })
     }
   }
 
