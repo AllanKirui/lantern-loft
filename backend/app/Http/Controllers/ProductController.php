@@ -26,6 +26,7 @@ class ProductController extends Controller
                 fn($q) => $q->category($request->category)
             )
             ->price($request->min_price, $request->max_price)
+            ->rating($request->rating)
             ->sort($request->sort)
             ->paginate($request->per_page ?? 12)
             ->withQueryString();
@@ -133,9 +134,9 @@ class ProductController extends Controller
     public function filters(Request $request)
     {
         // Base filtered query (IMPORTANT: reuse filters except category)
-        // TODO chain rating scope after price
         $baseQuery = Product::query()
-            ->price($request->min_price, $request->max_price);
+            ->price($request->min_price, $request->max_price)
+            ->rating($request->rating);
 
         // Get categories with product counts for each category
         $categories = Category::select('id', 'name', 'slug')
