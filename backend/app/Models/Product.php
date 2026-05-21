@@ -98,6 +98,17 @@ class Product extends Model
         );
     }
 
+    public function scopeRating(Builder $query, $rating): Builder
+    {
+        return $query->when($rating, function ($q) use ($rating) {
+            $q->whereHas('reviews', function ($reviewQuery) use ($rating) {
+                $reviewQuery->select('product_id')
+                    ->groupBy('product_id')
+                    ->havingRaw('AVG(rating) >= ?', [$rating]);
+            });
+        });
+    }
+
     public function scopeSort(Builder $query, $sort): Builder
     {
         $effectivePrice = 'COALESCE(discount_price, price)'; // use discount_price if it exists
