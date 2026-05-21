@@ -9,6 +9,7 @@ import FilterAccordion from "../common/FilterAccordion.vue"
 import FilterAccordionToggle from "../common/FilterAccordionToggle.vue"
 import FilterCategory from "../common/FilterCategory.vue"
 import FilterPrice from "../common/FilterPrice.vue"
+import FilterRating from "../common/FilterRating.vue"
 import FiltersFooter from "../common/FiltersFooter.vue"
 
 const filtersStore = useFiltersStore()
@@ -39,7 +40,8 @@ const { query, filters, hasFilters, resetFilters, applyChanges } = collection
 const draftFilters = reactive({
   category: query.value.category ?? null,
   min_price: filters.value.min_price,
-  max_price: filters.value.max_price
+  max_price: filters.value.max_price,
+  rating: filters.value.rating
 })
 
 // Update local filters state if the query or filters changes
@@ -47,6 +49,7 @@ watch([query, filters], ([q, f]) => {
   draftFilters.category = q.category ?? null
   draftFilters.min_price = f.min_price
   draftFilters.max_price = f.max_price
+  draftFilters.rating = f.rating
 })
 
 function handlePriceChange(price: Record<string, number>) {
@@ -63,6 +66,7 @@ const appliedCount = computed(() => {
   if (draftFilters.category !== query.value.category) count++
   if (draftFilters.min_price !== filters.value.min_price) count++
   if (draftFilters.max_price !== filters.value.max_price) count++
+  if (draftFilters.rating !== filters.value.rating) count++
 
   return count
 })
@@ -70,12 +74,12 @@ const appliedCount = computed(() => {
 function applyFilters() {
   filtersStore.close()
 
+  const hasDefaultPriceRange =
+    draftFilters.min_price === roundedMin.value &&
+    draftFilters.max_price === roundedMax.value
+
   // return if the draft min-max prices equal the min-max prices from the API
-  if (
-    !draftFilters.category &&
-    (draftFilters.min_price === roundedMin.value ||
-      draftFilters.max_price === roundedMax.value)
-  ) {
+  if (!draftFilters.category && !draftFilters.rating && hasDefaultPriceRange) {
     clearDraftFilters()
     return
   }
@@ -87,10 +91,13 @@ function applyFilters() {
         draftFilters.min_price === roundedMin.value
           ? null
           : draftFilters.min_price,
+
       max_price:
         draftFilters.max_price === roundedMax.value
           ? null
-          : draftFilters.max_price
+          : draftFilters.max_price,
+
+      rating: draftFilters.rating
     },
     query: { category: draftFilters.category, page: 1 }
   })
@@ -123,6 +130,7 @@ function clearDraftFilters() {
   draftFilters.category = null
   draftFilters.min_price = null
   draftFilters.max_price = null
+  draftFilters.rating = null
 }
 
 // animate accordion height
@@ -217,6 +225,10 @@ function onAfterEnter(el: Element) {
                 :has-cleared="hasCleared"
                 @price-change="handlePriceChange"
               />
+            </template>
+
+            <template v-if="group.key === 'rating'">
+              <FilterRating v-model="draftFilters.rating" />
             </template>
           </div>
         </transition>
