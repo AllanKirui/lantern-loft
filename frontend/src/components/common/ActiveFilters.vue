@@ -15,6 +15,7 @@ const { filters, query, removeFilter, setFilterCount } = collection
 
 const minPrice = computed(() => filters.value.min_price)
 const maxPrice = computed(() => filters.value.max_price)
+const rating = computed(() => filters.value.rating)
 const category = computed(() => query.value.category)
 
 const activeFilters = computed(() => {
@@ -35,7 +36,12 @@ const activeFilters = computed(() => {
     })
   }
 
-  // TODO add rating
+  if (rating.value) {
+    list.push({
+      type: "rating",
+      label: `${rating.value} stars & above`
+    })
+  }
 
   return list
 })
