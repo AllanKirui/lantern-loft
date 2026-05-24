@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router"
 import StorefrontLayout from "@/layouts/StorefrontLayout.vue"
+import AuthLayout from "@/layouts/AuthLayout.vue"
 
 const routes = [
   // Storefront Routes
@@ -33,8 +34,29 @@ const routes = [
         }
       }
     ]
+  },
+  // Auth Routes
+  {
+    path: "/account",
+    component: AuthLayout,
+    children: [
+      {
+        path: "create",
+        name: "account.create",
+        component: () => import("@/views/auth/RegisterView.vue")
+      },
+      {
+        path: "sign-in",
+        name: "account.signIn",
+        component: () => import("@/views/auth/LoginView.vue")
+      },
+      {
+        path: "admin/sign-in",
+        name: "admin.signIn",
+        component: () => import("@/views/auth/AdminLoginView.vue")
+      }
+    ]
   }
-  // TODO Auth Routes
   // TODO Dashboard Routes
   // TODO Catch-all Routes
 ]
