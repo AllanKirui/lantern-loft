@@ -58,7 +58,7 @@ const DELAY = 40 // Transition delay
       :style="{ transitionDelay: `${menuLinks.length * DELAY}ms` }"
     >
       <RouterLink
-        to="#"
+        to="/account/admin/sign-in"
         class="btn-hover flex gap-2 mt-3 px-3 py-[14px] font-medium hover:after:bg-cream"
       >
         <BaseIcon name="bulb-off" class="w-5 h-5 -mx-[3px]" :stroke-width="2" />
