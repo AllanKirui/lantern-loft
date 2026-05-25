@@ -27,7 +27,7 @@ const btnClasses = computed(() => {
   }
 
   if (props.scope === "card") {
-    if (hasWishlisted) {
+    if (hasWishlisted.value) {
       classes += "md:bg-black/75 md:animate-scale-up "
     } else {
       classes +=
