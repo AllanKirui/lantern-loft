@@ -1,11 +1,14 @@
 import { defineStore } from "pinia"
 import { ref, computed, watch } from "vue"
+import { useRoute } from "vue-router"
 import { useDesktopNavStore } from "./desktopNav"
 import { useMobileNavStore } from "./mobileNav"
 import { useFiltersStore } from "./filters"
 import { useModalStore } from "./modal"
 
 export const useOverlayStore = defineStore("overlay", () => {
+  const route = useRoute()
+
   const desktopNavStore = useDesktopNavStore()
   const mobileNavStore = useMobileNavStore()
   const filtersStore = useFiltersStore()
@@ -63,6 +66,14 @@ export const useOverlayStore = defineStore("overlay", () => {
       }
     },
     { immediate: true }
+  )
+
+  // close the overlay when route changes
+  watch(
+    () => route.name,
+    (newName) => {
+      if (newName && isActive.value) close()
+    }
   )
 
   return { stack, isActive, z_index, open, close, isTop, setZIndex }
