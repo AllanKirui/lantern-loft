@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import type { ReviewItem } from "@/types/reviews/review-item"
+import { uppercaseFirstLetter } from "@/utils/uppercaseFirstLetter"
 import StarRatingDisplay from "@/components/common/StarRatingDisplay.vue"
 
 interface Props {
@@ -9,12 +10,6 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-
-function uppercaseFirstLetter(word: string | null) {
-  if (!word) return
-
-  return word.charAt(0).toUpperCase() + word.slice(1)
-}
 
 function simplifyName(names: string) {
   const firstName = names.split(" ")[0]
