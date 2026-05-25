@@ -9,7 +9,10 @@ const overlayStore = useOverlayStore()
     <transition name="fade">
       <div
         v-if="overlayStore.isActive"
-        :class="['fixed inset-0 bg-black/80', `z-[${overlayStore.z_index}]`]"
+        class="fixed inset-0 bg-black/80"
+        :style="{
+          zIndex: `${overlayStore.z_index}`
+        }"
         @click="() => overlayStore.close()"
       ></div>
     </transition>
