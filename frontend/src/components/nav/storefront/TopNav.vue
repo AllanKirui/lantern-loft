@@ -10,7 +10,7 @@ import MobileNav from "./mobile/MobileNav.vue"
   >
     <!-- Logo -->
     <div class="storefront-nav-logo-wrapper">
-      <Logo href="/" />
+      <Logo />
     </div>
 
     <!-- Center links - Desktop -->

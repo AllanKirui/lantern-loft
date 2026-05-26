@@ -1,5 +1,11 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ href: string; height?: string }>(), {
+interface Props {
+  href?: string
+  height?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  href: "/",
   height: "h-20"
 })
 </script>

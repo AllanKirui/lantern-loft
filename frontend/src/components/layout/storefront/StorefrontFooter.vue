@@ -153,7 +153,7 @@ const footerLinks = [
           <!-- Only show this logo for screens above 976px -->
           <div class="hidden lg:flex flex-col items-center">
             <div class="storefront-footer-logo-wrapper">
-              <Logo href="/" />
+              <Logo />
             </div>
             <p class="storefront-footer-logo-slogan">
               Every Home Deserves a Little Glow
@@ -163,7 +163,7 @@ const footerLinks = [
           <!-- Only show this logo for screens below 768px -->
           <div class="flex flex-col items-center md:hidden">
             <div class="storefront-footer-logo-wrapper">
-              <Logo href="/" />
+              <Logo />
             </div>
             <p class="storefront-footer-logo-slogan">
               Every Home Deserves a Little Glow
@@ -174,7 +174,7 @@ const footerLinks = [
         <!-- Only show this logo for screens between 768px and 976px -->
         <div class="hidden md:flex flex-col items-center md:mt-8 lg:hidden">
           <div class="storefront-footer-logo-wrapper">
-            <Logo href="/" />
+            <Logo />
           </div>
           <p class="storefront-footer-logo-slogan">
             Every Home Deserves a Little Glow
