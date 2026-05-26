@@ -28,7 +28,7 @@ const layoutStore = useLayoutStore()
     >
       <template v-if="isLoading">
         <ProductCardSkeleton
-          v-for="n in 8"
+          v-for="n in 12"
           :key="n"
           :use-adaptive-layout="true"
         />
