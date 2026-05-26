@@ -1,23 +1,12 @@
 <script setup lang="ts">
-import {
-  onMounted,
-  onBeforeUnmount,
-  watch,
-  defineAsyncComponent,
-  ref
-} from "vue"
+import { onMounted, onBeforeUnmount, watch, ref } from "vue"
 import { useMobileNavStore } from "@/stores/mobileNav"
 import MobileAccountButton from "./MobileAccountButton.vue"
 import MobileCartLink from "./MobileCartLink.vue"
 import MobileMenuButton from "./MobileMenuButton.vue"
 import MobileSearchButton from "./MobileSearchButton.vue"
-
-const MobileMenuDropdown = defineAsyncComponent(
-  () => import("./MobileMenuDropdown.vue")
-)
-const MobileAccountDropdown = defineAsyncComponent(
-  () => import("./MobileAccountDropdown.vue")
-)
+import MobileMenuDropdown from "./MobileMenuDropdown.vue"
+import MobileAccountDropdown from "./MobileAccountDropdown.vue"
 
 const mobileNavStore = useMobileNavStore()
 
@@ -100,7 +89,7 @@ onMounted(calculateMobileNavDropdownHeight)
 <style scoped>
 .slide-down-leave-active,
 .slide-down-enter-active {
-  transition: all 0.32s;
+  transition: all 0.25s;
   overflow: hidden;
 }
 .slide-down-leave-to,
