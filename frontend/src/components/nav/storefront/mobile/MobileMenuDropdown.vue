@@ -7,12 +7,12 @@ const menuLinks = [
     text: "Shop All Lamps"
   },
   {
-    href: "#",
+    href: "/collections?category=floor-lamps",
     text: "Floor Lamps"
   },
   {
-    href: "#",
-    text: "Desk Lamps"
+    href: "/collections?category=table-lamps",
+    text: "Table Lamps"
   },
   {
     href: "#",
