@@ -100,7 +100,7 @@ const viewMoreLink = computed(() => ({
           <RouterLink
             :to="viewMoreLink.to"
             :data-replace="viewMoreLink.text"
-            class="link-hover fs-pdp-view-more-reviews-text font-medium text-pale-brown"
+            class="link-hover-alt md:link-hover fs-pdp-view-more-reviews-text font-medium text-pale-brown"
             ><span>{{ viewMoreLink.text }}</span></RouterLink
           >
         </div>
