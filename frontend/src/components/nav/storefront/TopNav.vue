@@ -38,7 +38,7 @@ import MobileNav from "./mobile/MobileNav.vue"
           <div
             class="absolute min-w-5 min-h-5 -top-1/3 -right-2 flex items-center justify-center bg-black rounded-full"
           >
-            <span class="text-[14px] text-cosmic-latte">5</span>
+            <span class="text-[14px] text-cosmic-latte">0</span>
           </div>
         </div>
         <span class="fs-nav-lg">Cart</span>

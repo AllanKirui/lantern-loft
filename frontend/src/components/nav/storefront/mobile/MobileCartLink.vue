@@ -6,7 +6,7 @@
       <div
         class="absolute -top-1/4 -right-2 min-w-4 min-h-4 flex items-center justify-center bg-black rounded-full"
       >
-        <span class="fs-nav-cart-count text-cosmic-latte leading-none">3</span>
+        <span class="fs-nav-cart-count text-cosmic-latte leading-none">0</span>
       </div>
     </div>
 
