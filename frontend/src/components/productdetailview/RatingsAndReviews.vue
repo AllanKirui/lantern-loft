@@ -97,11 +97,11 @@ const viewMoreLink = computed(() => ({
         </div>
 
         <div v-if="showViewMoreLink">
-          <a
-            :href="viewMoreLink.to"
+          <RouterLink
+            :to="viewMoreLink.to"
             :data-replace="viewMoreLink.text"
             class="link-hover fs-pdp-view-more-reviews-text font-medium text-pale-brown"
-            ><span>{{ viewMoreLink.text }}</span></a
+            ><span>{{ viewMoreLink.text }}</span></RouterLink
           >
         </div>
       </div>
