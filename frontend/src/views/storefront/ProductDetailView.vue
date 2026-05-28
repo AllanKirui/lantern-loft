@@ -3,6 +3,7 @@ import { provide, watch } from "vue"
 import { useRoute } from "vue-router"
 import { useProductDetail } from "@/composables/useProductDetail"
 import { productService } from "@/services/productService"
+import { capitalizeWords } from "@/utils/capitalizeWords"
 import type { Product } from "@/types/products"
 import ProductDetailHero from "@/components/productdetailview/ProductDetailHero.vue"
 import ProductDescription from "@/components/productdetailview/ProductDescription.vue"
@@ -30,6 +31,15 @@ watch(
     }
   },
   { immediate: true }
+)
+
+watch(
+  () => productDetail.product.value,
+  (product) => {
+    if (!product) return
+
+    document.title = `${capitalizeWords(product.name)} | Lantern Loft`
+  }
 )
 </script>
 

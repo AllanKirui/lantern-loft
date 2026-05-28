@@ -11,13 +11,17 @@ const routes = [
       {
         path: "",
         name: "home",
-        component: () => import("@/views/storefront/HomeView.vue")
+        component: () => import("@/views/storefront/HomeView.vue"),
+        meta: {
+          title: "Lantern Loft | Every home deserves a little glow"
+        }
       },
       {
         path: "collections",
         name: "collections",
         component: () => import("@/views/storefront/ProductListView.vue"),
         meta: {
+          title: "Shop | Lantern Loft",
           breadcrumb: [{ label: "Home", to: "/" }, { label: "Collections" }]
         }
       },
@@ -43,17 +47,20 @@ const routes = [
       {
         path: "create",
         name: "account.create",
-        component: () => import("@/views/auth/RegisterView.vue")
+        component: () => import("@/views/auth/RegisterView.vue"),
+        meta: { title: "Create Account | Lantern Loft" }
       },
       {
         path: "sign-in",
         name: "account.signIn",
-        component: () => import("@/views/auth/LoginView.vue")
+        component: () => import("@/views/auth/LoginView.vue"),
+        meta: { title: "Sign In | Lantern Loft" }
       },
       {
         path: "admin/sign-in",
         name: "admin.signIn",
-        component: () => import("@/views/auth/AdminLoginView.vue")
+        component: () => import("@/views/auth/AdminLoginView.vue"),
+        meta: { title: "Sign In | Lantern Loft" }
       }
     ]
   }
@@ -72,6 +79,10 @@ const router = createRouter({
 
     return { top: 0, behavior: "smooth" }
   }
+})
+
+router.afterEach((to) => {
+  document.title = (to.meta.title as string) || "Lantern Loft"
 })
 
 export default router
