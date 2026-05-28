@@ -1,18 +1,11 @@
 <script setup lang="ts">
-import { defineAsyncComponent, onBeforeUnmount, watch } from "vue"
+import { onBeforeUnmount, watch } from "vue"
 import { useDesktopNavStore } from "@/stores/desktopNav"
 import { storeToRefs } from "pinia"
 import DropdownButton from "./DropdownButton.vue"
-
-const AccountDropdown = defineAsyncComponent(
-  () => import("./AccountDropdown.vue")
-)
-const RecentItemsDropdown = defineAsyncComponent(
-  () => import("./RecentItemsDropdown.vue")
-)
-const WishlistDropdown = defineAsyncComponent(
-  () => import("./WishlistDropdown.vue")
-)
+import AccountDropdown from "./AccountDropdown.vue"
+import RecentItemsDropdown from "./RecentItemsDropdown.vue"
+import WishlistDropdown from "./WishlistDropdown.vue"
 
 const desktopNavStore = useDesktopNavStore()
 const { activeDropdown, isAccountOpen, isRecentOpen, isWishlistOpen } =
@@ -135,7 +128,7 @@ function leave(el: Element, done: () => void) {
 <style scoped>
 .dropdown-enter-active,
 .dropdown-leave-active {
-  transition: all 300ms;
+  transition: all 250ms;
   overflow: hidden;
 }
 
@@ -152,7 +145,7 @@ function leave(el: Element, done: () => void) {
 }
 
 .dropdown-enter-active * {
-  transition: opacity 400ms ease;
+  transition: opacity 300ms ease;
 }
 
 .dropdown-enter-from * {
