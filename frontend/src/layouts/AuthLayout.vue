@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AuthNav from "@/components/layout/auth/AuthNav.vue"
 import AuthFooter from "@/components/layout/auth/AuthFooter.vue"
+import FloatingBulbs from "@/components/authview/FloatingBulbs.vue"
 </script>
 
 <template>
@@ -10,5 +11,6 @@ import AuthFooter from "@/components/layout/auth/AuthFooter.vue"
     <RouterView />
 
     <AuthFooter />
+    <FloatingBulbs />
   </div>
 </template>
