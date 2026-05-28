@@ -46,6 +46,7 @@
 }
 
 /* Storefront Styles */
+.fs-not-found-body,
 .fs-no-items-found,
 .fs-filters-accordion-label,
 .fs-pdp-savings,
@@ -122,6 +123,7 @@
 .fs-pdp-reviews-recommendation-percentage {
   font-size: var(--fs-22-28-full);
 }
+.fs-not-found-h1,
 .fs-pdp-reviews-average-rating {
   font-size: var(--fs-40-48-full);
 }
