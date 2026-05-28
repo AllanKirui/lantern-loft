@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import StorefrontLayout from "@/layouts/StorefrontLayout.vue"
 import AuthLayout from "@/layouts/AuthLayout.vue"
+import PageNotFound from "@/layouts/PageNotFound.vue"
 
 const routes = [
   // Storefront Routes
@@ -63,9 +64,13 @@ const routes = [
         meta: { title: "Sign In | Lantern Loft" }
       }
     ]
-  }
+  },
   // TODO Dashboard Routes
-  // TODO Catch-all Routes
+  // Catch-all Route
+  {
+    path: "/:pathMatch(.*)*",
+    component: PageNotFound
+  }
 ]
 
 const router = createRouter({
