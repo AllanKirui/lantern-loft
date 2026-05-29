@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Logo from "@/components/common/Logo.vue"
 import FooterLinks from "@/components/footer/storefront/FooterLinks.vue"
+import Attribution from "@/components/common/Attribution.vue"
 
 const footerLinks = [
   {
@@ -181,11 +182,11 @@ const footerLinks = [
           </p>
         </div>
 
-        <p class="sp-mt-footer-copy fs-footer-copy text-center">
-          © 2026, Lantern Loft. All Rights Reserved.
-        </p>
+        <div class="sp-mt-footer-copy fs-footer-copy text-center">
+          <p>© 2026, Lantern Loft. All Rights Reserved.</p>
 
-        <!-- TODO add attribution -->
+          <Attribution class="mt-3" link-color="text-bone" />
+        </div>
       </div>
     </div>
   </footer>
