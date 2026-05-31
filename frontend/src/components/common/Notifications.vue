@@ -20,6 +20,8 @@ const notificationStore = useNotificationStore()
         'bg-red-pigment text-cosmic-latte': note.type === 'error',
         'bg-cream text-chestnut-brown': note.type === 'info'
       }"
+      @mouseenter="notificationStore.pause(note.id)"
+      @mouseleave="notificationStore.resume(note.id)"
     >
       {{ note.message }}
 
@@ -100,6 +102,9 @@ const notificationStore = useNotificationStore()
   animation-name: shrinkProgress;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
+}
+.notification:hover .notification-progress {
+  animation-play-state: paused;
 }
 @keyframes shrinkProgress {
   from {
