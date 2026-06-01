@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref, watch, inject, onMounted } from "vue"
 import { useFiltersStore } from "@/stores/filters"
+import { useNotificationStore } from "@/stores/notification"
 import type { CollectionContext } from "@/types/collection"
 import type { FiltersMetaContext } from "@/types/filters-meta"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
@@ -13,6 +14,7 @@ import FilterRating from "../common/FilterRating.vue"
 import FiltersFooter from "../common/FiltersFooter.vue"
 
 const filtersStore = useFiltersStore()
+const notificationStore = useNotificationStore()
 
 // Accordion controls
 const filterGroups = [
@@ -71,7 +73,36 @@ const appliedCount = computed(() => {
   return count
 })
 
+function checkPriceFiltersValidity() {
+  // prevent filters from being applied if the the min price value
+  // is greater than max price or min-max prices match
+  const minPrice = draftFilters.min_price ?? roundedMin.value
+  const maxPrice = draftFilters.max_price ?? roundedMax.value
+
+  if (minPrice > maxPrice) {
+    notificationStore.notify(
+      "Can't apply filters. Minimum Price should be less than Maximum Price.",
+      "info",
+      5000
+    )
+    return false
+  }
+
+  if (minPrice === maxPrice) {
+    notificationStore.notify(
+      "Can't apply filters. Try adjusting the Price ranges.",
+      "info",
+      5000
+    )
+    return false
+  }
+
+  return true
+}
+
 function applyFilters() {
+  if (!checkPriceFiltersValidity()) return
+
   filtersStore.close()
 
   const hasDefaultPriceRange =

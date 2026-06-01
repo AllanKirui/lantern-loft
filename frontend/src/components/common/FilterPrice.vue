@@ -35,9 +35,6 @@ watch(
 function handleMinChange() {
   const snapped = snapToStep(state.filters.priceMin, props.step)
 
-  // prevent the min value from crossing the selected max price
-  if (snapped > state.filters.priceMax) return
-
   state.filters.priceMin = snapped
 
   emit("priceChange", { min_price: state.filters.priceMin })
@@ -45,9 +42,6 @@ function handleMinChange() {
 
 function handleMaxChange() {
   const snapped = snapToStep(state.filters.priceMax, props.step)
-
-  // prevent the max value from crossing the selected min price
-  if (snapped < state.filters.priceMin) return
 
   state.filters.priceMax = snapped
 
