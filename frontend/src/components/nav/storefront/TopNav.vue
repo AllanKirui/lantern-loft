@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Logo from "@/components/common/Logo.vue"
 import MobileNav from "./mobile/MobileNav.vue"
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
 </script>
 
 <template>
@@ -29,8 +30,7 @@ import MobileNav from "./mobile/MobileNav.vue"
     <!-- Right buttons - Desktop -->
     <div class="hidden md:flex items-center gap-4">
       <!-- Cart -->
-      <RouterLink
-        to="/cart"
+      <ComingSoonLink
         class="flex items-center gap-[10px] hover:text-bone duration-200"
       >
         <div class="relative">
@@ -42,20 +42,23 @@ import MobileNav from "./mobile/MobileNav.vue"
           </div>
         </div>
         <span class="fs-nav-lg">Cart</span>
-      </RouterLink>
+      </ComingSoonLink>
 
       <!-- Vertical divider -->
       <span class="w-[1px] h-5 bg-crayola" />
 
       <!-- Search Button -->
-      <button class="group btn-rounded hover:after:bg-eerie-black">
+      <ComingSoonLink
+        type="button"
+        class="group btn-rounded hover:after:bg-eerie-black"
+      >
         <BaseIcon
           name="search"
           class="w-6 h-6 group-hover:text-cosmic-latte duration-200"
           :stroke-width="4"
         />
         <span class="sr-only">Search</span>
-      </button>
+      </ComingSoonLink>
     </div>
 
     <!-- Mobile Nav -->

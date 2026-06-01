@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { useNotificationStore } from "@/stores/notification"
 import AuthMain from "@/components/authview/AuthMain.vue"
 import AuthSectionHeader from "@/components/authview/AuthSectionHeader.vue"
 import AuthFormInput from "@/components/authview/AuthFormInput.vue"
 import AuthFormSection from "@/components/authview/AuthFormSection.vue"
 import AuthAuxiliaryLink from "@/components/authview/AuthAuxiliaryLink.vue"
+
+const notificationStore = useNotificationStore()
 
 const sectionHeaderData = {
   title: "Create a Lantern Loft Account",
@@ -12,6 +15,11 @@ const sectionHeaderData = {
 
 function handleSubmit() {
   // TODO: hook into your register API
+  notificationStore.notify(
+    "Can't do that right now. Feature coming soon.",
+    "info",
+    3000
+  )
 }
 </script>
 

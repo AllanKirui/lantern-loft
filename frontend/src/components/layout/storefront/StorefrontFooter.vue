@@ -2,6 +2,7 @@
 import Logo from "@/components/common/Logo.vue"
 import FooterLinks from "@/components/footer/storefront/FooterLinks.vue"
 import Attribution from "@/components/common/Attribution.vue"
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
 
 const footerLinks = [
   {
@@ -110,12 +111,12 @@ const footerLinks = [
           <div class="mt-8 md:mt-0 flex flex-col items-center">
             <p>
               Check out our
-              <RouterLink
-                to="/reviews"
+              <ComingSoonLink
                 data-replace="1,234"
                 class="link-hover font-semibold text-bone"
-                ><span>1,234</span></RouterLink
               >
+                <span>1,234</span>
+              </ComingSoonLink>
               reviews
             </p>
 

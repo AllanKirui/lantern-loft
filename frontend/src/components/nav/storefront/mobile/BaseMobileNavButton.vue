@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { useMobileNavStore } from "@/stores/mobileNav"
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
 
 const props = defineProps<{ text: "menu" | "account" | "search" }>()
 
@@ -12,7 +13,20 @@ const selected = computed(() => props.text.toLowerCase())
 </script>
 
 <template>
+  <ComingSoonLink
+    v-if="text === 'search'"
+    type="button"
+    class="mobile-nav-button"
+    :class="{
+      'text-bone': mobileNavStore.activeDropdown === selected
+    }"
+  >
+    <slot />
+    <span class="fs-nav-sm uppercase leading-none">{{ text }}</span>
+  </ComingSoonLink>
+
   <button
+    v-else
     class="mobile-nav-button"
     :class="{
       'text-bone': mobileNavStore.activeDropdown === selected

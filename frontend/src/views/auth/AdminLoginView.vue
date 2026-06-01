@@ -1,11 +1,19 @@
 <script setup lang="ts">
+import { useNotificationStore } from "@/stores/notification"
 import AuthMain from "@/components/authview/AuthMain.vue"
 import AuthSectionHeader from "@/components/authview/AuthSectionHeader.vue"
 import AuthFormInput from "@/components/authview/AuthFormInput.vue"
 import AuthAuxiliaryLink from "@/components/authview/AuthAuxiliaryLink.vue"
 
+const notificationStore = useNotificationStore()
+
 function handleSubmit() {
   // TODO create an authService to handle form submission
+  notificationStore.notify(
+    "Can't do that right now. Feature coming soon.",
+    "info",
+    3000
+  )
 }
 
 const sectionHeaderData = {

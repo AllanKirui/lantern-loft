@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
+
 interface Link {
   href: string
   text: string
@@ -29,9 +31,9 @@ defineProps<Props>()
         class="w-[9.5px] h-[5.5px] sm:w-[11px] sm:h-[6.8px] text-crayola duration-200 -rotate-90"
         :stroke-width="6"
       />
-      <RouterLink :to="link.href" :data-replace="link.text" class="link-hover">
-        <span>{{ link.text }}</span></RouterLink
-      >
+      <ComingSoonLink :data-replace="link.text" class="link-hover">
+        <span>{{ link.text }}</span>
+      </ComingSoonLink>
     </li>
   </ul>
 </template>

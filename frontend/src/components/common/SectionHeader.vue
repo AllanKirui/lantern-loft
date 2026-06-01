@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import type { SectionHeaderOptions } from "@/types/section-header-options"
 import BaseCarouselNavButton from "../base/BaseCarouselNavButton.vue"
+import ComingSoonLink from "./ComingSoonLink.vue"
 
 interface Props {
   data: SectionHeaderOptions
 }
 
 defineProps<Props>()
+
+const pendingLinks = ["See all reviews"]
 </script>
 
 <template>
@@ -56,7 +59,14 @@ defineProps<Props>()
           />
         </div>
         <div v-if="data.link">
+          <ComingSoonLink
+            v-if="pendingLinks.includes(data.link?.text)"
+            :data-replace="data.link?.text"
+            class="link-hover-alt md:link-hover fs-shop-link font-medium"
+            ><span>{{ data.link?.text }}</span></ComingSoonLink
+          >
           <RouterLink
+            v-else
             :to="data.link?.to"
             :data-replace="data.link?.text"
             class="link-hover-alt md:link-hover fs-shop-link font-medium"

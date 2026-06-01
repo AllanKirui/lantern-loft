@@ -3,8 +3,12 @@ import { computed } from "vue"
 import type { ReviewsMeta } from "@/types/reviews/reviews-meta"
 import StarRatingDisplay from "@/components/common/StarRatingDisplay.vue"
 import RecommendationPercentage from "./RecommendationPercentage.vue"
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
+import { useNotificationStore } from "@/stores/notification"
 
 const props = defineProps<{ reviewsMeta: ReviewsMeta }>()
+
+const notificationStore = useNotificationStore()
 
 const reviewsCountText = computed(() => {
   if (props.reviewsMeta.count === 1) return "1 review"
@@ -69,6 +73,9 @@ function getDistributionPercentage(distributionCount: number) {
               v-for="distribution in reviewsMeta.distributions"
               :key="distribution.star"
               class="flex items-center h-5"
+              @click="
+                notificationStore.notify('Feature coming soon', 'info', 3000)
+              "
             >
               <div class="flex-1 h-3 bg-cream rounded-full overflow-hidden">
                 <div
@@ -106,7 +113,9 @@ function getDistributionPercentage(distributionCount: number) {
 
     <!-- Leave a review button -->
     <div class="max-w-64 w-full h-fit m-auto">
-      <button class="btn-secondary w-full">Write a Review</button>
+      <ComingSoonLink type="button" class="btn-secondary w-full"
+        >Write a Review</ComingSoonLink
+      >
       <small class="block italic text-center mt-2"
         >Let others know what you think.</small
       >

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseMobileDropdown from "./BaseMobileDropdown.vue"
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
 
 const accountLinks = [
   {
@@ -35,8 +36,7 @@ const DELAY = 40 // Transition delay
         :key="index"
         :style="{ transitionDelay: `${index * DELAY}ms` }"
       >
-        <RouterLink
-          to="#"
+        <ComingSoonLink
           class="btn-hover flex items-center gap-3 py-[10px] px-3 leading-none hover:after:bg-cream"
         >
           <BaseIcon :name="link.icon" class="w-6 h-6" :stroke-width="3.5" />
@@ -47,7 +47,7 @@ const DELAY = 40 // Transition delay
               link.about
             }}</span>
           </div>
-        </RouterLink>
+        </ComingSoonLink>
 
         <!-- Horizontal divider -->
         <span

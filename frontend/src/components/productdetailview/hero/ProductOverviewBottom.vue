@@ -4,6 +4,7 @@ import type { ProductDetailContext } from "@/types/product-detail"
 import type { Product } from "@/types/products"
 import PriceBlock from "@/components/common/PriceBlock.vue"
 import AddToCartButton from "../AddToCartButton.vue"
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
 
 // inject the productDetail instance coming from ProductDetailView.vue
 const { product } = inject<ProductDetailContext<Product>>("productDetail")!
@@ -30,8 +31,8 @@ const effectivePrice = computed(
     <!-- Shipping Info -->
     <div class="mt-2">
       <p class="text-sm">
-        <a href="#" data-replace="Shipping" class="link-hover font-medium"
-          ><span>Shipping</span></a
+        <ComingSoonLink data-replace="Shipping" class="link-hover font-medium"
+          ><span>Shipping</span></ComingSoonLink
         >
         calculated at checkout.
       </p>

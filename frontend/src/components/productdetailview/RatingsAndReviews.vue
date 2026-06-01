@@ -7,6 +7,7 @@ import RatingsDistribution from "./reviews/RatingsDistribution.vue"
 import ReviewList from "./reviews/ReviewList.vue"
 import ReviewItem from "./reviews/ReviewItem.vue"
 import NoReviewItemsFound from "./reviews/NoReviewItemsFound.vue"
+import ComingSoonLink from "../common/ComingSoonLink.vue"
 
 // inject the productDetail instance coming from ProductDetailView.vue
 const { product } = inject<ProductDetailContext<Product>>("productDetail")!
@@ -97,11 +98,10 @@ const viewMoreLink = computed(() => ({
         </div>
 
         <div v-if="showViewMoreLink">
-          <RouterLink
-            :to="viewMoreLink.to"
+          <ComingSoonLink
             :data-replace="viewMoreLink.text"
             class="link-hover-alt md:link-hover fs-pdp-view-more-reviews-text font-medium text-pale-brown"
-            ><span>{{ viewMoreLink.text }}</span></RouterLink
+            ><span>{{ viewMoreLink.text }}</span></ComingSoonLink
           >
         </div>
       </div>

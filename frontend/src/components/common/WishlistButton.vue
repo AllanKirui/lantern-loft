@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // TODO add complete logic for adding/removing to wishlist
 import { computed, ref } from "vue"
+import ComingSoonLink from "./ComingSoonLink.vue"
 
 const props = withDefaults(
   defineProps<{
@@ -40,33 +41,13 @@ const btnClasses = computed(() => {
 </script>
 
 <template>
-  <button
-    :class="btnClasses"
-    :title="hasWishlisted ? 'Remove from wishlist' : 'Add to wishlist'"
-    :aria-label="hasWishlisted ? 'Remove from wishlist' : 'Add to wishlist'"
-    @click.prevent="toggleWishlistStatus"
-  >
-    <!-- Wishlisted icon -->
-    <svg
-      v-if="hasWishlisted"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 64 64"
-      stroke="currentColor"
-      fill="currentColor"
-      class="w-[75%] h-[75%] animate-scale-up"
-    >
-      <path
-        d="M9.06,25C7.68,17.3,12.78,10.63,20.73,10c7-.55,10.47,7.93,11.17,9.55a.13.13,0,0,0,.25,0c3.25-8.91,9.17-9.29,11.25-9.5C49,9.45,56.51,13.78,55,23.87c-2.16,14-23.12,29.81-23.12,29.81S11.79,40.05,9.06,25Z"
-      />
-    </svg>
-
+  <ComingSoonLink type="button" :class="btnClasses">
     <!-- Add to wishlist icon -->
     <svg
-      v-else
       version="1.1"
       viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
-      class="animate-scale-up"
+      class="w-full h-full animate-scale-up"
     >
       <g
         transform="matrix(1.7911 0 0 1.7911 -8606 -672.63)"
@@ -105,5 +86,5 @@ const btnClasses = computed(() => {
         />
       </g>
     </svg>
-  </button>
+  </ComingSoonLink>
 </template>

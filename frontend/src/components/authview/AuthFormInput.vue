@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useNotificationStore } from "@/stores/notification"
 import { uppercaseFirstLetter } from "@/utils/uppercaseFirstLetter"
+
+const notificationStore = useNotificationStore()
 
 interface Props {
   id: string
@@ -25,6 +28,13 @@ withDefaults(defineProps<Props>(), {
         :required="required"
         placeholder=" "
         class="auth-input"
+        @input.once="
+          notificationStore.notify(
+            'Login and Registration functionalities are pending implementation.',
+            'info',
+            4000
+          )
+        "
       />
 
       <label :for="id" class="auth-label text-[15px]">

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import BaseCloseButton from "@/components/base/BaseCloseButton.vue"
 import { useDesktopNavStore } from "@/stores/desktopNav"
+import BaseCloseButton from "@/components/base/BaseCloseButton.vue"
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
 
 interface Props {
   id: string
@@ -26,12 +27,9 @@ const desktopNavStore = useDesktopNavStore()
         <!-- Vertical divider -->
         <span class="w-[1px] h-5 bg-pale-brown" />
 
-        <RouterLink
-          :to="manageHref"
-          data-replace="Manage items"
-          class="link-hover"
-          ><span>Manage items</span></RouterLink
-        >
+        <ComingSoonLink data-replace="Manage items" class="link-hover">
+          <span>Manage items</span>
+        </ComingSoonLink>
       </div>
 
       <BaseCloseButton

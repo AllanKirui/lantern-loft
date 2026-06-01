@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseMobileDropdown from "./BaseMobileDropdown.vue"
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
 
 const menuLinks = [
   {
@@ -33,6 +34,8 @@ const menuLinks = [
 ]
 
 const DELAY = 40 // Transition delay
+
+const pendingLinks = ["About Us", "Contact", "Reviews", "FAQs"]
 </script>
 
 <template>
@@ -44,7 +47,14 @@ const DELAY = 40 // Transition delay
         :id="index === 0 ? 'target' : ''"
         :style="{ transitionDelay: `${index * DELAY}ms` }"
       >
+        <ComingSoonLink
+          v-if="pendingLinks.includes(link.text)"
+          class="btn-hover block p-3 text-lg leading-snug font-semibold hover:after:bg-cream"
+        >
+          {{ link.text }}
+        </ComingSoonLink>
         <RouterLink
+          v-else
           class="btn-hover block p-3 text-lg leading-snug font-semibold hover:after:bg-cream"
           :to="link.href"
           >{{ link.text }}</RouterLink
@@ -71,41 +81,39 @@ const DELAY = 40 // Transition delay
       <div class="flex items-center justify-between mt-[14px]">
         <!-- Social Links -->
         <div class="flex gap-2">
-          <a href="#" class="btn-rounded hover:after:bg-cream">
+          <ComingSoonLink class="btn-rounded hover:after:bg-cream">
             <BaseIcon
               name="facebook"
               icon-type="social"
               class="w-7 h-7"
               :stroke-width="3.5"
             />
-          </a>
-          <a href="#" class="btn-rounded hover:after:bg-cream">
+          </ComingSoonLink>
+          <ComingSoonLink class="btn-rounded hover:after:bg-cream">
             <BaseIcon
               name="instagram"
               icon-type="social"
               class="w-7 h-7"
               :stroke-width="3.5"
             />
-          </a>
+          </ComingSoonLink>
         </div>
 
         <!-- Legal Links -->
         <div class="relative flex items-center gap-[10px]">
-          <RouterLink
-            to="#"
+          <ComingSoonLink
             data-replace="Privacy Policy"
             class="link-hover text-sm font-medium"
-            ><span>Privacy Policy</span></RouterLink
+            ><span>Privacy Policy</span></ComingSoonLink
           >
 
           <!-- Vertical divider -->
           <span class="w-[1px] h-5 bg-pale-brown" />
 
-          <RouterLink
-            to="#"
+          <ComingSoonLink
             data-replace="Conditions of Use"
             class="link-hover text-sm font-medium"
-            ><span>Conditions of Use</span></RouterLink
+            ><span>Conditions of Use</span></ComingSoonLink
           >
         </div>
       </div>
