@@ -80,7 +80,7 @@ withDefaults(defineProps<Props>(), {
   color: #e7d9cc;
 }
 .auth-input:invalid {
-  color: transparent;
+  color: #e7d9cc;
 }
 .auth-input:invalid:focus {
   color: inherit;
