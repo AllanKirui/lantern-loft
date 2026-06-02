@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useOverlayStore } from "@/stores/overlay"
 import BaseMobileDropdown from "./BaseMobileDropdown.vue"
 import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
+
+const overlayStore = useOverlayStore()
 
 const menuLinks = [
   {
@@ -57,6 +60,7 @@ const pendingLinks = ["About Us", "Contact", "Reviews", "FAQs"]
           v-else
           class="btn-hover block p-3 text-lg leading-snug font-semibold hover:after:bg-cream"
           :to="link.href"
+          @click="overlayStore.close()"
           >{{ link.text }}</RouterLink
         >
       </li>
