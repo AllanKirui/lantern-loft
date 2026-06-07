@@ -1,0 +1,2851 @@
+[
+  {
+    "id": 1,
+    "name": "Aurora Desk Lamp",
+    "slug": "aurora-desk-lamp",
+    "categoryId": 1,
+    "price": 3826,
+    "discountPrice": null,
+    "tagline": "Designed for desks, nights, and everything between.",
+    "shortDescription": "Designed to create a welcoming atmosphere in any room.",
+    "description": "This versatile lamp combines durability, comfort, and aesthetic appeal for everyday use.",
+    "details": [
+      "Scratch-resistant finish",
+      "Easy to reposition",
+      "Ideal for reading sessions",
+      "Decorative accent piece",
+      "Energy efficient design"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "240 cm",
+      "weight": "2.0 kg"
+    },
+    "images": [
+      {
+        "full": "/products/1/full/main.jpg",
+        "medium": "/products/1/medium/main.jpg",
+        "thumb": "/products/1/thumb/main.jpg",
+        "lqip": "/products/1/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 10,
+    "modelCode": "LMP-TBL-001",
+    "sku": "LMP-000001",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 5,
+      "averageRating": 3.8,
+      "recommendationPercentage": 80,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 1
+        },
+        {
+          "star": 4,
+          "count": 3
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "name": "Willow Glow Lamp",
+    "slug": "willow-glow-lamp",
+    "categoryId": 1,
+    "price": 6901,
+    "discountPrice": null,
+    "tagline": "A warm glow for work and relaxation.",
+    "shortDescription": "Functional lighting wrapped in elegant design.",
+    "description": "Carefully selected materials and refined detailing create a lighting piece that feels both elegant and approachable.",
+    "details": [
+      "Soft ambient lighting",
+      "Energy efficient design",
+      "Ideal for reading sessions",
+      "Designed for focused task lighting",
+      "Premium craftsmanship",
+      "Easy to reposition"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "200 cm",
+      "weight": "2.5 kg"
+    },
+    "images": [
+      {
+        "full": "/products/2/full/main.jpg",
+        "medium": "/products/2/medium/main.jpg",
+        "thumb": "/products/2/thumb/main.jpg",
+        "lqip": "/products/2/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 32,
+    "modelCode": "LMP-TBL-002",
+    "sku": "LMP-000002",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 9,
+      "averageRating": 3.9,
+      "recommendationPercentage": 78,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 2
+        },
+        {
+          "star": 4,
+          "count": 5
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Luna Reading Lamp",
+    "slug": "luna-reading-lamp",
+    "categoryId": 1,
+    "price": 3152,
+    "discountPrice": null,
+    "tagline": "Create a cozy space, one glow at a time.",
+    "shortDescription": "Stylish illumination for focused work and relaxed evenings.",
+    "description": "Built for modern living, this lamp offers practical lighting performance alongside sophisticated styling.",
+    "details": [
+      "Handmade shade",
+      "Warm atmospheric glow",
+      "Scratch-resistant finish",
+      "Decorative accent piece",
+      "Easy to reposition",
+      "Includes 1 x E26 socket"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": false,
+      "powerCordLength": "225 cm",
+      "weight": "1.4 kg"
+    },
+    "images": [
+      {
+        "full": "/products/3/full/main.jpg",
+        "medium": "/products/3/medium/main.jpg",
+        "thumb": "/products/3/thumb/main.jpg",
+        "lqip": "/products/3/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 39,
+    "modelCode": "LMP-TBL-003",
+    "sku": "LMP-000003",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 9,
+      "averageRating": 4,
+      "recommendationPercentage": 67,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 4
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 2
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "name": "Maple Crest Lamp",
+    "slug": "maple-crest-lamp",
+    "categoryId": 1,
+    "price": 11088,
+    "discountPrice": null,
+    "tagline": "Bright ideas start here.",
+    "shortDescription": "Elegant task lighting with a warm ambient glow.",
+    "description": "Designed for both style and comfort, this lamp provides focused illumination while enhancing the overall atmosphere of your interior.",
+    "details": [
+      "Minimalist modern design",
+      "Ideal for reading sessions",
+      "Energy efficient design",
+      "Designed for everyday use"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "3",
+      "dimmable": true,
+      "powerCordLength": "184 cm",
+      "weight": "1.4 kg"
+    },
+    "images": [
+      {
+        "full": "/products/4/full/main.jpg",
+        "medium": "/products/4/medium/main.jpg",
+        "thumb": "/products/4/thumb/main.jpg",
+        "lqip": "/products/4/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 33,
+    "modelCode": "LMP-TBL-004",
+    "sku": "LMP-000004",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 5,
+      "averageRating": 3.4,
+      "recommendationPercentage": 60,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 1
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 2
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Harbor Light Lamp",
+    "slug": "harbor-light-lamp",
+    "categoryId": 1,
+    "price": 6304,
+    "discountPrice": 5548,
+    "tagline": "Comfortable lighting for everyday living.",
+    "shortDescription": "Balanced proportions and soft light for everyday living.",
+    "description": "Whether used for reading, working, or relaxing, this lamp offers dependable lighting with timeless character.",
+    "details": [
+      "Scratch-resistant finish",
+      "Handmade shade",
+      "Minimalist modern design",
+      "Premium craftsmanship",
+      "Dimmable (with compatible bulb and dimmer)",
+      "Perfect for bedside or desk use"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "2",
+      "dimmable": true,
+      "powerCordLength": "167 cm",
+      "weight": "2.2 kg"
+    },
+    "images": [
+      {
+        "full": "/products/5/full/main.jpg",
+        "medium": "/products/5/medium/main.jpg",
+        "thumb": "/products/5/thumb/main.jpg",
+        "lqip": "/products/5/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 14,
+    "modelCode": "LMP-TBL-005",
+    "sku": "LMP-000005",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 0,
+      "averageRating": 0,
+      "recommendationPercentage": 0,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Golden Hour Lamp",
+    "slug": "golden-hour-lamp",
+    "categoryId": 1,
+    "price": 11675,
+    "discountPrice": null,
+    "tagline": "Light where inspiration begins.",
+    "shortDescription": "A contemporary lamp designed for desks, nightstands, and reading corners.",
+    "description": "Combining modern craftsmanship with practical functionality, this table lamp delivers a warm and inviting glow that complements bedrooms, offices, and living spaces alike.",
+    "details": [
+      "Minimalist modern design",
+      "Includes 1 x E26 socket",
+      "Decorative accent piece",
+      "Designed for focused task lighting"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "190 cm",
+      "weight": "2.5 kg"
+    },
+    "images": [
+      {
+        "full": "/products/6/full/main.jpg",
+        "medium": "/products/6/medium/main.jpg",
+        "thumb": "/products/6/thumb/main.jpg",
+        "lqip": "/products/6/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 26,
+    "modelCode": "LMP-TBL-006",
+    "sku": "LMP-000006",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 10,
+      "averageRating": 4.1,
+      "recommendationPercentage": 90,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 3
+        },
+        {
+          "star": 4,
+          "count": 6
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "name": "Oakridge Table Lamp",
+    "slug": "oakridge-table-lamp",
+    "categoryId": 1,
+    "price": 10786,
+    "discountPrice": 8845,
+    "tagline": "The perfect companion for focused moments.",
+    "shortDescription": "Designed to create a welcoming atmosphere in any room.",
+    "description": "Carefully selected materials and refined detailing create a lighting piece that feels both elegant and approachable.",
+    "details": [
+      "Soft ambient lighting",
+      "Compact footprint",
+      "Designed for everyday use",
+      "Perfect for bedside or desk use",
+      "Energy efficient design"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "3",
+      "dimmable": true,
+      "powerCordLength": "198 cm",
+      "weight": "1.5 kg"
+    },
+    "images": [
+      {
+        "full": "/products/7/full/main.jpg",
+        "medium": "/products/7/medium/main.jpg",
+        "thumb": "/products/7/thumb/main.jpg",
+        "lqip": "/products/7/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 8,
+    "modelCode": "LMP-TBL-007",
+    "sku": "LMP-000007",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 10,
+      "averageRating": 4.2,
+      "recommendationPercentage": 80,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 4
+        },
+        {
+          "star": 4,
+          "count": 4
+        },
+        {
+          "star": 3,
+          "count": 2
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "name": "Riverstone Lamp",
+    "slug": "riverstone-lamp",
+    "categoryId": 1,
+    "price": 6917,
+    "discountPrice": null,
+    "tagline": "Thoughtful illumination for modern spaces.",
+    "shortDescription": "A compact lighting solution for modern interiors.",
+    "description": "Its clean silhouette and thoughtful proportions make it an effortless addition to contemporary and transitional spaces.",
+    "details": [
+      "Low-maintenance materials",
+      "Decorative accent piece",
+      "Includes 1 x E26 socket",
+      "Designed for everyday use",
+      "Handmade shade",
+      "Soft ambient lighting"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "2",
+      "dimmable": true,
+      "powerCordLength": "166 cm",
+      "weight": "2.5 kg"
+    },
+    "images": [
+      {
+        "full": "/products/8/full/main.jpg",
+        "medium": "/products/8/medium/main.jpg",
+        "thumb": "/products/8/thumb/main.jpg",
+        "lqip": "/products/8/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 7,
+    "modelCode": "LMP-TBL-008",
+    "sku": "LMP-000008",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 12,
+      "averageRating": 3.8,
+      "recommendationPercentage": 75,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 3
+        },
+        {
+          "star": 4,
+          "count": 6
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 2
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "name": "Horizon Desk Lamp",
+    "slug": "horizon-desk-lamp",
+    "categoryId": 1,
+    "price": 6888,
+    "discountPrice": null,
+    "tagline": "Bright ideas start here.",
+    "shortDescription": "Functional lighting wrapped in elegant design.",
+    "description": "Combining modern craftsmanship with practical functionality, this table lamp delivers a warm and inviting glow that complements bedrooms, offices, and living spaces alike.",
+    "details": [
+      "Premium fabric shade",
+      "Minimalist modern design",
+      "Ideal for reading sessions",
+      "Perfect for bedside or desk use",
+      "Designed for everyday use"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "2",
+      "dimmable": false,
+      "powerCordLength": "238 cm",
+      "weight": "1.6 kg"
+    },
+    "images": [
+      {
+        "full": "/products/9/full/main.jpg",
+        "medium": "/products/9/medium/main.jpg",
+        "thumb": "/products/9/thumb/main.jpg",
+        "lqip": "/products/9/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 28,
+    "modelCode": "LMP-TBL-009",
+    "sku": "LMP-000009",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 8,
+      "averageRating": 4.5,
+      "recommendationPercentage": 100,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 4
+        },
+        {
+          "star": 4,
+          "count": 4
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "name": "Sienna Glow Lamp",
+    "slug": "sienna-glow-lamp",
+    "categoryId": 1,
+    "price": 5077,
+    "discountPrice": null,
+    "tagline": "Comfortable lighting for everyday living.",
+    "shortDescription": "Designed to create a welcoming atmosphere in any room.",
+    "description": "Crafted to blend seamlessly into a variety of interiors, it delivers soft illumination without overwhelming the space.",
+    "details": [
+      "Handmade shade",
+      "Designed for everyday use",
+      "Premium fabric shade",
+      "Low-maintenance materials",
+      "Suitable for nightstands",
+      "Designed for focused task lighting"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "3",
+      "dimmable": false,
+      "powerCordLength": "248 cm",
+      "weight": "2.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/10/full/main.jpg",
+        "medium": "/products/10/medium/main.jpg",
+        "thumb": "/products/10/thumb/main.jpg",
+        "lqip": "/products/10/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 4,
+    "modelCode": "LMP-TBL-010",
+    "sku": "LMP-000010",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 5,
+      "averageRating": 4.2,
+      "recommendationPercentage": 80,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 2
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "name": "Cedar Point Lamp",
+    "slug": "cedar-point-lamp",
+    "categoryId": 1,
+    "price": 3480,
+    "discountPrice": null,
+    "tagline": "Create a cozy space, one glow at a time.",
+    "shortDescription": "A contemporary lamp designed for desks, nightstands, and reading corners.",
+    "description": "A thoughtfully designed fixture that brings warmth and visual interest to desks, side tables, and bedside settings.",
+    "details": [
+      "Durable metal base",
+      "Easy to reposition",
+      "Dimmable (with compatible bulb and dimmer)",
+      "Low-maintenance materials",
+      "Includes 1 x E26 socket",
+      "Energy efficient design"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "2",
+      "dimmable": true,
+      "powerCordLength": "209 cm",
+      "weight": "2.8 kg"
+    },
+    "images": [
+      {
+        "full": "/products/11/full/main.jpg",
+        "medium": "/products/11/medium/main.jpg",
+        "thumb": "/products/11/thumb/main.jpg",
+        "lqip": "/products/11/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 13,
+    "modelCode": "LMP-TBL-011",
+    "sku": "LMP-000011",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 4,
+      "averageRating": 3.3,
+      "recommendationPercentage": 25,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 1
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 2
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "name": "Morning Mist Lamp",
+    "slug": "morning-mist-lamp",
+    "categoryId": 1,
+    "price": 3641,
+    "discountPrice": 2767,
+    "tagline": "Comfortable lighting for everyday living.",
+    "shortDescription": "Elegant task lighting with a warm ambient glow.",
+    "description": "This versatile lamp combines durability, comfort, and aesthetic appeal for everyday use.",
+    "details": [
+      "Perfect for bedside or desk use",
+      "Durable metal base",
+      "Decorative accent piece",
+      "Designed for everyday use",
+      "Includes 1 x E26 socket",
+      "Easy to reposition",
+      "Premium craftsmanship"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "3",
+      "dimmable": true,
+      "powerCordLength": "246 cm",
+      "weight": "2.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/12/full/main.jpg",
+        "medium": "/products/12/medium/main.jpg",
+        "thumb": "/products/12/thumb/main.jpg",
+        "lqip": "/products/12/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 9,
+    "modelCode": "LMP-TBL-012",
+    "sku": "LMP-000012",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 5,
+      "averageRating": 4.8,
+      "recommendationPercentage": 100,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 4
+        },
+        {
+          "star": 4,
+          "count": 1
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "name": "Elmwood Reading Lamp",
+    "slug": "elmwood-reading-lamp",
+    "categoryId": 1,
+    "price": 3163,
+    "discountPrice": 2499,
+    "tagline": "Comfortable lighting for everyday living.",
+    "shortDescription": "Elegant task lighting with a warm ambient glow.",
+    "description": "Crafted to blend seamlessly into a variety of interiors, it delivers soft illumination without overwhelming the space.",
+    "details": [
+      "Designed for focused task lighting",
+      "Decorative accent piece",
+      "Low-maintenance materials",
+      "Perfect for bedside or desk use",
+      "Includes 1 x E26 socket",
+      "Soft ambient lighting"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": false,
+      "powerCordLength": "188 cm",
+      "weight": "1.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/13/full/main.jpg",
+        "medium": "/products/13/medium/main.jpg",
+        "thumb": "/products/13/thumb/main.jpg",
+        "lqip": "/products/13/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 32,
+    "modelCode": "LMP-TBL-013",
+    "sku": "LMP-000013",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 0,
+      "averageRating": 0,
+      "recommendationPercentage": 0,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "name": "Amber Grove Lamp",
+    "slug": "amber-grove-lamp",
+    "categoryId": 1,
+    "price": 9766,
+    "discountPrice": 8789,
+    "tagline": "Elegant light for your favorite corner.",
+    "shortDescription": "Functional lighting wrapped in elegant design.",
+    "description": "A thoughtfully designed fixture that brings warmth and visual interest to desks, side tables, and bedside settings.",
+    "details": [
+      "Decorative accent piece",
+      "Designed for focused task lighting",
+      "Ideal for reading sessions",
+      "Durable metal base",
+      "Premium craftsmanship"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": false,
+      "powerCordLength": "158 cm",
+      "weight": "1.9 kg"
+    },
+    "images": [
+      {
+        "full": "/products/14/full/main.jpg",
+        "medium": "/products/14/medium/main.jpg",
+        "thumb": "/products/14/thumb/main.jpg",
+        "lqip": "/products/14/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 38,
+    "modelCode": "LMP-TBL-014",
+    "sku": "LMP-000014",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 11,
+      "averageRating": 4,
+      "recommendationPercentage": 73,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 5
+        },
+        {
+          "star": 4,
+          "count": 3
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 2
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "name": "Northstar Lamp",
+    "slug": "northstar-lamp",
+    "categoryId": 1,
+    "price": 5587,
+    "discountPrice": 4246,
+    "tagline": "Comfortable lighting for everyday living.",
+    "shortDescription": "Functional lighting wrapped in elegant design.",
+    "description": "Crafted to blend seamlessly into a variety of interiors, it delivers soft illumination without overwhelming the space.",
+    "details": [
+      "Perfect for bedside or desk use",
+      "Durable metal base",
+      "Low-maintenance materials",
+      "Premium craftsmanship",
+      "Soft ambient lighting",
+      "Dimmable (with compatible bulb and dimmer)"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "2",
+      "dimmable": true,
+      "powerCordLength": "241 cm",
+      "weight": "3.0 kg"
+    },
+    "images": [
+      {
+        "full": "/products/15/full/main.jpg",
+        "medium": "/products/15/medium/main.jpg",
+        "thumb": "/products/15/thumb/main.jpg",
+        "lqip": "/products/15/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 2,
+    "modelCode": "LMP-TBL-015",
+    "sku": "LMP-000015",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 4,
+      "averageRating": 3.3,
+      "recommendationPercentage": 50,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "name": "Cloudline Lamp",
+    "slug": "cloudline-lamp",
+    "categoryId": 1,
+    "price": 10983,
+    "discountPrice": null,
+    "tagline": "Elegant light for your favorite corner.",
+    "shortDescription": "A compact lighting solution for modern interiors.",
+    "description": "Its clean silhouette and thoughtful proportions make it an effortless addition to contemporary and transitional spaces.",
+    "details": [
+      "Designed for everyday use",
+      "Designed for focused task lighting",
+      "Handmade shade",
+      "Soft ambient lighting",
+      "Premium craftsmanship",
+      "Minimalist modern design"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "2",
+      "dimmable": false,
+      "powerCordLength": "241 cm",
+      "weight": "1.7 kg"
+    },
+    "images": [
+      {
+        "full": "/products/16/full/main.jpg",
+        "medium": "/products/16/medium/main.jpg",
+        "thumb": "/products/16/thumb/main.jpg",
+        "lqip": "/products/16/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 23,
+    "modelCode": "LMP-TBL-016",
+    "sku": "LMP-000016",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 8,
+      "averageRating": 4,
+      "recommendationPercentage": 63,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 5
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 2
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "name": "Evergreen Desk Lamp",
+    "slug": "evergreen-desk-lamp",
+    "categoryId": 1,
+    "price": 11001,
+    "discountPrice": null,
+    "tagline": "Bright ideas start here.",
+    "shortDescription": "A modern accent lamp with timeless appeal.",
+    "description": "Built for modern living, this lamp offers practical lighting performance alongside sophisticated styling.",
+    "details": [
+      "Handmade shade",
+      "Premium craftsmanship",
+      "Compact footprint",
+      "Ideal for reading sessions",
+      "Dimmable (with compatible bulb and dimmer)",
+      "Energy efficient design",
+      "Warm atmospheric glow"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "190 cm",
+      "weight": "1.3 kg"
+    },
+    "images": [
+      {
+        "full": "/products/17/full/main.jpg",
+        "medium": "/products/17/medium/main.jpg",
+        "thumb": "/products/17/thumb/main.jpg",
+        "lqip": "/products/17/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 15,
+    "modelCode": "LMP-TBL-017",
+    "sku": "LMP-000017",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 12,
+      "averageRating": 4,
+      "recommendationPercentage": 75,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 4
+        },
+        {
+          "star": 4,
+          "count": 5
+        },
+        {
+          "star": 3,
+          "count": 2
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "name": "Sunset Bay Lamp",
+    "slug": "sunset-bay-lamp",
+    "categoryId": 1,
+    "price": 5134,
+    "discountPrice": null,
+    "tagline": "The perfect companion for focused moments.",
+    "shortDescription": "Stylish illumination for focused work and relaxed evenings.",
+    "description": "A thoughtfully designed fixture that brings warmth and visual interest to desks, side tables, and bedside settings.",
+    "details": [
+      "Handmade shade",
+      "Premium craftsmanship",
+      "Perfect for bedside or desk use",
+      "Minimalist modern design",
+      "Energy efficient design",
+      "Dimmable (with compatible bulb and dimmer)",
+      "Soft ambient lighting"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "2",
+      "dimmable": true,
+      "powerCordLength": "166 cm",
+      "weight": "2.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/18/full/main.jpg",
+        "medium": "/products/18/medium/main.jpg",
+        "thumb": "/products/18/thumb/main.jpg",
+        "lqip": "/products/18/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 18,
+    "modelCode": "LMP-TBL-018",
+    "sku": "LMP-000018",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 12,
+      "averageRating": 4.3,
+      "recommendationPercentage": 92,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 6
+        },
+        {
+          "star": 4,
+          "count": 5
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "name": "Aspen Glow Lamp",
+    "slug": "aspen-glow-lamp",
+    "categoryId": 1,
+    "price": 5742,
+    "discountPrice": 4708,
+    "tagline": "The perfect companion for focused moments.",
+    "shortDescription": "A modern accent lamp with timeless appeal.",
+    "description": "This versatile lamp combines durability, comfort, and aesthetic appeal for everyday use.",
+    "details": [
+      "Warm atmospheric glow",
+      "Designed for everyday use",
+      "Durable metal base",
+      "Includes 1 x E26 socket",
+      "Suitable for nightstands"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "1",
+      "dimmable": false,
+      "powerCordLength": "181 cm",
+      "weight": "1.8 kg"
+    },
+    "images": [
+      {
+        "full": "/products/19/full/main.jpg",
+        "medium": "/products/19/medium/main.jpg",
+        "thumb": "/products/19/thumb/main.jpg",
+        "lqip": "/products/19/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 23,
+    "modelCode": "LMP-TBL-019",
+    "sku": "LMP-000019",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 5,
+      "averageRating": 3.2,
+      "recommendationPercentage": 60,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 3
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 2
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "name": "Driftwood Table Lamp",
+    "slug": "driftwood-table-lamp",
+    "categoryId": 1,
+    "price": 11762,
+    "discountPrice": 9057,
+    "tagline": "Thoughtful illumination for modern spaces.",
+    "shortDescription": "A contemporary lamp designed for desks, nightstands, and reading corners.",
+    "description": "Designed for both style and comfort, this lamp provides focused illumination while enhancing the overall atmosphere of your interior.",
+    "details": [
+      "Premium fabric shade",
+      "Handmade shade",
+      "Low-maintenance materials",
+      "Energy efficient design",
+      "Premium craftsmanship",
+      "Scratch-resistant finish"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "243 cm",
+      "weight": "1.2 kg"
+    },
+    "images": [
+      {
+        "full": "/products/20/full/main.jpg",
+        "medium": "/products/20/medium/main.jpg",
+        "thumb": "/products/20/thumb/main.jpg",
+        "lqip": "/products/20/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 25,
+    "modelCode": "LMP-TBL-020",
+    "sku": "LMP-000020",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 8,
+      "averageRating": 4,
+      "recommendationPercentage": 75,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 3
+        },
+        {
+          "star": 4,
+          "count": 3
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "name": "Summit Floor Lamp",
+    "slug": "summit-floor-lamp",
+    "categoryId": 2,
+    "price": 13611,
+    "discountPrice": null,
+    "tagline": "Tall on presence, gentle on the eyes.",
+    "shortDescription": "A statement floor lamp designed to brighten living spaces with ease.",
+    "description": "Carefully crafted to complement modern interiors, it provides comfortable ambient light without overwhelming the space.",
+    "details": [
+      "Stable weighted base",
+      "Built for larger spaces",
+      "Elegant architectural silhouette",
+      "Premium craftsmanship",
+      "Contemporary styling",
+      "Decorative statement piece",
+      "Durable metal construction"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "4",
+      "dimmable": true,
+      "powerCordLength": "233 cm",
+      "weight": "4.0 kg"
+    },
+    "images": [
+      {
+        "full": "/products/21/full/main.jpg",
+        "medium": "/products/21/medium/main.jpg",
+        "thumb": "/products/21/thumb/main.jpg",
+        "lqip": "/products/21/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 29,
+    "modelCode": "LMP-FLR-021",
+    "sku": "LMP-000021",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 0,
+      "averageRating": 0,
+      "recommendationPercentage": 0,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "name": "Brookside Floor Lamp",
+    "slug": "brookside-floor-lamp",
+    "categoryId": 2,
+    "price": 12579,
+    "discountPrice": null,
+    "tagline": "Elevate your room with effortless light.",
+    "shortDescription": "Adds height, warmth, and atmosphere to any room.",
+    "description": "Combining functional lighting with contemporary styling, this floor lamp creates a warm and welcoming environment throughout the home.",
+    "details": [
+      "Perfect for reading corners",
+      "Durable metal construction",
+      "Creates a welcoming atmosphere",
+      "Stable weighted base",
+      "Premium craftsmanship",
+      "Designed for everyday use"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "203 cm",
+      "weight": "3.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/22/full/main.jpg",
+        "medium": "/products/22/medium/main.jpg",
+        "thumb": "/products/22/thumb/main.jpg",
+        "lqip": "/products/22/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": false,
+    "stockQuantity": 13,
+    "modelCode": "LMP-FLR-022",
+    "sku": "LMP-000022",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 6,
+      "averageRating": 4.3,
+      "recommendationPercentage": 83,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 3
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "name": "Horizon Arc Lamp",
+    "slug": "horizon-arc-lamp",
+    "categoryId": 2,
+    "price": 11282,
+    "discountPrice": null,
+    "tagline": "Comfort, style, and illumination in one.",
+    "shortDescription": "Adds height, warmth, and atmosphere to any room.",
+    "description": "Its tall profile and balanced proportions make it ideal for living rooms, reading nooks, bedrooms, and open-plan interiors.",
+    "details": [
+      "Stable weighted base",
+      "Perfect for reading corners",
+      "Tall freestanding design",
+      "Provides room-filling illumination",
+      "Decorative statement piece",
+      "Premium craftsmanship",
+      "Ideal beside sofas and armchairs"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": false,
+      "powerCordLength": "212 cm",
+      "weight": "6.0 kg"
+    },
+    "images": [
+      {
+        "full": "/products/23/full/main.jpg",
+        "medium": "/products/23/medium/main.jpg",
+        "thumb": "/products/23/thumb/main.jpg",
+        "lqip": "/products/23/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 38,
+    "modelCode": "LMP-FLR-023",
+    "sku": "LMP-000023",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 5,
+      "averageRating": 4.6,
+      "recommendationPercentage": 80,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 4
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "name": "Crescent Floor Lamp",
+    "slug": "crescent-floor-lamp",
+    "categoryId": 2,
+    "price": 9728,
+    "discountPrice": null,
+    "tagline": "The finishing touch your space deserves.",
+    "shortDescription": "Soft ambient lighting with a refined architectural presence.",
+    "description": "Created to blend seamlessly into a variety of interior styles, it adds warmth, height, and visual interest wherever it is placed.",
+    "details": [
+      "Ideal beside sofas and armchairs",
+      "Warm ambient room lighting",
+      "Built for larger spaces",
+      "Elegant architectural silhouette",
+      "Easy to assemble",
+      "Durable metal construction",
+      "Energy efficient design"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "4",
+      "dimmable": false,
+      "powerCordLength": "283 cm",
+      "weight": "4.9 kg"
+    },
+    "images": [
+      {
+        "full": "/products/24/full/main.jpg",
+        "medium": "/products/24/medium/main.jpg",
+        "thumb": "/products/24/thumb/main.jpg",
+        "lqip": "/products/24/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 31,
+    "modelCode": "LMP-FLR-024",
+    "sku": "LMP-000024",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 4,
+      "averageRating": 3.5,
+      "recommendationPercentage": 50,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 1
+        },
+        {
+          "star": 4,
+          "count": 1
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "name": "Northfield Floor Lamp",
+    "slug": "northfield-floor-lamp",
+    "categoryId": 2,
+    "price": 16587,
+    "discountPrice": null,
+    "tagline": "Create atmosphere from the ground up.",
+    "shortDescription": "Perfect for creating cozy corners and inviting living spaces.",
+    "description": "The combination of durable materials and elegant detailing results in a floor lamp that feels both practical and luxurious.",
+    "details": [
+      "Premium craftsmanship",
+      "Stable weighted base",
+      "Warm ambient room lighting",
+      "Suitable for living rooms and lounges",
+      "Elegant architectural silhouette",
+      "Contemporary styling"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "2",
+      "dimmable": true,
+      "powerCordLength": "250 cm",
+      "weight": "4.7 kg"
+    },
+    "images": [
+      {
+        "full": "/products/25/full/main.jpg",
+        "medium": "/products/25/medium/main.jpg",
+        "thumb": "/products/25/thumb/main.jpg",
+        "lqip": "/products/25/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": false,
+    "stockQuantity": 19,
+    "modelCode": "LMP-FLR-025",
+    "sku": "LMP-000025",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 3,
+      "averageRating": 3.7,
+      "recommendationPercentage": 67,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "name": "Elm Ridge Floor Lamp",
+    "slug": "elm-ridge-floor-lamp",
+    "categoryId": 2,
+    "price": 6569,
+    "discountPrice": null,
+    "tagline": "Where ambient lighting meets modern design.",
+    "shortDescription": "Perfect for creating cozy corners and inviting living spaces.",
+    "description": "The thoughtful design allows it to function as both a lighting solution and a visual focal point within the room.",
+    "details": [
+      "Premium craftsmanship",
+      "Decorative statement piece",
+      "Durable metal construction",
+      "Stable weighted base",
+      "Tall freestanding design"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "2",
+      "dimmable": true,
+      "powerCordLength": "316 cm",
+      "weight": "5.3 kg"
+    },
+    "images": [
+      {
+        "full": "/products/26/full/main.jpg",
+        "medium": "/products/26/medium/main.jpg",
+        "thumb": "/products/26/thumb/main.jpg",
+        "lqip": "/products/26/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 5,
+    "modelCode": "LMP-FLR-026",
+    "sku": "LMP-000026",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 7,
+      "averageRating": 3.9,
+      "recommendationPercentage": 57,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 2
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 3
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "name": "Harbor Arc Lamp",
+    "slug": "harbor-arc-lamp",
+    "categoryId": 2,
+    "price": 10117,
+    "discountPrice": null,
+    "tagline": "Elevate your room with effortless light.",
+    "shortDescription": "A stylish floor lamp that enhances both form and function.",
+    "description": "Its refined silhouette and soft lighting characteristics make it a natural fit for relaxed evenings and comfortable living spaces.",
+    "details": [
+      "Ideal beside sofas and armchairs",
+      "Premium craftsmanship",
+      "Suitable for living rooms and lounges",
+      "Scratch-resistant finish",
+      "Provides room-filling illumination",
+      "Durable metal construction",
+      "Warm ambient room lighting"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": false,
+      "powerCordLength": "214 cm",
+      "weight": "7.0 kg"
+    },
+    "images": [
+      {
+        "full": "/products/27/full/main.jpg",
+        "medium": "/products/27/medium/main.jpg",
+        "thumb": "/products/27/thumb/main.jpg",
+        "lqip": "/products/27/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 20,
+    "modelCode": "LMP-FLR-027",
+    "sku": "LMP-000027",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 4,
+      "averageRating": 3.8,
+      "recommendationPercentage": 75,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 1
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "name": "Meadow Glow Floor Lamp",
+    "slug": "meadow-glow-floor-lamp",
+    "categoryId": 2,
+    "price": 6132,
+    "discountPrice": null,
+    "tagline": "A statement piece that shines day and night.",
+    "shortDescription": "A statement floor lamp designed to brighten living spaces with ease.",
+    "description": "The thoughtful design allows it to function as both a lighting solution and a visual focal point within the room.",
+    "details": [
+      "Premium craftsmanship",
+      "Built for larger spaces",
+      "Durable metal construction",
+      "Ideal beside sofas and armchairs",
+      "Easy to assemble",
+      "Perfect for reading corners",
+      "Designed for everyday use"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "4",
+      "dimmable": false,
+      "powerCordLength": "283 cm",
+      "weight": "3.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/28/full/main.jpg",
+        "medium": "/products/28/medium/main.jpg",
+        "thumb": "/products/28/thumb/main.jpg",
+        "lqip": "/products/28/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 37,
+    "modelCode": "LMP-FLR-028",
+    "sku": "LMP-000028",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 5,
+      "averageRating": 4,
+      "recommendationPercentage": 60,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 2
+        },
+        {
+          "star": 4,
+          "count": 1
+        },
+        {
+          "star": 3,
+          "count": 2
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "name": "Sierra Floor Lamp",
+    "slug": "sierra-floor-lamp",
+    "categoryId": 2,
+    "price": 8056,
+    "discountPrice": 6928,
+    "tagline": "Elevate your room with effortless light.",
+    "shortDescription": "A versatile lighting solution for contemporary interiors.",
+    "description": "Built for everyday living, this floor lamp offers dependable illumination alongside timeless aesthetic appeal.",
+    "details": [
+      "Stable weighted base",
+      "Soft indirect illumination",
+      "Creates a welcoming atmosphere",
+      "Elegant architectural silhouette",
+      "Durable metal construction",
+      "Suitable for living rooms and lounges"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "310 cm",
+      "weight": "7.3 kg"
+    },
+    "images": [
+      {
+        "full": "/products/29/full/main.jpg",
+        "medium": "/products/29/medium/main.jpg",
+        "thumb": "/products/29/thumb/main.jpg",
+        "lqip": "/products/29/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 3,
+    "modelCode": "LMP-FLR-029",
+    "sku": "LMP-000029",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 5,
+      "averageRating": 4.2,
+      "recommendationPercentage": 80,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 3
+        },
+        {
+          "star": 4,
+          "count": 1
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "name": "Oak Haven Lamp",
+    "slug": "oak-haven-lamp",
+    "categoryId": 2,
+    "price": 13966,
+    "discountPrice": null,
+    "tagline": "Lighting that transforms the entire room.",
+    "shortDescription": "Designed to bring warmth and visual balance to larger spaces.",
+    "description": "Carefully crafted to complement modern interiors, it provides comfortable ambient light without overwhelming the space.",
+    "details": [
+      "Ideal beside sofas and armchairs",
+      "Premium craftsmanship",
+      "Energy efficient design",
+      "Durable metal construction",
+      "Perfect for reading corners",
+      "Soft indirect illumination",
+      "Suitable for living rooms and lounges"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "4",
+      "dimmable": true,
+      "powerCordLength": "298 cm",
+      "weight": "5.6 kg"
+    },
+    "images": [
+      {
+        "full": "/products/30/full/main.jpg",
+        "medium": "/products/30/medium/main.jpg",
+        "thumb": "/products/30/thumb/main.jpg",
+        "lqip": "/products/30/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 31,
+    "modelCode": "LMP-FLR-030",
+    "sku": "LMP-000030",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 0,
+      "averageRating": 0,
+      "recommendationPercentage": 0,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "name": "Riverbend Floor Lamp",
+    "slug": "riverbend-floor-lamp",
+    "categoryId": 2,
+    "price": 13346,
+    "discountPrice": null,
+    "tagline": "Bring warmth to every corner.",
+    "shortDescription": "A stylish floor lamp that enhances both form and function.",
+    "description": "Carefully crafted to complement modern interiors, it provides comfortable ambient light without overwhelming the space.",
+    "details": [
+      "Energy efficient design",
+      "Stable weighted base",
+      "Built for larger spaces",
+      "Creates a welcoming atmosphere",
+      "Tall freestanding design",
+      "Premium craftsmanship",
+      "Durable metal construction",
+      "Designed for everyday use"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "2",
+      "dimmable": true,
+      "powerCordLength": "209 cm",
+      "weight": "7.2 kg"
+    },
+    "images": [
+      {
+        "full": "/products/31/full/main.jpg",
+        "medium": "/products/31/medium/main.jpg",
+        "thumb": "/products/31/thumb/main.jpg",
+        "lqip": "/products/31/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 30,
+    "modelCode": "LMP-FLR-031",
+    "sku": "LMP-000031",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 10,
+      "averageRating": 4.4,
+      "recommendationPercentage": 90,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 5
+        },
+        {
+          "star": 4,
+          "count": 4
+        },
+        {
+          "star": 3,
+          "count": 1
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "name": "Golden Meadow Lamp",
+    "slug": "golden-meadow-lamp",
+    "categoryId": 2,
+    "price": 17754,
+    "discountPrice": 13848,
+    "tagline": "The finishing touch your space deserves.",
+    "shortDescription": "Soft ambient lighting with a refined architectural presence.",
+    "description": "Carefully crafted to complement modern interiors, it provides comfortable ambient light without overwhelming the space.",
+    "details": [
+      "Ideal beside sofas and armchairs",
+      "Provides room-filling illumination",
+      "Creates a welcoming atmosphere",
+      "Elegant architectural silhouette",
+      "Premium fabric shade",
+      "Suitable for living rooms and lounges"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "4",
+      "dimmable": true,
+      "powerCordLength": "188 cm",
+      "weight": "7.8 kg"
+    },
+    "images": [
+      {
+        "full": "/products/32/full/main.jpg",
+        "medium": "/products/32/medium/main.jpg",
+        "thumb": "/products/32/thumb/main.jpg",
+        "lqip": "/products/32/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 5,
+    "modelCode": "LMP-FLR-032",
+    "sku": "LMP-000032",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 12,
+      "averageRating": 4.1,
+      "recommendationPercentage": 75,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 5
+        },
+        {
+          "star": 4,
+          "count": 4
+        },
+        {
+          "star": 3,
+          "count": 2
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 33,
+    "name": "Everlight Floor Lamp",
+    "slug": "everlight-floor-lamp",
+    "categoryId": 2,
+    "price": 6907,
+    "discountPrice": null,
+    "tagline": "Create atmosphere from the ground up.",
+    "shortDescription": "A versatile lighting solution for contemporary interiors.",
+    "description": "Its refined silhouette and soft lighting characteristics make it a natural fit for relaxed evenings and comfortable living spaces.",
+    "details": [
+      "Scratch-resistant finish",
+      "Creates a welcoming atmosphere",
+      "Stable weighted base",
+      "Warm ambient room lighting",
+      "Built for larger spaces",
+      "Durable metal construction",
+      "Provides room-filling illumination"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "3",
+      "dimmable": true,
+      "powerCordLength": "191 cm",
+      "weight": "8.0 kg"
+    },
+    "images": [
+      {
+        "full": "/products/33/full/main.jpg",
+        "medium": "/products/33/medium/main.jpg",
+        "thumb": "/products/33/thumb/main.jpg",
+        "lqip": "/products/33/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 25,
+    "modelCode": "LMP-FLR-033",
+    "sku": "LMP-000033",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 0,
+      "averageRating": 0,
+      "recommendationPercentage": 0,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 34,
+    "name": "Aspen Ridge Lamp",
+    "slug": "aspen-ridge-lamp",
+    "categoryId": 2,
+    "price": 13330,
+    "discountPrice": null,
+    "tagline": "Where ambient lighting meets modern design.",
+    "shortDescription": "Designed to bring warmth and visual balance to larger spaces.",
+    "description": "Designed to elevate the atmosphere of larger rooms, this floor lamp delivers generous illumination while serving as a sophisticated decorative feature.",
+    "details": [
+      "Stable weighted base",
+      "Suitable for living rooms and lounges",
+      "Soft indirect illumination",
+      "Designed for everyday use",
+      "Ideal beside sofas and armchairs",
+      "Premium craftsmanship",
+      "Warm ambient room lighting"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "242 cm",
+      "weight": "6.7 kg"
+    },
+    "images": [
+      {
+        "full": "/products/34/full/main.jpg",
+        "medium": "/products/34/medium/main.jpg",
+        "thumb": "/products/34/thumb/main.jpg",
+        "lqip": "/products/34/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 14,
+    "modelCode": "LMP-FLR-034",
+    "sku": "LMP-000034",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 0,
+      "averageRating": 0,
+      "recommendationPercentage": 0,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 35,
+    "name": "Moonstone Floor Lamp",
+    "slug": "moonstone-floor-lamp",
+    "categoryId": 2,
+    "price": 6469,
+    "discountPrice": 5046,
+    "tagline": "Elevate your room with effortless light.",
+    "shortDescription": "Perfect for creating cozy corners and inviting living spaces.",
+    "description": "The combination of durable materials and elegant detailing results in a floor lamp that feels both practical and luxurious.",
+    "details": [
+      "Suitable for living rooms and lounges",
+      "Stable weighted base",
+      "Soft indirect illumination",
+      "Scratch-resistant finish",
+      "Provides room-filling illumination",
+      "Perfect for reading corners",
+      "Ideal beside sofas and armchairs"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "289 cm",
+      "weight": "4.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/35/full/main.jpg",
+        "medium": "/products/35/medium/main.jpg",
+        "thumb": "/products/35/thumb/main.jpg",
+        "lqip": "/products/35/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": true,
+    "stockQuantity": 22,
+    "modelCode": "LMP-FLR-035",
+    "sku": "LMP-000035",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 10,
+      "averageRating": 4.1,
+      "recommendationPercentage": 80,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 5
+        },
+        {
+          "star": 4,
+          "count": 3
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 2
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 36,
+    "name": "Canyon Arc Lamp",
+    "slug": "canyon-arc-lamp",
+    "categoryId": 2,
+    "price": 8792,
+    "discountPrice": 7561,
+    "tagline": "Bring warmth to every corner.",
+    "shortDescription": "A statement floor lamp designed to brighten living spaces with ease.",
+    "description": "Built for everyday living, this floor lamp offers dependable illumination alongside timeless aesthetic appeal.",
+    "details": [
+      "Durable metal construction",
+      "Suitable for living rooms and lounges",
+      "Contemporary styling",
+      "Ideal beside sofas and armchairs",
+      "Warm ambient room lighting",
+      "Provides room-filling illumination",
+      "Tall freestanding design",
+      "Stable weighted base"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "3",
+      "dimmable": false,
+      "powerCordLength": "207 cm",
+      "weight": "7.3 kg"
+    },
+    "images": [
+      {
+        "full": "/products/36/full/main.jpg",
+        "medium": "/products/36/medium/main.jpg",
+        "thumb": "/products/36/thumb/main.jpg",
+        "lqip": "/products/36/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": true,
+    "stockQuantity": 7,
+    "modelCode": "LMP-FLR-036",
+    "sku": "LMP-000036",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 12,
+      "averageRating": 3.8,
+      "recommendationPercentage": 67,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 3
+        },
+        {
+          "star": 4,
+          "count": 5
+        },
+        {
+          "star": 3,
+          "count": 3
+        },
+        {
+          "star": 2,
+          "count": 1
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "name": "Willow Peak Lamp",
+    "slug": "willow-peak-lamp",
+    "categoryId": 2,
+    "price": 7066,
+    "discountPrice": null,
+    "tagline": "Tall on presence, gentle on the eyes.",
+    "shortDescription": "Elegant ambient lighting for lounges, bedrooms, and reading corners.",
+    "description": "Carefully crafted to complement modern interiors, it provides comfortable ambient light without overwhelming the space.",
+    "details": [
+      "Decorative statement piece",
+      "Provides room-filling illumination",
+      "Tall freestanding design",
+      "Energy efficient design",
+      "Durable metal construction"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "1",
+      "dimmable": false,
+      "powerCordLength": "187 cm",
+      "weight": "4.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/37/full/main.jpg",
+        "medium": "/products/37/medium/main.jpg",
+        "thumb": "/products/37/thumb/main.jpg",
+        "lqip": "/products/37/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": false,
+    "stockQuantity": 26,
+    "modelCode": "LMP-FLR-037",
+    "sku": "LMP-000037",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 0,
+      "averageRating": 0,
+      "recommendationPercentage": 0,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 0
+        },
+        {
+          "star": 4,
+          "count": 0
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "name": "Driftwood Floor Lamp",
+    "slug": "driftwood-floor-lamp",
+    "categoryId": 2,
+    "price": 12545,
+    "discountPrice": null,
+    "tagline": "Tall on presence, gentle on the eyes.",
+    "shortDescription": "Designed to bring warmth and visual balance to larger spaces.",
+    "description": "Its tall profile and balanced proportions make it ideal for living rooms, reading nooks, bedrooms, and open-plan interiors.",
+    "details": [
+      "Suitable for living rooms and lounges",
+      "Tall freestanding design",
+      "Creates a welcoming atmosphere",
+      "Energy efficient design",
+      "Ideal beside sofas and armchairs",
+      "Perfect for reading corners",
+      "Easy to assemble"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "No",
+      "bulbCount": "1",
+      "dimmable": true,
+      "powerCordLength": "258 cm",
+      "weight": "3.1 kg"
+    },
+    "images": [
+      {
+        "full": "/products/38/full/main.jpg",
+        "medium": "/products/38/medium/main.jpg",
+        "thumb": "/products/38/thumb/main.jpg",
+        "lqip": "/products/38/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 31,
+    "modelCode": "LMP-FLR-038",
+    "sku": "LMP-000038",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 3,
+      "averageRating": 4.7,
+      "recommendationPercentage": 100,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 2
+        },
+        {
+          "star": 4,
+          "count": 1
+        },
+        {
+          "star": 3,
+          "count": 0
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "name": "Sunrise Tower Lamp",
+    "slug": "sunrise-tower-lamp",
+    "categoryId": 2,
+    "price": 7893,
+    "discountPrice": null,
+    "tagline": "Bring warmth to every corner.",
+    "shortDescription": "Designed to provide comfortable room-filling illumination.",
+    "description": "Carefully crafted to complement modern interiors, it provides comfortable ambient light without overwhelming the space.",
+    "details": [
+      "Easy to assemble",
+      "Suitable for living rooms and lounges",
+      "Decorative statement piece",
+      "Premium craftsmanship",
+      "Designed for everyday use",
+      "Elegant architectural silhouette",
+      "Ideal beside sofas and armchairs",
+      "Durable metal construction"
+    ],
+    "specs": {
+      "bulbType": "E27",
+      "bulbsIncluded": "No",
+      "bulbCount": "3",
+      "dimmable": true,
+      "powerCordLength": "301 cm",
+      "weight": "4.5 kg"
+    },
+    "images": [
+      {
+        "full": "/products/39/full/main.jpg",
+        "medium": "/products/39/medium/main.jpg",
+        "thumb": "/products/39/thumb/main.jpg",
+        "lqip": "/products/39/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": true,
+    "isNew": false,
+    "stockQuantity": 23,
+    "modelCode": "LMP-FLR-039",
+    "sku": "LMP-000039",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 11,
+      "averageRating": 4.1,
+      "recommendationPercentage": 82,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 3
+        },
+        {
+          "star": 4,
+          "count": 6
+        },
+        {
+          "star": 3,
+          "count": 2
+        },
+        {
+          "star": 2,
+          "count": 0
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": 40,
+    "name": "Lakeside Floor Lamp",
+    "slug": "lakeside-floor-lamp",
+    "categoryId": 2,
+    "price": 17391,
+    "discountPrice": 13739,
+    "tagline": "Elevate your room with effortless light.",
+    "shortDescription": "Elegant ambient lighting for lounges, bedrooms, and reading corners.",
+    "description": "The combination of durable materials and elegant detailing results in a floor lamp that feels both practical and luxurious.",
+    "details": [
+      "Designed for everyday use",
+      "Ideal beside sofas and armchairs",
+      "Energy efficient design",
+      "Stable weighted base",
+      "Contemporary styling",
+      "Warm ambient room lighting",
+      "Durable metal construction"
+    ],
+    "specs": {
+      "bulbType": "E26",
+      "bulbsIncluded": "Yes",
+      "bulbCount": "2",
+      "dimmable": false,
+      "powerCordLength": "261 cm",
+      "weight": "6.4 kg"
+    },
+    "images": [
+      {
+        "full": "/products/40/full/main.jpg",
+        "medium": "/products/40/medium/main.jpg",
+        "thumb": "/products/40/thumb/main.jpg",
+        "lqip": "/products/40/lqip/main.jpg",
+        "alt": "Primary product image",
+        "isPrimary": true,
+        "order": 1
+      }
+    ],
+    "isFeatured": false,
+    "isNew": false,
+    "stockQuantity": 23,
+    "modelCode": "LMP-FLR-040",
+    "sku": "LMP-000040",
+    "status": "live",
+    "reviewsMeta": {
+      "count": 11,
+      "averageRating": 3.9,
+      "recommendationPercentage": 64,
+      "distributions": [
+        {
+          "star": 5,
+          "count": 5
+        },
+        {
+          "star": 4,
+          "count": 2
+        },
+        {
+          "star": 3,
+          "count": 2
+        },
+        {
+          "star": 2,
+          "count": 2
+        },
+        {
+          "star": 1,
+          "count": 0
+        }
+      ]
+    }
+  }
+]
