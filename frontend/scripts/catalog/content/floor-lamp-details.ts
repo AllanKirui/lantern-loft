@@ -1,0 +1,22 @@
+export const floorLampDetails = [
+  "Stable weighted base",
+  "Tall freestanding design",
+  "Provides room-filling illumination",
+  "Ideal beside sofas and armchairs",
+  "Suitable for living rooms and lounges",
+  "Elegant architectural silhouette",
+  "Premium fabric shade",
+  "Warm ambient room lighting",
+  "Easy to assemble",
+  "Energy efficient design",
+  "Scratch-resistant finish",
+  "Built for larger spaces",
+  "Soft indirect illumination",
+  "Decorative statement piece",
+  "Durable metal construction",
+  "Perfect for reading corners",
+  "Premium craftsmanship",
+  "Designed for everyday use",
+  "Contemporary styling",
+  "Creates a welcoming atmosphere"
+]

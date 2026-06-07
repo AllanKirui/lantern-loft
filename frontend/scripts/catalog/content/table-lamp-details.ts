@@ -1,0 +1,22 @@
+export const tableLampDetails = [
+  "Handmade shade",
+  "Perfect for bedside or desk use",
+  "Compact footprint",
+  "Soft ambient lighting",
+  "Ideal for reading sessions",
+  "Premium fabric shade",
+  "Easy to reposition",
+  "Minimalist modern design",
+  "Warm atmospheric glow",
+  "Designed for focused task lighting",
+  "Suitable for nightstands",
+  "Decorative accent piece",
+  "Scratch-resistant finish",
+  "Low-maintenance materials",
+  "Durable metal base",
+  "Energy efficient design",
+  "Premium craftsmanship",
+  "Includes 1 x E26 socket",
+  "Dimmable (with compatible bulb and dimmer)",
+  "Designed for everyday use"
+]
