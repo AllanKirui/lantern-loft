@@ -1,0 +1,12 @@
+export const categories = [
+  {
+    id: 1,
+    name: "Table Lamps",
+    slug: "table-lamps"
+  },
+  {
+    id: 2,
+    name: "Floor Lamps",
+    slug: "floor-lamps"
+  }
+]
