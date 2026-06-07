@@ -1,55 +1,5 @@
-import apiClient from "./api"
-import type {
-  LaravelApiResource,
-  LaravelApiCollection,
-  LaravelPaginatedResponse
-} from "@/types/api/laravel"
+// Replace API endpoints with ProductRepository
 
-import type {
-  ProductCardBase,
-  ProductCardExtended,
-  ProductFilters,
-  Product
-} from "@/types/products"
+import { productRepository } from "@/repositories/ProductRepository"
 
-export const productService = {
-  async fetchAll(params: Record<string, any>) {
-    const res = await apiClient.get<
-      LaravelPaginatedResponse<ProductCardExtended>
-    >("/products", { params })
-    return res.data
-  },
-
-  async fetchBySlug(slug: string) {
-    const res = await apiClient.get<LaravelApiResource<Product>>(
-      `/products/${slug}`
-    )
-    return res.data.data
-  },
-
-  async fetchNewArrivals() {
-    const res = await apiClient.get<LaravelApiCollection<ProductCardBase>>(
-      "/products/new-arrivals"
-    )
-    return res.data.data
-  },
-
-  async fetchFeatured() {
-    const res = await apiClient.get<LaravelApiCollection<ProductCardExtended>>(
-      "/products/featured"
-    )
-    return res.data.data
-  },
-
-  async fetchRecommended(slug: string) {
-    const res = await apiClient.get<LaravelApiCollection<ProductCardExtended>>(
-      `/products/${slug}/recommended`
-    )
-    return res.data.data
-  },
-
-  async fetchFilters() {
-    const res = await apiClient.get<ProductFilters>("/products/filters")
-    return res.data
-  }
-}
+export const productService = productRepository
