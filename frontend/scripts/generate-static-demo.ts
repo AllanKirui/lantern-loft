@@ -1,0 +1,208 @@
+import { writeFile } from "fs/promises"
+
+import { tableLamps } from "./catalog/table-lamps"
+import { floorLamps } from "./catalog/floor-lamps"
+import { categories } from "./catalog/categories"
+
+import { authorNames } from "./catalog/content/author-names"
+import {
+  positiveReviews,
+  neutralReviews,
+  negativeReviews
+} from "./catalog/content/review-templates"
+
+import type { CatalogProduct } from "./catalog/types"
+import type { MockProduct } from "../src/types/mock/mock-product"
+import type { MockReview } from "../src/types/mock/mock-review"
+
+import {
+  buildTableLampProduct,
+  buildFloorLampProduct
+} from "./catalog/buildCatalogProduct"
+
+const catalog: CatalogProduct[] = [
+  ...tableLamps.map((lamp) => ({
+    ...buildTableLampProduct(lamp.name),
+    categorySlug: lamp.categorySlug
+  })),
+
+  ...floorLamps.map((lamp) => ({
+    ...buildFloorLampProduct(lamp.name),
+    categorySlug: lamp.categorySlug
+  }))
+]
+
+function generateImages(productId: number) {
+  return [
+    {
+      full: `/products/${productId}/full/main.jpg`,
+      medium: `/products/${productId}/medium/main.jpg`,
+      thumb: `/products/${productId}/thumb/main.jpg`,
+      lqip: `/products/${productId}/lqip/main.jpg`,
+      alt: "Primary product image",
+      isPrimary: true,
+      order: 1
+    }
+  ]
+}
+
+let reviewId = 1
+
+function generateReviews(productId: number) {
+  const reviewCount = random(3, 12)
+
+  return Array.from({ length: reviewCount }, (_, index) => {
+    const positive = Math.random() < 0.75
+
+    const template = positive
+      ? pick(positiveReviews)
+      : Math.random() < 0.5
+      ? pick(neutralReviews)
+      : pick(negativeReviews)
+
+    const rating = positive ? random(4, 5) : random(2, 3)
+
+    return {
+      id: reviewId++,
+
+      productId,
+
+      rating,
+
+      reviewTitle: template.title,
+
+      comment: template.comment,
+
+      authorName: pick(authorNames),
+
+      recommends: rating >= 4,
+
+      isVerified: Math.random() < 0.7,
+
+      expanded: false,
+
+      createdAt: new Date().toISOString()
+    }
+  })
+}
+
+// Pre-compute aggregates
+function buildReviewsMeta(reviews: MockReview[]) {
+  const count = reviews.length
+
+  const averageRating =
+    count === 0
+      ? 0
+      : Number(
+          (reviews.reduce((sum, r) => sum + r.rating, 0) / count).toFixed(1)
+        )
+
+  const recommendationPercentage =
+    count === 0
+      ? 0
+      : Math.round((reviews.filter((r) => r.recommends).length / count) * 100)
+
+  return {
+    count,
+    averageRating,
+    recommendationPercentage,
+
+    distributions: [5, 4, 3, 2, 1].map((star) => ({
+      star,
+      count: reviews.filter((r) => r.rating === star).length
+    }))
+  }
+}
+
+// Helpers
+function random(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+function pick<T>(items: T[]): T {
+  return items[Math.floor(Math.random() * items.length)]
+}
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+}
+
+const products: MockProduct[] = []
+const reviews: MockReview[] = []
+
+catalog.forEach((entry, index) => {
+  const productId = index + 1
+
+  const hasReviews = Math.random() > 0.1
+  const productReviews: MockReview[] = hasReviews
+    ? generateReviews(productId)
+    : []
+
+  reviews.push(...productReviews)
+
+  const reviewsMeta = buildReviewsMeta(productReviews)
+
+  products.push({
+    id: productId,
+
+    name: entry.name,
+
+    slug: slugify(entry.name),
+
+    categoryId: entry.categorySlug === "table-lamps" ? 1 : 2,
+
+    price: entry.basePrice,
+
+    discountPrice: entry.discountPercentage
+      ? Math.round(entry.basePrice * (1 - entry.discountPercentage / 100))
+      : null,
+
+    tagline: entry.tagline,
+
+    shortDescription: entry.shortDescription,
+
+    description: entry.description,
+
+    details: entry.details,
+
+    specs: entry.specs,
+
+    images: generateImages(productId),
+
+    isFeatured: entry.featured ?? false,
+
+    isNew: entry.isNew ?? false,
+
+    stockQuantity: random(0, 40),
+
+    modelCode:
+      entry.categorySlug === "table-lamps"
+        ? `LMP-TBL-${String(productId).padStart(3, "0")}`
+        : `LMP-FLR-${String(productId).padStart(3, "0")}`,
+
+    sku: `LMP-${String(productId).padStart(6, "0")}`,
+
+    status: "live",
+
+    reviewsMeta
+  })
+})
+
+// Write Files - Generate the static database tables
+await writeFile(
+  "public/mock-data/products.json",
+  JSON.stringify(products, null, 2)
+)
+
+await writeFile(
+  "public/mock-data/reviews.json",
+  JSON.stringify(reviews, null, 2)
+)
+
+await writeFile(
+  "public/mock-data/categories.json",
+  JSON.stringify(categories, null, 2)
+)
