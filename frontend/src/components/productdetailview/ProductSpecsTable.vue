@@ -24,7 +24,9 @@ const { product } = inject<ProductDetailContext<Product>>("productDetail")!
             <td class="p-2 font-medium w-1/3">
               {{ humanizeKey(key) }}
             </td>
-            <td class="p-2">{{ val }}</td>
+            <td class="p-2">
+              {{ key === "dimmable" ? (val ? "Yes" : "No") : val }}
+            </td>
           </tr>
         </tbody>
       </table>
