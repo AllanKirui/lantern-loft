@@ -17,7 +17,8 @@ function primaryImage(product: MockProduct) {
   if (!image) return null
 
   return {
-    url: image.medium,
+    webp: image.webp.medium,
+    png: image.png.medium,
     alt: image.alt
   }
 }
