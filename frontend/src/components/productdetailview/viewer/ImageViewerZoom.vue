@@ -174,7 +174,7 @@ onBeforeUnmount(() => {
           class="sm_plus:max-w-sm xl:max-w-md"
         >
           <SwiperSlide
-            v-for="(_, index) in 5"
+            v-for="(img, index) in viewer.images.value"
             :key="index"
             class=""
             :style="{ animationDelay: `${index * 0.1}s` }"
@@ -189,29 +189,34 @@ onBeforeUnmount(() => {
                       : 'transform 220ms cubic-bezier(0.22, 1, 0.36, 1)'
                   }"
                   class="w-full h-full"
+                  @wheel="onWheel"
+                  @mousedown="startPan"
+                  @mousemove="movePan"
+                  @mouseup="stopPan"
+                  @mouseleave="stopPan"
+                  @dblclick.prevent="onDoubleClick"
                 >
-                  <img
-                    src="@/assets/img/storefront/products/4-recopyright.png"
-                    alt="img.alt || product.name + ' image ' + (idx + 1)"
-                    class="w-full h-auto object-contain select-none"
-                    :style="{
-                      transform: `scale(${viewer.scale.value})`,
-                      transition: isPanning ? 'none' : 'transform 250ms ease',
-                      cursor:
-                        viewer.scale.value > 1
-                          ? isPanning
-                            ? 'grabbing'
-                            : 'grab'
-                          : 'default'
-                    }"
-                    draggable="false"
-                    @wheel="onWheel"
-                    @mousedown="startPan"
-                    @mousemove="movePan"
-                    @mouseup="stopPan"
-                    @mouseleave="stopPan"
-                    @dblclick.prevent="onDoubleClick"
-                  />
+                  <picture>
+                    <source :srcset="img.webp.large" type="image/webp" />
+
+                    <img
+                      :src="img.png.large"
+                      :alt="img.alt"
+                      class="w-full h-auto object-contain select-none"
+                      :style="{
+                        transform: `scale(${viewer.scale.value})`,
+                        transition: isPanning ? 'none' : 'transform 250ms ease',
+                        cursor:
+                          viewer.scale.value > 1
+                            ? isPanning
+                              ? 'grabbing'
+                              : 'grab'
+                            : 'default'
+                      }"
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </picture>
                 </div>
               </figure>
             </div>
