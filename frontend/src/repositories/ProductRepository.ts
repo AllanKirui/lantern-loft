@@ -19,9 +19,28 @@ import type {
 
 import type { MockProduct } from "@/types/mock/mock-product"
 
+const ENABLE_NETWORK_DELAY =
+  import.meta.env.VITE_ENABLE_NETWORK_DELAY === "true"
+
+const NETWORK_DELAY_MS = Number(import.meta.env.VITE_NETWORK_DELAY_MS ?? 750)
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function simulateNetworkDelay() {
+  if (!import.meta.env.DEV) return
+
+  if (!ENABLE_NETWORK_DELAY) return
+
+  await sleep(NETWORK_DELAY_MS)
+}
+
 async function fetchAll(
   params: Record<string, any>
 ): Promise<LaravelPaginatedResponse<ProductCardExtended>> {
+  await simulateNetworkDelay()
+
   const products = await loadProducts()
   const categories = await loadCategories()
 
@@ -103,6 +122,8 @@ async function fetchAll(
 }
 
 async function fetchBySlug(slug: string): Promise<Product> {
+  await simulateNetworkDelay()
+
   const products = await loadProducts()
 
   const reviews = await loadReviews()
@@ -125,6 +146,8 @@ async function fetchBySlug(slug: string): Promise<Product> {
 }
 
 async function fetchNewArrivals(): Promise<ProductCardBase[]> {
+  await simulateNetworkDelay()
+
   const products = await loadProducts()
 
   return products
@@ -134,6 +157,8 @@ async function fetchNewArrivals(): Promise<ProductCardBase[]> {
 }
 
 async function fetchFeatured(): Promise<ProductCardExtended[]> {
+  await simulateNetworkDelay()
+
   const products = await loadProducts()
 
   const categories = await loadCategories()
@@ -149,6 +174,8 @@ async function fetchFeatured(): Promise<ProductCardExtended[]> {
 }
 
 async function fetchRecommended(slug: string): Promise<ProductCardExtended[]> {
+  await simulateNetworkDelay()
+
   const products = await loadProducts()
 
   const categories = await loadCategories()
@@ -171,6 +198,8 @@ async function fetchRecommended(slug: string): Promise<ProductCardExtended[]> {
 }
 
 async function fetchFilters(): Promise<ProductFilters> {
+  await simulateNetworkDelay()
+
   const products = await loadProducts()
 
   const categories = await loadCategories()
