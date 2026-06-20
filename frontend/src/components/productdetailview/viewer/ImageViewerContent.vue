@@ -16,8 +16,9 @@ const viewer = inject<ViewerContext>("viewer")!
     <header
       class="flex items-center justify-end sm_plus:justify-between w-full px-2 pb-2 h-20 sm_plus:h-auto mb-auto"
     >
-      <!-- TODO images count should be dynamic -->
-      <h2 class="hidden sm_plus:flex font-semibold">Photos (5)</h2>
+      <h2 class="hidden sm_plus:flex font-semibold">
+        Photos ({{ viewer.images.value.length }})
+      </h2>
       <BaseCloseButton
         class="text-cosmic-latte sm_plus:text-chestnut-brown hover:after:bg-jet sm_plus:hover:after:bg-cream"
         @click="viewer.close"
