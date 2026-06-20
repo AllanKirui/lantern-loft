@@ -1,3 +1,5 @@
+import type { ProductImage } from "../products"
+
 export interface MockProduct {
   id: number
   name: string
@@ -24,15 +26,7 @@ export interface MockProduct {
     weight: string
   }
 
-  images: {
-    full: string
-    medium: string
-    thumb: string
-    lqip: string
-    alt: string
-    isPrimary: boolean
-    order: number
-  }[]
+  images: ProductImage[]
 
   isFeatured: boolean
   isNew: boolean

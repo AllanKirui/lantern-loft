@@ -2,6 +2,7 @@
 
 import type { ReviewItem } from "../reviews/review-item"
 import type { ReviewsMeta } from "../reviews/reviews-meta"
+import type { ProductImage } from "./product-image"
 
 export interface Product {
   id: number
@@ -23,6 +24,7 @@ export interface Product {
     powerCordLength: string
     weight: string
   }
+  images: ProductImage[]
   reviews: {
     items: ReviewItem[]
     meta: ReviewsMeta
