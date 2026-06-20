@@ -5,7 +5,8 @@ export interface ProductCardBase {
   slug: string
   shortDescription: string
   image: {
-    url: string
+    webp: string
+    png: string
     alt: string
   } | null
 }
