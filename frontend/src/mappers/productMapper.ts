@@ -95,6 +95,8 @@ export function mapProductDetail(
 
     specs: product.specs,
 
+    images: product.images,
+
     reviews: {
       items: reviews,
       meta: product.reviewsMeta
