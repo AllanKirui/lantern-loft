@@ -14,6 +14,7 @@ import {
 import type { CatalogProduct } from "./catalog/types"
 import type { MockProduct } from "../src/types/mock/mock-product"
 import type { MockReview } from "../src/types/mock/mock-review"
+import type { ProductImage } from "../src/types/products"
 
 import {
   buildTableLampProduct,
@@ -32,18 +33,63 @@ const catalog: CatalogProduct[] = [
   }))
 ]
 
-function generateImages(productId: number) {
+function generateImages(
+  productId: number,
+  categorySlug: string,
+  productName: string
+) {
+  if (categorySlug === "floor-lamps")
+    return generateFloorLampImages(productId, productName)
+  else return generateTableLampImages(productId, productName)
+}
+
+function generateTableLampImages(productId: number, productName: string) {
+  const basePath = `/products/${productId}`
+
+  // structure for table lamps
   return [
-    {
-      full: `/products/${productId}/full/main.jpg`,
-      medium: `/products/${productId}/medium/main.jpg`,
-      thumb: `/products/${productId}/thumb/main.jpg`,
-      lqip: `/products/${productId}/lqip/main.jpg`,
-      alt: "Primary product image",
-      isPrimary: true,
-      order: 1
-    }
+    buildImage(basePath, "main", `${productName} primary image`, 1, true),
+    buildImage(basePath, "detail-shade", `${productName} lampshade detail`, 2),
+    buildImage(basePath, "detail-base", `${productName} base detail`, 3),
+    buildImage(basePath, "dimensions", `${productName} dimensions`, 4)
   ]
+}
+
+function generateFloorLampImages(productId: number, productName: string) {
+  const basePath = `/products/${productId}`
+
+  // structure for floor lamps
+  return [
+    buildImage(basePath, "main", `${productName} primary image`, 1, true),
+    buildImage(basePath, "detail", `${productName} lampshade detail`, 2),
+    buildImage("/products/shared", "foot-switch", "Product switch image", 3)
+  ]
+}
+
+function buildImage(
+  productPath: string,
+  filename: string,
+  alt: string,
+  order: number,
+  isPrimary = false
+): ProductImage {
+  return {
+    png: {
+      large: `${productPath}/large/${filename}.png`,
+      medium: `${productPath}/medium/${filename}.png`,
+      thumb: `${productPath}/thumb/${filename}.png`,
+      lqip: `${productPath}/lqip/${filename}.png`
+    },
+    webp: {
+      large: `${productPath}/large/${filename}.webp`,
+      medium: `${productPath}/medium/${filename}.webp`,
+      thumb: `${productPath}/thumb/${filename}.webp`,
+      lqip: `${productPath}/lqip/${filename}.webp`
+    },
+    alt,
+    isPrimary,
+    order
+  }
 }
 
 let reviewId = 1
@@ -170,7 +216,7 @@ catalog.forEach((entry, index) => {
 
     specs: entry.specs,
 
-    images: generateImages(productId),
+    images: generateImages(productId, entry.categorySlug, entry.name),
 
     isFeatured: entry.featured ?? false,
 
