@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, computed } from "vue"
+import { inject } from "vue"
 import type { ViewerContext } from "@/types/image-viewer"
 import BaseCloseButton from "@/components/base/BaseCloseButton.vue"
 import ImageViewerZoom from "./ImageViewerZoom.vue"
@@ -7,10 +7,6 @@ import ProductThumbnailList from "../hero/ProductThumbnailList.vue"
 
 // inject the viewer instance coming from ProductDetailHero.vue
 const viewer = inject<ViewerContext>("viewer")!
-
-const activeImage = computed(
-  () => viewer.images.value[viewer.currentIndex.value]
-)
 </script>
 
 <template>
@@ -33,7 +29,7 @@ const activeImage = computed(
 
     <div class="my-auto">
       <!-- Main Image with Zoom -->
-      <ImageViewerZoom :img-src="activeImage.src" />
+      <ImageViewerZoom />
 
       <!-- Controls -->
       <div class="mt-3 w-full hidden sm_plus:flex justify-end gap-2">

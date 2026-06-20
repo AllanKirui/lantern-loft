@@ -7,8 +7,6 @@ import type { ViewerContext } from "@/types/image-viewer"
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
 
-defineProps<{ imgSrc: string }>()
-
 const CAROUSEL_TYPE = "viewer"
 
 // inject the viewer instance coming from ProductDetailHero.vue
