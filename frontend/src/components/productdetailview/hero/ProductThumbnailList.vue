@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { inject, computed } from "vue"
 import type { ViewerContext } from "@/types/image-viewer"
+import type { ProductDetailContext } from "@/types/product-detail"
+import type { Product } from "@/types/products"
 
 const props = withDefaults(defineProps<{ showPartials?: boolean }>(), {
   showPartials: true
@@ -9,23 +11,21 @@ const props = withDefaults(defineProps<{ showPartials?: boolean }>(), {
 // inject the viewer instance coming from ProductDetailHero.vue
 const viewer = inject<ViewerContext>("viewer")!
 
-// TODO replace with real API data that should come from useProductDetail composable
-const images = [
-  { src: "/images/lamps/aurora-1.jpg", alt: "Aurora front" },
-  { src: "/images/lamps/aurora-2.jpg", alt: "Aurora side" },
-  { src: "/images/lamps/aurora-3.jpg", alt: "Aurora close up" },
-  { src: "/images/lamps/aurora-4.jpg", alt: "Aurora in room" },
-  { src: "/images/lamps/aurora-5.jpg", alt: "Aurora packaging" }
-]
+// inject the productDetail instance coming from ProductDetailView.vue
+const { product } = inject<ProductDetailContext<Product>>("productDetail")!
+
+const images = computed(() => product.value?.images ?? [])
 
 // control how many thumbnails are visible in the preview pane
-const thumbsVisible = computed(() => (props.showPartials ? 3 : images.length))
+const thumbsVisible = computed(() =>
+  props.showPartials ? 3 : images.value.length
+)
 
 // show only the first `thumbsVisible` thumbnails
-const imagesVisible = computed(() => images.slice(0, thumbsVisible.value))
+const imagesVisible = computed(() => images.value.slice(0, thumbsVisible.value))
 
 const imagesExtra = computed(() => {
-  const extra = images.length - thumbsVisible.value
+  const extra = images.value.length - thumbsVisible.value
   return extra > 0 ? extra : 0
 })
 
@@ -50,20 +50,25 @@ function setThumbClasses(index: number) {
 </script>
 
 <template>
-  <template v-for="(img, index) in imagesVisible" :key="img.src + index">
+  <template v-for="(img, index) in imagesVisible" :key="img.order + index">
     <button
       :class="setThumbClasses(index)"
       :aria-label="`Show image ${index + 1}`"
       @click="viewer?.goTo(index)"
     >
       <span class="absolute top-0 left-0 w-full h-full z-10"></span>
-      <!-- TODO use dynamic image data, src and alt -->
+
       <figure class="aspect-square">
-        <img
-          src="@/assets/img/storefront/products/4-recopyright.png"
-          :alt="img.alt || 'thumb ' + (index + 1)"
-          class="w-full h-full object-cover group-hover:scale-110 duration"
-        />
+        <picture>
+          <source :srcset="img.webp.thumb" type="image/webp" />
+
+          <img
+            :src="img.png.thumb"
+            :alt="img.alt"
+            class="w-full h-full object-cover group-hover:scale-110 duration"
+            loading="lazy"
+          />
+        </picture>
       </figure>
 
       <!-- overlay for last visible thumb if there are extras -->

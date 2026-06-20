@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import { useSyncedSwiper } from "@/composables/useSyncedSwiper"
 import type { ViewerContext } from "@/types/image-viewer"
+import type { ProductDetailContext } from "@/types/product-detail"
+import type { Product } from "@/types/products"
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
 import ProductThumbnailList from "./ProductThumbnailList.vue"
@@ -27,21 +29,17 @@ function onGrabEnd() {
 // inject the viewer instance coming from parent (ProductDetailHero.vue)
 const viewer = inject<ViewerContext>("viewer")!
 
-// TODO replace with real API data that should come from useProductDetail composable
-const images = [
-  { src: "/images/lamps/aurora-1.jpg", alt: "Aurora front" },
-  { src: "/images/lamps/aurora-2.jpg", alt: "Aurora side" },
-  { src: "/images/lamps/aurora-3.jpg", alt: "Aurora close up" },
-  { src: "/images/lamps/aurora-4.jpg", alt: "Aurora in room" },
-  { src: "/images/lamps/aurora-5.jpg", alt: "Aurora packaging" }
-]
+// inject the productDetail instance coming from ProductDetailView.vue
+const { product } = inject<ProductDetailContext<Product>>("productDetail")!
+
+const images = computed(() => product.value?.images ?? [])
 
 const imageCount = computed(
-  () => `${viewer.currentIndex.value + 1}/${images.length}`
+  () => `${viewer.currentIndex.value + 1}/${images.value.length}`
 )
 
 function openViewer(i: number) {
-  viewer.open(images, i)
+  viewer.open(images.value, i)
 }
 
 // keep Swiper and viewer in sync
@@ -94,9 +92,8 @@ function onSwiper(swiper: any) {
           @slideChange="onSlideChange"
           class="md:max-w-lg rounded-lg cursor-grab"
         >
-          <!-- TODO use dynamic image data, src and alt -->
           <SwiperSlide
-            v-for="(_, index) in 5"
+            v-for="(img, index) in images"
             :key="index"
             class="animate-fade-in-down"
           >
@@ -104,12 +101,18 @@ function onSwiper(swiper: any) {
               class="absolute top-0 left-0 w-full h-full z-10"
               @click="openViewer(index)"
             ></span>
+
             <figure class="aspect-square bg-cream rounded-lg overflow-hidden">
-              <img
-                src="@/assets/img/storefront/products/4-recopyright.png"
-                alt="img.alt || product.name + ' image ' + (idx + 1)"
-                class="w-full md:max-w-lg h-auto object-contain"
-              />
+              <picture>
+                <source :srcset="img.webp.medium" type="image/webp" />
+
+                <img
+                  :src="img.png.medium"
+                  :alt="img.alt"
+                  class="w-full md:max-w-lg object-contain"
+                  loading="lazy"
+                />
+              </picture>
             </figure>
           </SwiperSlide>
         </Swiper>

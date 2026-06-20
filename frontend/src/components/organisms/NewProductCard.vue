@@ -14,14 +14,19 @@ defineProps<Props>()
       <span class="absolute top-0 left-0 w-full h-full z-10"></span>
       <span class="new-arrival-label">New Arrival</span>
       <figure class="relative aspect-square bg-cream overflow-hidden">
-        <img
-          src="@/assets/img/storefront/products/4-recopyright.png"
-          :alt="product.image?.alt"
-          class="w-full h-auto object-cover"
-          loading="lazy"
-        />
+        <picture>
+          <source :srcset="product.image?.webp" type="image/webp" />
+
+          <img
+            :src="product.image?.png"
+            :alt="product.image?.alt"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </picture>
       </figure>
     </div>
+
     <div class="text-center mt-2">
       <BaseIcon name="hanging-bulb" class="w-[10px] h-8" />
       <p class="text-xs uppercase font-medium mt-2">Why we love the</p>

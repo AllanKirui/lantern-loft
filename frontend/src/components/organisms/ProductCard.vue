@@ -32,13 +32,16 @@ defineProps<Props>()
           <WishlistButton />
         </div>
         <figure class="relative aspect-square bg-cream rounded overflow-hidden">
-          <!-- TODO add correct image src from image.url, to NewProductCard as well -->
-          <img
-            src="@/assets/img/storefront/products/4-recopyright.png"
-            class="w-full h-auto object-cover"
-            :alt="product.image?.alt"
-            loading="lazy"
-          />
+          <picture>
+            <source :srcset="product.image?.webp" type="image/webp" />
+
+            <img
+              :src="product.image?.png"
+              :alt="product.image?.alt"
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </picture>
           <!-- TODO uncomment this, add to GridListProductCard -->
           <!-- <ImageAnchoredInfo
             v-if="product.finishesCount > 0"
