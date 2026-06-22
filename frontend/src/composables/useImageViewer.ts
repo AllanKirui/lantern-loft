@@ -1,12 +1,12 @@
 import { ref, computed, watch } from "vue"
 import { useModalStore } from "@/stores/modal"
-import type { ProductImage } from "@/types/products"
+import type { ProductPreviewImage } from "@/types/products"
 
 export function useImageViewer() {
   const modalStore = useModalStore()
 
   const isOpen = computed(() => modalStore.activeModal === "imageViewer")
-  const images = ref<ProductImage[]>([])
+  const images = ref<ProductPreviewImage[]>([])
   const currentIndex = ref(0)
 
   // shared zoom state
@@ -14,7 +14,7 @@ export function useImageViewer() {
   const offsetX = ref(0)
   const offsetY = ref(0)
 
-  function open(imgs: ProductImage[], index = 0) {
+  function open(imgs: ProductPreviewImage[], index = 0) {
     images.value = imgs
     currentIndex.value = index
     resetZoom()
