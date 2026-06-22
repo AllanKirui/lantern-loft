@@ -19,6 +19,12 @@ function primaryImage(product: MockProduct) {
   return {
     webp: image.webp.medium,
     png: image.png.medium,
+
+    lqip: {
+      webp: image.webp.lqip,
+      png: image.png.lqip
+    },
+
     alt: image.alt
   }
 }
