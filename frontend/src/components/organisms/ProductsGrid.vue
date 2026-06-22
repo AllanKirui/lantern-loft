@@ -34,7 +34,7 @@ const layoutStore = useLayoutStore()
         />
       </template>
       <template v-else v-for="(product, index) in products">
-        <div class="card-hover lg:max-w-3xl lg:mx-auto rounded-md">
+        <div class="card-hover lg:max-w-3xl w-full lg:mx-auto rounded-md">
           <GridListProductCard
             :product="product"
             class="animate-fade-in-down"
