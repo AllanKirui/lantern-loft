@@ -234,6 +234,15 @@
   .mobile-sort-button {
     @apply inline-flex gap-0.5 items-center py-[5px] px-2 font-medium rounded btn-hover hover:after:bg-cream fs-mobile-sort-controls;
   }
+  .product-image-wrapper {
+    @apply relative aspect-square bg-cream overflow-hidden;
+  }
+  .lqip-image {
+    @apply absolute inset-0 w-full h-full object-cover blur-sm scale-105 transition-opacity duration-300;
+  }
+  .actual-image {
+    @apply w-full h-full object-cover transition-opacity duration-300;
+  }
   /* End of Global styles */
 }
 
