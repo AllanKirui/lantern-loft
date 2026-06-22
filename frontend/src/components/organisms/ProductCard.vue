@@ -3,6 +3,7 @@
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
 import PriceBlock from "../common/PriceBlock.vue"
+import ProductImage from "../common/ProductImage.vue"
 import type { ProductCardExtended } from "@/types/products/product-card-extended"
 import { capitalizeWords } from "@/utils/capitalizeWords"
 
@@ -31,30 +32,25 @@ defineProps<Props>()
         <div class="absolute right-2 top-2 z-20">
           <WishlistButton />
         </div>
-        <figure class="relative aspect-square bg-cream rounded overflow-hidden">
-          <picture>
-            <source :srcset="product.image?.webp" type="image/webp" />
 
-            <img
-              :src="product.image?.png"
-              :alt="product.image?.alt"
-              class="w-full h-auto object-cover"
-              loading="lazy"
-            />
-          </picture>
-          <!-- TODO uncomment this, add to GridListProductCard -->
-          <!-- <ImageAnchoredInfo
-            v-if="product.finishesCount > 0"
-            x-position="left"
-            y-position="bottom"
-          >
-            {{
-              `${product.finishesCount} ${
-                product.finishesCount === 1 ? "finish" : "finishes"
-              }`
-            }}
-          </ImageAnchoredInfo> -->
-        </figure>
+        <ProductImage
+          v-if="product.image"
+          :image="product.image"
+          class="rounded"
+        />
+
+        <!-- TODO uncomment this, add to GridListProductCard -->
+        <!-- <ImageAnchoredInfo
+          v-if="product.finishesCount > 0"
+          x-position="left"
+          y-position="bottom"
+        >
+          {{
+            `${product.finishesCount} ${
+              product.finishesCount === 1 ? "finish" : "finishes"
+            }`
+          }}
+        </ImageAnchoredInfo> -->
       </div>
 
       <!-- Product Details -->

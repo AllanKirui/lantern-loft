@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ProductCardBase } from "@/types/products/product-card-base"
+import ProductImage from "../common/ProductImage.vue"
 
 interface Props {
   product: ProductCardBase
@@ -13,18 +14,8 @@ defineProps<Props>()
     <div class="relative">
       <span class="absolute top-0 left-0 w-full h-full z-10"></span>
       <span class="new-arrival-label">New Arrival</span>
-      <figure class="relative aspect-square bg-cream overflow-hidden">
-        <picture>
-          <source :srcset="product.image?.webp" type="image/webp" />
 
-          <img
-            :src="product.image?.png"
-            :alt="product.image?.alt"
-            class="w-full h-auto object-cover"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
+      <ProductImage v-if="product.image" :image="product.image" />
     </div>
 
     <div class="text-center mt-2">

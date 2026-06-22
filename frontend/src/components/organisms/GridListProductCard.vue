@@ -7,6 +7,7 @@ import { capitalizeWords } from "@/utils/capitalizeWords"
 import StarRatingDisplay from "../common/StarRatingDisplay.vue"
 import WishlistButton from "../common/WishlistButton.vue"
 import PriceBlock from "../common/PriceBlock.vue"
+import ProductImage from "../common/ProductImage.vue"
 
 interface Props {
   product: ProductCardExtended
@@ -63,20 +64,11 @@ const { truncated: truncatedDescription } = useResponsiveTruncate(
             <WishlistButton />
           </div>
 
-          <figure
-            class="relative aspect-square bg-cream rounded overflow-hidden"
-          >
-            <picture>
-              <source :srcset="product.image?.webp" type="image/webp" />
-
-              <img
-                :src="product.image?.png"
-                :alt="product.image?.alt"
-                class="w-full h-auto object-cover"
-                loading="lazy"
-              />
-            </picture>
-          </figure>
+          <ProductImage
+            v-if="product.image"
+            :image="product.image"
+            class="rounded"
+          />
         </div>
 
         <!-- Product Details -->

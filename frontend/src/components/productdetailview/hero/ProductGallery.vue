@@ -5,10 +5,16 @@ import { Navigation, Keyboard } from "swiper/modules"
 import { useSyncedSwiper } from "@/composables/useSyncedSwiper"
 import type { ViewerContext } from "@/types/image-viewer"
 import type { ProductDetailContext } from "@/types/product-detail"
-import type { Product } from "@/types/products"
+import type {
+  Product,
+  ProductImage as ProductImageType,
+  ProductPreviewImage
+} from "@/types/products"
+
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
 import ProductThumbnailList from "./ProductThumbnailList.vue"
+import ProductImage from "@/components/common/ProductImage.vue"
 
 const CAROUSEL_TYPE = "detail"
 
@@ -32,14 +38,32 @@ const viewer = inject<ViewerContext>("viewer")!
 // inject the productDetail instance coming from ProductDetailView.vue
 const { product } = inject<ProductDetailContext<Product>>("productDetail")!
 
-const images = computed(() => product.value?.images ?? [])
+const galleryImages = computed(
+  () => getPreviewImages(product.value.images, "medium") ?? []
+)
+
+const viewerImages = computed(
+  () => getPreviewImages(product.value.images, "large") ?? []
+)
+
+function getPreviewImages(
+  images: ProductImageType[],
+  size: "medium" | "large"
+): ProductPreviewImage[] {
+  return images.map((img) => ({
+    webp: img.webp[size],
+    png: img.png[size],
+    lqip: { webp: img.webp.lqip, png: img.png.lqip },
+    alt: img.alt
+  }))
+}
 
 const imageCount = computed(
-  () => `${viewer.currentIndex.value + 1}/${images.value.length}`
+  () => `${viewer.currentIndex.value + 1}/${galleryImages.value.length}`
 )
 
 function openViewer(i: number) {
-  viewer.open(images.value, i)
+  viewer.open(viewerImages.value, i)
 }
 
 // keep Swiper and viewer in sync
@@ -93,7 +117,7 @@ function onSwiper(swiper: any) {
           class="md:max-w-lg rounded-lg cursor-grab"
         >
           <SwiperSlide
-            v-for="(img, index) in images"
+            v-for="(img, index) in galleryImages"
             :key="index"
             class="animate-fade-in-down"
           >
@@ -102,18 +126,7 @@ function onSwiper(swiper: any) {
               @click="openViewer(index)"
             ></span>
 
-            <figure class="aspect-square bg-cream rounded-lg overflow-hidden">
-              <picture>
-                <source :srcset="img.webp.medium" type="image/webp" />
-
-                <img
-                  :src="img.png.medium"
-                  :alt="img.alt"
-                  class="w-full md:max-w-lg object-contain"
-                  loading="lazy"
-                />
-              </picture>
-            </figure>
+            <ProductImage :image="img" />
           </SwiperSlide>
         </Swiper>
       </div>

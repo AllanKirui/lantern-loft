@@ -3,6 +3,7 @@ import { inject, computed } from "vue"
 import type { ViewerContext } from "@/types/image-viewer"
 import type { ProductDetailContext } from "@/types/product-detail"
 import type { Product } from "@/types/products"
+import ProductImage from "@/components/common/ProductImage.vue"
 
 const props = withDefaults(defineProps<{ showPartials?: boolean }>(), {
   showPartials: true
@@ -14,18 +15,31 @@ const viewer = inject<ViewerContext>("viewer")!
 // inject the productDetail instance coming from ProductDetailView.vue
 const { product } = inject<ProductDetailContext<Product>>("productDetail")!
 
-const images = computed(() => product.value?.images ?? [])
+const thumbImages = computed(() => {
+  if (product.value?.images) {
+    return product.value.images.map((img) => ({
+      webp: img.webp.thumb,
+      png: img.png.thumb,
+      lqip: { webp: img.webp.lqip, png: img.png.lqip },
+      alt: img.alt
+    }))
+  }
+
+  return []
+})
 
 // control how many thumbnails are visible in the preview pane
 const thumbsVisible = computed(() =>
-  props.showPartials ? 3 : images.value.length
+  props.showPartials ? 3 : thumbImages.value.length
 )
 
 // show only the first `thumbsVisible` thumbnails
-const imagesVisible = computed(() => images.value.slice(0, thumbsVisible.value))
+const imagesVisible = computed(() =>
+  thumbImages.value.slice(0, thumbsVisible.value)
+)
 
 const imagesExtra = computed(() => {
-  const extra = images.value.length - thumbsVisible.value
+  const extra = thumbImages.value.length - thumbsVisible.value
   return extra > 0 ? extra : 0
 })
 
@@ -50,7 +64,7 @@ function setThumbClasses(index: number) {
 </script>
 
 <template>
-  <template v-for="(img, index) in imagesVisible" :key="img.order + index">
+  <template v-for="(img, index) in imagesVisible" :key="index">
     <button
       :class="setThumbClasses(index)"
       :aria-label="`Show image ${index + 1}`"
@@ -58,18 +72,7 @@ function setThumbClasses(index: number) {
     >
       <span class="absolute top-0 left-0 w-full h-full z-10"></span>
 
-      <figure class="aspect-square">
-        <picture>
-          <source :srcset="img.webp.thumb" type="image/webp" />
-
-          <img
-            :src="img.png.thumb"
-            :alt="img.alt"
-            class="w-full h-full object-cover group-hover:scale-110 duration"
-            loading="lazy"
-          />
-        </picture>
-      </figure>
+      <ProductImage :image="img" :show-loader="false" />
 
       <!-- overlay for last visible thumb if there are extras -->
       <template v-if="showPartials">

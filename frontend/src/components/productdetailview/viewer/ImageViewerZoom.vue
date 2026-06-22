@@ -6,11 +6,14 @@ import { useSyncedSwiper } from "@/composables/useSyncedSwiper"
 import type { ViewerContext } from "@/types/image-viewer"
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
+import ProductImage from "@/components/common/ProductImage.vue"
 
 const CAROUSEL_TYPE = "viewer"
 
 // inject the viewer instance coming from ProductDetailHero.vue
 const viewer = inject<ViewerContext>("viewer")!
+
+const loaded = ref(false)
 
 const imageCount = computed(
   () => `${viewer.currentIndex.value + 1}/${viewer.images.value.length}`
@@ -180,7 +183,12 @@ onBeforeUnmount(() => {
             :style="{ animationDelay: `${index * 0.1}s` }"
           >
             <div :class="{ 'swiper-no-swiping': viewer.scale.value > 1 }">
-              <figure class="aspect-square bg-cream overflow-hidden">
+              <ProductImage
+                :image="img"
+                :use-slot="true"
+                :image-loaded="loaded"
+                :belongs-to-viewer="true"
+              >
                 <div
                   :style="{
                     transform: `translate(${viewer.offsetX.value}px, ${viewer.offsetY.value}px)`,
@@ -197,15 +205,18 @@ onBeforeUnmount(() => {
                   @dblclick.prevent="onDoubleClick"
                 >
                   <picture>
-                    <source :srcset="img.webp.large" type="image/webp" />
+                    <source :srcset="img.webp" type="image/webp" />
 
                     <img
-                      :src="img.png.large"
+                      :src="img.png"
                       :alt="img.alt"
                       class="w-full h-auto object-contain select-none"
+                      :class="loaded ? 'opacity-100' : 'opacity-0'"
                       :style="{
                         transform: `scale(${viewer.scale.value})`,
-                        transition: isPanning ? 'none' : 'transform 250ms ease',
+                        transition: isPanning
+                          ? 'none'
+                          : 'transform 250ms ease, opacity 300ms cubic-bezier(0.4, 0, 0.2, 1)',
                         cursor:
                           viewer.scale.value > 1
                             ? isPanning
@@ -215,10 +226,11 @@ onBeforeUnmount(() => {
                       }"
                       loading="lazy"
                       draggable="false"
+                      @load="loaded = true"
                     />
                   </picture>
                 </div>
-              </figure>
+              </ProductImage>
             </div>
           </SwiperSlide>
         </Swiper>
