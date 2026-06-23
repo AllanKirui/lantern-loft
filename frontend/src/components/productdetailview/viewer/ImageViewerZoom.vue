@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, inject, ref, computed } from "vue"
+import { onMounted, onBeforeUnmount, inject, ref, computed, watch } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import { useSyncedSwiper } from "@/composables/useSyncedSwiper"
@@ -13,11 +13,55 @@ const CAROUSEL_TYPE = "viewer"
 // inject the viewer instance coming from ProductDetailHero.vue
 const viewer = inject<ViewerContext>("viewer")!
 
-const loaded = ref(false)
-
 const imageCount = computed(
   () => `${viewer.currentIndex.value + 1}/${viewer.images.value.length}`
 )
+
+// Tracks which full-size images have finished loading.
+// Key = image index, Value = whether the image has been loaded.
+const loadedImages = ref<Record<number, boolean>>({})
+
+// Called when a full-size image finishes loading.
+// Once marked as loaded, the image can immediately fade in
+// without showing its LQIP placeholder again.
+function markLoaded(index: number) {
+  loadedImages.value[index] = true
+}
+
+// Returns whether the full-size image at the given index
+// has already finished loading.
+function isLoaded(index: number) {
+  return !!loadedImages.value[index]
+}
+
+// Tracks which images have been requested at least once.
+// This allows images to remain eligible for rendering after
+// they have been visited, preventing unnecessary mount/unmount cycles.
+const requestedImages = ref<Record<number, boolean>>({})
+
+// Whenever the active slide changes, mark the current image
+// and its immediate neighbors as requested. This creates a
+// small preload window so adjacent images are ready before
+// the user navigates to them.
+watch(
+  () => viewer.currentIndex.value,
+  (current) => {
+    requestedImages.value[current] = true
+
+    if (current > 0) {
+      requestedImages.value[current - 1] = true
+    }
+
+    if (current < viewer.images.value.length - 1) {
+      requestedImages.value[current + 1] = true
+    }
+  },
+  { immediate: true }
+)
+
+function hasRequested(index: number) {
+  return !!requestedImages.value[index]
+}
 
 // Pan logic
 const isPanning = ref(false)
@@ -183,11 +227,16 @@ onBeforeUnmount(() => {
             :style="{ animationDelay: `${index * 0.1}s` }"
           >
             <div :class="{ 'swiper-no-swiping': viewer.scale.value > 1 }">
+              <!-- Load the full image if this slide is the current one
+              or one of its neighbors -->
               <ProductImage
                 :image="img"
                 :use-slot="true"
-                :image-loaded="loaded"
+                :image-loaded="isLoaded(index)"
                 :belongs-to-viewer="true"
+                :load-full-image="
+                  Math.abs(index - viewer.currentIndex.value) <= 1
+                "
               >
                 <div
                   :style="{
@@ -204,14 +253,14 @@ onBeforeUnmount(() => {
                   @mouseleave="stopPan"
                   @dblclick.prevent="onDoubleClick"
                 >
-                  <picture>
+                  <picture v-if="hasRequested(index)">
                     <source :srcset="img.webp" type="image/webp" />
 
                     <img
                       :src="img.png"
                       :alt="img.alt"
                       class="w-full h-auto object-contain select-none"
-                      :class="loaded ? 'opacity-100' : 'opacity-0'"
+                      :class="isLoaded(index) ? 'opacity-100' : 'opacity-0'"
                       :style="{
                         transform: `scale(${viewer.scale.value})`,
                         transition: isPanning
@@ -226,7 +275,7 @@ onBeforeUnmount(() => {
                       }"
                       loading="lazy"
                       draggable="false"
-                      @load="loaded = true"
+                      @load="markLoaded(index)"
                     />
                   </picture>
                 </div>

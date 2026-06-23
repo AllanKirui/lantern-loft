@@ -9,17 +9,25 @@ interface Props {
   showLoader?: boolean
   imageLoaded?: boolean
   belongsToViewer?: boolean
+  loadFullImage?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   useSlot: false,
   showLoader: true,
   imageLoaded: false,
-  belongsToViewer: false
+  belongsToViewer: false,
+  loadFullImage: true
 })
 
+// Controls whether the full-size image has finished loading.
+// Used to transition from the LQIP placeholder to the actual image.
 const loaded = ref(false)
 
+// In viewer mode, the parent component manages image loading state
+// because the actual image element lives inside the slot rather than
+// inside this component. Keep the local state synchronized with the
+// parent-provided loading status.
 watch(
   () => props.imageLoaded,
   (val) => {
@@ -28,12 +36,35 @@ watch(
     }
   }
 )
+
+// Tracks whether the full-size image has ever been requested.
+//
+// This enables a "load once, keep available" strategy:
+//
+// - Images start by showing only their LQIP placeholder.
+// - When `loadFullImage` becomes true, the full image is requested.
+// - Once requested, it remains eligible for rendering even if
+//   `loadFullImage` later becomes false.
+//
+// This prevents repeatedly mounting and unmounting image elements
+// as the user navigates through carousels.
+const hasRequestedFullImage = ref(false)
+
+watch(
+  () => props.loadFullImage,
+  (shouldLoad) => {
+    if (shouldLoad) {
+      hasRequestedFullImage.value = true
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
   <figure class="product-image-wrapper">
     <!-- LQIP -->
-    <picture>
+    <picture v-if="!loaded">
       <source :srcset="image.lqip.webp" type="image/webp" />
 
       <img
@@ -46,8 +77,8 @@ watch(
 
     <PistonLoader v-if="!loaded && showLoader" />
 
-    <!-- Actual image -->
-    <picture v-if="!belongsToViewer">
+    <!-- Full image -->
+    <picture v-if="hasRequestedFullImage && !belongsToViewer">
       <source :srcset="image.webp" type="image/webp" />
 
       <img
@@ -60,6 +91,7 @@ watch(
       />
     </picture>
 
+    <!-- Viewer mode -->
     <template v-if="useSlot">
       <slot />
     </template>

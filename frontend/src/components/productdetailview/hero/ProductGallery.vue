@@ -126,7 +126,14 @@ function onSwiper(swiper: any) {
               @click="openViewer(index)"
             ></span>
 
-            <ProductImage :image="img" />
+            <!-- Load the full image if this slide is the current one
+              or one of its neighbors -->
+            <ProductImage
+              :image="img"
+              :load-full-image="
+                Math.abs(index - viewer.currentIndex.value) <= 1
+              "
+            />
           </SwiperSlide>
         </Swiper>
       </div>
