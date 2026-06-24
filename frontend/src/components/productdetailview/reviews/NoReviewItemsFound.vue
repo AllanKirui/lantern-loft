@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
+</script>
+
 <template>
   <div class="sp-mt-pdp-review-list flex flex-col items-center">
     <div>
@@ -22,7 +26,9 @@
     </div>
 
     <div class="sp-mt-pdp-no-reviews-section max-w-64 w-full">
-      <button class="btn-secondary w-full">Write a Review</button>
+      <ComingSoonLink type="button" class="btn-secondary w-full"
+        >Write a Review</ComingSoonLink
+      >
       <small class="block italic text-center mt-2"
         >Let others know what you think.</small
       >

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ComingSoonLink from "../common/ComingSoonLink.vue"
+
 interface Props {
   showPrice?: boolean
   price?: number
@@ -10,7 +12,8 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <button
+  <ComingSoonLink
+    type="button"
     class="btn-primary flex justify-center gap-2.5 w-full mx-auto sm_plus:max-w-96"
   >
     Add to Cart
@@ -24,5 +27,5 @@ withDefaults(defineProps<Props>(), {
         <span class="leading-none">{{ price.toLocaleString() }}</span>
       </div>
     </div>
-  </button>
+  </ComingSoonLink>
 </template>
