@@ -72,7 +72,7 @@ function getDistributionPercentage(distributionCount: number) {
             <div
               v-for="distribution in reviewsMeta.distributions"
               :key="distribution.star"
-              class="flex items-center h-5"
+              class="flex items-center h-5 cursor-pointer"
               @click="
                 notificationStore.notify('Feature coming soon', 'info', 3000)
               "
