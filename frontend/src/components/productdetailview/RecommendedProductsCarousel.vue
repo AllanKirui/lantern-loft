@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { inject, computed } from "vue"
+import { inject, ref, computed } from "vue"
+import { useIntersectionObserver } from "@vueuse/core"
 import { productService } from "@/services/productService"
 import { useCarouselFetch } from "@/composables/useCarouselFetch"
 import type { ProductDetailContext } from "@/types/product-detail"
@@ -14,10 +15,28 @@ const { product } = inject<ProductDetailContext<Product>>("productDetail")!
 const {
   items: products,
   isLoading,
-  error
+  error,
+  load
 } = useCarouselFetch<ProductCardExtended>(
   () => productService.fetchRecommended(product.value.slug),
-  "Failed to load recommendations"
+  "Failed to load recommendations",
+  { immediate: false }
+)
+
+const sectionRef = ref<HTMLElement | null>(null)
+
+// Load recommended products when the section is 500px from entering the viewport
+const { stop } = useIntersectionObserver(
+  sectionRef,
+  ([entry]) => {
+    if (entry?.isIntersecting) {
+      load()
+      stop()
+    }
+  },
+  {
+    rootMargin: "500px"
+  }
 )
 
 const subtitle = computed(() => {
@@ -45,47 +64,49 @@ const sectionHeaderData = computed(() => ({
 </script>
 
 <template>
-  <BaseCarousel
-    :items="products"
-    :is-loading="isLoading"
-    :error="error"
-    :section-header-data="sectionHeaderData"
-    navigation-prefix="recommended"
-    :slides-per-view="1.5"
-    :space-between="16"
-    :centered-slides="true"
-    :skeleton-count="4"
-    :breakpoints="{
-      640: {
-        slidesPerView: 2.75,
-        centeredSlides: false,
-        spaceBetween: 12
-      },
-      768: {
-        slidesPerView: 3,
-        centeredSlides: false,
-        spaceBetween: 14
-      },
-      976: {
-        slidesPerView: 3.5,
-        centeredSlides: false,
-        spaceBetween: 14
-      },
-      1024: {
-        slidesPerView: 4,
-        centeredSlides: false,
-        spaceBetween: 14
-      }
-    }"
-    class="px-0"
-  >
-    <template #heading>
-      Your next favorite thing <br />
-      might be right here
-    </template>
+  <div ref="sectionRef">
+    <BaseCarousel
+      :items="products"
+      :is-loading="isLoading"
+      :error="error"
+      :section-header-data="sectionHeaderData"
+      navigation-prefix="recommended"
+      :slides-per-view="1.5"
+      :space-between="16"
+      :centered-slides="true"
+      :skeleton-count="4"
+      :breakpoints="{
+        640: {
+          slidesPerView: 2.75,
+          centeredSlides: false,
+          spaceBetween: 12
+        },
+        768: {
+          slidesPerView: 3,
+          centeredSlides: false,
+          spaceBetween: 14
+        },
+        976: {
+          slidesPerView: 3.5,
+          centeredSlides: false,
+          spaceBetween: 14
+        },
+        1024: {
+          slidesPerView: 4,
+          centeredSlides: false,
+          spaceBetween: 14
+        }
+      }"
+      class="px-0"
+    >
+      <template #heading>
+        Your next favorite thing <br />
+        might be right here
+      </template>
 
-    <template #slide="{ item }">
-      <ProductCard :product="item" />
-    </template>
-  </BaseCarousel>
+      <template #slide="{ item }">
+        <ProductCard :product="item" />
+      </template>
+    </BaseCarousel>
+  </div>
 </template>
