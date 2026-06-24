@@ -164,6 +164,19 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("resize", handleResize)
 })
+
+// Recalculate container dimensions after the full-size image loads.
+//
+// Swiper may initialize before the image has reached its final
+// rendered dimensions, which can lead to incorrect zoom and
+// pan boundaries on the initial viewer open.
+function handleImageLoad(index: number) {
+  markLoaded(index)
+
+  requestAnimationFrame(() => {
+    updateContainerSize()
+  })
+}
 </script>
 
 <template>
@@ -275,7 +288,7 @@ onBeforeUnmount(() => {
                       }"
                       loading="lazy"
                       draggable="false"
-                      @load="markLoaded(index)"
+                      @load="handleImageLoad(index)"
                     />
                   </picture>
                 </div>
