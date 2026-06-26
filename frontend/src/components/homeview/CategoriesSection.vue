@@ -14,6 +14,8 @@ const categoryData = [
       text: "Shop table lamps"
     },
     image: {
+      webp: "../../../public/products/1/medium/main.webp",
+      png: "../../../public/products/1/medium/main.png",
       url: "src/assets/img/storefront/products/4-recopyright.png",
       alt: "Table lamps category image"
     }
@@ -24,6 +26,8 @@ const categoryData = [
       text: "Shop floor lamps"
     },
     image: {
+      webp: "../../../public/products/24/medium/main.webp",
+      png: "../../../public/products/24/medium/main.png",
       url: "src/assets/img/storefront/products/4-recopyright.png",
       alt: "Floor lamps category image"
     }
@@ -68,13 +72,18 @@ const categoryData = [
           <figure
             class="relative aspect-square bg-cream rounded overflow-hidden"
           >
-            <img
-              :src="category.image.url"
-              :alt="category.image.alt"
-              class="w-56 h-auto object-cover"
-              loading="lazy"
-            />
+            <picture>
+              <source :srcset="category.image.webp" type="image/webp" />
+
+              <img
+                :src="category.image.png"
+                :alt="category.image.alt"
+                class="w-56 h-auto object-cover"
+                loading="lazy"
+              />
+            </picture>
           </figure>
+
           <div class="p-3 text-center font-medium capitalize">
             {{ category.link.text }}
           </div>
