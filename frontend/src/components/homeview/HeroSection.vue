@@ -10,12 +10,20 @@
         <span
           class="absolute top-0 w-full h-full z-10 linear-gradient md:hidden"
         ></span>
+
         <figure class="relative aspect-[6/7] bg-black overflow-hidden">
-          <img
-            src="@/assets/img/storefront/hero.webp"
-            alt="Hero"
-            class="w-full h-auto object-cover"
-          />
+          <picture>
+            <source
+              srcset="@/assets/img/storefront/hero.webp"
+              type="image/webp"
+            />
+
+            <img
+              src="@/assets/img/storefront/hero.png"
+              alt="Hero image"
+              class="w-full h-auto object-cover"
+            />
+          </picture>
         </figure>
       </div>
 
