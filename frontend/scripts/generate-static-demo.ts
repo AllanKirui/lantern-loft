@@ -21,6 +21,7 @@ import {
   buildFloorLampProduct
 } from "./catalog/buildCatalogProduct"
 
+// Transform lamp definitions into catalog products
 const catalog: CatalogProduct[] = [
   ...tableLamps.map((lamp) => ({
     ...buildTableLampProduct(lamp.name),
@@ -33,11 +34,13 @@ const catalog: CatalogProduct[] = [
   }))
 ]
 
+// Generates image paths
 function generateImages(
   productId: number,
   categorySlug: string,
   productName: string
 ) {
+  // Different categories have different image paths
   if (categorySlug === "floor-lamps")
     return generateFloorLampImages(productId, productName)
   else return generateTableLampImages(productId, productName)
@@ -94,20 +97,25 @@ function buildImage(
 
 let reviewId = 1
 
+// Generate a random number of reviews for products that have reviews
 function generateReviews(productId: number) {
   const reviewCount = random(3, 12)
 
+  // Pick a sentiment for each review
   return Array.from({ length: reviewCount }, (_, index) => {
-    const positive = Math.random() < 0.75
+    const positive = Math.random() < 0.75 // 75% positive reviews
 
+    // Pick a single review from the review templates
     const template = positive
       ? pick(positiveReviews)
       : Math.random() < 0.5
       ? pick(neutralReviews)
       : pick(negativeReviews)
 
+    // Generate a rating that's positive, negative or neutral
     const rating = positive ? random(4, 5) : random(2, 3)
 
+    // Create and return a review object
     return {
       id: reviewId++,
 
@@ -166,6 +174,7 @@ function random(min: number, max: number) {
 }
 
 function pick<T>(items: T[]): T {
+  // Return a single random item from an array
   return items[Math.floor(Math.random() * items.length)]
 }
 
@@ -176,21 +185,26 @@ function slugify(text: string) {
     .replace(/\s+/g, "-")
 }
 
-const products: MockProduct[] = []
-const reviews: MockReview[] = []
+// These represent database tables
+const products: MockProduct[] = [] // products.json
+const reviews: MockReview[] = [] // reviews.json
 
 catalog.forEach((entry, index) => {
   const productId = index + 1
 
+  // Randomly decide whether a product has reviews
   const hasReviews = Math.random() > 0.1
   const productReviews: MockReview[] = hasReviews
     ? generateReviews(productId)
     : []
 
+  // Append generated reviews to the global reviews collection
   reviews.push(...productReviews)
 
+  // Calculate review aggregates
   const reviewsMeta = buildReviewsMeta(productReviews)
 
+  // Append the generated full product to the global products collection
   products.push({
     id: productId,
 
