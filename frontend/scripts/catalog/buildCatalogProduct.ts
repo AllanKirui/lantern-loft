@@ -78,15 +78,10 @@ export function buildFloorLampProduct(
 
     specs: {
       bulbType: pick(["E26", "E27"]),
-
       bulbsIncluded: Math.random() > 0.5 ? "Yes" : "No",
-
       bulbCount: String(random(1, 4)),
-
       dimmable: Math.random() > 0.3,
-
       powerCordLength: `${random(180, 320)} cm`,
-
       weight: `${(Math.random() * 5 + 3).toFixed(1)} kg`
     },
 
