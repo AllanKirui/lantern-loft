@@ -14,8 +14,8 @@ const categoryData = [
       text: "Shop table lamps"
     },
     image: {
-      webp: "../../../public/products/1/medium/main.webp",
-      png: "../../../public/products/1/medium/main.png",
+      webp: "/products/1/medium/main.webp",
+      png: "/products/1/medium/main.png",
       url: "src/assets/img/storefront/products/4-recopyright.png",
       alt: "Table lamps category image"
     }
@@ -26,8 +26,8 @@ const categoryData = [
       text: "Shop floor lamps"
     },
     image: {
-      webp: "../../../public/products/24/medium/main.webp",
-      png: "../../../public/products/24/medium/main.png",
+      webp: "/products/24/medium/main.webp",
+      png: "/products/24/medium/main.png",
       url: "src/assets/img/storefront/products/4-recopyright.png",
       alt: "Floor lamps category image"
     }
