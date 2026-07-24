@@ -14,10 +14,6 @@ const props = withDefaults(
 
 const hasWishlisted = ref(false)
 
-function toggleWishlistStatus() {
-  hasWishlisted.value = !hasWishlisted.value
-}
-
 const btnClasses = computed(() => {
   let classes = "btn-rounded "
 
