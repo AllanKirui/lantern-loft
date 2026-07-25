@@ -22,7 +22,9 @@ async function loadJson<T>(path: string): Promise<T> {
 export async function loadProducts() {
   if (productsCache) return productsCache
 
-  productsCache = await loadJson<MockProduct[]>("/mock-data/products.json")
+  productsCache = await loadJson<MockProduct[]>(
+    `${import.meta.env.BASE_URL}mock-data/products.json`
+  )
 
   return productsCache
 }
@@ -30,7 +32,9 @@ export async function loadProducts() {
 export async function loadCategories() {
   if (categoriesCache) return categoriesCache
 
-  categoriesCache = await loadJson<MockCategory[]>("/mock-data/categories.json")
+  categoriesCache = await loadJson<MockCategory[]>(
+    `${import.meta.env.BASE_URL}mock-data/categories.json`
+  )
 
   return categoriesCache
 }
@@ -38,7 +42,9 @@ export async function loadCategories() {
 export async function loadReviews() {
   if (reviewsCache) return reviewsCache
 
-  reviewsCache = await loadJson<MockReview[]>("/mock-data/reviews.json")
+  reviewsCache = await loadJson<MockReview[]>(
+    `${import.meta.env.BASE_URL}mock-data/reviews.json`
+  )
 
   return reviewsCache
 }
