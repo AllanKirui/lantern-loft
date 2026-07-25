@@ -3,6 +3,7 @@ import { onMounted, onBeforeUnmount, inject, ref, computed, watch } from "vue"
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Navigation, Keyboard } from "swiper/modules"
 import { useSyncedSwiper } from "@/composables/useSyncedSwiper"
+import { assetUrl } from "@/utils/assetUrl"
 import type { ViewerContext } from "@/types/image-viewer"
 import BaseCarouselNavButton from "@/components/base/BaseCarouselNavButton.vue"
 import ImageAnchoredInfo from "@/components/common/ImageAnchoredInfo.vue"
@@ -267,10 +268,10 @@ function handleImageLoad(index: number) {
                   @dblclick.prevent="onDoubleClick"
                 >
                   <picture v-if="hasRequested(index)">
-                    <source :srcset="img.webp" type="image/webp" />
+                    <source :srcset="assetUrl(img.webp)" type="image/webp" />
 
                     <img
-                      :src="img.png"
+                      :src="assetUrl(img.png)"
                       :alt="img.alt"
                       class="w-full h-auto object-contain select-none"
                       :class="isLoaded(index) ? 'opacity-100' : 'opacity-0'"

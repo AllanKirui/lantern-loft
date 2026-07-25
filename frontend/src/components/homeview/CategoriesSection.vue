@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { assetUrl } from "@/utils/assetUrl"
 import SectionHeader from "../common/SectionHeader.vue"
 
 const sectionHeaderData = {
@@ -16,7 +17,6 @@ const categoryData = [
     image: {
       webp: "/products/1/medium/main.webp",
       png: "/products/1/medium/main.png",
-      url: "src/assets/img/storefront/products/4-recopyright.png",
       alt: "Table lamps category image"
     }
   },
@@ -28,7 +28,6 @@ const categoryData = [
     image: {
       webp: "/products/24/medium/main.webp",
       png: "/products/24/medium/main.png",
-      url: "src/assets/img/storefront/products/4-recopyright.png",
       alt: "Floor lamps category image"
     }
   }
@@ -73,11 +72,14 @@ const categoryData = [
             class="relative aspect-square bg-cream rounded overflow-hidden"
           >
             <picture>
-              <source :srcset="category.image.webp" type="image/webp" />
+              <source
+                :srcset="assetUrl(category.image.webp)"
+                type="image/webp"
+              />
 
               <img
-                :src="category.image.png"
-                :alt="category.image.alt"
+                :src="assetUrl(category.image.png)"
+                :alt="assetUrl(category.image.alt)"
                 class="w-56 h-auto object-cover"
                 loading="lazy"
               />

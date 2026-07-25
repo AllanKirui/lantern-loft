@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue"
+import { assetUrl } from "@/utils/assetUrl"
 import type { ProductPreviewImage } from "@/types/products"
 import PistonLoader from "./PistonLoader.vue"
 
@@ -65,10 +66,10 @@ watch(
   <figure class="product-image-wrapper">
     <!-- LQIP -->
     <picture v-if="!loaded">
-      <source :srcset="image.lqip.webp" type="image/webp" />
+      <source :srcset="assetUrl(image.lqip.webp)" type="image/webp" />
 
       <img
-        :src="image.lqip.png"
+        :src="assetUrl(image.lqip.png)"
         alt=""
         class="lqip-image"
         :class="loaded ? 'opacity-0' : 'opacity-100'"
@@ -79,10 +80,10 @@ watch(
 
     <!-- Full image -->
     <picture v-if="hasRequestedFullImage && !belongsToViewer">
-      <source :srcset="image.webp" type="image/webp" />
+      <source :srcset="assetUrl(image.webp)" type="image/webp" />
 
       <img
-        :src="image.png"
+        :src="assetUrl(image.png)"
         :alt="image.alt"
         loading="lazy"
         class="actual-image"
