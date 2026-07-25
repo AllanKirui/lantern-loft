@@ -27,7 +27,7 @@ defineEmits<{
 
       <BaseIcon
         v-if="draftFilters.category?.includes(cat.slug)"
-        name="round-check"
+        name="roundCheck"
         class="w-4 h-4 ml-2.5 animate-scale-up"
       />
     </button>

@@ -127,7 +127,7 @@ const footerLinks = [
                 :key="index"
                 class="relative flex items-center justify-center w-8 h-8 bg-pastel-yellow"
               >
-                <BaseIcon name="full-star" class="w-6 h-6 text-black z-10" />
+                <BaseIcon name="fullStar" class="w-6 h-6 text-black z-10" />
                 <span
                   v-if="index === 4"
                   class="absolute top-0 right-0 w-1/2 h-full bg-cosmic-latte"

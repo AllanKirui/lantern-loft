@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center justify-center h-[45vh]">
     <div class="animate-fade-in-down" :style="{ animationDelay: '0.1s' }">
       <BaseIcon
-        name="bulb-off"
+        name="bulbOff"
         class="w-24 h-24 text-pale-brown"
         :stroke-width="1.3"
       />

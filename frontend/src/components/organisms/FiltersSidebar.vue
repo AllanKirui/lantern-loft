@@ -220,7 +220,7 @@ function onAfterEnter(el: Element) {
           @toggle="() => toggleAccordion(index)"
         >
           <BaseIcon
-            name="chevron-alt"
+            name="chevronAlt"
             :class="[
               'w-[22px] h-[22px] duration-200',
               openAccordions[index] ? 'rotate-0' : 'rotate-180'

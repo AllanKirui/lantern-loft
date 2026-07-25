@@ -15,7 +15,7 @@ const collection = inject<CollectionContext<ProductCardExtended>>("collection")!
     class="flex items-center gap-2 btn-secondary py-[5px] px-2 min-h-[34px] fs-filters-sidebar-toggle"
     @click="filtersStore.toggleSidebar"
   >
-    <BaseIcon name="filter" class="w-4 h-4" />
+    <BaseIcon name="filter" class="w-4 h-4" :stroke-width="0.3" />
     <span class="hidden md:flex"
       >{{ filtersStore.sidebarVisible ? "Hide" : "Show" }} filters ({{
         collection.filterCount

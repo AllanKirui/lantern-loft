@@ -39,8 +39,9 @@ function onChange(event: Event) {
         class="pointer-events-none absolute inset-y-0 right-1 flex items-center"
       >
         <BaseIcon
-          name="chevron-alt"
+          name="chevronAlt"
           class="w-5 h-5 rotate-180 text-chestnut-brown"
+          :stroke-width="0.1"
         />
       </div>
     </div>

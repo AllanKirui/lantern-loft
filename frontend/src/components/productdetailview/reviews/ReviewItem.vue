@@ -44,7 +44,7 @@ const isLengthy = computed(() => props.review.comment.length > 300)
         v-if="review.isVerified"
         class="inline-flex items-center gap-1 text-xs uppercase font-medium"
       >
-        <BaseIcon name="round-check" class="w-4 h-4 text-esmerald" />
+        <BaseIcon name="roundCheck" class="w-4 h-4 text-esmerald" />
         Verified Purchaser
       </div>
     </div>
@@ -75,7 +75,7 @@ const isLengthy = computed(() => props.review.comment.length > 300)
       >
         Show more
         <BaseIcon
-          name="chevron-alt"
+          name="chevronAlt"
           class="w-[18px] h-[18px] rotate-180"
           :stroke-width="7"
         />
@@ -83,7 +83,7 @@ const isLengthy = computed(() => props.review.comment.length > 300)
     </div>
 
     <div v-if="review.recommends" class="flex items-center gap-1 mt-3">
-      <BaseIcon name="round-check" class="w-3.5 h-3.5" />
+      <BaseIcon name="roundCheck" class="w-3.5 h-3.5" />
       <span class="italic text-pale-brown"
         >Yes, I would recommend this product</span
       >

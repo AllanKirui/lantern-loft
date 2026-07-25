@@ -15,12 +15,20 @@ const { openSort, openPerPage } = useMobileSheets()
   <div class="flex gap-2 items-center">
     <button @click="openSort" class="mobile-sort-button">
       <span>Sort by</span>
-      <BaseIcon name="chevron-alt" class="w-5 h-5 rotate-180" />
+      <BaseIcon
+        name="chevronAlt"
+        class="w-5 h-5 rotate-180"
+        :stroke-width="0.1"
+      />
     </button>
 
     <button @click="openPerPage" class="mobile-sort-button">
       <span>{{ perPage }}</span>
-      <BaseIcon name="chevron-alt" class="w-5 h-5 rotate-180" />
+      <BaseIcon
+        name="chevronAlt"
+        class="w-5 h-5 rotate-180"
+        :stroke-width="0.1"
+      />
     </button>
   </div>
 </template>

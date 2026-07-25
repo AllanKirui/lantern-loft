@@ -4,7 +4,7 @@ defineProps<{ percentage: number }>()
 
 <template>
   <div v-if="percentage > 0" class="items-center gap-2 font-medium">
-    <BaseIcon name="round-check" class="w-5 h-5 md:w-6 md:h-6" />
+    <BaseIcon name="roundCheck" class="w-5 h-5 md:w-6 md:h-6" />
 
     <div class="flex items-center gap-3">
       <span class="fs-pdp-reviews-recommendation-percentage"

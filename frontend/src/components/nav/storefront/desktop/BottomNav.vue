@@ -115,7 +115,7 @@ function leave(el: Element, done: () => void) {
         class="btn-hover relative flex items-center gap-2 py-2 px-4 hover:text-bone hover:after:bg-eerie-black/75 duration-200 overflow-hidden"
       >
         <BaseIcon
-          name="bulb-off"
+          name="bulbOff"
           class="w-[22px] h-[22px] -mx-[3px]"
           :stroke-width="1.3"
         />
