@@ -225,6 +225,7 @@ function onAfterEnter(el: Element) {
               'w-[22px] h-[22px] duration-200',
               openAccordions[index] ? 'rotate-0' : 'rotate-180'
             ]"
+            :stroke-width="0.1"
           />
         </FilterAccordionToggle>
 
