@@ -1,18 +1,54 @@
 <script setup lang="ts">
-defineProps({
-  iconType: { type: String, default: "ui" }, // 'ui' or 'social'
-  name: { type: String, required: true },
-  strokeWidth: { type: [Number, String], default: 1.5 },
-  size: { type: [Number, String] }
+import { computed } from "vue"
+import * as uiIcons from "@/components/icons/ui"
+import * as socialIcons from "@/components/icons/social"
+
+type IconNames =
+  | "avatar"
+  | "bulbOff"
+  | "cart"
+  | "chevronAlt"
+  | "chevron"
+  | "close"
+  | "filter"
+  | "fullStar"
+  | "grid"
+  | "hangingBulb"
+  | "history"
+  | "key"
+  | "list"
+  | "package"
+  | "patty"
+  | "photo"
+  | "roundCheck"
+  | "search"
+  | "wishlist"
+  | "facebook"
+  | "instagram"
+
+const props = withDefaults(
+  defineProps<{
+    name: IconNames
+    iconType?: "ui" | "social"
+    strokeWidth?: number | string
+  }>(),
+  {
+    iconType: "ui",
+    strokeWidth: 1.5
+  }
+)
+
+const component = computed(() => {
+  return props.iconType === "social"
+    ? socialIcons[props.name as keyof typeof socialIcons]
+    : uiIcons[props.name as keyof typeof uiIcons]
 })
 </script>
 
 <template>
-  <svg
+  <component
+    :is="component"
     class="inline-block"
-    aria-hidden="true"
-    :style="{ '--icon-stroke-width': strokeWidth, '--icon-size': size }"
-  >
-    <use :href="`/src/assets/icons/${iconType}/${name}.svg`" />
-  </svg>
+    :style="{ '--icon-stroke-width': strokeWidth }"
+  />
 </template>
