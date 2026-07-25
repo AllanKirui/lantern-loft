@@ -1,0 +1,20 @@
+<script setup lang="ts">
+defineProps<{
+  strokeWidth?: number | string
+}>()
+</script>
+
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    :stroke-width="strokeWidth"
+  >
+    <path
+      fill="currentColor"
+      d="M9 13.25c2.091 0 3.83 1.51 4.184 3.5H22.5a.75.75 0 0 1 .102 1.493l-.102.007-9.316.001a4.251 4.251 0 0 1-8.368 0L1.5 18.25a.75.75 0 0 1-.102-1.493l.102-.007h3.316A4.25 4.25 0 0 1 9 13.25m0 1.5a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5m6.5-12.5c2.091 0 3.83 1.51 4.184 3.5H22.5a.75.75 0 0 1 .102 1.493l-.102.007-2.816.001a4.251 4.251 0 0 1-8.368 0L1.5 7.25a.75.75 0 0 1-.102-1.493L1.5 5.75h9.816a4.25 4.25 0 0 1 4.184-3.5m0 1.5a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5"
+    />
+  </svg>
+</template>

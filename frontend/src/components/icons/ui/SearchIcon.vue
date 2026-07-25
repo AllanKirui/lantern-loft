@@ -1,0 +1,18 @@
+<script setup lang="ts">
+defineProps<{
+  strokeWidth?: number | string
+}>()
+</script>
+
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 64 64"
+    :stroke-width="strokeWidth"
+  >
+    <circle cx="27.31" cy="25.74" r="18.1" />
+    <path d="M39.58 39.04 56.14 57" />
+  </svg>
+</template>
