@@ -11,6 +11,8 @@ const filtersStore = useFiltersStore()
     <BaseCloseButton
       class="absolute right-2 top-1/2 -translate-y-1/2 hover:after:bg-cream"
       @click="filtersStore.close"
-    />
+    >
+      <BaseIcon name="close" class="w-[18px] h-[18px]" :stroke-width="2.5" />
+    </BaseCloseButton>
   </div>
 </template>

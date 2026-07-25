@@ -33,7 +33,9 @@ function setElementId(activeDropdown: string) {
       <BaseCloseButton
         class="hover:after:bg-cream"
         @click="mobileNavStore.closeAll"
-      />
+      >
+        <BaseIcon name="close" class="w-[18px] h-[18px]" :stroke-width="2.5" />
+      </BaseCloseButton>
     </div>
 
     <slot />

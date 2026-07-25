@@ -22,7 +22,9 @@ const viewer = inject<ViewerContext>("viewer")!
       <BaseCloseButton
         class="text-cosmic-latte sm_plus:text-chestnut-brown hover:after:bg-jet sm_plus:hover:after:bg-cream"
         @click="viewer.close"
-      />
+      >
+        <BaseIcon name="close" class="w-[18px] h-[18px]" :stroke-width="2.5" />
+      </BaseCloseButton>
     </header>
 
     <!-- Horizontal divider -->

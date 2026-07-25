@@ -32,9 +32,10 @@ const notificationStore = useNotificationStore()
           note.type === 'error' && ' hover:after:bg-jet/65',
           note.type === 'info' && 'text-pale-brown hover:after:bg-bone/75'
         ]"
-        size="16px"
         @click="notificationStore.remove(note.id)"
-      />
+      >
+        <BaseIcon name="close" class="w-[18px] h-[18px]" :stroke-width="2.5" />
+      </BaseCloseButton>
 
       <!-- Progress Bar -->
       <div

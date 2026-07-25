@@ -65,7 +65,13 @@ onBeforeUnmount(removeResizeListener)
         <BaseCloseButton
           class="w-9 h-9 hover:after:bg-cream"
           @click="$emit('close')"
-        />
+        >
+          <BaseIcon
+            name="close"
+            class="w-[18px] h-[18px]"
+            :stroke-width="2.5"
+          />
+        </BaseCloseButton>
       </div>
 
       <slot />

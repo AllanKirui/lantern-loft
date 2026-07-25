@@ -79,9 +79,10 @@ onBeforeUnmount(() => {
       <BaseCloseButton
         class="filter-badge-btn"
         title="Remove filter"
-        :size="`16px`"
         @click="() => removeFilter(f.type)"
-      />
+      >
+        <BaseIcon name="close" class="w-4 h-4" :stroke-width="2.5" />
+      </BaseCloseButton>
     </span>
   </div>
 </template>

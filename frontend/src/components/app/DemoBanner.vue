@@ -41,9 +41,10 @@ const { isVisible, dismiss } = useDemoBanner()
 
           <BaseCloseButton
             class="flex-shrink-0 hover:after:bg-jet"
-            size="16px"
             @click="dismiss"
-          />
+          >
+            <BaseIcon name="close" class="w-4 h-4" :stroke-width="2.5" />
+          </BaseCloseButton>
         </div>
       </div>
     </aside>
