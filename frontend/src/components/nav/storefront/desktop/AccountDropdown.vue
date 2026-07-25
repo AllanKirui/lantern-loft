@@ -4,13 +4,13 @@ import ComingSoonLink from "@/components/common/ComingSoonLink.vue"
 const accountLinks = [
   {
     href: "/account",
-    icon: "key",
+    icon: "key" as "key",
     text: "Account Settings",
     description: "Update your details, preferences, and password"
   },
   {
     href: "/account/orders",
-    icon: "package",
+    icon: "package" as "package",
     text: "My Orders",
     description: "Track, review, or visit your past purchases"
   }

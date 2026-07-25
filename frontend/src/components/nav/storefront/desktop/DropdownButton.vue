@@ -5,9 +5,11 @@ import { storeToRefs } from "pinia"
 // Allowed dropdown types
 type DropdownName = "account" | "recent" | "wishlist"
 
+type IconNames = "avatar" | "history" | "wishlist"
+
 interface Props {
   dropdown: DropdownName
-  icon: string
+  icon: IconNames
   text: string
   controls: string
 }

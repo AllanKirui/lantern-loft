@@ -6,22 +6,22 @@ const accountLinks = [
   {
     title: "My Orders",
     about: "Track, review, or revisit your past purchases",
-    icon: "package"
+    icon: "package" as "package"
   },
   {
     title: "My Wishlist",
     about: "Your saved favorites, all in one place",
-    icon: "wishlist"
+    icon: "wishlist" as "wishlist"
   },
   {
     title: "Recently Viewed",
     about: "Take another look at what caught your eye",
-    icon: "history"
+    icon: "history" as "history"
   },
   {
     title: "Account Settings",
     about: "Update your details, preferences, and password",
-    icon: "key"
+    icon: "key" as "key"
   }
 ]
 
