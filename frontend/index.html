@@ -19,20 +19,19 @@
         const params = new URLSearchParams(location.search)
 
         const path = params.get("p")
-
         if (!path) return
 
-        const query = params.get("q")
+        params.delete("p")
 
-        const base = location.pathname.replace(/\/$/, "")
-        const route = path.replace(/^\/+/, "")
+        const query = params.toString()
 
-        const url =
-          `${base}/${route}` +
-          (query ? "?" + query.replace(/~and~/g, "&") : "") +
-          location.hash
-
-        history.replaceState(null, "", url)
+        history.replaceState(
+          null,
+          "",
+          `${location.pathname.replace(/\/$/, "")}/${path.replace(/^\/+/, "")}${
+            query ? `?${query}` : ""
+          }${location.hash}`
+        )
       })()
     </script>
   </head>

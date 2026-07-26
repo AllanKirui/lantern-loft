@@ -2,38 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Single Page Apps for GitHub Pages</title>
 
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
-      //
-      // For GitHub Project Pages:
-      var segmentCount = 1
+    <script>
+      // redirect logic for GitHub Pages
+      ;(() => {
+        const url = new URL(location)
+        const base = "/lantern-loft"
+        const path = url.pathname.slice(base.length)
 
-      var l = window.location
-
-      l.replace(
-        l.protocol +
-          "//" +
-          l.hostname +
-          (l.port ? ":" + l.port : "") +
-          l.pathname
-            .split("/")
-            .slice(0, 1 + segmentCount)
-            .join("/") +
-          "/?p=/" +
-          l.pathname
-            .slice(1)
-            .split("/")
-            .slice(segmentCount)
-            .join("/")
-            .replace(/&/g, "~and~") +
-          (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-          l.hash
-      )
+        url.pathname = `${base}/`
+        url.searchParams.set("p", path)
+        location.replace(url)
+      })()
     </script>
   </head>
-
-  <body></body>
 </html>
