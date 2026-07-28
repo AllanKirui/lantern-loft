@@ -1,5 +1,3 @@
-######
-
 [🏠 Home](./README.md) &nbsp; &bullet; &nbsp;
 [The Architecture](./README-2-the-architecture.md) &nbsp; &bullet; &nbsp;
 [**The Static Demo Pipeline**](./README-3-the-static-demo-pipeline.md) &nbsp; &bullet; &nbsp;
@@ -9,25 +7,25 @@
 
 <br>
 
-# ⚡ The Static Demo Pipeline
+# The Static Demo Pipeline ⚡
 
-### 📖 Table of Contents
+### Table of Contents 📖
 
-- In this file, [The Static Demo Pipeline](#⚡-the-static-demo-pipeline):
-  - [Data Generation](#🎲-data-generation)
-  - [Content Pools](#🧩-content-pools)
-  - [Catalog Builders](#🏭-catalog-builders)
-  - [Static Demo Generator](#⚙-static-demo-generator)
-  - [Generated Database](#🗃-generated-database)
-  - [The Repository](#📚-the-repository)
-  - [Mappers](#🔄-mappers)
-  - [Strongly Typed Models](#🧠-strongly-typed-models)
-  - [Services](#🧱-services)
-  - [Composables](#🧩-composables)
-  - [Lazy Loading and Image Strategy](#⏳-lazy-loading-and-image-strategy)
-  - [Keeping the UI Data-Source Agnostic](#🔐-keeping-the-ui-data-source-agnostic)
-  - [Adding a New Product](#🚀-adding-a-new-product)
-  - [Final Thoughts](#💭-final-thoughts)
+- In this file, [The Static Demo Pipeline](#the-static-demo-pipeline-):
+  - [Data Generation](#data-generation-)
+  - [Content Pools](#content-pools-)
+  - [Catalog Builders](#catalog-builders-)
+  - [Static Demo Generator](#static-demo-generator-)
+  - [Generated Database](#generated-database-)
+  - [The Repository](#the-repository-)
+  - [Mappers](#mappers-)
+  - [Strongly Typed Models](#strongly-typed-models-)
+  - [Services](#services-)
+  - [Composables](#composables-)
+  - [Lazy Loading and Image Strategy](#lazy-loading-and-image-strategy-)
+  - [Keeping the UI Data-Source Agnostic](#keeping-the-ui-data-source-agnostic-)
+  - [Adding a New Product](#adding-a-new-product-)
+  - [Final Thoughts](#final-thoughts-)
 
 <br>
 
@@ -57,7 +55,7 @@ _Image showing an overview of the **Static Demo Architecture**._
 
 ---
 
-# 🎲 Data Generation
+# Data Generation 🎲
 
 Unlike traditional mock data that is manually written into JSON files, Lantern Loft generates its demo data programmatically.
 
@@ -99,7 +97,7 @@ _Image showing a screenshot of the generated `products.json` file._
 
 ---
 
-# 🧩 Content Pools
+# Content Pools 🧩
 
 At the heart of the generator are reusable content pools.
 
@@ -138,7 +136,7 @@ The result is a catalogue that's significantly easier to maintain.
 
 ---
 
-# 🏭 Catalog Builders
+# Catalog Builders 🏭
 
 Content pools alone aren't enough to generate meaningful products.
 
@@ -164,7 +162,7 @@ _Image showing multiple content pools merging into one product._
 
 ---
 
-# ⚙ Static Demo Generator
+# Static Demo Generator ⚙
 
 The generator acts as the entry point to the entire pipeline.
 
@@ -199,7 +197,7 @@ This makes the generated files disposable artifacts rather than manually maintai
 
 ---
 
-# 🗃 Generated Database
+# Generated Database 🗃
 
 Once generation completes, the application has what is effectively a miniature database.
 
@@ -223,7 +221,7 @@ Instead, all access goes through the repository.
 
 ---
 
-# 📚 The Repository
+# The Repository 📚
 
 ```
 frontend/src/repositories/ProductRepository.ts
@@ -262,7 +260,7 @@ Tomorrow it could call Laravel without requiring the UI to change.
 
 ---
 
-# 🔄 Mappers
+# Mappers 🔄
 
 The repository intentionally returns raw domain models.
 
@@ -290,7 +288,7 @@ _Image showing a comparison of **Laravel API Resources** and **Static Demo Mappe
 
 ---
 
-# 🧠 Strongly Typed Models
+# Strongly Typed Models 🧠
 
 One of the major goals of the static implementation was preserving the same level of type safety expected from a real backend.
 
@@ -319,7 +317,7 @@ As the project grew, these shared models became one of the most valuable parts o
 
 ---
 
-# 🧱 Services
+# Services 🧱
 
 Services provide a thin abstraction layer between the data source and the rest of the application.
 
@@ -338,7 +336,7 @@ For the static demo implementation, services point to the repository methods whe
 
 ---
 
-# 🧩 Composables
+# Composables 🧩
 
 Vue composables are responsible for coordinating page behaviour.
 
@@ -359,7 +357,7 @@ This separation significantly improves readability while making page behaviour e
 
 ---
 
-# ⏳ Lazy Loading and Image Strategy
+# Lazy Loading and Image Strategy ⏳
 
 Images make up the majority of an ecommerce application's payload.
 
@@ -380,7 +378,7 @@ This keeps initial page loads lightweight while maintaining a smooth browsing ex
 
 ---
 
-# 🔐 Keeping the UI Data-Source Agnostic
+# Keeping the UI Data-Source Agnostic 🔐
 
 Perhaps the most important outcome of the static architecture is something users never notice.
 
@@ -402,7 +400,7 @@ This keeps the frontend resilient to future backend changes while allowing diffe
 
 ---
 
-# 🚀 Adding a New Product
+# Adding a New Product 🚀
 
 One of the biggest advantages of this architecture is how little work is required to expand the catalogue.
 
@@ -421,7 +419,7 @@ The generator takes care of producing the necessary JSON while repositories and 
 
 ---
 
-# 💭 Final Thoughts
+# Final Thoughts 💭
 
 What began as a workaround for GitHub Pages ultimately became one of the most educational parts of the project.
 
@@ -441,5 +439,5 @@ The static demo is a direct reflection of that philosophy.
 
 <br>
 
-[&UpArrow; Back to top](#) &nbsp; &bullet; &nbsp;
+[&UpArrow; Back to top](#the-static-demo-pipeline) &nbsp; &bullet; &nbsp;
 Up Next: [Part 4: Following a Product Through the Pipeline](./README-4-follow-a-product.md)

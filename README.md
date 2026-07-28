@@ -1,4 +1,4 @@
-# 💡 Lantern Loft
+# Lantern Loft 💡
 
 ![](./frontend/src/assets/img/markdown_images/landing-image.png)
 
@@ -15,7 +15,7 @@
 
 <br>
 
-## 👋 Welcome
+## Welcome 👋
 
 I've always believed that the best way to learn software engineering is by building real products.
 
@@ -54,7 +54,7 @@ I hope you enjoy exploring both the application **and** the engineering decision
 
 <br>
 
-## 💭 Project Philosophy
+## Project Philosophy 💭
 
 Lantern Loft isn't an attempt to build the largest ecommerce application.
 
@@ -73,15 +73,15 @@ The application will continue evolving, but I hope those ideas remain constant.
 
 <br>
 
-### 📖 Table of Contents
+### Table of Contents 📖
 
-- In this file, [Overview](#🔎-overview):
+- In this file, [Overview](#overview-):
   - [About the Project](#about-the-project)
-  - [Project Goals](#🎯-project-goals)
-  - [Features](#✨-features)
-  - [Screenshots](#📷-screenshots)
-  - [Links](#🔗-links)
-  - [Quick Start](#🚀-quick-start)
+  - [Project Goals](#project-goals-)
+  - [Features](#features-)
+  - [Screenshots](#screenshots-)
+  - [Links](#links-)
+  - [Quick Start](#quick-start-)
 - Part 2: [The Architecture](./README-2-the-architecture.md)
 - Part 3: [The Static Demo Pipeline](./README-3-the-static-demo-pipeline.md)
 - Part 4: [Following a Product Through The Pipeline](./README-4-follow-a-product.md)
@@ -92,7 +92,7 @@ The application will continue evolving, but I hope those ideas remain constant.
 
 ---
 
-# 🔎 Overview
+# Overview 🔎
 
 ## About the Project
 
@@ -108,13 +108,13 @@ The result is a frontend capable of simulating many backend behaviors—includin
 
 <br>
 
-## 🎯 Project Goals
+## Project Goals 🎯
 
 This project was designed to help me gain practical experience with technologies and concepts that are difficult to fully appreciate through tutorials alone.
 
 Working on Lantern Loft allowed me to get hands-on experience with:
 
-### ⚙ Vue
+### Vue ⚙
 
 - Composition API
 - Pinia state management
@@ -124,7 +124,7 @@ Working on Lantern Loft allowed me to get hands-on experience with:
 - Axios workflows
 - Abstracting HTTP logic into dedicated service layers
 
-### 📘 TypeScript
+### TypeScript 📘
 
 - Using TypeScript in Vue applications
 - Generics
@@ -134,7 +134,7 @@ Working on Lantern Loft allowed me to get hands-on experience with:
 - Type-safe API contracts
 - Domain modelling
 
-### 🎨 Tailwind CSS
+### Tailwind CSS 🎨
 
 - Utility-first styling
 - Custom design system
@@ -143,7 +143,7 @@ Working on Lantern Loft allowed me to get hands-on experience with:
 - Responsive layouts
 - Component styling
 
-### 🚀 Laravel
+### Laravel 🚀
 
 I started out the project by building a Laravel backend as part of my goal of learning the framework.
 
@@ -163,7 +163,7 @@ Working on the backend introduced me to:
 - RESTful API development
 - Laravel Tinker
 
-### 🌐 APIs
+### APIs 🌐
 
 - REST API design
 - API testing with Insomnia
@@ -173,7 +173,7 @@ Working on the backend introduced me to:
 - Filtering
 - Sorting
 
-### 🎨 UI / UX
+### UI / UX 🎨
 
 Perhaps one of the most rewarding aspects of the project was designing an interface that feels polished, elegant, and enjoyable to use.
 
@@ -181,7 +181,7 @@ From typography and spacing to reusable components and interaction states, nearl
 
 <br>
 
-## ✨ Features
+## Features ✨
 
 Current implementation includes:
 
@@ -220,7 +220,7 @@ Current implementation includes:
 
 <br>
 
-## 📷 Screenshots
+## Screenshots 📷
 
 ![](./frontend/src/assets/img/markdown_images/pages/homepage-desktop.png)
 
@@ -252,13 +252,13 @@ _Image showing screenshots of the app's pages in mobile view._
 
 <br>
 
-## 🔗 Links
+## Links 🔗
 
 > Live Demo URL: [Lantern Loft](https://allankirui.github.io/lantern-loft/)
 
 <br>
 
-## 🚀 Quick Start
+## Quick Start 🚀
 
 Clone the repository:
 
@@ -322,7 +322,7 @@ public/
 
 These files act as the application's database tables and power the static demo showcased on GitHub Pages.
 
-[Part 3: The Static Demo Pipeline](./README-3-The-Static-Demo-Pipeline.md) explains how the generation pipeline works.
+[Part 3: The Static Demo Pipeline](./README-3-the-static-demo-pipeline.md) explains how the generation pipeline works.
 
 <br>
 
@@ -330,5 +330,5 @@ These files act as the application's database tables and power the static demo s
 
 <br>
 
-[&UpArrow; Back to top](#💡-lantern-loft) &nbsp; &bullet; &nbsp;
-Up Next: [Part 2: The Architecture](./README-2-The-Architecture.md)
+[&UpArrow; Back to top](#lantern-loft-) &nbsp; &bullet; &nbsp;
+Up Next: [Part 2: The Architecture](./README-2-the-architecture.md)

@@ -1,5 +1,3 @@
-######
-
 [🏠 Home](./README.md) &nbsp; &bullet; &nbsp;
 [The Architecture](./README-2-the-architecture.md) &nbsp; &bullet; &nbsp;
 [The Static Demo Pipeline](./README-3-the-static-demo-pipeline.md) &nbsp; &bullet; &nbsp;
@@ -9,11 +7,11 @@
 
 <br>
 
-# 📦 Following a Product Through the Entire Pipeline
+# Following a Product Through the Entire Pipeline 📦
 
-### 📖 Table of Contents
+### Table of Contents 📖
 
-- In this file, [Following a Product Through the Entire Pipeline](#📦-following-a-product-through-the-entire-pipeline):
+- In this file, [Following a Product Through the Entire Pipeline](#following-a-product-through-the-entire-pipeline-):
   - [1. Defining the Product](#1-defining-the-product)
   - [2. Enriching the Product](#2-enriching-the-product)
   - [3. Generating the Static Database](#3-generating-the-static-database)
@@ -293,5 +291,5 @@ Everything above it can remain exactly the same.
 
 <br>
 
-[&UpArrow; Back to top](#) &nbsp; &bullet; &nbsp;
+[&UpArrow; Back to top](#following-a-product-through-the-entire-pipeline-) &nbsp; &bullet; &nbsp;
 Up Next: [Part 5: Development Journey](./README-5-development-journey.md)

@@ -1,5 +1,3 @@
-######
-
 [🏠 Home](./README.md) &nbsp; &bullet; &nbsp;
 [**The Architecture**](./README-2-the-architecture.md) &nbsp; &bullet; &nbsp;
 [The Static Demo Pipeline](./README-3-the-static-demo-pipeline.md) &nbsp; &bullet; &nbsp;
@@ -9,15 +7,15 @@
 
 <br>
 
-# 🏭 The Architecture
+# The Architecture 🏭
 
-### 📖 Table of Contents
+### Table of Contents 📖
 
-- In this file, [The Architecture](#🏭-the-architecture):
-  - [Backend Architecture](#⚙-backend-architecture)
-  - [Static Demo Architecture](#⚡-static-demo-architecture)
-  - [Data Flow](#🗂-data-flow)
-  - [Laravel ↔ Vue Comparison](#🔄-laravel-↔-vue-comparison)
+- In this file, [The Architecture](#the-architecture-):
+  - [Backend Architecture](#backend-architecture-)
+  - [Static Demo Architecture](#static-demo-architecture-)
+  - [Data Flow](#data-flow-)
+  - [Laravel ↔ Vue Comparison](#laravel-↔-vue-comparison-)
 
 <br>
 
@@ -53,7 +51,7 @@ These principles helped ensure that individual layers of the application remain 
 
 ---
 
-# ⚙ Backend Architecture
+# Backend Architecture ⚙
 
 Rather than treating the backend as "just somewhere data comes from", I wanted it to become an opportunity to understand how real-world applications organise business logic.
 
@@ -104,7 +102,7 @@ That decision eventually became one of my favourite parts of the project.
 
 ---
 
-# ⚡ Static Demo Architecture
+# Static Demo Architecture ⚡
 
 One of the biggest engineering challenges of this project was finding a way to deploy a convincing demonstration without sacrificing the application's architecture.
 
@@ -149,7 +147,7 @@ This keeps components almost completely unaware that the backend has been replac
 
 ---
 
-# 🗂 Data Flow
+# Data Flow 🗂
 
 One of the architectural decisions that had the greatest impact on the project was introducing a Service layer.
 
@@ -221,7 +219,7 @@ Using composables and services introduced several advantages:
 
 ---
 
-# 🔄 Laravel ↔ Vue Comparison
+# Laravel ↔ Vue Comparison 🔄
 
 One of my favourite aspects of this project is how closely the frontend mirrors concepts found in Laravel.
 
@@ -284,5 +282,5 @@ It became a valuable exercise in designing software that is resilient to change.
 
 <br>
 
-[&UpArrow; Back to top](#) &nbsp; &bullet; &nbsp;
+[&UpArrow; Back to top](#the-architecture) &nbsp; &bullet; &nbsp;
 Up Next: [Part 3: The Static Demo Pipeline](./README-3-the-static-demo-pipeline.md)

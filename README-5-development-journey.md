@@ -1,5 +1,3 @@
-######
-
 [🏠 Home](./README.md) &nbsp; &bullet; &nbsp;
 [The Architecture](./README-2-the-architecture.md) &nbsp; &bullet; &nbsp;
 [The Static Demo Pipeline](./README-3-the-static-demo-pipeline.md) &nbsp; &bullet; &nbsp;
@@ -9,18 +7,18 @@
 
 <br>
 
-# 🚀 Development Journey
+# Development Journey 🚀
 
-### 📖 Table of Contents
+### Table of Contents 📖
 
-- In this file, [Development Journey](#🚀-development-journey):
-  - [From Building Pages to Designing Systems](#🌱-from-building-pages-to-designing-systems)
-  - [Embracing Refactoring](#🧩-embracing-refactoring)
-  - [Engineering Trade-offs](#⚖-engineering-trade-offs)
-  - [Challenges](#🧠-challenges)
-  - [Lessons Learned](#📚-lessons-learned)
-  - [Product Decisions](#💡-product-decisions)
-  - [Looking Back](#💭-looking-back)
+- In this file, [Development Journey](#development-journey-):
+  - [From Building Pages to Designing Systems](#from-building-pages-to-designing-systems-)
+  - [Embracing Refactoring](#embracing-refactoring-)
+  - [Engineering Trade-offs](#engineering-trade-offs-)
+  - [Challenges](#challenges-)
+  - [Lessons Learned](#lessons-learned-)
+  - [Product Decisions](#product-decisions-)
+  - [Looking Back](#looking-back-)
 
 <br>
 
@@ -48,7 +46,7 @@ Looking back, I think the project taught me far more about software engineering 
 
 ---
 
-# 🌱 From Building Pages to Designing Systems
+# From Building Pages to Designing Systems 🌱
 
 When I first began building Lantern Loft, I approached development the same way I had approached many previous projects.
 
@@ -82,7 +80,7 @@ That single question influenced nearly every architectural decision that followe
 
 ---
 
-# 🧩 Embracing Refactoring
+# Embracing Refactoring 🧩
 
 One of the biggest lessons this project taught me is that the first solution is rarely the best one.
 
@@ -107,7 +105,7 @@ Rather than viewing refactoring as "rewriting code," I came to see it as an esse
 
 ---
 
-# ⚖ Engineering Trade-offs
+# Engineering Trade-offs ⚖
 
 Like any real project, Lantern Loft involved making trade-offs.
 
@@ -145,7 +143,7 @@ For this project, that trade-off was well worth it.
 
 ---
 
-# 🧠 Challenges
+# Challenges 🧠
 
 Every substantial project comes with unexpected obstacles.
 
@@ -210,7 +208,7 @@ Maintaining those boundaries became just as important as adding new features.
 
 ---
 
-# 📚 Lessons Learned
+# Lessons Learned 📚
 
 This project reinforced several ideas that I expect to carry into future work.
 
@@ -271,7 +269,7 @@ Thinking about the complete experience became just as rewarding as solving techn
 
 ---
 
-# 💡 Product Decisions
+# Product Decisions 💡
 
 While the architecture shaped how the application works, product decisions shaped how it feels to use.
 
@@ -316,7 +314,7 @@ Instead, it was to build foundations that could accommodate future growth withou
 
 ---
 
-# 💭 Looking Back
+# Looking Back 💭
 
 When I started Lantern Loft, I hoped it would help me learn Laravel.
 
@@ -340,5 +338,5 @@ It's something you continue refining as your understanding grows.
 
 <br>
 
-[&UpArrow; Back to top](#) &nbsp; &bullet; &nbsp;
+[&UpArrow; Back to top](#development-journey-) &nbsp; &bullet; &nbsp;
 Up Next: [Part 6: Roadmap & Author](./README-6-roadmap-and-author.md)

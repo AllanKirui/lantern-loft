@@ -1,5 +1,3 @@
-######
-
 [🏠 Home](./README.md) &nbsp; &bullet; &nbsp;
 [The Architecture](./README-2-the-architecture.md) &nbsp; &bullet; &nbsp;
 [The Static Demo Pipeline](./README-3-the-static-demo-pipeline.md) &nbsp; &bullet; &nbsp;
@@ -9,15 +7,15 @@
 
 <br>
 
-# 🛣 Roadmap
+# Roadmap 🛣
 
-### 📖 Table of Contents
+### Table of Contents 📖
 
 - In this file:
-  - [Roadmap](#🛣-roadmap)
-  - [Useful Resources](#💎-useful-resources)
-  - [Acknowledgements](#🙏-acknowledgements)
-  - [Author](#✍🏾-author)
+  - [Roadmap](#roadmap-)
+  - [Useful Resources](#useful-resources-)
+  - [Acknowledgements](#acknowledgements-)
+  - [Author](#author-)
 
 <br>
 
@@ -175,7 +173,7 @@ _Image showing designs of some of the features still to come._
 
 ---
 
-# 💎 Useful Resources
+# Useful Resources 💎
 
 - [XAMPP](https://www.apachefriends.org/) - A free, open-source, cross-platform web server solution stack developed by Apache Friends, designed to help developers create local environments for testing and debugging web applications before deploying them to live servers
 
@@ -209,7 +207,7 @@ _Image showing designs of some of the features still to come._
 
 - [Inkscape](https://inkscape.org) - Inkscape SVG Editor is an essential tool for my web projects. I use it frequently to design and fine-tune the _spacing_, _sizing_ and _positioning_ of elements. For insight into how I integrate Inkscape into my coding workflow, check out this repository I created - [Designing and Coding Layouts](https://github.com/AllanKirui/designing-and-coding-layouts)
 
-- [A Guide on Vue 3 Vite GitHub Deployment](https://allankirui.github.io/vue-3-vite-github-deployment) - After struggling to deploy a previous app using the deployment steps for Vue CLI apps, I took a break and created a separate app to figure out the correct deployment method for **Vite**. This effort lead to the creation of the guide, **Vue 3 Vite GitHub Deployment**
+<br>
 
 ## Topics Worth Exploring
 
@@ -230,7 +228,7 @@ Some topics I highly recommend exploring include:
 
 ---
 
-# 🙏 Acknowledgements
+# Acknowledgements 🙏
 
 This project wouldn't exist without the incredible open-source community.
 
@@ -256,7 +254,7 @@ To all of them—and to the countless educators and open-source contributors who
 
 ---
 
-# ✍🏾 Author
+# Author ✍🏾
 
 Hi! I'm **Allan Kirui**.
 
@@ -302,4 +300,4 @@ All rights reserved.
 
 <br>
 
-[&UpArrow; Back to top](#)
+[&UpArrow; Back to top](#roadmap-)
