@@ -1403,6 +1403,42 @@
 - add project documentation
   ([e52bcee](/e52bceeb3fc60a0691da0fbdd007a39a2f71382f))
   <br/>_Thu, Jul 23, 2026 • 04:44:44 PM +03:00_
+- update router history with base URL
+  ([ba7624f](/ba7624f89a88424330f8a7d584e975d6cbbf3723))
+  <br/>_Fri, Jul 24, 2026 • 03:33:46 PM +03:00_
+- add icon components that contain inline SVGs
+  ([96c6123](/96c61235bba473cd8bd2b8b85d0936ab09d0942d))
+  <br/>_Sat, Jul 25, 2026 • 04:27:53 PM +03:00_
+- add index files to export icon components
+  ([d25b2f4](/d25b2f4697418fdd3fe775b926e4110f6ff57707))
+  <br/>_Sat, Jul 25, 2026 • 04:28:44 PM +03:00_
+- add type safety for globally registered BaseIcon component
+  ([cfaccf4](/cfaccf4ef84edb4d2274f2b4c778808504249cd5))
+  <br/>_Sat, Jul 25, 2026 • 04:30:07 PM +03:00_
+- add utility to resolve asset paths
+  ([a230d99](/a230d99fe6bd24758a9431b1d8e5386d9c457d11))
+  <br/>_Sat, Jul 25, 2026 • 04:38:39 PM +03:00_
+- use utility to resolve asset paths
+  ([2e11173](/2e11173a0e591428a38baf6fc97f16ef25fd23b9))
+  <br/>_Sat, Jul 25, 2026 • 04:38:53 PM +03:00_
+- add 404 fix for GitHub Pages
+  ([4aed5b7](/4aed5b77f38b81ba63561903f0a932b813c89c51))
+  <br/>_Sat, Jul 25, 2026 • 05:08:53 PM +03:00_
+- update 404 fix for GitHub Pages
+  ([dea69ff](/dea69ff940f0aa8b4ec11486fc40c300d62bd0ae))
+  <br/>_Sat, Jul 25, 2026 • 05:54:20 PM +03:00_
+- update 404 fix for GitHub Pages
+  ([7d5eba9](/7d5eba94c6e3a1a4afd9f0b0af3b26b8487d3678))
+  <br/>_Sun, Jul 26, 2026 • 12:15:35 PM +03:00_
+- update 404 fix for GitHub Pages
+  ([8776a9a](/8776a9a6b873095554a9e64514a1061eb5ee1299))
+  <br/>_Sun, Jul 26, 2026 • 04:06:18 PM +03:00_
+- add wishlist-add image icon
+  ([507859c](/507859c7803e9fe7d628caed9d365464ec9ae745))
+  <br/>_Tue, Jul 28, 2026 • 11:51:33 AM +03:00_
+- update doc links
+  ([e6fbff5](/e6fbff537c84369866bf9326dd4a730a4e8ca4be))
+  <br/>_Tue, Jul 28, 2026 • 01:08:19 PM +03:00_
 
 ## 🐛 Bug Fixes
 
@@ -1499,6 +1535,12 @@
 - add base URL to vite config
   ([ba10776](/ba10776acc591a9655f2bd686ea57b9fd4467e81))
   <br/>_Thu, Jul 23, 2026 • 04:50:29 PM +03:00_
+- generate changelog
+  ([76854e9](/76854e963da35d23cc5c6f77bd2fdd0ab4783031))
+  <br/>_Thu, Jul 23, 2026 • 04:58:11 PM +03:00_
+- update @ alias that points to the src folder
+  ([4a1641a](/4a1641a3233861790e96d32a4845187fd8d36f01))
+  <br/>_Fri, Jul 24, 2026 • 03:34:11 PM +03:00_
 
 ## 🔨 Refactoring
 
@@ -2087,6 +2129,39 @@
 - add comments to the generation pipeline
   ([d11896c](/d11896c295e6ca569df6404f928f07a20e278853))
   <br/>_Thu, Jul 23, 2026 • 04:42:03 PM +03:00_
+- remove unused function
+  ([6efad53](/6efad538bb27c02b721188455024753bb0130955))
+  <br/>_Fri, Jul 24, 2026 • 12:01:52 PM +03:00_
+- use icon components
+  ([6af2e51](/6af2e517a7078fbf32cf2c3c51eba6b2b2beff3d))
+  <br/>_Sat, Jul 25, 2026 • 04:29:18 PM +03:00_
+- remove global width and height properties for SVG icons
+  ([4c07a01](/4c07a01bb6d826f3ad61bf5248b9d14014796df2))
+  <br/>_Sat, Jul 25, 2026 • 04:29:45 PM +03:00_
+- replace integrated BaseIcon component with a slot
+  ([ede0ee5](/ede0ee58c9fa7c6b4d013cb757171c05d36ec749))
+  <br/>_Sat, Jul 25, 2026 • 04:32:20 PM +03:00_
+- pass BaseIcon component as slotted content to BaseCloseButton component instance
+  ([b6c1745](/b6c1745833f98f86ceb16ca26bf480a3a3920e8a))
+  <br/>_Sat, Jul 25, 2026 • 04:35:27 PM +03:00_
+- add missing stroke width to icons, use updated icon names
+  ([e1b5c46](/e1b5c46644b1038b9718aa8809677e48086349f3))
+  <br/>_Sat, Jul 25, 2026 • 04:37:19 PM +03:00_
+- add type for icon names
+  ([c470799](/c47079987e0873009125969a820fb97efc71160f))
+  <br/>_Sat, Jul 25, 2026 • 04:37:55 PM +03:00_
+- append base URL to mock data paths
+  ([f7bdd9b](/f7bdd9b8df77d4a88d7e41e61b7fc3e73d658b06))
+  <br/>_Sat, Jul 25, 2026 • 04:38:26 PM +03:00_
+- add missing stroke width to BaseIcon
+  ([a383df1](/a383df17f99acf8763cb5304c81d9e1441124f08))
+  <br/>_Sat, Jul 25, 2026 • 05:39:25 PM +03:00_
+- use Vite-specific 404 redirect logic for GitHub Pages
+  ([a0df5b1](/a0df5b19e18622878238409dd327d51dd3535c8b))
+  <br/>_Sun, Jul 26, 2026 • 04:29:19 PM +03:00_
+- replace inline SVG with wishlist-add image icon
+  ([bc1a47d](/bc1a47db4046f03c59f617e8a76887ff579117e7))
+  <br/>_Tue, Jul 28, 2026 • 11:53:00 AM +03:00_
 
 ## Other Changes
 
@@ -2408,4 +2483,7 @@
 - add background color on app level
   ([5243568](/5243568e54f1ea45299ce382e48d1c52cd701250))
   <br/>_Fri, Jun 26, 2026 • 11:28:16 AM +03:00_
+- deploy static demo with GitHub Actions
+  ([d47a455](/d47a4554ad3ccadc529fa5f7e069790927a7299b))
+  <br/>_Fri, Jul 24, 2026 • 12:58:17 PM +03:00_
 
