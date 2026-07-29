@@ -86,8 +86,8 @@ const { truncated: truncatedDescription } = useResponsiveTruncate(
           </h4>
 
           <template v-if="layout === 'list'">
-            <small class="font-medium fs-product-card-tagline"
-              >The perfect glow for every moment</small
+            <small class="font-medium fs-product-card-tagline">
+              {{ product.tagline }}</small
             >
             <p class="mt-1 md:overflow-visible md:whitespace-normal">
               {{ truncatedDescription }}
