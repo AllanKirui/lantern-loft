@@ -1439,6 +1439,9 @@
 - update doc links
   ([e6fbff5](/e6fbff537c84369866bf9326dd4a730a4e8ca4be))
   <br/>_Tue, Jul 28, 2026 • 01:08:19 PM +03:00_
+- use dynamic product taglines
+  ([061a4e3](/061a4e3d3cc175215ce8b2dfbdc07b0911b03fbd))
+  <br/>_Wed, Jul 29, 2026 • 10:25:52 AM +03:00_
 
 ## 🐛 Bug Fixes
 
@@ -1541,6 +1544,9 @@
 - update @ alias that points to the src folder
   ([4a1641a](/4a1641a3233861790e96d32a4845187fd8d36f01))
   <br/>_Fri, Jul 24, 2026 • 03:34:11 PM +03:00_
+- regenerate changelog
+  ([3c88368](/3c88368a5eb86ccf1d62a202f171e763ce43e8f7))
+  <br/>_Tue, Jul 28, 2026 • 01:11:35 PM +03:00_
 
 ## 🔨 Refactoring
 
